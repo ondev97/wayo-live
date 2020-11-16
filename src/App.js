@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import routes from './utils/routes';
+import {useSelector} from 'react-redux'
+import { useEffect, useState } from 'react';
+import StudentDashBoard from './components/StudentDashBoard';
+import ReactNotification  from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 function App() {
+
+  const accountDetails = useSelector(state => state.accountDetails);
+  const [acDetails, setacDetails] = useState("");
+  
+  useEffect(() => {
+    setacDetails(accountDetails);
+  }, [accountDetails])
+  
+  const headerRoute = () =>{
+    const mainRoute = ["/","/stlogin","/stsignup"];
+    let location = window.location.pathname;
+    
+    if(mainRoute.includes(location)){
+      return <Header acDetails={acDetails} />
+    }
+    else if(acDetails && acDetails.key && acDetails.is_teacher){
+      return null
+    }
+    else if(acDetails && acDetails.key && !acDetails.is_teacher){
+      return <StudentDashBoard/>
+    }
+    else{
+      return <Header acDetails={acDetails} />
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactNotification/>
+        <Router>
+            {
+              headerRoute()
+            } 
+            <Switch>
+              {
+                routes.map((route,index) => <Route path={route.path} key={index} exact={route.exact} component={route.components} />)
+              }
+              
+            </Switch>
+        </Router>
     </div>
   );
 }
