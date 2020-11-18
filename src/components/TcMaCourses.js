@@ -25,6 +25,10 @@ export default function TcMaCourses() {
                     <div className="cscard_mid">
                         <h2>React JS</h2>
                         <h3>Java Script Library</h3>
+                        <div className="ty">
+                            <h4><i className="fas fa-graduation-cap"></i>A/L</h4>
+                            <h5><i className="fas fa-school"></i>Revision</h5>
+                        </div>
                     </div>
                 </div>
                 <div className="cscard_bottom">

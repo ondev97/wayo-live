@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import chi from "../img/child.png";
 import "../assets/css/usprofile.css";
+import UploadPropicModel from "./UploadPropicModel";
+import AcDetails from "../utils/hooks/AcDetails";
 
 export default function ProfileHead() {
+
+  const [showModel,setshowModel] = useState(false);
+  const [filePath, setfilePath] = useState('');
+
+  const openModel = () =>{
+    setshowModel(!showModel);
+  }
+
+  const hadelFileUpload =(e)=>{
+    if(e.target.files[0]){
+      setfilePath(URL.createObjectURL(e.target.files[0]));
+    }
+  }
+
+  const [teachProfilepic,profileDetails] = AcDetails();
+
   return (
     <div>
+      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath}/>
       <div className="profil_box">
         <div className="srow">
-          <h2>Osada Manohara</h2>
+          <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
           <p>Instructor</p>
           <div className="srow_pro_pic">
             <img src={chi} alt="" />
-            <label htmlFor="uppic">
-              <i className="fas fa-pencil-alt"></i>
+            <label htmlFor="uppic" onClick={openModel}>
+            <i className="fas fa-camera"></i>
             </label>
-            <input type="file" id="uppic" />
+            <input type="file" id="uppic" onChange={hadelFileUpload}/>
           </div>
         </div>
         <div className="brow">
@@ -24,7 +43,7 @@ export default function ProfileHead() {
               rd,keeriayagolla,samagipura,hali-ela
             </p>
             <p>
-              <i className="fas fa-phone-alt"></i>0768597090
+              <i className="fas fa-phone-alt"></i>{profileDetails.phoneNumber}
             </p>
           </div>
           <div className="tous">

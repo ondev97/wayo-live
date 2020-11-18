@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { activeAccount } from '../actions';
 import CreateCourse from './CreateCourse';
 import CourseView from './CourseView';
+import TcModels from './TcModels';
 
 export default function TeacherDashboard() {
 
@@ -81,6 +82,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/viewcourse'>
                         <CourseView/>
+                    </Route>
+                    <Route path='/teacherdashboard/models'>
+                        <TcModels/>
                     </Route>
                 </div>
             </div>

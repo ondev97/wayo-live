@@ -125,6 +125,10 @@
   justify-content: center;
   align-items: center;
 }
+.top_manage_body .mange_cos_body .manage_course_grid a {
+  text-decoration: none;
+  color: #000;
+}
 .top_manage_body .mange_cos_body .manage_course_grid .grid_card_manage {
   position: relative;
   height: 300px;
@@ -173,6 +177,7 @@
   .grid_card_mg_body {
   padding: 5px;
 }
+
 .top_manage_body
   .mange_cos_body
   .manage_course_grid

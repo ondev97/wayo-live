@@ -1,6 +1,10 @@
 import React from 'react'
+import AcDetails from '../utils/hooks/AcDetails'
 
 export default function AboutUser() {
+
+    const [teachProfilepic,profileDetails] = AcDetails();
+
     return (
         <div>
             <div className="about_body">
@@ -8,19 +12,19 @@ export default function AboutUser() {
                 <div className="ab_main_card">
                     <div className="ab_card">
                     <h3>Name</h3>
-                    <h4>Osada Maohara</h4>
+                    <h4>{`${profileDetails.name} ${profileDetails.lname}`}</h4>
                     </div>
                     <div className="ab_card">
                     <h3>User Name</h3>
-                    <h4>Ozka</h4>
+                    <h4>{profileDetails.userName}</h4>
                     </div>
                     <div className="ab_card">
                     <h3>Mobile</h3>
-                    <h4>0768597090</h4>
+                    <h4>{profileDetails.phoneNumber}</h4>
                     </div>
                     <div className="ab_card">
                     <h3>Email</h3>
-                    <h4>osadamanohara@gmial.com</h4>
+                    <h4>{profileDetails.email}</h4>
                     </div>
                 </div>
                 <div className="disdis">

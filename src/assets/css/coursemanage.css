@@ -157,10 +157,28 @@
   margin-bottom: 10px;
   color: #13a15f;
 }
+.main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid h3 {
   font-size: 15px;
   font-weight: 300;
   margin-bottom: 10px;
+}
+.main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty h4 {
+  font-size: 14px;
+  font-weight: 400;
+}
+.main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty h5 {
+  font-size: 14px;
+  font-weight: 400;
+}
+.main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty i {
+  margin-right: 5px;
+  font-size: 13px;
 }
 .main_ar_course .course_body .course_card .cscard_bottom {
   width: 100%;
