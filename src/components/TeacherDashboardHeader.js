@@ -9,7 +9,7 @@ export default function TeacherDashboardHeader() {
     const [teachProfilepic,profileDetails] =AcDetails()
 
     const showSidebar = ()=> setsidebar(!sidebar);
-
+    
     return (
         <div>
             <div className="logo">

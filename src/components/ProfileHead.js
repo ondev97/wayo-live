@@ -8,14 +8,16 @@ export default function ProfileHead() {
 
   const [showModel,setshowModel] = useState(false);
   const [filePath, setfilePath] = useState('');
+  const [imgObjectURL, setimgObjectURL] = useState('');
 
   const openModel = () =>{
     setshowModel(!showModel);
   }
 
   const hadelFileUpload =(e)=>{
-    if(e.target.files[0]){
-      setfilePath(URL.createObjectURL(e.target.files[0]));
+    if(e.target.files[0] && e.target.files[0].name){
+      setimgObjectURL(URL.createObjectURL(e.target.files[0]));
+      setfilePath(e.target.files[0]);
     }
   }
 
@@ -23,7 +25,7 @@ export default function ProfileHead() {
 
   return (
     <div>
-      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath}/>
+      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath} imgObjectURL={imgObjectURL} setimgObjectURL={setimgObjectURL}/>
       <div className="profil_box">
         <div className="srow">
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>

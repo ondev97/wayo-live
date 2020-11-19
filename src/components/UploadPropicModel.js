@@ -4,11 +4,14 @@ import Cropper from 'cropperjs';
 import "cropperjs/dist/cropper.min.css";
 import '../assets/css/modelStyles.css';
 import chi from "../img/cs1.jpg";
+import Axios from 'axios';
+import { useSelector } from 'react-redux';
+import AcDetails from '../utils/hooks/AcDetails';
 
-export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath}) {
+export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,imgObjectURL,setimgObjectURL}) {
 
     const modelBGref = useRef();
-    const imagedRef = useRef()
+    const imagedRef = useRef();
 
     const modelBGclick = (e) =>{
         if(modelBGref.current === e.target){
@@ -16,11 +19,13 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
             setcropHide(false);
             setfilePath('');
             setimageDestination('');
+            setimgObjectURL('');
         }
     }
     const clearPR = () =>{
             setfilePath('');
             setimageDestination('');
+            setimgObjectURL('');
     }
 
     //animations
@@ -45,9 +50,47 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
 
     }
 
+    const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+      
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          const slice = byteCharacters.slice(offset, offset + sliceSize);
+      
+          const byteNumbers = new Array(slice.length);
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+      
+          const byteArray = new Uint8Array(byteNumbers);
+          byteArrays.push(byteArray);
+        }
+      
+        const blob = new Blob(byteArrays, {type: contentType});
+        return blob;
+      }
+
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+
     //upload image
-    const HadelUploadImage = () =>{
-        console.log("submit");
+    const HadelUploadImage = (e) =>{
+        e.preventDefault();
+
+        let contentType = filePath.type;
+        let input = imageDestination.imageDestination.split(',')[1];
+        const blob = b64toBlob(input, contentType);
+
+
+        let form_data = new FormData();
+        form_data.append('profile_pic',blob,filePath.name);
+        Axios.post(`http://127.0.0.1:8000/account-api/updateteacher/${usDetails.id}/`,form_data,{
+            header:{
+                'content-type':'multipart/form-data'
+            }
+        }).then(res=>{
+            console.log(res.data);
+        }).catch(err=>console.log(err))
     }
     
     return (
@@ -62,7 +105,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                     </div>
                     <div className="model_content">
                         <div className={`image_crop_container ${cropHide ? 'disnone' : null}`}>
-                            <img alt="" src={filePath} ref={imagedRef} onLoad={cropfunc}/>
+                            <img alt="" src={imgObjectURL} ref={imagedRef} onLoad={cropfunc}/>
                         </div>
                             <div className={`butbut ${cropHide ? 'disnone' : null}`}>
                                 <button onClick={()=>setcropHide(true)}>Crop Profile Image</button>
@@ -70,7 +113,9 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                         <div className={`preview_container ${!cropHide ? 'disnone' : null}`}>
                             <img className="image_preview" alt="" src={imageDestination.imageDestination}/>
                             <div className="butbut">
-                                <button onClick={HadelUploadImage}>Upload Profile Picture</button>
+                                <form onSubmit={HadelUploadImage}>
+                                    <button>Upload Profile Picture</button>
+                                </form>
                             </div>
                         </div>
                     </div>
