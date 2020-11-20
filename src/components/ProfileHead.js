@@ -3,6 +3,7 @@ import chi from "../img/child.png";
 import "../assets/css/usprofile.css";
 import UploadPropicModel from "./UploadPropicModel";
 import AcDetails from "../utils/hooks/AcDetails";
+import { store } from "react-notifications-component";
 
 export default function ProfileHead() {
 
@@ -16,8 +17,29 @@ export default function ProfileHead() {
 
   const hadelFileUpload =(e)=>{
     if(e.target.files[0] && e.target.files[0].name){
-      setimgObjectURL(URL.createObjectURL(e.target.files[0]));
-      setfilePath(e.target.files[0]);
+      if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
+        setimgObjectURL(URL.createObjectURL(e.target.files[0]));
+        setfilePath(e.target.files[0]);
+      }
+      else{
+          setshowModel(!showModel);
+          store.addNotification({
+          title: "Invalid File Type!",
+          message: "OnDevlms",
+          type: "danger",
+          insert: "top",
+          container: "top-left",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon:true
+          },
+          width:600
+      });
+      }
     }
   }
 
@@ -31,7 +53,7 @@ export default function ProfileHead() {
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
           <p>Instructor</p>
           <div className="srow_pro_pic">
-            <img src={chi} alt="" />
+            <img src={`http://127.0.0.1:8000${teachProfilepic}`} alt="" />
             <label htmlFor="uppic" onClick={openModel}>
             <i className="fas fa-camera"></i>
             </label>

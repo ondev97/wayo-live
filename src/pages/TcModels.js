@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../assets/css/tcmoels.css';
 import ModelsCourseDescri from '../components/ModelsCourseDescri';
 import TcOneModel from '../components/TcOneModel';

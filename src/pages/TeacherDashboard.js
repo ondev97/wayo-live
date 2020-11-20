@@ -35,6 +35,30 @@ export default function TeacherDashboard() {
         return <Redirect to="/"/>
     }
 
+    const full = () =>{
+        let elem = document.documentElement;
+        if(!window.screenTop && !window.screenY){
+            console.log('yesa');
+            if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+              elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+              elem.msRequestFullscreen();
+            }
+        }
+        else{
+            console.log('not');
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+              } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+              } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+              }
+        }
+    }
+
     return (
         <div className="main">
             <div className={`main_column ${toggle ? 'active' : ''}`}>
@@ -47,10 +71,7 @@ export default function TeacherDashboard() {
                     </div>
                     <div className="column">
                         <div className="sec">
-                            <span><i className="fas fa-expand"></i></span>
-                        </div>
-                        <div className="sec">
-                            <span><i className="far fa-bell"></i></span>
+                            <span><i className="fas fa-expand" onClick={full}></i></span>
                         </div>
                         <div className="sec">
                             <div className="profile">

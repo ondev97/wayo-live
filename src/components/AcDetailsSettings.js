@@ -1,24 +1,7 @@
 import React, { useState } from 'react'
 
-export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,errors,hide,hideError}) {
+export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,errors,hide,hideError,hadelInputField,hadelCreateExField,hadelRemoveField,inputField,hadelInputFieldED,hadelCreateExFieldED,hadelRemoveFieldED,inputFieldED}) {
 
-    const [inputField, setinputField] = useState([{}])
-
-    const hadelCreateExField = () =>{
-        if(inputField.length !==3){
-            let num = inputField.length;
-            let newName =  'ex' + num;
-            console.log(newName);
-            //setinputField([{...inputField,newName:""}]);
-        }
-    }
-
-    const hadelRemoveField = (index) =>{
-        console.log(inputField);
-        console.log(inputField.splice(index,1));
-        setinputField(inputField.splice(index,1));
-        //setinputField(...inputField,inputField.filter((ele)=> ele !== index))//
-    }
 
     return (
         <div>
@@ -41,8 +24,8 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                         </div>
                         <div className="sectpr">
                             <p>
-                                <label htmlFor="ln">User Name</label>
-                                <input type="text" id="ln" name="userName" value={values.userName || ''} onChange={hadelChange} onFocus={hideError}/>
+                                <label htmlFor="un">User Name</label>
+                                <input type="text" id="un" name="userName" value={values.userName || ''} onChange={hadelChange} onFocus={hideError}/>
                                 {
                                     errors.userName && <span className={`tip ${hide.userName ? 'hidetip' : ''}`}>{errors.userName}</span>
                                 }
@@ -76,7 +59,7 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                         <div className="sectpr">
                             <p>
                                 <label htmlFor="ad">Descriptions</label>
-                                <textarea cols="30" rows="10" name="des" value={values.des || ''} onChange={hadelChange}onFocus={hideError}></textarea>
+                                <textarea cols="30" rows="10" name="des" value={values.des || ''} onChange={hadelChange} onFocus={hideError}></textarea>
                                 {
                                     errors.des && <span className={`tip ${hide.des ? 'hidetip' : ''}`}>{errors.des}</span>
                                 }
@@ -85,18 +68,20 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                         <div className="skills_sec">
                             <div className="adSk">
                                 <h3>Educations</h3>
-                                <i className="far fa-plus-square"></i>
+                                <i className="far fa-plus-square" onClick={hadelCreateExFieldED}></i>
                             </div>
                             {
-
-                            }
-                            <div className="sk_sec">
-                                <div className="nirow">
-                                    <div className="nisec">
-                                        <input type="text" placeholder="Skill Name"/>
+                                inputFieldED.map((int,index) => (
+                                    <div className="sk_sec" key={index}>
+                                        <div className="nirow">
+                                            <div className="nisec">
+                                                <input type="text" name="ed" value={int.ed || ''} onChange={(e)=>hadelInputFieldED(index,e)}/>
+                                                <i className="far fa-minus-square" onClick={()=>hadelRemoveFieldED(index)}></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                ))
+                            }
                         </div>
                         <div className="skills_sec">
                             <div className="adSk">
@@ -108,57 +93,13 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                                     <div className="sk_sec" key={index}>
                                         <div className="nirow">
                                             <div className="nisec">
-                                                <input type="text" placeholder="Skill Name"/>
+                                                <input type="text" name="ex" value={int.ex || ''} onChange={(e)=>hadelInputField(index,e)}/>
                                                 <i className="far fa-minus-square" onClick={()=>hadelRemoveField(index)}></i>
                                             </div>
                                         </div>
                                     </div>
                                 ))
                             }
-                        </div>
-                        <div className="skills_sec">
-                            <div className="adSk">
-                                <h3>Skills</h3>
-                                <i className="far fa-plus-square"></i>
-                            </div>
-                            <div className="sk_sec">
-                                <div className="sk_row">
-                                    <div className="in_sec">
-                                        <input type="text" placeholder="Skill Name"/>
-                                    </div>
-                                    <div className="range_sec">
-                                        <div className="subragesec">
-                                            <input type="range" />
-                                            <span>78%</span>
-                                            <button type="button"><i className="fas fa-minus-circle"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="sk_row">
-                                    <div className="in_sec">
-                                        <input type="text" placeholder="Skill Name"/>
-                                    </div>
-                                    <div className="range_sec">
-                                        <div className="subragesec">
-                                            <input type="range" />
-                                            <span>78%</span>
-                                            <button type="button"><i className="fas fa-minus-circle"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="sk_row">
-                                    <div className="in_sec">
-                                        <input type="text" placeholder="Skill Name"/>
-                                    </div>
-                                    <div className="range_sec">
-                                        <div className="subragesec">
-                                            <input type="range" />
-                                            <span>78%</span>
-                                            <button type="button"><i className="fas fa-minus-circle"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div className="pro_edit_sub">
                             <button>Save</button>

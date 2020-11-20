@@ -3,10 +3,8 @@ import { useSpring,animated } from 'react-spring';
 import Cropper from 'cropperjs';
 import "cropperjs/dist/cropper.min.css";
 import '../assets/css/modelStyles.css';
-import chi from "../img/cs1.jpg";
 import Axios from 'axios';
-import { useSelector } from 'react-redux';
-import AcDetails from '../utils/hooks/AcDetails';
+import {useSelector } from 'react-redux';
 
 export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,imgObjectURL,setimgObjectURL}) {
 
@@ -73,6 +71,8 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
+    const [uploadPresentage, setuploadPresentage] = useState(0);
+
     //upload image
     const HadelUploadImage = (e) =>{
         e.preventDefault();
@@ -81,15 +81,20 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
         let input = imageDestination.imageDestination.split(',')[1];
         const blob = b64toBlob(input, contentType);
 
-
         let form_data = new FormData();
         form_data.append('profile_pic',blob,filePath.name);
         Axios.post(`http://127.0.0.1:8000/account-api/updateteacher/${usDetails.id}/`,form_data,{
             header:{
                 'content-type':'multipart/form-data'
+            },onUploadProgress:progressEvent=>{
+                setuploadPresentage(
+                    parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total))
+                )
             }
         }).then(res=>{
-            console.log(res.data);
+            //if(uploadPresentage === 100){
+                window.location.reload();
+            //}
         }).catch(err=>console.log(err))
     }
     
@@ -101,7 +106,10 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                 <animated.div style={modelAni}>
                 <div className="on_model_page">
                     <div className="close_but">
-                        <button onClick={()=>{setshowModel(!showModel);setcropHide(false);clearPR()}}><i className="fas fa-times"></i></button>
+                        {
+                            uploadPresentage === 0 &&
+                                <button onClick={()=>{setshowModel(!showModel);setcropHide(false);clearPR()}}><i className="fas fa-times"></i></button>
+                        }
                     </div>
                     <div className="model_content">
                         <div className={`image_crop_container ${cropHide ? 'disnone' : null}`}>
@@ -111,11 +119,24 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                                 <button onClick={()=>setcropHide(true)}>Crop Profile Image</button>
                             </div>
                         <div className={`preview_container ${!cropHide ? 'disnone' : null}`}>
-                            <img className="image_preview" alt="" src={imageDestination.imageDestination}/>
+                            <div className="loader">
+                                <svg>
+                                    <circle cx="150" cy="150" r="150"></circle>
+                                    <circle cx="150" cy="150" r="150" style={{strokeDashoffset:`calc(972 - (972 * ${uploadPresentage}) / 100)`}}></circle>
+                                </svg>
+                                <div className="imgwrap">
+                                    <img className="image_preview" alt="" src={imageDestination.imageDestination}/> 
+                                </div>
+                            </div>
                             <div className="butbut">
-                                <form onSubmit={HadelUploadImage}>
-                                    <button>Upload Profile Picture</button>
-                                </form>
+                                {
+                                    uploadPresentage === 0 ?
+                                                <form onSubmit={HadelUploadImage}>
+                                                    <button>Upload Profile Picture</button>
+                                                </form>
+                                    : 
+                                <h1 className="count">Uploading {uploadPresentage}%</h1>
+                                }
                             </div>
                         </div>
                     </div>

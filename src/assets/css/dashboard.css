@@ -43,6 +43,7 @@
 .main .main_column .head .column .sec span {
   font-size: 18px;
   color: #00bf4d;
+  cursor: pointer;
 }
 .main .main_column .head .column .sec .profile {
   position: relative;
