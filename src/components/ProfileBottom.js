@@ -18,44 +18,6 @@ export default function ProfileBottom() {
                         <h3>{profileDetails.phoneNumber}</h3>
                     </div>
                 </div>
-                <div className="teachskills">
-                    <div className="skill">
-                        <h3>HTML</h3>
-                        <div className="skills_ouuter">
-                            <div className="skills_mid" style={{width:"50%"}}></div>
-                        </div>
-                    </div>
-                    <div className="skill">
-                        <h3>HTML</h3>
-                        <div className="skills_ouuter">
-                            <div className="skills_mid" style={{width:"100%"}}></div>
-                        </div>
-                    </div>
-                    <div className="skill">
-                        <h3>HTML</h3>
-                        <div className="skills_ouuter">
-                            <div className="skills_mid" style={{width:"75%"}}></div>
-                        </div>
-                    </div>
-                    <div className="skill">
-                        <h3>HTML</h3>
-                        <div className="skills_ouuter">
-                            <div className="skills_mid" style={{width:"35%"}}></div>
-                        </div>
-                    </div>
-                    <div className="skill">
-                        <h3>HTML</h3>
-                        <div className="skills_ouuter">
-                            <div className="skills_mid" style={{width:"20%"}}></div>
-                        </div>
-                    </div>
-                    <div className="skill">
-                        <h3>HTML</h3>
-                        <div className="skills_ouuter">
-                            <div className="skills_mid" style={{width:"20%"}}></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     )

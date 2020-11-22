@@ -10,6 +10,7 @@
     "axios-react": "^2.0.2",
     "cropperjs": "^1.5.9",
     "react": "^17.0.1",
+    "react-cropper": "^2.1.4",
     "react-dom": "^17.0.1",
     "react-image-crop": "^8.6.6",
     "react-notifications-component": "^3.0.2",

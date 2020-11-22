@@ -31,15 +31,15 @@ function ProfileUpdate(submit) {
         if(fini){
             const cl = [...inputField];
             inputField.map((fini,index)=>(
-                fini.ex === null ? cl.splice(index,1) : ''
-            ))
+                (fini.ex === null || fini.ex === undefined )? cl.splice(index,1) : ''
+                ))
                 setinputField(cl);
                 setfini(false)
         }
         if(fidi){
             const cled = [...inputFieldED];
             inputFieldED.map((fini,index)=>(
-                fini.ed === null ? cled.splice(index,1) : ''
+                (fini.ed === null || fini.ed === undefined) ? cled.splice(index,1) : ''
             ))
                 setinputFieldED(cled);
                 setfidi(false)

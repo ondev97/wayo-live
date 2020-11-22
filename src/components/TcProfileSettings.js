@@ -52,8 +52,13 @@ function TcProfileSettings({setsettings}) {
 
         all_data.append('description',values.des);
 
-        Axios.post(`http://127.0.0.1:8000/account-api/updateteacher/${usDetails.id}/`,all_data).then(res=>{
+        Axios.post(`http://127.0.0.1:8000/account-api/updateteacher/${usDetails.id}/`,all_data,{
+            headers:{Authorization: "Token " + usDetails.key}
+        }).then(res=>{
              console.log(res);
+
+            window.location.reload(false);
+
          }).catch(err=>{
              console.log(err);
          })

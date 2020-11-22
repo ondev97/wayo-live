@@ -468,6 +468,7 @@ i {
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk i {
   cursor: pointer;
+  font-size: 19px;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .sk_sec {
   width: 100%;
@@ -496,11 +497,24 @@ i {
   .nirow
   .nisec
   input {
-  width: 100%;
+  width: 96%;
   padding: 9px 3px;
   border: 1px solid #d6d5d5;
   outline: none;
+  margin-right: 8px;
   transition: 0.5s;
+}
+.main_profile
+  .tcdisoncolumn
+  .tc_profile_settings
+  .skills_sec
+  .sk_sec
+  .nirow
+  .nisec
+  i {
+  font-size: 16px;
+  cursor: pointer;
+  color: red;
 }
 .main_profile
   .tcdisoncolumn

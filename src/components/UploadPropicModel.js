@@ -84,7 +84,8 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
         let form_data = new FormData();
         form_data.append('profile_pic',blob,filePath.name);
         Axios.post(`http://127.0.0.1:8000/account-api/updateteacher/${usDetails.id}/`,form_data,{
-            header:{
+            headers:{
+                Authorization: "Token " + usDetails.key,
                 'content-type':'multipart/form-data'
             },onUploadProgress:progressEvent=>{
                 setuploadPresentage(
@@ -92,9 +93,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                 )
             }
         }).then(res=>{
-            //if(uploadPresentage === 100){
                 window.location.reload();
-            //}
         }).catch(err=>console.log(err))
     }
     

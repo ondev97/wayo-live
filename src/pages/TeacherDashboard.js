@@ -12,6 +12,7 @@ import { activeAccount } from '../actions';
 import CreateCourse from './CreateCourse';
 import CourseView from './CourseView';
 import TcModels from './TcModels';
+import CreateSubject from './CreateSubject';
 
 export default function TeacherDashboard() {
 
@@ -92,11 +93,11 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/teachermaindashboard'>
                         <TeacherMainDashboard/>
                     </Route>
+                    <Route path='/teacherdashboard/createsubject'>
+                        <CreateSubject/>
+                    </Route>
                     <Route path='/teacherdashboard/createcourse'>
                         <CreateCourse/>
-                    </Route>
-                    <Route path='/teacherdashboard/profilesettings'>
-                        <ProfileSettings/>
                     </Route>
                     <Route path='/teacherdashboard/managecourse'>
                         <MangeCourse/>
@@ -106,6 +107,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/models'>
                         <TcModels/>
+                    </Route>
+                    <Route path='/teacherdashboard/profilesettings'>
+                        <ProfileSettings/>
                     </Route>
                 </div>
             </div>
