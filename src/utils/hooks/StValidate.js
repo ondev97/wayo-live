@@ -47,7 +47,7 @@ function StValidate(ValidateSignUp) {
     }, [errors]);
 
     function submit() {
-        Axios.post("http://127.0.0.1:8000/account-api/register/",{
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/register/`,{
             username:values.userName,
             email:values.email,
             password:values.cpw,

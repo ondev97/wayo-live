@@ -83,7 +83,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
 
         let form_data = new FormData();
         form_data.append('profile_pic',blob,filePath.name);
-        Axios.post(`http://127.0.0.1:8000/account-api/updateteacher/${usDetails.id}/`,form_data,{
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateteacher/${usDetails.id}/`,form_data,{
             headers:{
                 Authorization: "Token " + usDetails.key,
                 'content-type':'multipart/form-data'

@@ -17,7 +17,7 @@ export default function TeacherDashboardHeader() {
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">
-                    <img src={`http://127.0.0.1:8000${teachProfilepic}`} alt=""/>
+                    <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt=""/>
                 </div>
                 <div className="details">
                     <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>

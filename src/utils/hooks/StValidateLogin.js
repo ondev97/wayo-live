@@ -33,7 +33,8 @@ function StValidateLogin() {
     }
 
     function submit() {
-        Axios.post("http://127.0.0.1:8000/rest-auth/login/",{
+        console.log();
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}rest-auth/login/`,{
             username:values.email,
             password:values.pw
         }).then(res=>{
