@@ -3,12 +3,14 @@ import "../assets/css/usprofile.css";
 import UploadPropicModel from "./UploadPropicModel";
 import AcDetails from "../utils/hooks/AcDetails";
 import { store } from "react-notifications-component";
+import CropImages from "../utils/hooks/CropImages";
 
 export default function ProfileHead() {
 
   const [showModel,setshowModel] = useState(false);
   const [filePath, setfilePath] = useState('');
   const [imgObjectURL, setimgObjectURL] = useState('');
+  const [image,getCropData,setCropper,onChange,cropData,err,setImage] = CropImages();//custom hook
 
   const openModel = () =>{
     setshowModel(!showModel);
@@ -46,7 +48,7 @@ export default function ProfileHead() {
 
   return (
     <div>
-      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath} imgObjectURL={imgObjectURL} setimgObjectURL={setimgObjectURL}/>
+      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath} imgObjectURL={imgObjectURL} setimgObjectURL={setimgObjectURL} image={image} getCropData={getCropData} setCropper={setCropper} cropData={cropData} err={err} setImage={setImage}/>
       <div className="profil_box">
         <div className="srow">
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
@@ -56,7 +58,7 @@ export default function ProfileHead() {
             <label htmlFor="uppic" onClick={openModel}>
             <i className="fas fa-camera"></i>
             </label>
-            <input type="file" id="uppic" onChange={hadelFileUpload}/>
+            <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}}/>
           </div>
         </div>
         <div className="brow">

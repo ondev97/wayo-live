@@ -171,7 +171,7 @@ p textarea {
   display: none;
 }
 .subject_form .main_form .up_pro_pic label,
-button {
+button.cp {
   width: 200px;
   text-align: center;
   border: 1px solid #00a959;
@@ -209,4 +209,23 @@ button:hover {
   font-size: 13px;
   margin-bottom: 12px;
   color: red;
+}
+
+/*multiple file input style*/
+.subject_form .main_form .multi_files .multi {
+  display: none;
+}
+.subject_form .main_form .multi_files label {
+  width: 190px;
+  padding: 8px 4px;
+  border: 1px solid #28a745;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.subject_form .main_form .multi_files label:hover {
+  background-color: #28a745;
+  color: #fff;
 }

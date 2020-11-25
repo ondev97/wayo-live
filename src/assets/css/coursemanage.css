@@ -22,6 +22,9 @@
   text-align: center;
   border-radius: 20px;
 }
+.main_ar_course .course_head .crcs a {
+  text-decoration: none;
+}
 .main_ar_course .course_head .search input {
   width: 400px;
   padding: 9px 35px 9px 10px;

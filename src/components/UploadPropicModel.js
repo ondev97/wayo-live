@@ -1,29 +1,28 @@
 import React, { useRef, useState } from 'react';
 import { useSpring,animated } from 'react-spring';
-import Cropper from 'cropperjs';
 import "cropperjs/dist/cropper.min.css";
 import '../assets/css/modelStyles.css';
 import Axios from 'axios';
 import {useSelector } from 'react-redux';
+import { Cropper } from 'react-cropper';
 
-export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,imgObjectURL,setimgObjectURL}) {
+export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,image,getCropData,setCropper,cropData,setImage}) {
 
     const modelBGref = useRef();
-    const imagedRef = useRef();
+    const [cropHide, setcropHide] = useState(false);
+    const [uploadPresentage, setuploadPresentage] = useState(0);
 
     const modelBGclick = (e) =>{
         if(modelBGref.current === e.target){
             setshowModel(false);
             setcropHide(false);
             setfilePath('');
-            setimageDestination('');
-            setimgObjectURL('');
+            setImage('');
         }
     }
     const clearPR = () =>{
             setfilePath('');
-            setimageDestination('');
-            setimgObjectURL('');
+            setImage('');
     }
 
     //animations
@@ -34,20 +33,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
         opacity:showModel ? 1 : 0
     })
 
-    const [imageDestination, setimageDestination] = useState('');
-    const [cropHide, setcropHide] = useState(false);
-
-    const cropfunc =  () =>{
-        const cropper = new Cropper(imagedRef.current, {
-            aspectRatio: 1 / 1,
-                crop() {
-                    const canvas = cropper.getCroppedCanvas();
-                    setimageDestination({imageDestination:canvas.toDataURL("image/png")});
-                }
-        });
-
-    }
-
+    //function for base64 to blob 
     const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
         const byteCharacters = atob(b64Data);
         const byteArrays = [];
@@ -71,14 +57,13 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
-    const [uploadPresentage, setuploadPresentage] = useState(0);
 
     //upload image
     const HadelUploadImage = (e) =>{
         e.preventDefault();
 
         let contentType = filePath.type;
-        let input = imageDestination.imageDestination.split(',')[1];
+        let input = cropData.split(',')[1];
         const blob = b64toBlob(input, contentType);
 
         let form_data = new FormData();
@@ -112,10 +97,27 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                     </div>
                     <div className="model_content">
                         <div className={`image_crop_container ${cropHide ? 'disnone' : null}`}>
-                            <img alt="" src={imgObjectURL} ref={imagedRef} onLoad={cropfunc}/>
+                                <Cropper
+                                    style={{ height: '100%', width: "100%" }}
+                                    initialAspectRatio={16 / 9}
+                                    aspectRatio={1 / 1}
+                                    preview=".img-preview"
+                                    src={image}
+                                    viewMode={1}
+                                    guides={true}
+                                    minCropBoxHeight={10}
+                                    minCropBoxWidth={10}
+                                    background={false}
+                                    responsive={true}
+                                    autoCropArea={1}
+                                    checkOrientation={false}
+                                    onInitialized={(instance) => {
+                                    setCropper(instance);
+                                    }}
+                                />
                         </div>
                             <div className={`butbut ${cropHide ? 'disnone' : null}`}>
-                                <button onClick={()=>setcropHide(true)}>Crop Profile Image</button>
+                                <button onClick={(e)=>{getCropData(e);setcropHide(true)}}>Crop Profile Image</button>
                             </div>
                         <div className={`preview_container ${!cropHide ? 'disnone' : null}`}>
                             <div className="loader">
@@ -124,7 +126,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                                     <circle cx="150" cy="150" r="150" style={{strokeDashoffset:`calc(972 - (972 * ${uploadPresentage}) / 100)`}}></circle>
                                 </svg>
                                 <div className="imgwrap">
-                                    <img className="image_preview" alt="" src={imageDestination.imageDestination}/> 
+                                    <img className="image_preview" alt="" src={cropData}/> 
                                 </div>
                             </div>
                             <div className="butbut">

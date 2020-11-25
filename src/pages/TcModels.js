@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/css/tcmoels.css';
 import ModelsCourseDescri from '../components/ModelsCourseDescri';
 import TcOneModel from '../components/TcOneModel';
@@ -18,7 +19,9 @@ export default function TcModels() {
                     </div>
                     <div className="md_models">
                         <div className="cr_models">
-                            <button><i className="fas fa-plus-circle"></i>Create Model</button>
+                            <Link to="/teacherdashboard/createmodels/">
+                                <button><i className="fas fa-plus-circle"></i>Create Model</button>
+                            </Link>
                         </div>
                         <div className="al_models">
                            <TcOneModel/>

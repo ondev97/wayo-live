@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/css/courseview.css';
 import CourseSect from '../components/CourseSect';
 
@@ -23,7 +24,9 @@ export default function CourseView() {
             <div className="top_manage_body">
                 <div className="mange_cos_body">
                     <div className="manage_course_nav">
-                        <button>Create Course</button>
+                        <Link to="/teacherdashboard/createcourse">
+                            <button>Create Course</button>
+                        </Link>
                         <button>Course Details</button>
                     </div>
                     <div className="manage_course_grid">

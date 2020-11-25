@@ -7,7 +7,8 @@ import UserChangedPassword from './UserChangedPassword'
 
 function TcProfileSettings({setsettings}) {
 
-     const[hadelChange,hadelSubmitForm,values,errors,hide,hideError,hadelInputField,hadelCreateExField,hadelRemoveField,inputField,hadelInputFieldED,hadelCreateExFieldED,hadelRemoveFieldED,inputFieldED] = ProfileUpdate(submit);//custom hook
+     const[hadelChange,hadelSubmitForm,values,errors,seterrors,hide,hideError,hadelInputField,hadelCreateExField,hadelRemoveField,inputField,hadelInputFieldED,hadelCreateExFieldED,hadelRemoveFieldED,inputFieldED] = ProfileUpdate(submit);//custom hook
+
      //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -21,7 +22,7 @@ function TcProfileSettings({setsettings}) {
                      all_data.append(`education${i+1}`,inputFieldED[i].ed);
                  }
                  else{
-                    all_data.append(`education${i}`,'');
+                    all_data.append(`education${i+1}`,'');
                  }
              }
         }
@@ -34,10 +35,11 @@ function TcProfileSettings({setsettings}) {
         if(inputField.length !== 0){
             for(let i=0; i<3;i++){
                 if(inputField[i]){
+                    console.log(inputField[i]);
                     all_data.append(`experience${i+1}`,inputField[i].ex);
                 }
                 else{
-                   all_data.append(`experience${i}`,'');
+                   all_data.append(`experience${i+1}`,'');
                 }
             }
        }
@@ -46,22 +48,39 @@ function TcProfileSettings({setsettings}) {
            all_data.append(`experience2`,'');
            all_data.append(`experience3`,'');
        }
-
-        all_data.append('user.first_name',values.firstName);
+       console.log(values);
+        all_data.append('first_name',values.firstName);
+        all_data.append('last_name',values.lastName);
+        all_data.append('username',values.userName);
+        all_data.append('phone_number',values.phoneNumber);
         all_data.append('email',values.email);
+        all_data.append('address',values.address);
+        all_data.append('password',values.pw);
 
         all_data.append('description',values.des);
 
-        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateteacher/${usDetails.id}/`,all_data,{
-            headers:{Authorization: "Token " + usDetails.key}
-        }).then(res=>{
-             console.log(res);
+       Axios.put(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateuser/${usDetails.id}/`,all_data,{
+           headers:{Authorization:"Token " + usDetails.key}
+       }).then(res=>{
+            Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateteacher/${usDetails.id}/`,all_data,{
+                headers:{Authorization: "Token " + usDetails.key}
+            }).then(res=>{
+                window.location.reload(false);
 
-            window.location.reload(false);
+            })
+       }).catch(err=>{
 
-         }).catch(err=>{
-             console.log(err);
-         })
+           console.log(err.response.data);
+           if(err.response.data.detail){
+               seterrors({...errors,pw:err.response.data.detail})
+           }
+           if(err.response.data.username){
+            seterrors({...errors,userName:err.response.data.username})
+           }
+           if(err.response.data.email){
+            seterrors({...errors,email:err.response.data.email})
+           }
+       })
         
      }
 

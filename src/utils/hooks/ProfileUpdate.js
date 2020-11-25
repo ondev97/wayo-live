@@ -6,9 +6,9 @@ function ProfileUpdate(submit) {
 
     const [teachProfilepic,profileDetails] = AcDetails();
     
-    const [values, setvalues] = useState({firstName:"",lastName:"",userName:"",phoneNumber:"",email:"",address:"",des:""});
-    const [errors, seterrors] = useState({firstName:"",lastName:"",userName:"",phoneNumber:"",email:"",address:"",des:""});
-    const [hide, sethide] = useState({firstName:false,lastName:false,userName:false,email:false,phoneNumber:false,phonenumber:false,address:false,des:false});
+    const [values, setvalues] = useState({firstName:"",lastName:"",userName:"",phoneNumber:"",email:"",address:"",des:"",pw:""});
+    const [errors, seterrors] = useState({firstName:"",lastName:"",userName:"",phoneNumber:"",email:"",address:"",des:"",pw:""});
+    const [hide, sethide] = useState({firstName:false,lastName:false,userName:false,email:false,phoneNumber:false,phonenumber:false,address:false,des:false,pw:false});
     const [isSibmitting, setisSibmitting] = useState(false);
     const [inputField, setinputField] = useState([]);
     const [inputFieldED, setinputFieldED] = useState([]);
@@ -17,8 +17,8 @@ function ProfileUpdate(submit) {
     
     //set database values to fields
     useEffect(() => {
-        setvalues({...values,firstName:profileDetails.name,lastName:profileDetails.lname,phoneNumber:profileDetails.phoneNumber,email:profileDetails.email,userName:profileDetails.userName,des:profileDetails.des})
-        
+        setvalues({...values,firstName:profileDetails.name,lastName:profileDetails.lname,phoneNumber:profileDetails.phoneNumber,email:profileDetails.email,userName:profileDetails.userName,address:profileDetails.address,des:profileDetails.des})
+
         setinputField([{ex:profileDetails.ex1},{ex:profileDetails.ex2},{ex:profileDetails.ex3}]);
         setinputFieldED([{ed:profileDetails.ed1},{ed:profileDetails.ed2},{ed:profileDetails.ed3}]);
         setfini(true);
@@ -31,7 +31,7 @@ function ProfileUpdate(submit) {
         if(fini){
             const cl = [...inputField];
             inputField.map((fini,index)=>(
-                (fini.ex === null || fini.ex === undefined )? cl.splice(index,1) : ''
+                (fini.ex === null || fini.ex === undefined || fini.ex === '' )? cl.splice(index,1) : ''
                 ))
                 setinputField(cl);
                 setfini(false)
@@ -39,7 +39,7 @@ function ProfileUpdate(submit) {
         if(fidi){
             const cled = [...inputFieldED];
             inputFieldED.map((fini,index)=>(
-                (fini.ed === null || fini.ed === undefined) ? cled.splice(index,1) : ''
+                (fini.ed === null || fini.ed === undefined || fini.ed === '') ? cled.splice(index,1) : ''
             ))
                 setinputFieldED(cled);
                 setfidi(false)
@@ -61,10 +61,6 @@ function ProfileUpdate(submit) {
          setinputField(values);
      }
      const hadelCreateExField = () =>{
-        inputField.map(refil =>(
-            console.log(refil.ex)
-        ))
-
          if(inputField.length !==3){
              setinputField([...inputField,{"ex":""}]);
          }
@@ -98,7 +94,7 @@ function ProfileUpdate(submit) {
         e.preventDefault();
         //hadlling errors
         seterrors(validation(values));
-        sethide({firstName:false,lastName:false,userName:false,email:false,phoneNumber:false,phonenumber:false,address:false,des:false});
+        sethide({firstName:false,lastName:false,userName:false,email:false,phoneNumber:false,phonenumber:false,address:false,des:false,pw:false});
         setisSibmitting(true);
      };
      const hideError = (e)=>{
@@ -116,7 +112,7 @@ function ProfileUpdate(submit) {
         }
      }, [errors])
 
-    return ([hadelChange,hadelSubmitForm,values,errors,hide,hideError,hadelInputField,hadelCreateExField,hadelRemoveField,inputField,hadelInputFieldED,hadelCreateExFieldED,hadelRemoveFieldED,inputFieldED])
+    return ([hadelChange,hadelSubmitForm,values,errors,seterrors,hide,hideError,hadelInputField,hadelCreateExField,hadelRemoveField,inputField,hadelInputFieldED,hadelCreateExFieldED,hadelRemoveFieldED,inputFieldED])
 }
 
 export default ProfileUpdate

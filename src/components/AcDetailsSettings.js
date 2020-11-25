@@ -101,6 +101,15 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                                 ))
                             }
                         </div>
+                        <div className="sectpr">
+                            <p>
+                                <label htmlFor="pw">Password</label>
+                                <input type="password" name="pw" id="pw" value={values.pw} onChange={hadelChange} onFocus={hideError}/>
+                                {
+                                    errors.pw && <span className={`tip ${hide.pw ? 'hidetip' : ''}`}>{errors.pw}</span>
+                                }
+                            </p>
+                        </div>
                         <div className="pro_edit_sub">
                             <button>Save</button>
                         </div>

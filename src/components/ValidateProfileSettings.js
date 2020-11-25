@@ -49,6 +49,9 @@ export default function validation(values){
         console.log(values.des.length);
         errors.des = "Description Must Be Less Than 400 characters"
     }
+    if(!values.pw.trim()){
+        errors.pw = "Password Is Required For Update Your Account"
+    }
 
     return errors;
 }

@@ -13,6 +13,7 @@ import CreateCourse from './CreateCourse';
 import CourseView from './CourseView';
 import TcModels from './TcModels';
 import CreateSubject from './CreateSubject';
+import CreateModels from './CreateModels';
 
 export default function TeacherDashboard() {
 
@@ -98,6 +99,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/createcourse'>
                         <CreateCourse/>
+                    </Route>
+                    <Route path='/teacherdashboard/createmodels'>
+                        <CreateModels/>
                     </Route>
                     <Route path='/teacherdashboard/managecourse'>
                         <MangeCourse/>

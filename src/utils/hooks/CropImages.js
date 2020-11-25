@@ -37,7 +37,7 @@ function CropImages() {
       }
     };
 
-    return ([image,getCropData,setCropper,onChange,cropData,err])
+    return ([image,getCropData,setCropper,onChange,cropData,err,setImage])
 }
 
 export default CropImages
