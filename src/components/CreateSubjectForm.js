@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Cropper from 'react-cropper';
 
-export default function CreateSubjectForm({formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError,image,getCropData,setCropper,onChange,cropData,err}) {
+export default function CreateSubjectForm({formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError,image,getCropData,setCropper,onChange,cropData,err,uploading}) {
     const [showCropper , setshowCropper] = useState(false);
 
     return (
@@ -91,7 +91,7 @@ export default function CreateSubjectForm({formValue,hadelChabgeFormValues,hande
                         </p>
                     </div>
                     <p>
-                        <input type="submit" value="Create Subject" name="create"/>
+                        <button className="sub" type={`${uploading ? 'button' : 'submit'}`} name="create"><span>Create Subject</span> <i class={`fas fa-circle-notch notch ${!uploading ? 'dis' : ''}`}></i></button>
                     </p>
                 </form>
     )

@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import ThreeStepSection from '../components/ThreeStepSection'
 
 function CreateModels() {
@@ -8,6 +10,9 @@ function CreateModels() {
     const [formErrors, setformErrors] = useState({mn:"",msg:"",comerr:""});
     const [hide, sethide] = useState({mn:false,msg:false});
     const [mediafiles, setmediafiles] = useState(null);
+    const [isSubmit, setisSubmit] = useState(false);
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
 
     const hadelValues = (e)=>{
         const {name,value} = e.target
@@ -44,6 +49,33 @@ function CreateModels() {
         e.preventDefault();
         setformErrors(checkErrors(formValues));
         sethide({mn:false,msg:false});
+        setisSubmit(true);
+    }
+
+    useEffect(() => {
+        if(Object.keys(formErrors).length === 0 && isSubmit){
+            uploadModule();
+        }
+    }, [formErrors])
+
+    function uploadModule(){
+        console.log("submit");
+        let formData = new FormData();
+
+        formData.append('module_name',formValues.mn);
+        formData.append('message',formValues.msg);
+        formData.append('file',mediafiles);
+        
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createmodule/11/`,formData,{
+            headers:{
+                Authorization:"Token "+usDetails.key,
+                "content-type":"multipart/form-data"
+            }
+        }).then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err);
+        })
     }
 
     return (

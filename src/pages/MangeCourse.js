@@ -16,7 +16,6 @@ export default function MangeCourse() {
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teachersubject/${usDetails.id}/`,{
                 headers:{Authorization:"Token " + usDetails.key}
             }).then(res=>{
-                console.log(res);
                 setsubDetails(res.data);
             }).catch(err=>{
                 console.log(err);

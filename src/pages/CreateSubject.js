@@ -14,6 +14,7 @@ export default function CreateSubject() {
     const [formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError] = UseCreateSubject(submitForm);//custom hook
     const [image,getCropData,setCropper,onChange,cropData,err,file] = CropImages();//custom hook
     const [redirec, setredirec] = useState(null);
+    const [uploading, setuploading] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -55,8 +56,14 @@ export default function CreateSubject() {
         formData.append("subject_type",formValue.subject_type);
 
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createsubject/${usDetails.id}/`,formData,{
-            headers:{Authorization:"Token " + usDetails.key}
+            headers:{Authorization:"Token " + usDetails.key},onUploadProgress:progressEvent=>{
+                if(progressEvent.isTrusted){
+                    setuploading(true);
+                }
+
+            }
         }).then(res=>{
+            setuploading(false);
             //showing alert
             store.addNotification({
                 title: "Subject Created!",
@@ -89,7 +96,7 @@ export default function CreateSubject() {
             <ThreeStepSection set="cs"/>
             <div className="main_form">
                 <h1>Create Subject</h1>
-                <CreateSubjectForm formValue={formValue} hadelChabgeFormValues={hadelChabgeFormValues} handelSubmit={handelSubmit} formErrors={formErrors} hide={hide} hideError={hideError} image={image} getCropData={getCropData} setCropper={setCropper} onChange={onChange} cropData={cropData} err={err}/>
+                <CreateSubjectForm formValue={formValue} hadelChabgeFormValues={hadelChabgeFormValues} handelSubmit={handelSubmit} formErrors={formErrors} hide={hide} hideError={hideError} image={image} getCropData={getCropData} setCropper={setCropper} onChange={onChange} cropData={cropData} err={err} uploading={uploading}/>
             </div>
         </div>
     )

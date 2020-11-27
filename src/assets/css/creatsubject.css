@@ -127,6 +127,38 @@ p textarea {
 .subject_form .main_form p input[type="submit"]:hover {
   background-color: #139e33;
 }
+.subject_form .main_form p button.sub {
+  margin-top: 20px;
+  width: 200px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: #28a745;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+  outline: none;
+  transition: 0.3s ease;
+}
+.subject_form .main_form p button.sub:hover {
+  background-color: #139e33;
+}
+.subject_form .main_form p button .notch {
+  color: #fff;
+  font-size: 18px;
+  margin-left: 5px;
+  animation: rot 1s linear infinite;
+}
+@keyframes rot {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.subject_form .main_form p button .dis {
+  display: none;
+}
 .subject_form .main_form p .hr {
   position: absolute;
   right: 0;

@@ -174,10 +174,12 @@
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty h4 {
   font-size: 14px;
   font-weight: 400;
+  text-transform: uppercase;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty h5 {
   font-size: 14px;
   font-weight: 400;
+  text-transform: capitalize;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty i {
   margin-right: 5px;

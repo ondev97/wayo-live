@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../assets/css/courseview.css';
 import CourseSect from '../components/CourseSect';
 
 export default function CourseView() {
+
+    const {id} = useParams();
+    
+
     return (
         <div className="ful_manage_course">
             <div className="top_manage_course">
@@ -24,7 +28,7 @@ export default function CourseView() {
             <div className="top_manage_body">
                 <div className="mange_cos_body">
                     <div className="manage_course_nav">
-                        <Link to="/teacherdashboard/createcourse">
+                        <Link to={`/teacherdashboard/createcourse/${id}`}>
                             <button>Create Course</button>
                         </Link>
                         <button>Course Details</button>
