@@ -1,17 +1,25 @@
+import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Cropper } from 'react-cropper';
+import { useSelector } from 'react-redux';
+import { Redirect, useParams } from 'react-router-dom';
 import ThreeStepSection from '../components/ThreeStepSection'
 import CropImages from '../utils/hooks/CropImages';
 
 export default function CreateCourse() {
 
-    const [image,getCropData,setCropper,onChange,cropData,err] = CropImages();//custom h
+    const [image,getCropData,setCropper,onChange,cropData,err,file] = CropImages();//custom h
     const [showCropper , setshowCropper] = useState(false);
 
-    const [courseValue, setcourseValue] = useState({course_name:"",course_price:"",course_description:""});
-    const [courseErrors, setcourseErrors] = useState({course_name:"",course_price:"",course_description:""});
-    const [hide, sethide] = useState({course_name:false,course_price:false,course_description:false});
+    const [courseValue, setcourseValue] = useState({course_name:"",course_price:"",course_description:"",hr:""});
+    const [courseErrors, setcourseErrors] = useState({course_name:"",course_price:"",course_description:"",hr:""});
+    const [hide, sethide] = useState({course_name:false,course_price:false,course_description:false,hr:false});
     const [isSubmitting, setisSubmitting] = useState(false);
+    const [redirec, setredirec] = useState({err:"",id:""});
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+    
+    const {id} = useParams();
 
     const handelFormValues =(e)=>{
         const {name,value} = e.target;
@@ -32,11 +40,17 @@ export default function CreateCourse() {
         if(!value.course_name.trim()){
             formErrors.course_name="Course Name Is Required";
         }
+        if(value.course_name.length >200){
+            formErrors.course_name="Course Name Must Be Less Than 200 Characters";
+        }
         if(!value.course_price.trim()){
             formErrors.course_price="Course Price Is Required";
         }
         if(value.course_description.length >= 300){
             formErrors.course_description="Course Description Must Be Less Than 300 Characters";
+        }
+        if(!value.hr.trim()){
+            formErrors.hr ="Total Hours Of Subject Is Required";
         }
 
         return formErrors
@@ -56,8 +70,64 @@ export default function CreateCourse() {
         }
     }, [courseErrors])
 
+    //function for base64 to blob 
+    const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+      
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          const slice = byteCharacters.slice(offset, offset + sliceSize);
+      
+          const byteNumbers = new Array(slice.length);
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+      
+          const byteArray = new Uint8Array(byteNumbers);
+          byteArrays.push(byteArray);
+        }
+      
+        const blob = new Blob(byteArrays, {type: contentType});
+        return blob;
+      }
+
     function submit(){
         console.log("submit");
+        let form_data = new FormData();
+
+        if(cropData !== '#'){
+            let input = cropData.split(',')[1];
+            const blob = b64toBlob(input,file.type)
+            form_data.append("course_cover",blob,file.name);
+        }
+
+        form_data.append('course_name',courseValue.course_name);
+        form_data.append('course_description',courseValue.course_description);
+        form_data.append('price',courseValue.course_price);
+        form_data.append('duration',courseValue.hr);
+
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createcourse/${id}/${usDetails.id}/`,form_data,{
+            headers:{Authorization:"Token "+usDetails.key}
+        }).then(res=>{
+            console.log(res);
+            setredirec({id:res.data.id});
+        }).catch(err=>{
+            console.log();
+            if(err.response.data.message){
+                setredirec({err:true});
+            }
+        })
+    }
+    
+    if(!id){
+        return <Redirect to="/"/>
+    }
+    if(redirec.err){
+        return <Redirect to={`/teacherdashboard/createsubject`} />
+    }
+    if(redirec.id){
+        return <Redirect to={`/teacherdashboard/createmodels/${redirec.id}`} />
+        
     }
 
     return (
@@ -124,6 +194,14 @@ export default function CreateCourse() {
                         <textarea name="course_description" id="cd" rows="10" value={courseValue.course_description} onChange={handelFormValues} onFocus={hideError}></textarea>
                         {
                             courseErrors.course_description && <span className={`tip ${hide.course_description ? 'hidetip' : ''}`}>{courseErrors.course_description}</span>
+                        }
+                    </p>
+                    <p>
+                        <label htmlFor="st">Total Hours</label>
+                        <input type="number" name="hr" min='0' step="0.1" value={courseValue.hr} onChange={handelFormValues} />
+                        <span className="hr">Hr</span>
+                        {
+                                courseErrors.hr && <span className={`tip ${hide.hr ? 'hidetip' : ''}`}>{courseErrors.hr}</span>
                         }
                     </p>
                     <p>

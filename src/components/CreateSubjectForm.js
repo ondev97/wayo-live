@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import Cropper from 'react-cropper';
-import CropImages from '../utils/hooks/CropImages';
 
-export default function CreateSubjectForm({formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError}) {
-    const [image,getCropData,setCropper,onChange,cropData,err] = CropImages();//custom hook
+export default function CreateSubjectForm({formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError,image,getCropData,setCropper,onChange,cropData,err}) {
     const [showCropper , setshowCropper] = useState(false);
 
     return (
@@ -92,14 +90,6 @@ export default function CreateSubjectForm({formValue,hadelChabgeFormValues,hande
                             }
                         </p>
                     </div>
-                    <p>
-                        <label htmlFor="st">Total Hours</label>
-                        <input type="number" name="hr" value={formValue.hr} onChange={hadelChabgeFormValues} />
-                        <span className="hr">Hr</span>
-                        {
-                                formErrors.hr && <span className={`tip ${hide.hr ? 'hidetip' : ''}`}>{formErrors.hr}</span>
-                        }
-                    </p>
                     <p>
                         <input type="submit" value="Create Subject" name="create"/>
                     </p>

@@ -6,6 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
 import rootReducer from './reducers'
 import {Provider} from 'react-redux'
+//For Time Ago function
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+import ru from 'javascript-time-ago/locale/ru'
+
+TimeAgo.addDefaultLocale(en)
+TimeAgo.addLocale(ru)
 
 const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

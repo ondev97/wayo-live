@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import rjs from '../img/rjs.jpg'
+import ReactTimeAgo from 'react-time-ago'
 
-export default function TcMaCourses() {
+export default function TcMaCourses({id,subject_name,subject_cover,author,created_at,description,short_description,class_type,subject_type}) {
+    
     return (
         <div className="course_card">
             <Link to="/teacherdashboard/viewcourse">
@@ -17,23 +19,20 @@ export default function TcMaCourses() {
                                 </ul>
                             </div>
                     </div>
-                    <div className="card_course_time">
-                        <h3><i className="fas fa-history"></i>25 Hours</h3>
-                    </div>
                 </div>
                 <div className="cscard_body">
                     <div className="cscard_mid">
-                        <h2>React JS</h2>
-                        <h3>Java Script Library</h3>
+                        <h2>{subject_name}</h2>
+                        <h3>{short_description}</h3>
                         <div className="ty">
-                            <h4><i className="fas fa-graduation-cap"></i>A/L</h4>
-                            <h5><i className="fas fa-school"></i>Revision</h5>
+                            <h4><i className="fas fa-graduation-cap"></i>{class_type}</h4>
+                            <h5><i className="fas fa-school"></i>{subject_type}</h5>
                         </div>
                     </div>
                 </div>
                 <div className="cscard_bottom">
                     <h4>By: Osada Manohara</h4>
-                    <h4><i className="fas fa-clock"></i>1 day ago</h4>
+                    <h4><i className="fas fa-clock"></i><ReactTimeAgo date={created_at} locale="en-US"/></h4>
                 </div>
             </Link>
         </div>

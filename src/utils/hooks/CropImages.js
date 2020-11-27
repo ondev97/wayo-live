@@ -5,6 +5,7 @@ function CropImages() {
     const [cropData, setCropData] = useState("#");
     const [cropper, setCropper] = useState();
     const [err, seterr] = useState({});
+    const [file, setfile] = useState('');
 
     const onChange = (e) => {
       e.preventDefault();
@@ -19,7 +20,9 @@ function CropImages() {
             reader.onload = () => {
             setImage(reader.result);
       };
+      
       if(files[0]){
+        setfile(files[0]);
           if(files[0].type === 'image/jpg' || files[0].type === 'image/jpeg' || files[0].type === 'image/png'){
               seterr({});
               reader.readAsDataURL(files[0]);
@@ -36,8 +39,7 @@ function CropImages() {
         setCropData(cropper.getCroppedCanvas().toDataURL());
       }
     };
-
-    return ([image,getCropData,setCropper,onChange,cropData,err,setImage])
+    return ([image,getCropData,setCropper,onChange,cropData,err,file,setImage])
 }
 
 export default CropImages

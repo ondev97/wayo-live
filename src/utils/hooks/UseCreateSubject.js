@@ -3,9 +3,9 @@ import ValidateSubjectCreateForm from '../../components/ValidateCreateSubject';
 
 const UseCreateSubject = (submitForm) => {
 
-    const [formValue, setformValue] = useState({subject_title:"",subject_shdes:"",sub_des:"",class_type:"",subject_type:"",hr:""});
-    const [formErrors, setformErrors] = useState({subject_title:"",subject_shdes:"",sub_des:"",class_type:"",subject_type:"",hr:""});
-    const [hide, sethide] = useState({subject_title:false,subject_shdes:false,sub_des:false,class_type:false,subject_type:false,hr:false});
+    const [formValue, setformValue] = useState({subject_title:"",subject_shdes:"",sub_des:"",class_type:"",subject_type:""});
+    const [formErrors, setformErrors] = useState({subject_title:"",subject_shdes:"",sub_des:"",class_type:"",subject_type:""});
+    const [hide, sethide] = useState({subject_title:false,subject_shdes:false,sub_des:false,class_type:false,subject_type:false});
     const [isSubmitting, setisSubmitting] = useState(false);
 
 

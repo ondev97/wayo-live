@@ -14,6 +14,8 @@ import CourseView from './CourseView';
 import TcModels from './TcModels';
 import CreateSubject from './CreateSubject';
 import CreateModels from './CreateModels';
+import GeneEnrollmentkeys from './GeneEnrollmentkeys';
+import ViewAllEnroKeys from './ViewAllEnroKeys';
 
 export default function TeacherDashboard() {
 
@@ -97,11 +99,14 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/createsubject'>
                         <CreateSubject/>
                     </Route>
-                    <Route path='/teacherdashboard/createcourse'>
+                    <Route path='/teacherdashboard/createcourse/:id'>
                         <CreateCourse/>
                     </Route>
-                    <Route path='/teacherdashboard/createmodels'>
+                    <Route path='/teacherdashboard/createmodels/:id'>
                         <CreateModels/>
+                    </Route>
+                    <Route path='/teacherdashboard/genenkeys'>
+                        <GeneEnrollmentkeys/>
                     </Route>
                     <Route path='/teacherdashboard/managecourse'>
                         <MangeCourse/>
@@ -115,6 +120,7 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/profilesettings'>
                         <ProfileSettings/>
                     </Route>
+                    
                 </div>
             </div>
         </div>
