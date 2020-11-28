@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import rjs from '../img/rjs.jpg'
 import ReactTimeAgo from 'react-time-ago'
 
 export default function TcMaCourses({id,subject_name,subject_cover,author,created_at,short_description,class_type,subject_type}) {
-    console.log(author);
     return (
         <div className="course_card">
             <Link to={`/teacherdashboard/viewcourse/${id}`}>

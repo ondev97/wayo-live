@@ -145,6 +145,7 @@
   .manage_course_grid
   .grid_card_manage
   .grid_card_mg_head {
+  position: relative;
   width: 100%;
   height: 180px;
   transition: 0.5s ease;
@@ -250,6 +251,43 @@
   align-items: flex-start;
   border-bottom-right-radius: 50px;
   transition: 0.5s;
+}
+.top_manage_body
+  .mange_cos_body
+  .manage_course_grid
+  .grid_card_manage
+  .grid_card_mg_head
+  .dura {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 7px 10px;
+  background-color: #0b7134;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top_manage_body
+  .mange_cos_body
+  .manage_course_grid
+  .grid_card_manage
+  .grid_card_mg_head
+  .dura
+  h3,
+i.cl {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+}
+.top_manage_body
+  .mange_cos_body
+  .manage_course_grid
+  .grid_card_manage
+  .grid_card_mg_head
+  .dura
+  i {
+  margin-right: 5px;
 }
 .top_manage_body
   .mange_cos_body

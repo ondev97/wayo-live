@@ -1,4 +1,6 @@
-import React from 'react';
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import '../assets/css/courseview.css';
 import CourseSect from '../components/CourseSect';
@@ -6,7 +8,21 @@ import CourseSect from '../components/CourseSect';
 export default function CourseView() {
 
     const {id} = useParams();
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+    const [courseData, setcourseData] = useState(null);
     
+    useEffect(async() => {
+        if(usDetails.key){
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/courses/${id}/`,{
+                headers:{Authorization:"Token "+usDetails.key}
+            }).then(res=>{
+                setcourseData(res.data);
+            }).catch(err=>{
+                console.log(err);
+            })
+        }
+    }, [usDetails])
 
     return (
         <div className="ful_manage_course">
@@ -19,8 +35,8 @@ export default function CourseView() {
                     <h3><i className="fas fa-sliders-h"></i></h3>
                         <div className="options_manage">
                             <ul>
-                                <li><i class="far fa-trash-alt"></i> Delete Subject</li>
-                                <li><i class="far fa-edit"></i> Edit Subject</li>
+                                <li><i className="far fa-trash-alt"></i> Delete Subject</li>
+                                <li><i className="far fa-edit"></i> Edit Subject</li>
                             </ul>
                         </div>
                 </div>
@@ -34,10 +50,11 @@ export default function CourseView() {
                         <button>Course Details</button>
                     </div>
                     <div className="manage_course_grid">
-                        <CourseSect/>
-                        <CourseSect/>
-                        <CourseSect/>
-                        <CourseSect/>
+                        {
+                            courseData ? 
+                                    courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                            :null
+                        }
                     </div>
                 </div>     
             </div>
