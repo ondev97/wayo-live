@@ -21,9 +21,9 @@ function CreateModels() {
         })
     }
     const files = (e)=>{
-        console.log(e.target.files);
         setmediafiles(e.target.files);
     }
+    console.log(mediafiles);
 
     const checkErrors = (values)=>{
         let errors={};
@@ -59,14 +59,17 @@ function CreateModels() {
     }, [formErrors])
 
     function uploadModule(){
-        console.log("submit");
         let formData = new FormData();
 
         formData.append('module_name',formValues.mn);
-        formData.append('message',formValues.msg);
-        formData.append('file',mediafiles);
+        formData.append('module_content',formValues.msg);
+
+        //add multiple files
+        for(let i=0;i<mediafiles.length;i++){
+            formData.append(`file`,mediafiles[i]);
+        }
         
-        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createmodule/11/`,formData,{
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createmodule/12/`,formData,{
             headers:{
                 Authorization:"Token "+usDetails.key,
                 "content-type":"multipart/form-data"

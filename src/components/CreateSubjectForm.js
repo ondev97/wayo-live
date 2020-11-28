@@ -91,7 +91,7 @@ export default function CreateSubjectForm({formValue,hadelChabgeFormValues,hande
                         </p>
                     </div>
                     <p>
-                        <button className="sub" type={`${uploading ? 'button' : 'submit'}`} name="create"><span>Create Subject</span> <i class={`fas fa-circle-notch notch ${!uploading ? 'dis' : ''}`}></i></button>
+                        <button className="sub" type={`${uploading ? 'button' : 'submit'}`} name="create"><span>Create Subject</span> <i className={`fas fa-circle-notch notch ${!uploading ? 'dis' : ''}`}></i></button>
                     </p>
                 </form>
     )
