@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
 
 export default function CourseSect({course_cover,course_name,price,duration,created_at,courseid,no}) {
-
     return (
         <Link to={`/teacherdashboard/models/${courseid}`}>
             <div className="grid_card_manage">
@@ -29,7 +28,7 @@ export default function CourseSect({course_cover,course_name,price,duration,crea
                     <h3>{course_name}</h3>
                     <h4>LKR {price}</h4>
                     <div className="cs_tail">
-                        <h4><ReactTimeAgo date={created_at} locale="en-US" /></h4>
+                        <h4><ReactTimeAgo date={Date.parse(created_at)} locale="en-US" /></h4>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ export default function CreateCourse() {
     const [courseErrors, setcourseErrors] = useState({course_name:"",course_price:"",course_description:"",hr:""});
     const [hide, sethide] = useState({course_name:false,course_price:false,course_description:false,hr:false});
     const [isSubmitting, setisSubmitting] = useState(false);
+    const [progress, setprogress] = useState(false);
     const [redirec, setredirec] = useState({err:"",id:""});
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
@@ -107,12 +108,14 @@ export default function CreateCourse() {
         form_data.append('duration',courseValue.hr);
 
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createcourse/${id}/${usDetails.id}/`,form_data,{
-            headers:{Authorization:"Token "+usDetails.key}
+            headers:{Authorization:"Token "+usDetails.key},onUploadProgress:progressEvent=>{
+                if(progressEvent.isTrusted){
+                    setprogress(true);
+                }
+            }
         }).then(res=>{
-            console.log(res);
             setredirec({id:res.data.id});
         }).catch(err=>{
-            console.log();
             if(err.response.data.message){
                 setredirec({err:true});
             }
@@ -184,7 +187,10 @@ export default function CreateCourse() {
                     </p>
                     <p>
                         <label htmlFor="cp">Course Price</label>
-                        <input type="number" name="course_price" min="0" value={courseValue.course_price} onChange={handelFormValues} onFocus={hideError}/>
+                        <span className="on_row">
+                            <span className='curu'>LKR</span>
+                            <input type="number" name="course_price" min="0" value={courseValue.course_price} onChange={handelFormValues} onFocus={hideError}/>
+                        </span>
                         {
                             courseErrors.course_price && <span className={`tip ${hide.course_price ? 'hidetip' : ''}`}>{courseErrors.course_price}</span>
                         }
@@ -205,7 +211,7 @@ export default function CreateCourse() {
                         }
                     </p>
                     <p>
-                        <input type="submit" value="Create Course" name="create"/>
+                        <button className="sub" type={`${progress ? 'button' : 'submit'}`} name="create">Create Course <i className={`fas fa-circle-notch notch ${!progress ? 'dis' : ''}`}></i></button>
                     </p>
                 </form>
             </div>

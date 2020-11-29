@@ -92,6 +92,24 @@ p textarea {
   outline: none;
   border-radius: 3px;
 }
+.subject_form .main_form p .on_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subject_form .main_form p input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.subject_form .main_form p input[type="number"] {
+  position: relative;
+}
+.subject_form .main_form p span.curu {
+  background-color: #00a959;
+  width: 40px;
+  padding: 8px;
+  color: #fff;
+}
 .subject_form .main_form .sub_sect {
   width: 100%;
   display: flex;
@@ -260,4 +278,46 @@ button:hover {
 .subject_form .main_form .multi_files label:hover {
   background-color: #28a745;
   color: #fff;
+}
+
+/*##module upload files##*/
+.subject_form .main_form .show_files {
+  margin: 15px 0;
+  padding: 5px;
+  background-color: #fff;
+}
+.subject_form .main_form .show_files .up_list {
+  list-style: none;
+}
+.subject_form .main_form .show_files .up_list li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 12px 8px;
+  animation: blinking 2.5s infinite alternate;
+}
+@keyframes blinking {
+  0% {
+    background-color: #f5fff5;
+  }
+  100% {
+    background-color: #fff;
+    color: green;
+  }
+}
+.subject_form .main_form .show_files .up_list li .dis {
+  display: none;
+}
+.subject_form .main_form .show_files .up_list li .rot {
+  animation: rota 1s ease-in-out infinite;
+}
+@keyframes rota {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }

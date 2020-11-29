@@ -110,7 +110,7 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/viewcourse/:id'>
                         <CourseView/>
                     </Route>
-                    <Route path='/teacherdashboard/models'>
+                    <Route path='/teacherdashboard/models/:id'>
                         <TcModels/>
                     </Route>
                     <Route path='/teacherdashboard/profilesettings'>
