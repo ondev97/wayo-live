@@ -64,8 +64,7 @@ export default function ProfileHead() {
         <div className="brow">
           <div className="brow_info">
             <p>
-              Chirathma Furniture,kandegedara
-              rd,keeriayagolla,samagipura,hali-ela
+              {profileDetails.address}
             </p>
             <p>
               <i className="fas fa-phone-alt"></i>{profileDetails.phoneNumber}

@@ -15,6 +15,7 @@ import TcModels from './TcModels';
 import CreateSubject from './CreateSubject';
 import CreateModels from './CreateModels';
 import GeneEnrollmentkeys from './GeneEnrollmentkeys';
+import UpdateSubject from './UpdateSubject';
 
 export default function TeacherDashboard() {
 
@@ -118,6 +119,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/keys'>
                         <GeneEnrollmentkeys/>
+                    </Route>
+                    <Route path='/teacherdashboard/updatesubject'>
+                        <UpdateSubject/>
                     </Route>
                 </div>
             </div>
