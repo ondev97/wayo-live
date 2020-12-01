@@ -1,16 +1,21 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import GenerateKeys from '../components/GenerateKeys'
 import ProfileSettings from './ProfileSettings'
-import ViewAllEnroKeys from '../components/ViewAllEnroKeys'
+import ViewAllEnroKeys from '../components/ViewAllEnroKeys';
+import '../assets/css/geneenrollmentkeys.css';
 
 function GeneEnrollmentkeys() {
     return (
         <div className="main_sub">
             <div className="simple_nav">
                 <ul>
-                    <li>Generate Enrollment Keys</li>
-                    <li>View All Enrollment Keys</li>
+                    <Link to='/teacherdashboard/keys/genkeys'>
+                        <li>Generate Enrollment Keys</li>
+                    </Link>
+                    <Link to='/teacherdashboard/keys/allkeys'>
+                        <li>View All Enrollment Keys</li>
+                    </Link>
                 </ul>
             </div>
             <div className="show">

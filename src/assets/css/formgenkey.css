@@ -1,0 +1,93 @@
+.genkeysform {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.genkeysform .main_gen_form {
+  width: 1000px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.genkeysform .main_gen_form form {
+  padding: 35px 25px;
+  width: 90%;
+  background-color: #fff;
+}
+.genkeysform .main_gen_form form p {
+  margin: 15px 0;
+}
+.genkeysform .main_gen_form form p label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 17px;
+  color: #00bf4d;
+  font-weight: 600;
+}
+.genkeysform .main_gen_form form p input {
+  width: 100%;
+  padding: 8px 5px;
+  color: #0a6b31;
+  outline: none;
+  border: 1px solid #c1c0c0;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.genkeysform .main_gen_form form .gen_sub {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.genkeysform .main_gen_form form .gen_sub button {
+  width: 120px;
+  padding: 8px;
+  margin-top: 15px;
+  border: 1px solid transparent;
+  background-color: #00bf4d;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+.genkeysform .main_gen_form form .gen_sub button:hover {
+  background-color: #049204;
+}
+.genkeysform .main_gen_form .disp_gen_keys {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.genkeysform .main_gen_form .disp_gen_keys table {
+  width: 90%;
+  background-color: #fff;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+}
+.genkeysform .main_gen_form .disp_gen_keys table tr {
+  text-align: center;
+}
+.genkeysform .main_gen_form .disp_gen_keys table thead tr:first-child {
+  background-color: #eee3;
+  color: #049204;
+}
+.genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(1) {
+  background-color: #eee3;
+}
+
+.genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(2) {
+  color: #049204;
+}
+.genkeysform .main_gen_form .disp_gen_keys table tr td,
+th {
+  padding: 20px 12px;
+  border-bottom: 1px solid #eee;
+}

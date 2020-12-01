@@ -1,0 +1,32 @@
+.main_sub {
+  width: 100%;
+}
+.main_sub .simple_nav {
+  margin-bottom: 25px;
+}
+.main_sub .simple_nav ul {
+  margin-bottom: 5px;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main_sub .simple_nav ul a {
+  text-decoration: none;
+  color: #000;
+}
+.main_sub .simple_nav ul li {
+  padding: 8px 12px;
+  border: 2px solid #13a15f;
+  background-color: #fff;
+  color: #13a15f;
+  font-weight: 600;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.main_sub .simple_nav ul li:hover {
+  background-color: #13a15f;
+  color: #fff;
+}
