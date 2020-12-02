@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import GenerateKeys from '../components/GenerateKeys'
-import ProfileSettings from './ProfileSettings'
 import ViewAllEnroKeys from '../components/ViewAllEnroKeys';
 import '../assets/css/geneenrollmentkeys.css';
 
@@ -10,7 +9,7 @@ function GeneEnrollmentkeys() {
         <div className="main_sub">
             <div className="simple_nav">
                 <ul>
-                    <Link to='/teacherdashboard/keys/genkeys'>
+                    <Link to='/teacherdashboard/keys/genkeys/:id'>
                         <li>Generate Enrollment Keys</li>
                     </Link>
                     <Link to='/teacherdashboard/keys/allkeys'>
@@ -19,7 +18,7 @@ function GeneEnrollmentkeys() {
                 </ul>
             </div>
             <div className="show">
-                <Route path='/teacherdashboard/keys/genkeys'>
+                <Route path='/teacherdashboard/keys/genkeys/:id'>
                     <GenerateKeys/>
                 </Route>
                 <Route path='/teacherdashboard/keys/allkeys'>

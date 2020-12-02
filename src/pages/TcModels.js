@@ -14,7 +14,7 @@ export default function TcModels() {
                 <div className="md_all_models">
                     <div className="models_en_nav">
                         <ul>
-                            <Link to="/teacherdashboard/keys/genkeys"><li><i className="fas fa-key"></i>Generate Enrollment Keys</li></Link>
+                            <Link to={`/teacherdashboard/keys/genkeys/${id}`}><li><i className="fas fa-key"></i>Generate Enrollment Keys</li></Link>
                             <li><i className="fas fa-key"></i>Activate Enrollment Keys</li>
                             <li><i className="fas fa-key"></i>View All Enrollment Keys</li>
                         </ul>

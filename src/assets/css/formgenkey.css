@@ -20,6 +20,7 @@
 }
 .genkeysform .main_gen_form form p {
   margin: 15px 0;
+  position: relative;
 }
 .genkeysform .main_gen_form form p label {
   display: block;
@@ -90,4 +91,22 @@
 th {
   padding: 20px 12px;
   border-bottom: 1px solid #eee;
+}
+
+.genkeysform .main_gen_form form p .tip {
+  font-size: 12px;
+  position: absolute;
+  bottom: -25px;
+  right: 0;
+  padding: 5px 8px;
+  background-color: #fb01010d;
+  color: red;
+  border-radius: 2px;
+  z-index: 100;
+  transition: opacity 0.9s;
+  text-transform: capitalize;
+}
+.genkeysform .main_gen_form form p .hidetip {
+  opacity: 0;
+  user-select: none;
 }
