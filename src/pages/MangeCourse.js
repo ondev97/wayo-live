@@ -27,10 +27,13 @@ export default function MangeCourse() {
                 setsubDetails([...subDetails,...res.data.results]);
                 setallSubDetail(res.data);
             }).catch(err=>{
-                console.log(err);
+                if(err.response.data){
+                    console.log(err.response.data);
+                }
             })
         }
     }
+    
     useEffect(() => {
         getAllCourse();
     }, [usDetails,page]);
@@ -63,7 +66,7 @@ export default function MangeCourse() {
                     subDetails && allSubDetail !== null &&
                     <InfiniteScroll dataLength={subDetails.length} next={next} hasMore={true} className='course_body'> 
                         {
-                        subDetails.map((det,index)=> <TcMaCourses key={index} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type} />)
+                        subDetails.map((det)=> <TcMaCourses key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
                         }
                     </InfiniteScroll>
                 }

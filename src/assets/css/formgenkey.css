@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 .genkeysform .main_gen_form {
-  width: 1000px;
+  width: 100%;
   padding: 15px;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@
 }
 .genkeysform .main_gen_form form {
   padding: 35px 25px;
-  width: 90%;
+  width: 100%;
   background-color: #fff;
 }
 .genkeysform .main_gen_form form p {
@@ -62,7 +62,7 @@
   background-color: #049204;
 }
 .genkeysform .mid_row {
-  width: 90%;
+  width: 100%;
   padding: 25px 0;
   display: flex;
   justify-content: space-between;
@@ -104,7 +104,7 @@
   justify-content: center;
 }
 .genkeysform .main_gen_form .disp_gen_keys .table_hd {
-  width: 90%;
+  width: 100%;
   max-height: 700px;
   overflow-y: auto;
 }

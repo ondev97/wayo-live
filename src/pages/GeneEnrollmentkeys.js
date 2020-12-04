@@ -8,14 +8,12 @@ function GeneEnrollmentkeys() {
     return (
         <div className="main_sub">
             <div className="simple_nav">
-                <ul>
-                    <Link to='/teacherdashboard/keys/genkeys/:id'>
-                        <li>Generate Enrollment Keys</li>
-                    </Link>
-                    <Link to='/teacherdashboard/keys/allkeys'>
-                        <li>View All Enrollment Keys</li>
-                    </Link>
-                </ul>
+                <Link to='/teacherdashboard/keys/genkeys'>
+                    Generate Enrollment Keys
+                </Link>
+                <Link to='/teacherdashboard/keys/allkeys'>
+                    View All Enrollment Keys
+                </Link>
             </div>
             <div className="show">
                 <Route path='/teacherdashboard/keys/genkeys/:id'>
