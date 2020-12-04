@@ -2,9 +2,11 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { store } from 'react-notifications-component';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import '../assets/css/formgenkey.css';
 import CouponKeyTableBody from './CouponKeyTableBody';
+import empty from '../img/svg/bookladder.svg';
+import GenerateKeyForm from './GenerateKeyForm';
 
 function GenerateKeys() {
 
@@ -16,12 +18,19 @@ function GenerateKeys() {
     const [couponData, setcouponData] = useState([]);
     const [selectKeys, setselectKeys] = useState([]);
     const [check, setcheck] = useState(null);
-    const [allCheckId, setallCheckId] = useState([]);
+    const [redirect, setredirect] = useState(false);
 
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
     const {id} = useParams();
+
+    const handelValues = (e) =>{
+        const {name,value} = e.target;
+        setvalue({
+            ...value,[name]:value
+        });
+    }
 
     const validate = (values) =>{
         let error = {};
@@ -63,6 +72,7 @@ function GenerateKeys() {
     }
 
     function submit(){
+        setresMessage(false);
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/coupon/${value.hw}/${id}/`,{},{
             headers:{Authorization: 'Token '+usDetails.key}
         }).then(res=>{
@@ -79,77 +89,128 @@ function GenerateKeys() {
                     animationIn: ["animate__animated", "animate__fadeIn"],
                     animationOut: ["animate__animated", "animate__fadeOut"],
                     dismiss: {
-                      duration: 3000,
+                      duration: 2000,
                       onScreen: true,
                       pauseOnHover: true,
                       showIcon:true
                     },
-                    width:600
+                    width:400
                 });
             }
         })
         
     }
-
-    useEffect(() => {
+    //getting not issued keys
+    useEffect(async() => {
         if(usDetails.key){
-            Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/availablecoupon/${id}/`,{
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/availablecoupon/${id}/`,{
                 headers:{Authorization:'Token '+usDetails.key}
             }).then(res=>{
                 setcouponData(res.data);
+            }).catch(err=>{
+                console.log(err);
+                if(err){
+                    setredirect(true);
+                }
             })
         }
-    }, [usDetails,isSubmitting,resMessage,selectKeys])
+    }, [usDetails,isSubmitting,resMessage,selectKeys,check])
 
+    //select all keys
     const handelckeckall =() =>{
         setcheck(true);
 
         if(couponData){
-            let osa = [];
+            let ft = [];
             couponData.map(cuData=>(
-                osa = [...osa,cuData.id]
+                ft = [...ft,cuData.id]
                 ))
-            setallCheckId(osa)
+            setselectKeys(ft);
             }
+    }
+
+    useEffect(() => {
+        if(selectKeys.length !== 0){
+            //set issued coupon
+            setTimeout(function(){
+                Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/issuecoupon/`,{
+                    "issued_coupons":selectKeys
+                },{
+                    headers:{Authorization:'Token '+usDetails.key}
+                }).then(res=>{
+                    setcheck(false);
+                    setcheck(null);
+                    setselectKeys([]);
+
+                    store.addNotification({
+                        title: 'Keys Issued',
+                        message: "OnDevlms",
+                        type: "info",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__fadeIn"],
+                        animationOut: ["animate__animated", "animate__fadeOut"],
+                        dismiss: {
+                          duration: 2000,
+                          onScreen: true,
+                          pauseOnHover: true,
+                          showIcon:true
+                        },
+                        width:400
+                    });
+
+                })
+            },300);
+            clearTimeout();
         }
+    }, [selectKeys])
+
+    if(redirect){
+        return <Redirect to='/teacherdashboard/managecourse'/>
+    }
 
     return (
         <div className="genkeysform">
             <div className="main_gen_form">
-                <form onSubmit={submithandler}>
-                    <p>
-                        <label htmlFor="ks">How Many Keys?</label>
-                        <input type="number" min="0" step="1" name="hw" id="ks" value={value.hw} onChange={(e)=>setvalue({...value,[e.target.name]:e.target.value})} onFocus={hideError}/>
-                    {
-                        err.hw && <span className={`tip ${hide.hw ? 'hidetip' : ''}`}>{err.hw}</span>
-                    }  
-                    </p>
+                <GenerateKeyForm submithandler={submithandler} value={value} handelValues={handelValues} hide={hide} hideError={hideError} err={err}/>
+                {
+                    couponData.length !== 0 ?
+                    <div className="ac_table">
+                        <div className="mid_row">
+                            <p>Not issue Keys</p>
+                            <button onClick={handelckeckall}><i className="fas fa-key"></i> Issue All</button>
+                        </div>
+                        <div className="disp_gen_keys">
+                            <div className="table_hd">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Key</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            couponData.length !== 0 &&
+                                                    couponData.map((data,index)=>(
+                                                        <CouponKeyTableBody key={index} data={data} index={index} selectKeys={selectKeys} setselectKeys={setselectKeys} check={check}/>  
+                                                    ))
+                                        }
 
-                    <div className="gen_sub">
-                        <button>Generate</button>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </form>
-                <div className="disp_gen_keys">
-                    <button onClick={handelckeckall}>all</button>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Key</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                couponData.length !== 0 &&
-                                        couponData.map((data,index)=>(
-                                            <CouponKeyTableBody key={index} data={data} index={index} selectKeys={selectKeys} setselectKeys={setselectKeys} check={check} allCheckId={allCheckId}/>  
-                                        ))
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
+                    :
+                    <div className="no_keys">
+                        <h1>No Issued Enrollment Keys Available...</h1>
+                        <div className="svg">
+                            <img src={empty} alt=""/>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )

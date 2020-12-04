@@ -1,45 +1,33 @@
-import Axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect, useRef } from 'react'
 
-export default function CouponKeyTableBody({data,index,selectKeys,setselectKeys,check,allCheckId}) {
+export default function CouponKeyTableBody({data,index,selectKeys,setselectKeys,check}) {
     
-    const checkBox = useRef();
-    //get acDetails from Redux Store
-    const usDetails = useSelector(state => state.accountDetails);
-
+    const checkBoxref = useRef();
     const hadelCheck = (e) =>{
         setselectKeys([
             ...selectKeys,parseInt(e.target.value)
         ]);
 
     }
-    
-    useEffect(async () => {
-        if(selectKeys.length !== 0){
-            //set issued coupon
-            await Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/issuecoupon/`,{
-                "issued_coupons":selectKeys
-            },{
-                headers:{Authorization:'Token '+usDetails.key}
-            }).then(res=>{
-                setselectKeys([]);
-            })
-        }
-    }, [selectKeys])
 
     useEffect(() => {
-        if(allCheckId.length !== 0){
-            setselectKeys(allCheckId);
+        if(check!==null){
+            checkBoxref.current.checked = true;
         }
-    }, [check])
-    
+        else{
+            checkBoxref.current.checked = false;
+        }
+    }, [check]);
+
     return (
             <tr>
             <td>{index+1}</td>
             <td>{data.coupon_key}</td>
             <td>
-                <input type="checkbox" ref={checkBox} name="actigen" value={data.id} onChange={hadelCheck} checked={check}/>
+                <label htmlFor={index} className="toggle">
+                    <input type="checkbox" ref={checkBoxref} name="actigen" value={data.id} onChange={hadelCheck} id={index} />
+                    <div className="toggle_fill"></div>
+                </label>
             </td>
         </tr> 
     )
