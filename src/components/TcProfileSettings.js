@@ -70,7 +70,6 @@ function TcProfileSettings({setsettings}) {
             })
        }).catch(err=>{
 
-           console.log(err.response.data);
            if(err.response.data.detail){
                seterrors({...errors,pw:err.response.data.detail})
            }

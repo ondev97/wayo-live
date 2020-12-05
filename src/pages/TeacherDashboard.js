@@ -120,7 +120,7 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/keys'>
                         <GeneEnrollmentkeys/>
                     </Route>
-                    <Route path='/teacherdashboard/updatesubject'>
+                    <Route path='/teacherdashboard/updatesubject/:subid'>
                         <UpdateSubject/>
                     </Route>
                 </div>
