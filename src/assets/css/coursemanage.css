@@ -123,14 +123,11 @@
 .main_ar_course .course_body .course_card .cos_options:hover h3 i {
   transform: rotateZ(180deg);
 }
-.main_ar_course
-  .course_body
-  .course_card
-  .cos_options
-  .options_body
-  ul
-  li:first-child {
+.main_ar_course .course_body .course_card .cos_options .options_body ul li {
   color: red;
+}
+.main_ar_course .course_body .course_card .cos_options .options_body ul a li {
+  color: #000;
 }
 .main_ar_course .course_body .course_card .card_course_time {
   position: absolute;

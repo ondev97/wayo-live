@@ -39,7 +39,7 @@ function CropImages() {
         setCropData(cropper.getCroppedCanvas().toDataURL());
       }
     };
-    return ([image,getCropData,setCropper,onChange,cropData,err,file,setImage])
+    return ([image,getCropData,setCropper,onChange,cropData,err,file,setImage,setCropData])
 }
 
 export default CropImages

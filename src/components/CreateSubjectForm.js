@@ -72,6 +72,7 @@ export default function CreateSubjectForm({formValue,hadelChabgeFormValues,hande
                                 <option value="" disabled>Select Class Type</option>
                                 <option value="a/l">A/L</option>
                                 <option value="o/l">O/L</option>
+                                <option value="other">Other</option>
                             </select>
                             {
                                 formErrors.class_type && <span className={`tip ${hide.class_type ? 'hidetip' : ''}`}>{formErrors.class_type}</span>

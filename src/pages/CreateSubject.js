@@ -11,7 +11,7 @@ import { Redirect } from 'react-router-dom';
 
 export default function CreateSubject() {
 
-    const [formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError] = UseCreateSubject(submitForm);//custom hook
+    const {formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError} = UseCreateSubject(submitForm);//custom hook
     const [image,getCropData,setCropper,onChange,cropData,err,file] = CropImages();//custom hook
     const [redirec, setredirec] = useState(null);
     const [uploading, setuploading] = useState(false);

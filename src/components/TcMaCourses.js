@@ -33,7 +33,7 @@ export default function TcMaCourses({id,subject_name,subject_cover,author,create
                             <div className="options_body">
                                 <ul>
                                     <li onClick={clk}>Delete</li>
-                                    <li>Edit</li>
+                                    <Link to={`/teacherdashboard/updatesubject/${id}`}><li>Edit</li></Link>
                                 </ul>
                             </div>
                     </div>

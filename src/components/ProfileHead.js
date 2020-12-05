@@ -10,7 +10,7 @@ export default function ProfileHead() {
   const [showModel,setshowModel] = useState(false);
   const [filePath, setfilePath] = useState('');
   const [imgObjectURL, setimgObjectURL] = useState('');
-  const [image,getCropData,setCropper,onChange,cropData,err,setImage] = CropImages();//custom hook
+  const [image,getCropData,setCropper,onChange,cropData,err,setImage,setCropData] = CropImages();//custom hook
 
   const openModel = () =>{
     setshowModel(!showModel);
@@ -48,7 +48,7 @@ export default function ProfileHead() {
 
   return (
     <div>
-      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath} imgObjectURL={imgObjectURL} setimgObjectURL={setimgObjectURL} image={image} getCropData={getCropData} setCropper={setCropper} cropData={cropData} err={err} setImage={setImage}/>
+      <UploadPropicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath} imgObjectURL={imgObjectURL} setimgObjectURL={setimgObjectURL} image={image} getCropData={getCropData} setCropper={setCropper} cropData={cropData} err={err} setImage={setImage} setCropData={setCropData}/>
       <div className="profil_box">
         <div className="srow">
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>

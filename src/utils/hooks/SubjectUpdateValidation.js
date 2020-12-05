@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import ValidateSubjectCreateForm from '../../components/ValidateCreateSubject';
 
-const UseCreateSubject = (submitForm) => {
+export default function UpdateSubjectFunc(submitForm) {
 
     const [formValue, setformValue] = useState({subject_title:"",subject_shdes:"",sub_des:"",class_type:"",subject_type:""});
     const [formErrors, setformErrors] = useState({subject_title:"",subject_shdes:"",sub_des:"",class_type:"",subject_type:""});
     const [hide, sethide] = useState({subject_title:false,subject_shdes:false,sub_des:false,class_type:false,subject_type:false});
     const [isSubmitting, setisSubmitting] = useState(false);
-
 
     const hadelChabgeFormValues = (e) =>{
         const {name,value} = e.target;
@@ -37,7 +36,5 @@ const UseCreateSubject = (submitForm) => {
         })
     }
 
-    return ({formValue,hadelChabgeFormValues,handelSubmit,formErrors,hide,hideError})
+    return ({hadelChabgeFormValues,formValue,handelSubmit,hideError,hide,formErrors})
 }
-
-export default UseCreateSubject

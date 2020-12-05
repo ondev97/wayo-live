@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSpring,animated } from 'react-spring';
 import "cropperjs/dist/cropper.min.css";
 import '../assets/css/modelStyles.css';
@@ -6,7 +6,7 @@ import Axios from 'axios';
 import {useSelector } from 'react-redux';
 import { Cropper } from 'react-cropper';
 
-export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,image,getCropData,setCropper,cropData,setImage}) {
+export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,image,getCropData,setCropper,cropData,setCropData}) {
 
     const modelBGref = useRef();
     const [cropHide, setcropHide] = useState(false);
@@ -17,12 +17,12 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
             setshowModel(false);
             setcropHide(false);
             setfilePath('');
-            setImage('');
+            setCropData('#');
         }
     }
     const clearPR = () =>{
-            setfilePath('');
-            setImage('');
+        setfilePath('');
+        setCropData('#');
     }
 
     //animations
@@ -77,8 +77,8 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                     parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total))
                 )
             }
-        }).then(res=>{
-                window.location.reload();
+        }).then(()=>{
+                window.location.reload(false);
         }).catch(err=>console.log(err))
     }
     
@@ -116,9 +116,13 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                                     }}
                                 />
                         </div>
+                        {
+                            image !== '#' && image !== ''?
                             <div className={`butbut ${cropHide ? 'disnone' : null}`}>
                                 <button onClick={(e)=>{getCropData(e);setcropHide(true)}}>Crop Profile Image</button>
                             </div>
+                            :''
+                        }
                         <div className={`preview_container ${!cropHide ? 'disnone' : null}`}>
                             <div className="loader">
                                 <svg>

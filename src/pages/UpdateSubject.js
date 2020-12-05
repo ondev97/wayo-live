@@ -1,33 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Cropper } from 'react-cropper';
+import CropImages from '../utils/hooks/CropImages';
+import child from '../img/child.png';
+import UpdateSubjectFunc from '../utils/hooks/SubjectUpdateValidation';
 
 export default function UpdateSubject() {
+
+    const {hadelChabgeFormValues,formValue,handelSubmit,hideError,hide,formErrors} = UpdateSubjectFunc(submitForm);
+    const [image,getCropData,setCropper,onChange,cropData,err,file] = CropImages();//custom hook
+    const [showCropper , setshowCropper] = useState(false);
+
+    function submitForm(){
+        console.log('Update');
+    }
+
     return (
         <div className="subject_form">
             <div className="main_form">
                 <h1>Update Subject</h1>
-                     <form>
+                     <form onSubmit={handelSubmit}>
                         <p>
                             <label htmlFor="st">Subject Title</label>
-                            <input type="text" name="subject_title" id="st"/>
+                            <input type="text" name="subject_title" id="st" value={formValue.subject_title} onChange={hadelChabgeFormValues} onFocus={hideError}/>
+                            {
+                                formErrors.subject_title && <span className={`tip ${hide.subject_title ? 'hidetip' : ''}`}>{formErrors.subject_title}</span>
+                            }
                         </p>
                         <p>
                             <label htmlFor="ssd">Subject Short Description</label>
-                            <input type="text" name="subject_shdes" id="ssd" />
+                            <input type="text" name="subject_shdes" id="ssd" value={formValue.subject_shdes} onChange={hadelChabgeFormValues} onFocus={hideError}/>
+                            {
+                                formErrors.subject_shdes && <span className={`tip ${hide.subject_shdes ? 'hidetip' : ''}`}>{formErrors.subject_shdes}</span>
+                            }
                         </p>
                         <p>
                             <label htmlFor="sd">Subject Description</label>
-                            <textarea name="sub_des" id="sd" rows="10"></textarea>
+                            <textarea name="sub_des" id="sd" rows="10" value={formValue.sub_des} onChange={hadelChabgeFormValues} onFocus={hideError}></textarea>
+                            {
+                                formErrors.subject_des && <span className={`tip ${hide.subject_des ? 'hidetip' : ''}`}>{formErrors.subject_des}</span>
+                            }
                         </p>
                         <div className="up_pro_pic">
                             {
+                                showCropper && cropData === '#' && !err.img &&
                                 <div className="cropper_be">
                                     <Cropper
                                         style={{ height: '100%', width: "100%" }}
                                         initialAspectRatio={16 / 9}
                                         aspectRatio={16 / 9}
                                         preview=".img-preview"
-                                        src={''}
+                                        src={image}
                                         viewMode={1}
                                         guides={true}
                                         minCropBoxHeight={10}
@@ -36,37 +58,50 @@ export default function UpdateSubject() {
                                         responsive={true}
                                         autoCropArea={1}
                                         checkOrientation={false}
-                                        /*onInitialized={(instance) => {
+                                        onInitialized={(instance) => {
                                         setCropper(instance);
-                                        }}*/
+                                        }}
                                     />
                                 </div>
                             }
+                            {
+                                !showCropper &&
+                                <div className="finCropImg">
+                                    <img style={{ width: "100%" }} src={cropData ==='#' ? child : cropData} alt="cropped" />
+                                </div>
+                            }
                             <p>
-                                <label htmlFor="file">Changed Subject Cover</label>
-                                <input type="file" name="file" id="file"/>
+                                <label htmlFor="file">Change Subject Cover</label>
+                                <input type="file" name="file" id="file" onChange={(e)=>{onChange(e);setshowCropper(true)}}/>
                                 {
-                                    <button className="cp">Crop Image</button>
+                                    showCropper && cropData === '#' && !err.img? <button className="cp" onClick={(e)=>{getCropData(e); setshowCropper(false)}}>Crop Image</button> : ''
                                 }
                             </p>
                         </div>
                         <div className="sub_sect">
                             <p>
                                 <label htmlFor="ct">Class Type</label>
-                                <select name="class_type" id='ct'>
+                                <select name="class_type" id='ct' value={formValue.class_type} onChange={hadelChabgeFormValues} onFocus={hideError}>
                                     <option value="" disabled>Select Class Type</option>
                                     <option value="a/l">A/L</option>
                                     <option value="o/l">O/L</option>
+                                    <option value="other">Other</option>
                                 </select>
+                                {
+                                formErrors.class_type && <span className={`tip ${hide.class_type ? 'hidetip' : ''}`}>{formErrors.class_type}</span>
+                                }
                             </p>
                             <p>
                                 <label htmlFor="st">Subject Type</label>
-                                <select name="subject_type" id="st">
+                                <select name="subject_type" id="st" value={formValue.subject_type} onChange={hadelChabgeFormValues} onFocus={hideError}>
                                     <option value="" disabled>Select Subject Type</option>
                                     <option value="revision">Revision</option>
                                     <option value="theory">Theory</option> 
                                     <option value="group">Group</option> 
                                 </select>
+                                {
+                                    formErrors.subject_type && <span className={`tip ${hide.subject_type ? 'hidetip' : ''}`}>{formErrors.subject_type}</span>
+                                }
                             </p>
                         </div>
                         <p>
