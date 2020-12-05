@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSpring,animated } from 'react-spring';
 import "cropperjs/dist/cropper.min.css";
 import '../assets/css/modelStyles.css';
