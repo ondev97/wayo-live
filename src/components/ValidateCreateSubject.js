@@ -11,7 +11,7 @@ export default function  ValidateSubjectCreateForm(values){
         errors.subject_shdes ="Short Description Must Be Less Than 200 Characters";
     }
     if(values.sub_des.length >500){
-        errors.subject_shdes ="Description Must Be Less Than 500 Characters";
+        errors.subject_des ="Description Must Be Less Than 500 Characters";
     }
     if(!values.class_type){
         errors.class_type ="Class Type Is Required";
