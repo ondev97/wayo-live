@@ -101,7 +101,7 @@ function CreateModels() {
                            setuploading(true);
                        }
                    }
-               }).then(res=>{
+               }).then(()=>{
                     setuploading(false);
                     setmediafiles(null);
                     setformValues({mn:"",msg:""});

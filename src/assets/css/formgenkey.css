@@ -108,6 +108,17 @@
   max-height: 700px;
   overflow-y: auto;
 }
+.genkeysform .main_gen_form .disp_gen_keys .table_hd::-webkit-scrollbar {
+  width: 5px;
+}
+.genkeysform .main_gen_form .disp_gen_keys .table_hd::-webkit-scrollbar-track {
+  background: transparent;
+}
+.genkeysform .main_gen_form .disp_gen_keys .table_hd::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 20px;
+  border: transparent;
+}
 .genkeysform .main_gen_form .disp_gen_keys table {
   position: relative;
   width: 100%;
