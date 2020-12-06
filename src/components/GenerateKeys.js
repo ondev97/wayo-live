@@ -7,6 +7,7 @@ import '../assets/css/formgenkey.css';
 import CouponKeyTableBody from './CouponKeyTableBody';
 import empty from '../img/svg/bookladder.svg';
 import GenerateKeyForm from './GenerateKeyForm';
+import ProfileLoader from './ProfileLoader';
 
 function GenerateKeys() {
 
@@ -19,6 +20,7 @@ function GenerateKeys() {
     const [selectKeys, setselectKeys] = useState([]);
     const [check, setcheck] = useState(null);
     const [redirect, setredirect] = useState(false);
+    const [isLoading, setisLoading] = useState(true);
 
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
@@ -73,13 +75,14 @@ function GenerateKeys() {
 
     function submit(){
         setresMessage(false);
+        setisLoading(true);
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/coupon/${value.hw}/${id}/`,{},{
             headers:{Authorization: 'Token '+usDetails.key}
         }).then(res=>{
             if(res.data.message){
-                setresMessage(true)
+                setresMessage(true);
                 setvalue({hw:""})
-
+                
                 store.addNotification({
                     title: `${value.hw} Keys Created`,
                     message: "OnDevlms",
@@ -103,10 +106,12 @@ function GenerateKeys() {
     //getting not issued keys
     useEffect(async() => {
         if(usDetails.key){
+            setisLoading(true);
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/availablecoupon/${id}/`,{
                 headers:{Authorization:'Token '+usDetails.key}
             }).then(res=>{
                 setcouponData(res.data);
+                setisLoading(false);
             }).catch(err=>{
                 console.log(err);
                 if(err){
@@ -174,38 +179,41 @@ function GenerateKeys() {
             <div className="main_gen_form">
                 <GenerateKeyForm submithandler={submithandler} value={value} handelValues={handelValues} hide={hide} hideError={hideError} err={err}/>
                 {
-                    couponData.length !== 0 ?
-                    <div className="ac_table">
-                        <div className="mid_row">
-                            <p>Not issue Keys</p>
-                            <button onClick={handelckeckall}><i className="fas fa-key"></i> Issue All</button>
-                        </div>
-                        <div className="disp_gen_keys">
-                            <div className="table_hd">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Key</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            couponData.length !== 0 &&
-                                                    couponData.map((data,index)=>(
-                                                        <CouponKeyTableBody key={index} data={data} index={index} selectKeys={selectKeys} setselectKeys={setselectKeys} check={check}/>  
-                                                    ))
-                                        }
+                    isLoading ? <ProfileLoader/>
+                    :
+                        couponData.length !== 0 ?
+                        <div className="ac_table">
+                                <div className="mid_row">
+                                    <p>Not issue Keys</p>
+                                    <button onClick={handelckeckall}><i className="fas fa-key"></i> Issue All</button>
+                                </div>
+                                <div className="disp_gen_keys">
+                                    <div className="table_hd">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Key</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    couponData.length !== 0 &&
+                                                            couponData.map((data,index)=>(
+                                                                <CouponKeyTableBody key={index} data={data} index={index} selectKeys={selectKeys} setselectKeys={setselectKeys} check={check}/>  
+                                                            ))
+                                                }
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                           
                     </div>
                     :
                     <div className="no_keys">
-                        <h1>No Issued Enrollment Keys Available...</h1>
+                        <h1>No Enrollment Keys Available...</h1>
                         <div className="svg">
                             <img src={empty} alt=""/>
                         </div>

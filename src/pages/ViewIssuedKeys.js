@@ -1,17 +1,20 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { CSVLink, CSVDownload } from 'react-csv';
+import { CSVLink } from 'react-csv';
 import { store } from 'react-notifications-component';
 import { useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import { useSpring,animated  } from 'react-spring';
 import '../assets/css/displayissuekeys.css'
+import ProfileLoader from '../components/ProfileLoader';
+import empty from '../img/svg/bookladder.svg';
 
 export default function ViewIssuedKeys() {
 
     const {id} = useParams();
     const [allKeys, setallKeys] = useState([]);
     const [isRedirect,setisRedirect] = useState(false);
+    const [isLoading, setisLoading] = useState(true);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -29,7 +32,7 @@ export default function ViewIssuedKeys() {
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/issuedcoupon/${id}/`,{
                 headers:{Authorization:'Token '+usDetails.key}
             }).then(res=>{
-                console.log(res.data);
+                setisLoading(false);
                 setallKeys([...res.data])
             }).catch(()=>{
                 setisRedirect(true);
@@ -70,40 +73,51 @@ export default function ViewIssuedKeys() {
         return cvData;
     }
 
-
+    if(isLoading){
+        return <ProfileLoader/>
+    }
     return (
         <div className='disp_all_issu_keys'>
             <div className="disp_issu_keys">
                 {
-                    allKeys && 
+                    allKeys.length !== 0 && 
                         <animated.div style={animiCircle} className="csv_down_circle">
                             <CSVLink filename='Enrollment-Keys.csv' data={csvFile()}>
                             <i className="fas fa-download"></i>
                             </CSVLink>
                         </animated.div>
                 }
-                <div className="table_issu_hd">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Key</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                allKeys ? 
-                                    allKeys.map((keys,index)=>(
-                                        <tr key={keys.id}>
-                                            <td>{index+1}</td>
-                                            <td>{keys.coupon_key}</td>
-                                        </tr>
-                                    ))
-                                :''
-                            }
-                        </tbody>
-                    </table>
-                </div>
+                {
+                    allKeys.length !==0 ?
+                        <div className="table_issu_hd">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Key</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        allKeys &&
+                                            allKeys.map((keys,index)=>(
+                                                <tr key={keys.id}>
+                                                    <td>{index+1}</td>
+                                                    <td>{keys.coupon_key}</td>
+                                                </tr>
+                                            ))
+                                    }
+                                </tbody>
+                            </table>
+                    </div>
+                        : 
+                        <div className="no_keys">
+                            <h1>No Issued Enrollment Keys Available...</h1>
+                            <div className="svg">
+                                <img src={empty} alt=""/>
+                            </div>
+                        </div>
+                }
             </div>
         </div>
     )

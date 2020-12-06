@@ -68,3 +68,22 @@ th {
   padding: 13px 0;
   text-align: center;
 }
+.disp_all_issu_keys .disp_issu_keys .no_keys {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.disp_all_issu_keys .disp_issu_keys .no_keys h1 {
+  font-size: 20px;
+  margin-bottom: 25px;
+  color: #05aa47;
+}
+.disp_all_issu_keys .disp_issu_keys .no_keys .svg {
+  width: 300px;
+}
+.disp_all_issu_keys .disp_issu_keys .no_keys .svg img {
+  width: 100%;
+}
