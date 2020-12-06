@@ -90,7 +90,7 @@ export default function UpdateSujectForm({hadelChabgeFormValues,handelSubmit,hid
                             </p>
                         </div>
                         <p>
-                            <button className="sub" type={`${isUploading ? 'button' : 'submit'}`} name="create"><span>Create Subject</span> <i className={`fas fa-circle-notch notch ${!isUploading ? 'dis' : ''}`}></i></button>
+                            <button className="sub" type={`${isUploading ? 'button' : 'submit'}`} name="create"><span>Update Subject</span> <i className={`fas fa-circle-notch notch ${!isUploading ? 'dis' : ''}`}></i></button>
                         </p>
                     </form>
     )

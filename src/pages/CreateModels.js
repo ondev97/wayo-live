@@ -11,7 +11,7 @@ function CreateModels() {
     const [formValues, setformValues] = useState({mn:"",msg:""});
     const [formErrors, setformErrors] = useState({mn:"",msg:"",comerr:""});
     const [hide, sethide] = useState({mn:false,msg:false});
-    const [mediafiles, setmediafiles] = useState(null);
+    const [mediafiles, setmediafiles] = useState([]);
     const [isSubmit, setisSubmit] = useState(false);
     const [uploading, setuploading] = useState(false);
     //get acDetails from Redux Store
@@ -24,7 +24,9 @@ function CreateModels() {
         })
     }
     const files = (e)=>{
-        setmediafiles(e.target.files);
+        if(e.target.files){
+            setmediafiles([...mediafiles,...e.target.files]);
+        }
     }
 
     useEffect(() => {

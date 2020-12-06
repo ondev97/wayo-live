@@ -117,11 +117,11 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/profilesettings'>
                         <ProfileSettings/>
                     </Route>
-                    <Route path='/teacherdashboard/keys'>
-                        <GeneEnrollmentkeys/>
-                    </Route>
                     <Route path='/teacherdashboard/updatesubject/:subid'>
                         <UpdateSubject/>
+                    </Route>
+                    <Route path='/teacherdashboard/keys'>
+                        <GeneEnrollmentkeys/>
                     </Route>
                 </div>
             </div>

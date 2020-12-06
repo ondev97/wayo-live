@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import GenerateKeys from '../components/GenerateKeys'
-import ViewAllEnroKeys from '../components/ViewAllEnroKeys';
 import '../assets/css/geneenrollmentkeys.css';
+import ViewIssuedKeys from './ViewIssuedKeys';
 
 function GeneEnrollmentkeys() {
     return (
@@ -11,7 +11,7 @@ function GeneEnrollmentkeys() {
                 <Link to='/teacherdashboard/keys/genkeys'>
                     Generate Enrollment Keys
                 </Link>
-                <Link to='/teacherdashboard/keys/allkeys'>
+                <Link to='/teacherdashboard/keys/viewallissuekey'>
                     View All Enrollment Keys
                 </Link>
             </div>
@@ -19,8 +19,8 @@ function GeneEnrollmentkeys() {
                 <Route path='/teacherdashboard/keys/genkeys/:id'>
                     <GenerateKeys/>
                 </Route>
-                <Route path='/teacherdashboard/keys/allkeys'>
-                    <ViewAllEnroKeys/>
+                <Route path='/teacherdashboard/keys/viewallissuekey/:id'>
+                    <ViewIssuedKeys/>
                 </Route>
             </div>
         </div>

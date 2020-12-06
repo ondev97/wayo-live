@@ -137,7 +137,7 @@ function GenerateKeys() {
                     "issued_coupons":selectKeys
                 },{
                     headers:{Authorization:'Token '+usDetails.key}
-                }).then(res=>{
+                }).then(()=>{
                     setcheck(false);
                     setcheck(null);
                     setselectKeys([]);
