@@ -1,4 +1,6 @@
-import React from 'react';
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import '../assets/css/tcmoels.css';
 import ModelsCourseDescri from '../components/ModelsCourseDescri';
@@ -7,6 +9,39 @@ import TcOneModel from '../components/TcOneModel';
 export default function TcModels() {
 
     const {id} = useParams();
+    const [moduleData, setmoduleData] = useState([]);
+    const [moduleFiles, setmoduleFiles] = useState([]);
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+
+    useEffect(async () => {
+        if(usDetails.key){
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodules/${id}/`,{
+                headers:{Authorization:"Token "+usDetails.key}
+            }).then(res=>{
+                setmoduleData([...moduleData,...res.data]);
+
+            }).catch(err=>{
+                console.log(err);
+            })
+        }
+    }, [usDetails]);
+
+    useEffect(() => {
+        if(moduleData.length !== 0){
+            let arr = [];
+            moduleData.map((data)=>
+                Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodulefiles/${data.id}/`,{
+                    headers:{Authorization:"Token "+usDetails.key}
+                }).then(res=>{
+                    arr.push({[data.id]:res.data});
+                    setmoduleFiles([...moduleFiles,...arr]);
+                }).catch(err=>{
+                    console.log(err);
+                })
+                )
+            }
+        }, [moduleData]);
 
     return (
         <div>
@@ -25,13 +60,16 @@ export default function TcModels() {
                             </Link>
                         </div>
                         <div className="al_models">
-                           <TcOneModel/>
-                           <TcOneModel/>
+                            {
+                                moduleData.map((data)=>(
+                                    <TcOneModel key={data.id} msg={data.module_content} name={data.module_name} id={data.id} moduleFiles={moduleFiles}/>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
                 <div className="md_course_desc">
-                    <ModelsCourseDescri/>
+                    <ModelsCourseDescri id={id}/>
                 </div>
             </div>
         </div>

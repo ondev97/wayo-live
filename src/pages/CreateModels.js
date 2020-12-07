@@ -84,6 +84,7 @@ function CreateModels() {
         if(mediafiles !== null){
             for(let i=0;i<mediafiles.length;i++){
                 if((mediafiles[i].type !== 'video/mp4')){
+                    console.log(mediafiles[i].name);
                     fileData.append(`files`,mediafiles[i]);
                 }
             }
