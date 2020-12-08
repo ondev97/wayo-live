@@ -322,3 +322,10 @@ button:hover {
     transform: rotateZ(360deg);
   }
 }
+
+.ck.ck-editor {
+  min-height: 160px !important;
+}
+.ck-content {
+  min-height: 160px !important;
+}

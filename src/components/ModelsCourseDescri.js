@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import ModelPreviewAllStudents from '../components/ModelPreviewAllStudents';
 import ReactTimeAgo from 'react-time-ago';
+import { Link } from 'react-router-dom';
 
 export default function ModelsCourseDescri({id}) {
 
@@ -28,7 +29,9 @@ export default function ModelsCourseDescri({id}) {
                 <div className="course_pic">
                     <img src={`${courseDetails.course_cover}`} alt=""/>
                     <div className="cos_options">
-                        <button title="Edit This Course"><i className="fas fa-pencil-alt"></i>Edit Course</button>
+                        <Link to={`/teacherdashboard/updatecourse/${id}/`}>
+                            <button title="Edit This Course"><i className="fas fa-pencil-alt"></i>Edit Course</button>
+                        </Link>
                         <button title="Delete This Course"><i className="fas fa-trash-alt"></i>Delete Course</button>
                     </div>
                 </div>

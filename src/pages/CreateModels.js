@@ -2,8 +2,10 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { store } from 'react-notifications-component';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import ThreeStepSection from '../components/ThreeStepSection'
+import { Redirect, useParams } from 'react-router-dom';
+import ThreeStepSection from '../components/ThreeStepSection';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 function CreateModels() {
 
@@ -14,6 +16,8 @@ function CreateModels() {
     const [mediafiles, setmediafiles] = useState([]);
     const [isSubmit, setisSubmit] = useState(false);
     const [uploading, setuploading] = useState(false);
+    const [sucMsg, setsucMsg] = useState(false);
+    const [isRedirect, setisRedirect] = useState(true);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -46,7 +50,7 @@ function CreateModels() {
             errors.mn = "Module Name Is Required";
         }
         if(!values.msg){
-            if(!mediafiles){
+            if(mediafiles.length===0){
                 errors.comerr ="Do not Have Anything Please Select Media Or Create Message"
             }
         }
@@ -74,6 +78,7 @@ function CreateModels() {
     }, [formErrors])
 
     function uploadModule(){
+        setsucMsg(false);
         let formData = new FormData();
         let fileData = new FormData();
 
@@ -95,7 +100,7 @@ function CreateModels() {
                 "content-type":"multipart/form-data"
             }
         }).then(res=>{
-            if(res.data.id){
+            if(res.data.id && mediafiles.length!==0){
                 Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createmodulefile/${res.data.id}/`,fileData,{
                    headers:{Authorization:"Token "+usDetails.key},onUploadProgress:progressEvent=>{
                        if(progressEvent.isTrusted){
@@ -105,33 +110,47 @@ function CreateModels() {
                }).then(()=>{
                     setuploading(false);
                     setmediafiles(null);
+                    setsucMsg(true)
                     setformValues({mn:"",msg:""});
-
-                   //showing alert
-                    store.addNotification({
-                        title: "Module Added Successfully!",
-                        message: "OnDevlms",
-                        type: "success",
-                        insert: "top",
-                        container: "top-right",
-                        animationIn: ["animate__animated", "animate__fadeIn"],
-                        animationOut: ["animate__animated", "animate__fadeOut"],
-                        dismiss: {
-                        duration: 3000,
-                        onScreen: true,
-                        pauseOnHover: true,
-                        showIcon:true
-                        },
-                        width:600
-                    });
-
-               }).catch(err=>{
-                   console.log(err,"file");
                })
+            }
+            else{
+                setsucMsg(true);
             }
         }).catch(err=>{
             console.log(err);
         })
+    }
+    
+    if(sucMsg){
+        setsucMsg(false);
+        setisRedirect(true);
+        //showing alert
+        store.addNotification({
+            title: "Module Added Successfully!",
+            message: "OnDevlms",
+            type: "success",
+            insert: "top",
+            container: "top-right",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon:true
+            },
+            width:600
+        });
+    }
+
+    const editorOnChangeHandel = (e,editor) =>{
+        let data = editor.getData();
+        setformValues({...formValues,['msg']:data});
+    }
+
+    if(isRedirect){
+        <Redirect to={`teacherdashboard/models/${id}`}/>
     }
 
     return (
@@ -152,8 +171,10 @@ function CreateModels() {
                     </p>
                     <p>
                         <label htmlFor="msg">Messages/Links</label>
-                        <textarea name="msg" id="msg" rows="10" value={formValues.msg} onChange={hadelValues}></textarea>
                     </p>
+                        <div className="editorck">
+                            <CKEditor editor={ ClassicEditor } data={formValues.msg} onChange={editorOnChangeHandel} />
+                        </div>
                         {
                             mediafiles !== null ? 
                             <div className="show_files">

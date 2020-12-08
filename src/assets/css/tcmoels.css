@@ -130,6 +130,7 @@
   border-bottom: 1px solid #cfcfcf;
   margin-bottom: 20px;
   cursor: pointer;
+  font-size: 14px;
   transition: 0.2s;
 }
 .models
@@ -155,6 +156,19 @@
   i {
   margin-right: 10px;
   font-size: 23px;
+}
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  p
+  a {
+  text-decoration: none;
+  color: #067c4b;
+  font-weight: 400;
+  font-size: 13px;
 }
 
 .models .md_course_desc {
