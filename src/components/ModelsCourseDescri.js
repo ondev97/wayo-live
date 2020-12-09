@@ -41,7 +41,7 @@ export default function ModelsCourseDescri({id}) {
     }
 
     return (
-        <div>
+        <div className='colCourseView'>
             <div className="course_desc_head">
                 <div className="course_pic">
                     <img src={`${courseDetails.course_cover}`} alt=""/>

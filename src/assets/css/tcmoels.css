@@ -173,11 +173,15 @@
 
 .models .md_course_desc {
   flex: 0.3;
-  height: calc(100vh - 100px);
+  height: 85vh;
   position: sticky;
-  top: 0;
-  overflow-y: auto;
+  top: 90px;
+  bottom: 0;
+  overflow-y: hidden;
   background-color: #fff;
+}
+.models .md_course_desc .colCourseView {
+  height: 100%;
 }
 .models .md_course_desc .course_desc_head {
   position: relative;
@@ -336,8 +340,8 @@
   .all_course_student
   .student_row
   .student_col {
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   margin-right: 5px;
   border-radius: 50%;
   overflow: hidden;
