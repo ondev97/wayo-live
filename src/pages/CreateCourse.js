@@ -1,9 +1,9 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Cropper } from 'react-cropper';
 import { useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import CourseCreateForm from '../components/CourseCreateForm';
+import { checkErrors } from '../components/CourseFormValidation';
 import ThreeStepSection from '../components/ThreeStepSection'
 import CropImages from '../utils/hooks/CropImages';
 
@@ -34,28 +34,6 @@ export default function CreateCourse() {
         setcourseErrors(checkErrors(courseValue));
         sethide({course_name:false,course_price:false,course_description:false});
         setisSubmitting(true);
-    }
-
-    const checkErrors = (value) =>{
-        const formErrors = {};
-
-        if(!value.course_name.trim()){
-            formErrors.course_name="Course Name Is Required";
-        }
-        if(value.course_name.length >200){
-            formErrors.course_name="Course Name Must Be Less Than 200 Characters";
-        }
-        if(!value.course_price.trim()){
-            formErrors.course_price="Course Price Is Required";
-        }
-        if(value.course_description.length >= 300){
-            formErrors.course_description="Course Description Must Be Less Than 300 Characters";
-        }
-        if(!value.hr.trim()){
-            formErrors.hr ="Total Hours Of Subject Is Required";
-        }
-
-        return formErrors
     }
 
     const hideError = (e)=>{
