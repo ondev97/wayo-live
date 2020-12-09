@@ -410,7 +410,7 @@ i.cl {
   .cos_options_mna
   .options_manage
   ul
-  li:first-child {
+  li {
   color: red;
 }
 .top_manage_body
@@ -423,6 +423,17 @@ i.cl {
   li
   a {
   font-size: 14px;
+}
+.top_manage_body
+  .mange_cos_body
+  .manage_course_grid
+  .grid_card_manage
+  .cos_options_mna
+  .options_manage
+  ul
+  a
+  li {
+  color: #000;
 }
 .top_manage_body
   .mange_cos_body
