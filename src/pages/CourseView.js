@@ -6,13 +6,14 @@ import { useSpring,animated } from 'react-spring';
 import '../assets/css/courseview.css';
 import CourseSect from '../components/CourseSect';
 import ProfileLoader from '../components/ProfileLoader';
+import Empty from '../components/Empty';
 
 export default function CourseView() {
 
     const {id} = useParams();
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
-    const [courseData, setcourseData] = useState(null);
+    const [courseData, setcourseData] = useState([]);
     const [subData, setsubData] = useState({});
     const [isRedirect, setisRedirect] = useState(false);
     const [isShowDes, setisShowDes] = useState(false);
@@ -120,9 +121,9 @@ export default function CourseView() {
                     </div>
                     <div className="manage_course_grid">
                         {
-                            courseData ? 
+                            courseData.length !== 0 ? 
                                     courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
-                            :null
+                            : <Empty target='No Courses'/>
                         }
                     </div>
                 </div>     

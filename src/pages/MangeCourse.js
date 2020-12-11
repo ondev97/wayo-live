@@ -7,24 +7,45 @@ import '../assets/css/coursemanage.css'
 import Empty from '../components/Empty'
 import ProfileLoader from '../components/ProfileLoader'
 import TcMaCourses from '../components/TcMaCourses'
+import useDebounce from '../utils/hooks/useDebounce'
 
 export default function MangeCourse() {
 
     const [subDetails, setsubDetails] = useState([])
     const [isLoading, setisLoading] = useState(false);
     const [allSubDetail, setallSubDetail] = useState(null);
+    const [search, setsearch] = useState('');
     const [page, setpage] = useState(1);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
-    const getAllCourse = async()=>{
+    const debounce = useDebounce();//custom hook
+    const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teachersubject/${usDetails.id}`;
+
+    useEffect(() => {
+        if(search === ''){
+            const fetchurl = `${url}/?page=${page}`;
+            getSubjectDetails(fetchurl);
+        }
+        else{
+            const fetchurl = `${url}/?page=${page}&search=${search}`;
+            getSubjectDetails(fetchurl);
+        }
+    }, [usDetails,page,search]);
+
+    const getSubjectDetails = async(fetchurl) =>{
         setisLoading(true);
         if(usDetails.key){
-            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teachersubject/${usDetails.id}/?page=${page}`,{
+            await Axios.get(fetchurl,{
                 headers:{Authorization:"Token " + usDetails.key}
             }).then(res=>{
                 setisLoading(false);
-                setsubDetails([...subDetails,...res.data.results]);
+                if(page > 1){
+                    setsubDetails([...subDetails,...res.data.results]);
+                }
+                else{
+                    setsubDetails([...res.data.results]);
+                }
                 setallSubDetail(res.data);
             }).catch(err=>{
                 if(err.response.data){
@@ -34,14 +55,16 @@ export default function MangeCourse() {
         }
     }
     
-    useEffect(() => {
-        getAllCourse();
-    }, [usDetails,page]);
-
     function next(){
         if(allSubDetail.next){
             setpage(page+1);
         }
+    }
+    
+    const handelSearchSubject = (e) =>{
+        const search = e.target.value; 
+        setpage(1);
+        debounce(()=>setsearch(search));
     }
     
     return (
@@ -53,7 +76,7 @@ export default function MangeCourse() {
                     </Link>
                 </div>
                 <div className="search">
-                    <input type="text" name="search" placeholder="Search Your Courses"/>
+                    <input type="text" name="search" placeholder="Search Your Courses" onChange={handelSearchSubject}/>
                     <button><i className="fas fa-search"></i></button>
                 </div>
             </div>
@@ -73,7 +96,7 @@ export default function MangeCourse() {
                 
             </div>
             {
-                    isLoading &&  <ProfileLoader/>
+                isLoading &&  <ProfileLoader/>
             }
         </div>
     )

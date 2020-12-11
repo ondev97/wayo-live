@@ -30,9 +30,6 @@ function App() {
     else if(acDetails && acDetails.key && !acDetails.is_teacher){
       return <StudentDashBoard/>
     }
-    else{
-      return <Header acDetails={acDetails} />
-    }
   }
 
   return (

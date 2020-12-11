@@ -1,26 +1,30 @@
 import React from 'react';
 import ReactHtmlParser  from 'react-html-parser';
+import ReactPlayer from 'react-player/lazy';
 
 export default function TcOneModel({name,msg,moduleFiles,id}) {
 
     function filterTags(nodes){
-        /*if(nodes.length > 0){
-            let re;
-            nodes.map(nd=>(
-                nd.type ?
-                    nd.props.children ?
-                        nd.props.children.map(chi=>(
-                            chi.type ? 
-                                chi.type === 'a'? 
-                                    re = <a data={chi.props.href} onClick={geturl}>{chi.props.children}</a>
-                                :re=nodes
-                            :re=nodes
-                        ))
-                    : re=nodes  
-                : re =nodes
-            ))
-            return re;
-        }*/
+        console.log(nodes);
+        if(nodes.length > 0){
+            for(let i=0;i<nodes.length;i++){
+                if(nodes[i].type === 'figure' && nodes[i].props.className === 'media'){
+                    if(nodes[i].props.children){
+                        for(let x=0;x<nodes[i].props.children.length;x++){
+                            if(nodes[i].props.children[x].type ==='oembed'){
+                                return  <ReactPlayer url={nodes[i].props.children[x].props.url} controls='true' />
+                            }
+                        }
+                    }
+                    else{
+                        return nodes;
+                    }
+                }
+                else{
+                    return nodes;
+                }
+            }
+        }
         return nodes;
     }
 

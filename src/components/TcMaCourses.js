@@ -51,9 +51,12 @@ export default function TcMaCourses({id,subject_name,subject_cover,author,create
                 </div>
                 <div className="cscard_bottom">
                     <h4>By:{author.user.first_name && author.user.last_name ? author.user.first_name+' '+author.user.last_name : ''}</h4>
-                    <h4><i className="fas fa-clock"></i><ReactTimeAgo date={Date.parse(created_at)} locale="en-US"/></h4>
+                    {
+                        created_at &&
+                            <h4><i className="fas fa-clock"></i><ReactTimeAgo date={Date.parse(created_at)} locale="en-US"/></h4>
+                    }
                 </div>
             </Link>
         </div>
     )
-}//vwoplayer ublitio
+}
