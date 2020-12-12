@@ -61,10 +61,10 @@ function TcProfileSettings({setsettings}) {
 
        Axios.put(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateuser/${usDetails.id}/`,all_data,{
            headers:{Authorization:"Token " + usDetails.key}
-       }).then(res=>{
+       }).then(()=>{
             Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateteacher/${usDetails.id}/`,all_data,{
                 headers:{Authorization: "Token " + usDetails.key}
-            }).then(res=>{
+            }).then(()=>{
                 window.location.reload(false);
 
             })

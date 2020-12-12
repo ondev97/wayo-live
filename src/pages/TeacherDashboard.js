@@ -17,6 +17,7 @@ import CreateModels from './CreateModels';
 import GeneEnrollmentkeys from './GeneEnrollmentkeys';
 import UpdateSubject from './UpdateSubject';
 import UpdateCourse from './UpdateCourse';
+import UpdateModule from './UpdateModule';
 
 export default function TeacherDashboard() {
 
@@ -123,6 +124,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/updatecourse/:subid'>
                         <UpdateCourse/>
+                    </Route>
+                    <Route path='/teacherdashboard/updatemodule/:subid'>
+                        <UpdateModule/>
                     </Route>
                     <Route path='/teacherdashboard/keys'>
                         <GeneEnrollmentkeys/>
