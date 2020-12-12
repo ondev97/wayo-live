@@ -76,7 +76,7 @@ export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,
                         }
                     </p>
                     <p>
-                        <button className="sub" type={`${progress ? 'button' : 'submit'}`} name="create">Create Course <i className={`fas fa-circle-notch notch ${!progress ? 'dis' : ''}`}></i></button>
+                        <button className="sub" type={`${progress ? 'button' : 'submit'}`} name="create">Update Course <i className={`fas fa-circle-notch notch ${!progress ? 'dis' : ''}`}></i></button>
                     </p>
                 </form>
     )

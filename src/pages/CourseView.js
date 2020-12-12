@@ -30,7 +30,9 @@ export default function CourseView() {
                     setsubData({...subData,'sub_name':res.data.subject_name,'sub_cover':res.data.subject_cover,'sub_sdes':res.data.short_description,'description':res.data.description});
                 }
             }).catch(err=>{
-                console.log(err);
+                if(err.response.data.message){
+                    setisRedirect(true);
+                }
             })
 
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/courses/${id}/`,{

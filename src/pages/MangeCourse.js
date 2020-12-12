@@ -40,6 +40,7 @@ export default function MangeCourse() {
                 headers:{Authorization:"Token " + usDetails.key}
             }).then(res=>{
                 setisLoading(false);
+                console.log(res.data.results);
                 if(page > 1){
                     setsubDetails([...subDetails,...res.data.results]);
                 }
