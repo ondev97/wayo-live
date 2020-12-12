@@ -16,7 +16,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 50%;
+  opacity: 0.5;
 }
 .top_manage_course .top_manage_head {
   position: absolute;
@@ -186,7 +186,7 @@
   .grid_card_manage
   .grid_card_mg_head
   img {
-  opacity: 90%;
+  opacity: 0.9;
   width: 100%;
   height: 100%;
   transition: 0.5s ease;
@@ -197,7 +197,7 @@
   .grid_card_manage
   .grid_card_mg_head:hover
   img {
-  opacity: 70%;
+  opacity: 0.7;
 }
 .top_manage_body
   .mange_cos_body

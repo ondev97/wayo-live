@@ -18,9 +18,9 @@
 }
 @keyframes opa {
   0% {
-    opacity: 80%;
+    opacity: 0.8;
   }
   100% {
-    opacity: 100%;
+    opacity: 1;
   }
 }

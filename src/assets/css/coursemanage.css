@@ -81,7 +81,7 @@
   transition: 0.5s ease;
 }
 .main_ar_course .course_body .course_card .cscard_head:hover img {
-  opacity: 80%;
+  opacity: 0.8;
 }
 .main_ar_course .course_body .course_card .cos_options {
   position: absolute;

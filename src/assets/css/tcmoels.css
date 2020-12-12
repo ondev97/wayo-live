@@ -245,7 +245,7 @@
 .models .md_course_desc img {
   width: 100%;
   height: 100%;
-  opacity: 75%;
+  opacity: 0.75;
 }
 .models .md_course_desc .course_desc_head h2 {
   font-size: 18px;
