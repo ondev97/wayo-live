@@ -11,6 +11,7 @@ export default function TcModels() {
     const {id} = useParams();
     const [moduleData, setmoduleData] = useState([]);
     const [moduleFiles, setmoduleFiles] = useState([]);
+    const [isRemoveModule, setisRemoveModule] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -19,13 +20,12 @@ export default function TcModels() {
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodules/${id}/`,{
                 headers:{Authorization:"Token "+usDetails.key}
             }).then(res=>{
-                setmoduleData([...moduleData,...res.data]);
-
+                setmoduleData(res.data);
             }).catch(err=>{
                 console.log(err);
             })
         }
-    }, [usDetails]);
+    }, [usDetails,isRemoveModule]);
 
     useEffect(() => {
         if(moduleData.length !== 0){
@@ -35,7 +35,7 @@ export default function TcModels() {
                     headers:{Authorization:"Token "+usDetails.key}
                 }).then(res=>{
                     arr.push({[data.id]:res.data});
-                    setmoduleFiles([...moduleFiles,...arr]);
+                    setmoduleFiles([...arr]);
                 }).catch(err=>{
                     console.log(err);
                 })
@@ -61,9 +61,13 @@ export default function TcModels() {
                         </div>
                         <div className="al_models">
                             {
-                                moduleData.map((data)=>(
-                                    <TcOneModel key={data.id} msg={data.module_content} name={data.module_name} id={data.id} moduleFiles={moduleFiles}/>
-                                ))
+                                moduleData.length !== 0 ?
+                                    moduleData.map((data)=>(
+                                       <TcOneModel key={data.id} msg={data.module_content} name={data.module_name} id={data.id} moduleFiles={moduleFiles} setisRemoveModule={setisRemoveModule}/>
+                                    ))
+                                :   <div className="empy">
+                                        <h3>No Course Module Available..</h3>
+                                    </div>
                             }
                         </div>
                     </div>

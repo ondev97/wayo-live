@@ -1,35 +1,63 @@
+import Axios from 'axios';
 import React from 'react';
 import ReactHtmlParser  from 'react-html-parser';
 import ReactPlayer from 'react-player/lazy';
+import { useSelector } from 'react-redux';
 
-export default function TcOneModel({name,msg,moduleFiles,id}) {
+export default function TcOneModel({name,msg,moduleFiles,id,setisRemoveModule}) {
 
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+
+    //filtering message and embed react player
     function filterTags(nodes){
-        console.log(nodes);
+        let media = [];
         if(nodes.length > 0){
             for(let i=0;i<nodes.length;i++){
                 if(nodes[i].type === 'figure' && nodes[i].props.className === 'media'){
                     if(nodes[i].props.children){
                         for(let x=0;x<nodes[i].props.children.length;x++){
                             if(nodes[i].props.children[x].type ==='oembed'){
-                                return  <ReactPlayer url={nodes[i].props.children[x].props.url} controls='true' />
+                                media.push(
+                                    <div className='re_player' key={i}>
+                                        <ReactPlayer url={nodes[i].props.children[x].props.url} controls={true} pip={true} className='player' width='100%' height='100%'/>
+                                    </div>
+                                    )
+                            }
+                            else{
+                                media = [...media,nodes[i]];
                             }
                         }
                     }
                     else{
-                        return nodes;
+                        media = [...media,nodes[i]];
                     }
                 }
                 else{
-                    return nodes;
+                    media = [...media,nodes[i]];
                 }
             }
+            return media;
         }
-        return nodes;
     }
 
-    const geturl = (e) =>{
-        console.log(e.target);
+    const functionRemoveModule = (id) =>{
+
+        Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletemodule/${id}/`,{
+            headers:{Authorization:"Token " + usDetails.key}
+        }).then(()=>{
+            setisRemoveModule(true);
+        }).catch(err=>{
+            console.log(err);
+        })
+
+    }
+
+    const handelDeleteModule = async (id) =>{
+        if(window.confirm('Are You Sure?')){
+            setisRemoveModule(false);
+            await functionRemoveModule(id);
+        }
     }
 
     return (
@@ -38,7 +66,7 @@ export default function TcOneModel({name,msg,moduleFiles,id}) {
                 <h1>{name}</h1>
                 <div className="heads_buts">
                     <button><i className="fas fa-edit"></i></button>
-                    <button><i className="fas fa-trash"></i></button>
+                    <button onClick={()=>handelDeleteModule(id)}><i className="fas fa-trash"></i></button>
                 </div>
             </div>
             <div className="on_model_body">

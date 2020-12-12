@@ -20,7 +20,7 @@ export default function MangeCourse() {
     const usDetails = useSelector(state => state.accountDetails);
 
     const debounce = useDebounce();//custom hook
-    const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teachersubject/${usDetails.id}`;
+    const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teachersubject`;
 
     useEffect(() => {
         if(search === ''){
