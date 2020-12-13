@@ -322,6 +322,11 @@ button:hover {
     transform: rotateZ(360deg);
   }
 }
+.subject_form .main_form .show_files .up_list li .moddl {
+  color: #de0404;
+  cursor: pointer;
+  font-size: 16px;
+}
 
 .ck.ck-editor {
   min-height: 160px !important;

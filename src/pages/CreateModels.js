@@ -6,6 +6,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import ThreeStepSection from '../components/ThreeStepSection';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import checkErrors from '../components/ValidateModule';
 
 function CreateModels() {
 
@@ -17,7 +18,7 @@ function CreateModels() {
     const [isSubmit, setisSubmit] = useState(false);
     const [uploading, setuploading] = useState(false);
     const [sucMsg, setsucMsg] = useState(false);
-    const [isRedirect, setisRedirect] = useState(true);
+    const [isRedirect, setisRedirect] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -44,18 +45,6 @@ function CreateModels() {
         }
     }, [mediafiles])
 
-    const checkErrors = (values)=>{
-        let errors={};
-        if(!values.mn.trim()){
-            errors.mn = "Module Name Is Required";
-        }
-        if(!values.msg){
-            if(mediafiles.length===0){
-                errors.comerr ="Do not Have Anything Please Select Media Or Create Message"
-            }
-        }
-        return errors;
-    }
     const hideErrors = (e)=>{
         Object.entries(formErrors).map(([keys,val]) =>{
             if(keys === e.target.name && val !== ""){
@@ -89,7 +78,6 @@ function CreateModels() {
         if(mediafiles !== null){
             for(let i=0;i<mediafiles.length;i++){
                 if((mediafiles[i].type !== 'video/mp4')){
-                    console.log(mediafiles[i].name);
                     fileData.append(`files`,mediafiles[i]);
                 }
             }
@@ -144,13 +132,13 @@ function CreateModels() {
         });
     }
 
-    const editorOnChangeHandel = (editor) =>{
+    const editorOnChangeHandel = (e,editor) =>{
         let data = editor.getData();
         setformValues({...formValues,['msg']:data});
     }
 
     if(isRedirect){
-        <Redirect to={`teacherdashboard/models/${id}`}/>
+        return <Redirect to={`/teacherdashboard/models/${id}`}/>
     }
 
     return (

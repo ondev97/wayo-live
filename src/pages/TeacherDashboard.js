@@ -125,7 +125,7 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/updatecourse/:subid'>
                         <UpdateCourse/>
                     </Route>
-                    <Route path='/teacherdashboard/updatemodule/:subid'>
+                    <Route path='/teacherdashboard/updatemodule/:cosid'>
                         <UpdateModule/>
                     </Route>
                     <Route path='/teacherdashboard/keys'>
