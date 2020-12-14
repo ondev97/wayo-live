@@ -96,6 +96,7 @@
   font-size: 25px;
   color: #afafaf;
   cursor: pointer;
+  transition: transform 0.8s;
 }
 .top_manage_course .down i.up {
   transform: rotateZ(180deg);

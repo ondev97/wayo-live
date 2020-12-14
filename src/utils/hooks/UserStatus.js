@@ -40,7 +40,7 @@ function UserStatus() {
         }
     })
 
-    return ([log,hadelLogOut])
+    return ({log,hadelLogOut})
 }
 
 export default UserStatus

@@ -10,7 +10,7 @@ import { store } from 'react-notifications-component';
 export default function UpdateModule() {
 
     const {cosid} = useParams();
-    const [formValues, setformValues] = useState({mn:"",msg:""});
+    const [formValues, setformValues] = useState({mn:"",msg:"",cid:""});
     const [formErrors, setformErrors] = useState({mn:"",msg:"",comerr:""});
     const [hide, sethide] = useState({mn:false,msg:false});
     const [mediafiles, setmediafiles] = useState([]);
@@ -22,15 +22,14 @@ export default function UpdateModule() {
     const [isDelete, setisDelete] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
-
+    const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api`;
 
     const getValues = async ()=>{
-        await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getsinglemodule/${cosid}/`,{
+        await Axios.get(`${url}/getsinglemodule/${cosid}/`,{
             headers:{Authorization:'Token ' + usDetails.key}
         }).then(res=>{
-            console.log(res.data.module_name);
             if(res.data.module_name){
-                setformValues({...formValues,mn:res.data.module_name});
+                setformValues({...formValues,mn:res.data.module_name,cid:res.data.course});
                 setformValues({...formValues,msg:res.data.module_content});
             }
         }).catch(err=>{
@@ -41,25 +40,21 @@ export default function UpdateModule() {
     }
 
     const getModuleFiles = async () =>{
-        await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodulefiles/${cosid}/`,{
+        await Axios.get(`${url}/getmodulefiles/${cosid}/`,{
             headers:{Authorization:"Token "+usDetails.key}
         }).then(res=>{
             setmediafiles(res.data);
-        }).catch(err=>{
-            console.log(err);
         })
     }
-    
+    //delete module
     const deleteModuleFile = async (modid) =>{
         if(window.confirm('Are You Sure?')){
-            await Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletemodulefile/${modid}/`,{
+            await Axios.delete(`${url}/deletemodulefile/${modid}/`,{
                 headers:{Authorization:"Token "+usDetails.key}
             }).then(res=>{
                 if(res){
                     setisDelete(!isDelete);
                 }
-            }).catch(err=>{
-                console.log(err);
             })
         }
     }
@@ -77,6 +72,18 @@ export default function UpdateModule() {
             getModuleFiles();
         }
     }, [usDetails,isDelete]);
+
+    useEffect(() => {
+        if(newmediafiles !== null){
+
+            for(let i=0;i<newmediafiles.length;i++){
+                if(newmediafiles[i].type === 'video/mp4'){
+                    console.log('no');
+                    setformErrors({...formErrors,comerr:"Please Upload Video Files To Vimeo And paste Vimeo URL In Here"});
+                }
+            }
+        }
+    }, [newmediafiles]);
 
     const hideErrors = (e)=>{
         Object.entries(formErrors).map(([keys,val]) =>{
@@ -115,7 +122,9 @@ export default function UpdateModule() {
 
         if(newmediafiles !== null){
             for(let i=0;i<newmediafiles.length;i++){
-                fileData.append(`files`,newmediafiles[i]);
+                if((newmediafiles[i].type !== 'video/mp4')){
+                    fileData.append(`files`,newmediafiles[i]);
+                }
             }
         }
 
@@ -176,7 +185,7 @@ export default function UpdateModule() {
         return <Redirect to="/teacherdashboard/managecourse/"/>
     }
     if(isRedirect.ne){
-        return <Redirect to={`/teacherdashboard/models/${cosid}`}/>
+        return <Redirect to={`/teacherdashboard/models/${formValues.cid}`}/>
     }
 
     return (

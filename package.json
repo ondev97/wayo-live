@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "axios-react": "^2.0.2",
+    "framer-motion": "^2.9.5",
     "react": "^17.0.1",
     "react-cropper": "^2.1.4",
     "react-csv": "^2.0.3",

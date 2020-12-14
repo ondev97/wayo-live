@@ -7,6 +7,7 @@ import '../assets/css/courseview.css';
 import CourseSect from '../components/CourseSect';
 import ProfileLoader from '../components/ProfileLoader';
 import Empty from '../components/Empty';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 
 export default function CourseView() {
 
@@ -58,21 +59,6 @@ export default function CourseView() {
         }
     }
 
-    //animations
-    const modelAni = useSpring({
-        config:{
-            duration:500
-        },
-        transform:isShowDes ? 'translateY(0%)' : 'translateY(-100%)',
-        opacity:isShowDes ? 1 : 0
-    })
-    const rotate = useSpring({
-        config:{
-            duration:500
-        },
-        transform:isShowDes ? 'rotateZ(180deg)' : 'rotateZ(0deg)'
-    })
-
     if(isRedirect){
         return <Redirect to="/teacherdashboard/managecourse/"/>
     }
@@ -101,19 +87,23 @@ export default function CourseView() {
                 </div>
                 {
                     subData.description ?
-                        <div className="down">
-                            <animated.i style={rotate} className={`fas fa-chevron-down ${isShowDes ? 'up' : ''}`} onClick={()=>setisShowDes(!isShowDes)}></animated.i>
-                        </div>
+                        <motion.div layout className="down">
+                            <motion.i layout className={`fas fa-chevron-down ${isShowDes ? 'up' : ''}`} onClick={()=>setisShowDes(!isShowDes)}></motion.i>
+                        </motion.div>
                     :''
                 }
             </div>
-            {
-                isShowDes && subData.description ? 
-                    <animated.div className="sub_des_show" style={modelAni}>
-                        <p>{subData.description}</p>
-                    </animated.div>
-                : ''
-            }
+                    <motion.div layout>
+                        <AnimateSharedLayout>
+                        {
+                            isShowDes && subData.description ?
+                                <div  className="sub_des_show">
+                                    <p>{subData.description}</p>
+                                </div>
+                            : ''
+                        }
+                        </AnimateSharedLayout> 
+                    </motion.div>
             <div className="top_manage_body">
                 <div className="mange_cos_body">
                     <div className="manage_course_nav">
