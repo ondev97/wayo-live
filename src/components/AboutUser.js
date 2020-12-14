@@ -28,20 +28,20 @@ export default function AboutUser() {
                     </div>
                 </div>
                 <div className="disdis">
-                    <p>{profileDetails.des && profileDetails.des}</p>    
+                    <p>{profileDetails.des && profileDetails.des !== 'null' && profileDetails.des}</p>    
                 </div>
                     {
                         (profileDetails.ed1 || profileDetails.ed2 || profileDetails.ed3) &&
                             <div className="ac_education">
                                 <h3>Education</h3>
                                 {
-                                    profileDetails.ed1 && <h4>{profileDetails.ed1}</h4>
+                                    profileDetails.ed1 && profileDetails.ed1 !== 'null' && <h4>{profileDetails.ed1}</h4>
                                 }
                                 {
-                                    profileDetails.ed2 && <h4>{profileDetails.ed2}</h4>
+                                    profileDetails.ed2  && profileDetails.ed2 !== 'null' && <h4>{profileDetails.ed2}</h4>
                                 }
                                 {
-                                    profileDetails.ed3 && <h4>{profileDetails.ed3}</h4>
+                                    profileDetails.ed3  && profileDetails.ed3 !== 'null' && <h4>{profileDetails.ed3}</h4>
                                 }
                             </div>
                     }
@@ -50,13 +50,13 @@ export default function AboutUser() {
                             <div className="ac_experience">
                                 <h3>Experiences</h3>
                                 {
-                                    profileDetails.ex1 && <h4>{profileDetails.ex1}</h4>
+                                    profileDetails.ex1 &&  profileDetails.ex1 !== 'null' && <h4>{profileDetails.ex1}</h4>
                                 }
                                 {
-                                    profileDetails.ex2 && <h4>{profileDetails.ex2}</h4>
+                                    profileDetails.ex2 &&  profileDetails.ex2 !== 'null' && <h4>{profileDetails.ex2}</h4>
                                 }
                                 {
-                                    profileDetails.ex3 && <h4>{profileDetails.ex3}</h4>
+                                    profileDetails.ex3 &&  profileDetails.ex3 !== 'null' && <h4>{profileDetails.ex3}</h4>
                                 }
                             </div>
                     }

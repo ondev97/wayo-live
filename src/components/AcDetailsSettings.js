@@ -59,7 +59,7 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                         <div className="sectpr">
                             <p>
                                 <label htmlFor="ad">Descriptions</label>
-                                <textarea cols="30" rows="10" name="des" value={values.des || ''} onChange={hadelChange} onFocus={hideError}></textarea>
+                                <textarea cols="30" rows="10" name="des" value={values.des === 'null' ? '' : values.des } onChange={hadelChange} onFocus={hideError}></textarea>
                                 {
                                     errors.des && <span className={`tip ${hide.des ? 'hidetip' : ''}`}>{errors.des}</span>
                                 }
@@ -103,8 +103,8 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                         </div>
                         <div className="sectpr">
                             <p>
-                                <label htmlFor="pw">Password</label>
-                                <input type="password" name="pw" id="pw" value={values.pw} onChange={hadelChange} onFocus={hideError}/>
+                                <label htmlFor="pw" style={{fontWeight:'bold'}}>Password</label>
+                                <input type="password" name="pw" id="pw" value={values.pw} onChange={hadelChange} onFocus={hideError} style={{borderColor:'#f57100'}}/>
                                 {
                                     errors.pw && <span className={`tip ${hide.pw ? 'hidetip' : ''}`}>{errors.pw}</span>
                                 }

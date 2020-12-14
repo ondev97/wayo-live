@@ -29,14 +29,14 @@ function ProfileUpdate(submit) {
     useEffect(() => {
         //removing empty objects in experience and education fields
         if(fini){
-            let fini = inputField.filter(val => val.ex !== 'null' && val.ex !== undefined && val.ex !== '');
+            let fini = inputField.filter(val => (val.ex !== null && val.ex !== undefined && val.ex !== '' && val.ex !== 'null'));
             setinputField(fini);
-            setfini(false)
+            setfini(false);
         }
         if(fidi){
-            let fidi = inputFieldED.filter(val => val.ed !== 'null' && val.ed !== undefined && val.ed !== '');
+            let fidi = inputFieldED.filter(val => val.ed !== null && val.ed !== 'null' && val.ed !== undefined && val.ed !== '');
             setinputFieldED(fidi);
-            setfidi(false)
+            setfidi(false);
         }
     })
 

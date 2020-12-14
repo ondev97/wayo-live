@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TeacherDashboardHeader from '../components/TeacherDashboardHeader';
 import '../assets/css/dashboard.css'
-import { Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
 import ProfileSettings from './ProfileSettings';
 import MangeCourse from './MangeCourse';
 import UserStatus from '../utils/hooks/UserStatus';
@@ -85,7 +85,7 @@ export default function TeacherDashboard() {
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>
-                                            <li><i className="far fa-user-circle"></i>Profile</li>
+                                            <Link to='/teacherdashboard/profilesettings'><li><i className="far fa-user-circle"></i>Profile</li></Link>
                                             <li onClick={hadelLogOut}><i className="fas fa-sign-out-alt" ></i>Log Out</li>
                                         </ul>
                                     </div>

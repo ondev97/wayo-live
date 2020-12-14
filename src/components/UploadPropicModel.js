@@ -5,6 +5,7 @@ import '../assets/css/modelStyles.css';
 import Axios from 'axios';
 import {useSelector } from 'react-redux';
 import { Cropper } from 'react-cropper';
+import { useHistory } from 'react-router-dom';
 
 export default function UploadPropicModel({setshowModel,showModel,filePath,setfilePath,image,getCropData,setCropper,cropData,setCropData}) {
 
@@ -57,6 +58,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
+    const history = useHistory();
 
     //upload image
     const HadelUploadImage = (e) =>{
@@ -78,7 +80,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
                 )
             }
         }).then(()=>{
-                window.location.reload(false);
+               history.go(0);
         }).catch(err=>console.log(err))
     }
     

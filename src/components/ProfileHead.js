@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/usprofile.css";
 import UploadPropicModel from "./UploadPropicModel";
 import AcDetails from "../utils/hooks/AcDetails";
 import { store } from "react-notifications-component";
 import CropImages from "../utils/hooks/CropImages";
+import Axios from "axios";
+import { useSelector } from "react-redux";
 
 export default function ProfileHead() {
 
@@ -21,6 +23,7 @@ export default function ProfileHead() {
       if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
         setimgObjectURL(URL.createObjectURL(e.target.files[0]));
         setfilePath(e.target.files[0]);
+        openModel();
       }
       else{
           setshowModel(!showModel);
@@ -42,7 +45,7 @@ export default function ProfileHead() {
       });
       }
     }
-  }
+  };
 
   const [teachProfilepic,profileDetails] = AcDetails();
 
@@ -55,7 +58,7 @@ export default function ProfileHead() {
           <p>Instructor</p>
           <div className="srow_pro_pic">
             <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt="" />
-            <label htmlFor="uppic" onClick={openModel}>
+            <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>
             <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}}/>
@@ -73,7 +76,7 @@ export default function ProfileHead() {
           <div className="tous">
             <div className="coscount">
               <h3>20</h3>
-              <p>Courses</p>
+              <p>Subject</p>
             </div>
           </div>
         </div>
