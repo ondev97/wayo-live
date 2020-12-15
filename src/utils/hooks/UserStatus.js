@@ -24,8 +24,6 @@ function UserStatus() {
         if(Object.keys(JSON.parse(localStorage.getItem("usValues"))).length !== 0){
             Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/logout/`,{
                 headers: {Authorization: "Token " + JSON.parse(localStorage.getItem("usValues")).key}
-            }).then(res=>{
-
             })
 
             localStorage.setItem("usValues",JSON.stringify({}));
@@ -38,7 +36,7 @@ function UserStatus() {
         if (!localStorageCheck()) {
             setlog(false);
         }
-    })
+    });
 
     return ({log,hadelLogOut})
 }

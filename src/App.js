@@ -25,11 +25,9 @@ function App() {
       return <Header acDetails={acDetails} />
     }
     else if(acDetails && acDetails.key && acDetails.is_teacher){
-      console.log(acDetails,'teacher')
       return null
     }
     else if(acDetails && acDetails.key && !acDetails.is_teacher){
-      console.log(acDetails,'student')
       return null
     }
   }

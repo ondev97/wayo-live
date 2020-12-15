@@ -25,7 +25,7 @@ export default function TeacherDashboard() {
     const [toggelProfile, settoggelProfile] = useState(false);
     
     const {log,hadelLogOut} = UserStatus();//custom hook
-    const [teachProfilepic] =AcDetails()
+    const [teachProfilepic] =AcDetails();
     const dispatch = useDispatch();
     
     
@@ -44,7 +44,6 @@ export default function TeacherDashboard() {
     const full = () =>{
         let elem = document.documentElement;
         if(!window.screenTop && !window.screenY){
-            console.log('yesa');
             if (elem.requestFullscreen) {
               elem.requestFullscreen();
             } else if (elem.webkitRequestFullscreen) { /* Safari */
@@ -54,7 +53,6 @@ export default function TeacherDashboard() {
             }
         }
         else{
-            console.log('not');
             if (document.exitFullscreen) {
                 document.exitFullscreen();
               } else if (document.webkitExitFullscreen) { /* Safari */

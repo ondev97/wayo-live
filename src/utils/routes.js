@@ -1,9 +1,8 @@
 import Home from "../pages/Home";
 import StLogin from "../pages/StLogin";
 import StSignUp from "../pages/StSignUp";
-import UserDashboard from "../pages/UserDashboard";
+import StudentDashBoard from "../pages/student/StudentDashBoard";
 import TeacherDashboard from "../pages/TeacherDashboard";
-import StudentDashBoard from "../components/StudentDashBoard";
 
 export default [
     {
