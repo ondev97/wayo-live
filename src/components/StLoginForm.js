@@ -8,7 +8,7 @@ export default function StLoginForm() {
 
    if(Object.values(acDetails).length !== 0){
        if(!acDetails.user.is_teacher){
-           return <Redirect to="/userdashboard" />
+           return <Redirect to="/studentdashboard" />
         }
         else if(acDetails.user.is_teacher){
             return <Redirect to="/teacherdashboard/teachermaindashboard" />

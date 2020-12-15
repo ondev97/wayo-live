@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './utils/routes';
 import {useSelector} from 'react-redux'
 import { useEffect, useState } from 'react';
-import StudentDashBoard from './components/StudentDashBoard';
 import ReactNotification  from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+import StudentDashBoard from './components/StudentDashBoard';
 
 function App() {
 
@@ -25,10 +25,12 @@ function App() {
       return <Header acDetails={acDetails} />
     }
     else if(acDetails && acDetails.key && acDetails.is_teacher){
+      console.log(acDetails,'teacher')
       return null
     }
     else if(acDetails && acDetails.key && !acDetails.is_teacher){
-      return <StudentDashBoard/>
+      console.log(acDetails,'student')
+      return null
     }
   }
 
@@ -43,7 +45,6 @@ function App() {
               {
                 routes.map((route,index) => <Route path={route.path} key={index} exact={route.exact} component={route.components} />)
               }
-              
             </Switch>
         </Router>
     </div>

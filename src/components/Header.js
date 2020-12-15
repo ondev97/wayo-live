@@ -6,19 +6,36 @@ import child from '../img/child.png'
 export default function Header({acDetails}) {
     const headerProPic = ()=>{
         if(acDetails.key){
-            return(
-                <div className="pro_pic">
-                    <div className="ac_details_header">
-                        <h3>Ozka</h3>
-                        <p>Instructor</p>
-                    </div>
-                    <Link to="teacherdashboard/teachermaindashboard/">
-                        <div className="img">
-                            <img src={child} alt=""/>
+            if(acDetails.is_teacher){
+                return(
+                    <div className="pro_pic">
+                        <div className="ac_details_header">
+                            <h3>Instructor</h3>
+                            <p>Instructor</p>
                         </div>
-                    </Link>
-                </div>
-            )
+                        <Link to="teacherdashboard/teachermaindashboard/">
+                            <div className="img">
+                                <img src={child} alt=""/>
+                            </div>
+                        </Link>
+                    </div>
+                )
+            }
+            else{
+                return(
+                    <div className="pro_pic">
+                        <div className="ac_details_header">
+                            <h3>student</h3>
+                            <p>Student</p>
+                        </div>
+                        <Link to="studentdashboard">
+                            <div className="img">
+                                <img src={child} alt=""/>
+                            </div>
+                        </Link>
+                    </div>
+                )
+            }
         }
         else{
             return(
