@@ -19,6 +19,8 @@ function CreateModels() {
     const [uploading, setuploading] = useState(false);
     const [sucMsg, setsucMsg] = useState(false);
     const [isRedirect, setisRedirect] = useState(false);
+    const [progressBarPrecen, setprogressBarPrecen] = useState(0);
+
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -93,6 +95,9 @@ function CreateModels() {
                    headers:{Authorization:"Token "+usDetails.key},onUploadProgress:progressEvent=>{
                        if(progressEvent.isTrusted){
                            setuploading(true);
+                           setprogressBarPrecen(
+                               parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total))
+                            )
                        }
                    }
                }).then(()=>{
@@ -169,7 +174,7 @@ function CreateModels() {
                             <ul className="up_list">
                                 {
                                     Object.values(mediafiles).map((value,index)=>(
-                                        value.type !== 'video/mp4' && <li key={index} className="row">{value.name}<i className={`fas fa-circle-notch ${uploading ? 'rot' : 'dis'} `}></i></li>
+                                        value.type !== 'video/mp4' && <li key={index} className="row"><span><i className="far fa-circle"></i>{value.name}</span><i className={`fas fa-circle-notch ${uploading ? 'rot' : 'dis'} `}></i></li>
                                     ))
                                 }
                             </ul>
@@ -177,13 +182,20 @@ function CreateModels() {
                             :''
                         }
                     <div className="multi_files">
-                        <p>
-                            <label htmlFor="fl">Upload Module Materials</label>
-                            <input type="file" name="file" className="multi" id="fl" multiple onChange={files}/>
-                        </p>
+                        {
+                            !uploading ?
+                                <p>
+                                    <label htmlFor="fl">Upload Module Materials</label>
+                                    <input type="file" name="file" className="multi" id="fl" multiple onChange={files}/>
+                                </p>
+
+                            : <div className="progressPath">
+                                <div className="progressBar" style={{width:`${progressBarPrecen}%`}}></div>
+                            </div>
+                        }
                     </div>
                     <p>
-                        <input type="submit" name="submit" value="Upload Module"/>
+                        <input type={`${uploading ? 'button' : 'submit'}`} name="submit" value={`${uploading ? 'Uploading' : 'Upload Module'}`} />
                     </p>
                 </form>
             </div>

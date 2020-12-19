@@ -48,7 +48,6 @@ function TcProfileSettings({setsettings}) {
            all_data.append(`experience2`,'');
            all_data.append(`experience3`,'');
        }
-       console.log(values);
         all_data.append('first_name',values.firstName);
         all_data.append('last_name',values.lastName);
         all_data.append('username',values.userName);

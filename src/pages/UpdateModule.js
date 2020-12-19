@@ -20,6 +20,7 @@ export default function UpdateModule() {
     const [sucMsg, setsucMsg] = useState(false);
     const [isRedirect, setisRedirect] = useState({pr:'',ne:''});
     const [isDelete, setisDelete] = useState(false);
+    const [progressBarPrecen, setprogressBarPrecen] = useState(0);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
     const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api`;
@@ -30,6 +31,8 @@ export default function UpdateModule() {
         }).then(res=>{
             if(res.data.module_name){
                 setformValues({...formValues,mn:res.data.module_name,cid:res.data.course});
+            }
+            if(res.data.module_content){
                 setformValues({...formValues,msg:res.data.module_content});
             }
         }).catch(err=>{
@@ -136,6 +139,9 @@ export default function UpdateModule() {
                     headers:{Authorization:"Token "+usDetails.key},onUploadProgress:progressEvent=>{
                         if(progressEvent.isTrusted){
                             setuploading(true);
+                            setprogressBarPrecen(
+                                parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total))
+                            )
                         }
                     }
                 }).then(()=>{
@@ -215,26 +221,32 @@ export default function UpdateModule() {
                             <ul className="up_list">
                                 {
                                     Object.values(mediafiles).map((value,index)=>(
-                                        value.type !== 'video/mp4' && <li key={index} className="row">{value.file_name}{!uploading ? <i className="fas fa-minus-circle moddl" onClick={()=>deleteModuleFile(value.id)}></i> : ''}</li>
+                                        value.type !== 'video/mp4' && <li key={index} className="row"><span><i class="fas fa-circle"></i>{value.file_name || value.id}</span>{!uploading ? <i className="fas fa-minus-circle moddl" onClick={()=>deleteModuleFile(value.id)}></i> : ''}</li>
                                     ))
                                 }
                                 {
                                     Object.values(newmediafiles).map((value,index)=>(
-                                        value.type !== 'video/mp4' && <li key={index} className='row'>{value.name}<i className={`fas fa-circle-notch ${uploading ? 'rot' : 'dis'} `}></i></li>
+                                        value.type !== 'video/mp4' && <li key={index} className='row'><span><i class="far fa-circle"></i>{value.name || value.id}</span><i className={`fas fa-circle-notch ${uploading ? 'rot' : 'dis'} `}></i></li>
                                     ))
                                 }
                             </ul>
                             </div>
-                            :''
+                            : ''
                         }
                     <div className="multi_files">
-                        <p>
-                            <label htmlFor="fl">Upload Module Materials</label>
-                            <input type="file" name="file" className="multi" id="fl" multiple onChange={files}/>
-                        </p>
+                        {
+                            !uploading ? 
+                                <p>
+                                    <label htmlFor="fl">Upload Module Materials</label>
+                                    <input type="file" name="file" className="multi" id="fl" multiple onChange={files}/>
+                                </p>
+                            :<div className="progressPath">
+                                <div className="progressBar" style={{width:`${progressBarPrecen}%`}}></div>
+                            </div>
+                        }
                     </div>
                     <p>
-                        <input type="submit" name="submit" value="Upload Module"/>
+                        <input type={`${uploading ? 'button' : 'submit'}`} name="submit" value={`${uploading ? 'Updating' : 'Updating Module'}`}/>
                     </p>
                 </form>
             </div>

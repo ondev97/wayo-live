@@ -13,7 +13,7 @@
   color: #00a959;
 }
 .empty img {
-  width: 750px;
+  width: 500px;
   animation: opa 1s alternate infinite;
 }
 @keyframes opa {

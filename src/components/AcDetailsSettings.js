@@ -59,7 +59,7 @@ export default function AcDetailsSettings({hadelChange,hadelSubmitForm,values,er
                         <div className="sectpr">
                             <p>
                                 <label htmlFor="ad">Descriptions</label>
-                                <textarea cols="30" rows="10" name="des" value={values.des === 'null' ? '' : values.des } onChange={hadelChange} onFocus={hideError}></textarea>
+                                <textarea cols="30" rows="10" name="des" value={values.des === 'null' ||values.des === null ? '' : values.des } onChange={hadelChange} onFocus={hideError}></textarea>
                                 {
                                     errors.des && <span className={`tip ${hide.des ? 'hidetip' : ''}`}>{errors.des}</span>
                                 }

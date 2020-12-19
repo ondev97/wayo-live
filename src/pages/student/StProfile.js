@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import ProfileBottom from '../../components/ProfileBottom';
 import AboutStUser from '../../components/student/AboutStUser';
 import StProfileHead from '../../components/student/StProfileHead';
+import StProfileSettings from '../../components/student/StProfileSettings';
 
 export default function StProfile() {
 
     const [settings, setsettings] = useState(false);
-
-    const dispatch = useDispatch();
 
     const switchHadel = (e)=>{
         if(e.target.innerText === "Settings"){
@@ -42,6 +40,7 @@ export default function StProfile() {
                             <AboutStUser/>
                         </div>
                         <div className={`settings_us ${!settings ? 'inactivate' : 'activate'}`}>
+                            <StProfileSettings/>
                         </div>
                     </div>
                 </div>

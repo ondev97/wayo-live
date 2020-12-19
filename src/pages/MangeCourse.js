@@ -76,7 +76,7 @@ export default function MangeCourse() {
                     </Link>
                 </div>
                 <div className="search">
-                    <input type="text" name="search" placeholder="Search Your Courses" onChange={handelSearchSubject}/>
+                    <input type="text" name="search" placeholder="Search Your Subjects" onChange={handelSearchSubject}/>
                     <button><i className="fas fa-search"></i></button>
                 </div>
             </div>

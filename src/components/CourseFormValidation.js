@@ -7,7 +7,7 @@ export const checkErrors = (value) =>{
     if(value.course_name.length >200){
         formErrors.course_name="Course Name Must Be Less Than 200 Characters";
     }
-    if(!value.course_price.trim()){
+    if(!value.course_price){
         formErrors.course_price="Course Price Is Required";
     }
     if(value.course_description.length >= 300){

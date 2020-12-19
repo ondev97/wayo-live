@@ -24,7 +24,7 @@ function ProfileSettings() {
 
     useEffect(() => {
         dispatch(activeAccount());
-      },[])
+      },[dispatch])
 
     return (
         <div>
