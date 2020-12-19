@@ -106,7 +106,6 @@ function GenerateKeys() {
     //getting not issued keys
     useEffect(async() => {
         if(usDetails.key){
-            setisLoading(true);
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/availablecoupon/${id}/`,{
                 headers:{Authorization:'Token '+usDetails.key}
             }).then(res=>{
