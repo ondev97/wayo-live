@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../assets/css/usprofile.css";
 import UploadPropicModel from "./UploadPropicModel";
 import AcDetails from "../utils/hooks/AcDetails";
 import { store } from "react-notifications-component";
 import CropImages from "../utils/hooks/CropImages";
-import Axios from "axios";
-import { useSelector } from "react-redux";
 
 export default function ProfileHead() {
 

@@ -1,12 +1,55 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { store } from 'react-notifications-component';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadStDetails } from '../../actions/stDetailsAction';
+import CropImages from '../../utils/hooks/CropImages';
+import StUploadProPicModel from './StUploadProPicModel';
 
 export default function StProfileHead() {
-    const {initialState} = useSelector(state => state.StudentDetails);
+  
+  const [showModel,setshowModel] = useState(false);
+  const [filePath, setfilePath] = useState('');
+  const [imgObjectURL, setimgObjectURL] = useState('');
+  const [image,getCropData,setCropper,onChange,cropData,err,setImage,setCropData] = CropImages();//custom hook
 
+  const {initialState} = useSelector(state => state.StudentDetails);
+
+  const openModel = () =>{
+    setshowModel(!showModel);
+  }
+
+  const hadelFileUpload =(e)=>{
+    if(e.target.files[0] && e.target.files[0].name){
+      if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
+        setimgObjectURL(URL.createObjectURL(e.target.files[0]));
+        setfilePath(e.target.files[0]);
+        openModel();
+      }
+      else{
+          setshowModel(!showModel);
+          store.addNotification({
+          title: "Invalid File Type!",
+          message: "OnDevlms",
+          type: "danger",
+          insert: "top",
+          container: "top-left",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon:true
+          },
+          width:600
+      });
+      }
+    }
+  };
     return (
         <div>
+          <StUploadProPicModel showModel={showModel} setshowModel={setshowModel} filePath={filePath} setfilePath={setfilePath} imgObjectURL={imgObjectURL} setimgObjectURL={setimgObjectURL} image={image} getCropData={getCropData} setCropper={setCropper} cropData={cropData} err={err} setImage={setImage} setCropData={setCropData}/>
+
       <div className="profil_box">
         <div className="srow">
           <h2>{`${initialState && initialState.user.first_name} ${initialState && initialState.user.last_name}`}</h2>
@@ -16,7 +59,7 @@ export default function StProfileHead() {
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>
-            <input type="file" id="uppic" />
+            <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}}/>
           </div>
         </div>
         <div className="brow">

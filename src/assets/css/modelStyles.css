@@ -9,16 +9,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00000038;
+  background-color: #00000054;
   z-index: 3000;
 }
 .model_page .on_model_page {
   position: relative;
-  width: 750px;
+  width: 800px;
   height: 550px;
   background-color: #fff;
   overflow: hidden;
   display: flex;
+  border-radius: 5px;
+  box-shadow: 0px 0px 14px 4px #777;
   justify-content: center;
   align-items: center;
 }
@@ -29,15 +31,23 @@
   width: 30px;
   height: 30px;
   background: none;
-  border: none;
+  border: 1px solid #0ead3f;
+  border-radius: 50%;
   outline: none;
   cursor: pointer;
   z-index: 99;
+  transition: 0.3s ease-in;
 }
 .model_page .on_model_page .close_but button i {
-  font-size: 25px;
+  font-size: 18px;
   color: #0ead3f;
   user-select: none;
+}
+.model_page .on_model_page .close_but button:hover {
+  background-color: #0ead3f;
+}
+.model_page .on_model_page .close_but button:hover i {
+  color: #fff;
 }
 .model_page .on_model_page .model_content {
   width: 100%;
@@ -119,11 +129,15 @@
   width: 180px;
   padding: 10px;
   border-color: transparent;
-  background-color: #13b56a;
   color: #fff;
   font-weight: 600;
   outline: none;
   cursor: pointer;
+  background-color: #13b56a;
+  transition: 0.2s ease-in;
+}
+.model_page .on_model_page .butbut button:hover {
+  background-color: #11a15e;
 }
 .model_page .on_model_page .butbut .count {
   color: #0ead3f;
