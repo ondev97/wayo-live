@@ -64,7 +64,7 @@ export default function MangeCourse() {
     const handelSearchSubject = (e) =>{
         const search = e.target.value; 
         setpage(1);
-        debounce(()=>setsearch(search));
+        debounce(()=>setsearch(search),500);
     }
     
     return (
@@ -83,7 +83,7 @@ export default function MangeCourse() {
             <div>
                 {
                     allSubDetail !== null &&
-                    allSubDetail.count === 0 ?
+                    allSubDetail.count === 0 && !isLoading ?
                         <Empty/>
                     :
                     subDetails && allSubDetail !== null &&

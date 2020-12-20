@@ -115,7 +115,7 @@ export default function CourseView() {
                         {
                             courseData.length !== 0 ? 
                                     courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
-                            : <Empty target='No Courses'/>
+                            :  <Empty target='No Courses'/>
                         }
                     </div>
                 </div>     

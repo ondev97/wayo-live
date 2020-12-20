@@ -50,8 +50,8 @@ export default function validation(values){
             errors.address = "Address Must Be Less Than 255 characters"
         }
     }
-    if(values.address !== null){
-        if(!values.address.trim()){
+    if(values.des !== null){
+        if(values.des.trim()){
             if(values.des.length > 400){
                 errors.des = "Description Must Be Less Than 400 characters"
             }

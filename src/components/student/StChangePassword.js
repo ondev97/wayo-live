@@ -2,9 +2,9 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { store } from 'react-notifications-component';
 import { useSelector } from 'react-redux';
-import chekErrors from './PasswordValidation';
+import chekErrors from '../PasswordValidation';
 
-function UserChangedPassword({setsettings}) {
+export default function StChangePassword({setsettings}) {
     const [values, setvalues] = useState({cpw:"",npw:"",ncpw:""});
     const [errors, seterrors] = useState({});
     const [hide, sethide] = useState({cpw:false,npw:false,ncpw:false});
@@ -21,7 +21,7 @@ function UserChangedPassword({setsettings}) {
         seterrors(chekErrors(values));
         setisSubmitting(true);
     };
-    
+
     useEffect(() => {
         if(Object.keys(errors).length === 0 && isSubmitting){
             submit();
@@ -40,50 +40,12 @@ function UserChangedPassword({setsettings}) {
     const usDetails = useSelector(state => state.accountDetails);
     
     const submit = () =>{
-        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/password/change/`,{
-            old_password:values.cpw,
-            new_password1:values.npw,
-            new_password2:values.ncpw,
-        },{
-            headers:{Authorization: "Token " + usDetails.key}
-        }).then(res=>{
-            if(res.data.detail){
-                setvalues({...values,cpw:"",npw:"",ncpw:""});
-
-                store.addNotification({
-                    title: "Password Changed Successfully!",
-                    message: "OnDevlms",
-                    type: "success",
-                    insert: "top",
-                    container: "top-right",
-                    animationIn: ["animate__animated", "animate__fadeIn"],
-                    animationOut: ["animate__animated", "animate__fadeOut"],
-                    dismiss: {
-                      duration: 5000,
-                      onScreen: true,
-                      pauseOnHover: true,
-                      showIcon:true
-                    },
-                    width:600
-                });
-                setsettings(false);
-            }
-        }).catch(e=>{
-            if(e.response.data.old_password){
-                seterrors({...errors,"cpw":e.response.data.old_password})
-                setvalues({...values,cpw:"",npw:"",ncpw:""});
-            }
-            else if(e.response.data.new_password2){
-                seterrors({...errors,"npw":e.response.data.new_password2[1]})
-                setvalues({...values,npw:"",ncpw:""});
-            }
-        })
+        console.log('update');
     }
-
     return (
         <div>
             <h2>Change Password</h2>
-                 <div className="reset_pw">
+                <div className="reset_pw">
                     <form onSubmit={hadelFormSubmit}>
                         <p>
                             <label htmlFor="cpw">Current Password</label>
@@ -114,5 +76,3 @@ function UserChangedPassword({setsettings}) {
         </div>
     )
 }
-
-export default UserChangedPassword
