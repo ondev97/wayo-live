@@ -4,8 +4,9 @@ import { activeAccount } from '../actions';
 import AboutUser from '../components/AboutUser';
 import ProfileBottom from '../components/ProfileBottom';
 import ProfileHead from '../components/ProfileHead';
-import "../assets/css/usprofile.css";
 import TcProfileSettings from '../components/TcProfileSettings';
+import "../assets/css/usprofile.css";
+import "../assets/css/mediaFiles/profilemedia.css";
 
 function ProfileSettings() {
 

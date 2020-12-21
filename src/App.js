@@ -3,7 +3,7 @@ import Header from './components/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './utils/routes';
 import {useSelector} from 'react-redux'
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import ReactNotification  from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 

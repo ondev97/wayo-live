@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route, useLocation } from 'react-router-dom';
 import { activeAccount } from '../../actions';
 import { loadStDetails } from '../../actions/stDetailsAction';
 import UserStatus from '../../utils/hooks/UserStatus';
@@ -11,16 +11,22 @@ import StProfile from './StProfile';
 export default function StudentDashBoard() {
 
     const dispatch = useDispatch();
-    const [toggle, settoggle] = useState(false);
     const [toggelProfile, settoggelProfile] = useState(false);
+    const [toggle, settoggle] = useState(false);
+    const location = useLocation();
 
     const {log,hadelLogOut} = UserStatus();//custom hook
-
+    
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
     },[dispatch]);
-
+    
+    useLayoutEffect(() => {
+        if(window.innerWidth < 867){
+            togglemenu();
+        }
+    },[location])
     const togglemenu = ()=>{
         settoggle(!toggle);
     };

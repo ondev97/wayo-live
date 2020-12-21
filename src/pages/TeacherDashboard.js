@@ -31,7 +31,7 @@ export default function TeacherDashboard() {
     
     useEffect(() => {
         dispatch(activeAccount());
-    },[])
+    },[dispatch])
     
     const togglemenu = ()=>{
         settoggle(!toggle);
