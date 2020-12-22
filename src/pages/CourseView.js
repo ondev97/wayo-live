@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, Redirect, useParams } from 'react-router-dom';
 import { useSpring,animated } from 'react-spring';
-import '../assets/css/courseview.css';
 import CourseSect from '../components/CourseSect';
 import ProfileLoader from '../components/ProfileLoader';
 import Empty from '../components/Empty';
 import { AnimateSharedLayout, motion } from 'framer-motion';
+import '../assets/css/courseview.css';
+import '../assets/css/mediaFiles/viewcoursemedia.css';
 
 export default function CourseView() {
 

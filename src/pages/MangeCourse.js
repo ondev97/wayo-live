@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import '../assets/css/coursemanage.css'
 import Empty from '../components/Empty'
 import ProfileLoader from '../components/ProfileLoader'
 import TcMaCourses from '../components/TcMaCourses'
 import useDebounce from '../utils/hooks/useDebounce'
+import '../assets/css/coursemanage.css'
+import '../assets/css/mediaFiles/managecoursemedia.css'
 
 export default function MangeCourse() {
 

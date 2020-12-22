@@ -47,9 +47,9 @@ export default function ModelsCourseDescri({id}) {
                     <img src={`${courseDetails.course_cover}`} alt=""/>
                     <div className="cos_options">
                         <Link to={`/teacherdashboard/updatecourse/${id}/`}>
-                            <button title="Edit This Course"><i className="fas fa-pencil-alt"></i>Edit Course</button>
+                            <button title="Edit This Course"><i className="fas fa-pencil-alt"></i><span>Edit Course</span></button>
                         </Link>
-                        <button title="Delete This Course" onClick={deleteCourse}><i className="fas fa-trash-alt"></i>Delete Course</button>
+                        <button title="Delete This Course" onClick={deleteCourse}><i className="fas fa-trash-alt"></i><span>Delete Course</span></button>
                     </div>
                 </div>
                 <h2>{courseDetails.course_name}</h2>

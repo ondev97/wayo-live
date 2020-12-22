@@ -281,6 +281,12 @@ button.cp {
   color: red;
 }
 
+.subject_form .main_form .editorck {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
 /*multiple file input style*/
 .subject_form .main_form .multi_files .multi {
   display: none;
@@ -316,6 +322,7 @@ button.cp {
   align-items: center;
   font-size: 14px;
   padding: 12px 8px;
+  word-break: break-all;
   animation: blinking 2.5s infinite alternate;
 }
 @keyframes blinking {
