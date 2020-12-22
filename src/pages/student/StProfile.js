@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProfileBottom from '../../components/ProfileBottom';
+import StProfileBottom from '../../components/student/StProfileBottom';
 import AboutStUser from '../../components/student/AboutStUser';
 import StProfileHead from '../../components/student/StProfileHead';
 import StProfileSettings from '../../components/student/StProfileSettings';
@@ -25,7 +25,7 @@ export default function StProfile() {
                         <StProfileHead/>
                     </div>
                     <div className="profile_sub_column">
-                        <ProfileBottom/>
+                        <StProfileBottom/>
                     </div>
                 </div>    
                 <div className="tcdisoncolumn">

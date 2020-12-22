@@ -11,7 +11,7 @@ export default function StLogin() {
 
     useEffect(() => {
         dispatch(activeAccount());
-      },[])
+      },[dispatch])
 
     return (
         <div className="login_body">

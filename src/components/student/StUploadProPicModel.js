@@ -1,12 +1,19 @@
-import React, { useRef, useState } from 'react';
+import Axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 import { Cropper } from 'react-cropper';
+import { store } from 'react-notifications-component';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSpring,animated } from 'react-spring';
+import { loadStDetails } from '../../actions/stDetailsAction';
 
-export default function StUploadProPicModel({showModel,setshowModel,filePath,setfilePath,imgObjectURL,setimgObjectURL,image,getCropData,setCropper,cropData,err,setImage,setCropData}) {
+export default function StUploadProPicModel({showModel,setshowModel,filePath,setfilePath,image,getCropData,setCropper,cropData,setCropData}) {
     
     const modelBGref = useRef();
     const [cropHide, setcropHide] = useState(false);
     const [uploadPresentage, setuploadPresentage] = useState(0);
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+    const dispatch = useDispatch();
 
     const modelBGclick = (e) =>{
         if(modelBGref.current === e.target){
@@ -58,14 +65,55 @@ export default function StUploadProPicModel({showModel,setshowModel,filePath,set
 
         let form_data = new FormData();
         form_data.append('profile_pic',blob,filePath.name);
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updatestudent/${usDetails.id}/`,form_data,{
+            headers:{
+                Authorization: "Token " + usDetails.key,
+                'content-type':'multipart/form-data'
+            },onUploadProgress:progressEvent=>{
+                setuploadPresentage(
+                    parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total))
+                )
+            }
+        }).then(()=>{
+               dispatch(loadStDetails());
+
+               store.addNotification({
+                title: "Profile Picture Updated!",
+                message: "OnDevlms",
+                type: "success",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon:true,
+                  touch:true
+                },
+                width:600,
+            });
+        }).catch(err=>console.log(err))
     }
+
+    //close model page and clear page
+    useEffect(() => {
+        if(uploadPresentage === 100){
+            setshowModel(false);
+            setcropHide(false);
+            setfilePath('');
+            setCropData('#');
+            setuploadPresentage(0);
+        }
+    }, [uploadPresentage])
 
     return (
         <>
         {
             showModel ? 
             <div className="model_page" ref={modelBGref} onClick={modelBGclick}>
-                <animated.div style={modelAni}>
+                <animated.div style={modelAni} className='cropup'>
                 <div className="on_model_page">
                     <div className="close_but">
                         {

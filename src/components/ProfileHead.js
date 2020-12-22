@@ -16,6 +16,10 @@ export default function ProfileHead() {
     setshowModel(!showModel);
   }
 
+  const removeValue =(e)=>{
+    e.target.value ='';
+  }
+
   const hadelFileUpload =(e)=>{
     if(e.target.files[0] && e.target.files[0].name){
       if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
@@ -59,7 +63,7 @@ export default function ProfileHead() {
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>
-            <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}}/>
+            <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}} onClick={removeValue}/>
           </div>
         </div>
         <div className="brow">

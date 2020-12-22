@@ -12,6 +12,8 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
     const modelBGref = useRef();
     const [cropHide, setcropHide] = useState(false);
     const [uploadPresentage, setuploadPresentage] = useState(0);
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
 
     const modelBGclick = (e) =>{
         if(modelBGref.current === e.target){
@@ -55,8 +57,6 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
         return blob;
       }
 
-    //get acDetails from Redux Store
-    const usDetails = useSelector(state => state.accountDetails);
 
     const history = useHistory();
 
@@ -89,7 +89,7 @@ export default function UploadPropicModel({setshowModel,showModel,filePath,setfi
         {
             showModel ? 
             <div className="model_page" ref={modelBGref} onClick={modelBGclick}>
-                <animated.div style={modelAni}>
+                <animated.div style={modelAni} className='cropup'>
                 <div className="on_model_page">
                     <div className="close_but">
                         {

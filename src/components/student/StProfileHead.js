@@ -18,6 +18,10 @@ export default function StProfileHead() {
     setshowModel(!showModel);
   }
 
+  const removeValue =(e) =>{
+    e.target.value ='';
+  }
+
   const hadelFileUpload =(e)=>{
     if(e.target.files[0] && e.target.files[0].name){
       if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
@@ -26,7 +30,7 @@ export default function StProfileHead() {
         openModel();
       }
       else{
-          setshowModel(!showModel);
+          //setshowModel(!showModel);
           store.addNotification({
           title: "Invalid File Type!",
           message: "OnDevlms",
@@ -55,11 +59,11 @@ export default function StProfileHead() {
           <h2>{`${initialState && initialState.user.first_name} ${initialState && initialState.user.last_name}`}</h2>
           <p>Student</p>
           <div className="srow_pro_pic">
-            <img src={`#`} alt="" />
+            <img src={`${initialState && `${process.env.REACT_APP_LMS_MAIN_URL}${initialState.profile_pic}` }`} alt="" />
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>
-            <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}}/>
+            <input type="file" id="uppic" onChange={(e)=>{onChange(e);hadelFileUpload(e)}} onClick={removeValue}/>
           </div>
         </div>
         <div className="brow">

@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect, Route, useLocation } from 'react-router-dom';
 import { activeAccount } from '../../actions';
 import { loadStDetails } from '../../actions/stDetailsAction';
@@ -16,6 +16,7 @@ export default function StudentDashBoard() {
     const location = useLocation();
 
     const {log,hadelLogOut} = UserStatus();//custom hook
+    const {initialState} = useSelector(state => state.StudentDetails);
     
     useEffect(() => {
         dispatch(activeAccount());
@@ -74,7 +75,7 @@ export default function StudentDashBoard() {
                         </div>
                         <div className="sec">
                             <div className="profile">
-                                <img src={`#`} alt="" onClick={()=>{settoggelProfile(!toggelProfile)}} />
+                                <img src={`${initialState && `${process.env.REACT_APP_LMS_MAIN_URL}${initialState.profile_pic}` }`} alt="" onClick={()=>{settoggelProfile(!toggelProfile)}} />
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>

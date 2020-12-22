@@ -48,6 +48,25 @@
   .model_page .on_model_page .close_but button i {
     color: #fff;
   }
+  .model_page .cropup {
+    width: 95%;
+  }
+  .model_page .on_model_page .preview_container img {
+    width: 93%;
+    height: 93%;
+  }
+  .model_page .on_model_page .preview_container svg {
+    width: 210px;
+    height: 210px;
+    overflow: initial;
+  }
+  .model_page .on_model_page .preview_container svg circle {
+    width: 210px;
+    height: 210px;
+    cx: 100;
+    cy: 100;
+    r: 104;
+  }
 }
 @media screen and (max-width: 500px) {
   .main_profile .tcdisoncolumn .about_body .ab_main_card {

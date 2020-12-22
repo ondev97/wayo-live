@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { activeAccount } from '../actions';
 import AboutUser from '../components/AboutUser';
 import ProfileBottom from '../components/ProfileBottom';
 import ProfileHead from '../components/ProfileHead';
@@ -12,8 +10,6 @@ function ProfileSettings() {
 
     const [settings, setsettings] = useState(false);
 
-    const dispatch = useDispatch();
-
     const switchHadel = (e)=>{
         if(e.target.innerText === "Settings"){
             setsettings(true);
@@ -23,9 +19,6 @@ function ProfileSettings() {
         }
     }
 
-    useEffect(() => {
-        dispatch(activeAccount());
-      },[dispatch])
 
     return (
         <div>

@@ -13,7 +13,7 @@ export default function StudentDashBoardHeader() {
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">
-                    <img src={`#`} alt=""/>
+                <img src={`${initialState && `${process.env.REACT_APP_LMS_MAIN_URL}${initialState.profile_pic}` }`} alt="" />
                 </div>
                 <div className="details">
                     <h2>{initialState && initialState.user.first_name} {initialState && initialState.user.last_name}</h2>
