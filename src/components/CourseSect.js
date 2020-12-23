@@ -10,7 +10,7 @@ export default function CourseSect({course_cover,course_name,price,duration,crea
     const usDetails = useSelector(state => state.accountDetails);
 
     const deleteCourse = async (courseid) =>{
-        let confirms = window.confirm('Are You Sure?🙄');
+        let confirms = window.confirm('Are You Sure?');
         if(confirms){
             await Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletecourse/${courseid}/`,{
                 headers:{Authorization:'Token '+usDetails.key}
@@ -53,6 +53,6 @@ export default function CourseSect({course_cover,course_name,price,duration,crea
                     </div>
                 </div>
             </Link>
-            </div>
+        </div>
     )
 }

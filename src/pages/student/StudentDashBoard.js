@@ -7,6 +7,8 @@ import UserStatus from '../../utils/hooks/UserStatus';
 import StudentMainDashboard from './StudentMainDashboard';
 import StudentDashBoardHeader from '../../components/student/StudentDashboardHeader';
 import StProfile from './StProfile';
+import StAllSubjects from './StAllSubjects';
+import StCourses from './StCourses';
 
 export default function StudentDashBoard() {
 
@@ -91,6 +93,12 @@ export default function StudentDashBoard() {
                 <div className="sub_column">
                     <Route path='/studentdashboard/maindashboard'>
                         <StudentMainDashboard/>
+                    </Route>
+                    <Route path='/studentdashboard/allsubjects/'>
+                        <StAllSubjects/>
+                    </Route>
+                    <Route path='/studentdashboard/stcourses/'>
+                        <StCourses/>
                     </Route>
                     <Route path='/studentdashboard/studentprofile'>
                         <StProfile/>
