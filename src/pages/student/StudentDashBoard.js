@@ -9,6 +9,7 @@ import StudentDashBoardHeader from '../../components/student/StudentDashboardHea
 import StProfile from './StProfile';
 import StAllSubjects from './StAllSubjects';
 import StCourses from './StCourses';
+import Stmodules from './Stmodules';
 
 export default function StudentDashBoard() {
 
@@ -100,7 +101,10 @@ export default function StudentDashBoard() {
                     <Route path='/studentdashboard/stcourses/'>
                         <StCourses/>
                     </Route>
-                    <Route path='/studentdashboard/studentprofile'>
+                    <Route path='/studentdashboard/stmodules/:id'>
+                        <Stmodules/>
+                    </Route>
+                    <Route path='/studentdashboard/studentprofile/'>
                         <StProfile/>
                     </Route>
                 </div>

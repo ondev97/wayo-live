@@ -87,11 +87,11 @@ export default function StCourses() {
                     <motion.div layout>
                         <AnimateSharedLayout>
                         {
-                            //isShowDes && subData.description ?
+                            isShowDes /*&& subData.description*/ ?
                                 <div  className="sub_des_show">
                                     <p>{'subData.description'}</p>
                                 </div>
-                            //: ''
+                            : ''
                         }
                         </AnimateSharedLayout> 
                     </motion.div>
