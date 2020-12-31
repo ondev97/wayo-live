@@ -1,79 +1,83 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef, useState, useEffect } from 'react'
+import {Link, useParams} from 'react-router-dom'
 import rjs from '../../img/rjs.jpg';
 import '../../assets/css/student/stcourse.css';
+import {useSelector} from "react-redux";
+import Axios from "axios";
+import CourseSect from "../../components/CourseSect";
+import Empty from "../../components/Empty";
+import CourseCard from "../../components/student/CourseCard";
+import useDebounce from "../../utils/hooks/useDebounce";
+import InfiniteScroll from 'react-infinite-scroll-component'
+
 
 export default function StCourses() {
+    const {id} = useParams();
+    //get acDetails from Redux Store
+    const usDetails = useSelector(state => state.accountDetails);
+    const [courseData, setcourseData] = useState([]);
+    const [subData, setsubData] = useState({});
+    const [nextPage, setnextPage] = useState(null);
     const [isShowDes, setisShowDes] = useState(false);
-    const [ismodel, setismodel] = useState(false);
-    const modelOuter = useRef();
+    const [search, setsearch] = useState('');
+    const [page, setpage] = useState(1);
+    const [isRedirect, setisRedirect] = useState(false);
+    const [isLoading, setisLoading] = useState(true);
+    const debounce = useDebounce();//custom hook
 
-    const openModel = () =>{
-        if(!ismodel){
-            setismodel(true);
-        }
-        else{
-            setismodel(false);
-        }
-    }
+    useEffect(async() => {
+        setisLoading(true);
+        if(usDetails.key){
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/subject_stu/${id}/`,{
+                headers:{Authorization:"Token "+usDetails.key}
+            }).then(res=>{
+                setisLoading(false);
+                if(res.data){
+                    setsubData({...subData,'sub_name':res.data.subject_name,'sub_cover':res.data.subject_cover,'sub_sdes':res.data.short_description,'description':res.data.description});
+                }
+            }).catch(err=>{
+                if(err.response.data.message){
+                    setisRedirect(true);
+                }
+            })
 
-    const closemodel = () =>{
-        if(ismodel ){
-            setismodel(false);
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/courses/${id}/?page=${page}&search=${search}`,{
+                headers:{Authorization:"Token "+usDetails.key}
+            }).then(res=>{
+                setisLoading(false);
+                if(page > 1){
+                    setcourseData([...courseData,...res.data.results]);
+                }
+                else{
+                    setcourseData([...res.data.results]);
+                }
+                setnextPage(res.data.next);
+            }).catch(err=>{
+                console.log(err);
+            })
         }
-    }
+    }, [usDetails, search, page]);
 
-    const closemodelouter = (e) =>{
-        if(e.target.className === modelOuter.current.className){
-            setismodel(false);
-        }
+    const handelSearchSubject = (e) =>{
+        const search = e.target.value;
+        setpage(1);
+        debounce(()=>setsearch(search),1000);
     }
-
-    const modelAni = {
-        visible:{
-            opacity:1
-        },
-        hidden:{
-            opacity:0
-        }
-    }
-    const pageAni = {
-        visible:{
-            opacity:1,
-            transition:{delay:0.5}
-        },
-        hidden:{
-            opacity:0
+    function next(){
+        if(nextPage){
+            setpage(page+1);
         }
     }
 
     return (
         <>
-            <AnimatePresence exitBeforeEnter>
-        {
-            ismodel ?
-                    <motion.div className="key_model_outer" ref={modelOuter} onClick={closemodelouter} variants={modelAni} animate='visible' initial='hidden' exit='hidden'>
-                        <motion.div className="key_model_page" variants={pageAni} animate='visible' initial='hidden'>
-                            <div className="close_key_mod">
-                                <i onClick={closemodel} className="fas fa-times-circle"></i>
-                            </div>
-                            <h3>Enter Key</h3>
-                            <div className="inpu">
-                                <input type="text" name="key"/>
-                                <button>Enroll</button>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-            : ''
-        }
-        </AnimatePresence>
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <img src={rjs} alt=""/>
+                <img src={process.env.REACT_APP_LMS_MAIN_URL+subData.sub_cover} alt=""/>
                 <div className="top_manage_head">
-                    <h1>English For 2016 A/L students</h1>
-                    <h3>English For All</h3>
+                    <h1>{subData.sub_name}</h1>
+                    <h3>{subData.sub_sdes}</h3>
                 </div>
                 
                 {
@@ -84,61 +88,31 @@ export default function StCourses() {
                     //:''
                 }
             </div>
-                    <motion.div layout>
-                        <AnimateSharedLayout>
-                        {
-                            isShowDes /*&& subData.description*/ ?
-                                <div  className="sub_des_show">
-                                    <p>{'subData.description'}</p>
-                                </div>
-                            : ''
-                        }
-                        </AnimateSharedLayout> 
-                    </motion.div>
+            <motion.div layout>
+                <AnimateSharedLayout>
+                {
+                    isShowDes /*&& subData.description*/ ?
+                        <div  className="sub_des_show">
+                            <p>{subData.description}</p>
+                        </div>
+                    : ''
+                }
+                </AnimateSharedLayout>
+            </motion.div>
             <div className="st_top_manage_body">
                 <div className="st_mange_cos_body">
                     <div className="st_manage_cos_search">
-                        <input type="text" name='search' placeholder="Search Courses"/>
+                        <input type="text" name='search' placeholder="Search Courses" onChange={handelSearchSubject}/>
                         <button><i className="fas fa-search"></i></button>
                     </div>
-                    <div className="st_manage_course_grid">
-                        <div className="st_grid_card_manage">
-                            <Link to={`#`}>
-                                <div className="st_grid_card_mg_head">
-                                    <img src={rjs} alt=""/>
-                                    <div className="dura">
-                                        <h3><i className="far fa-clock cl"></i>25 Hrs</h3>
-                                    </div>
-                                </div>
-                                <div className="st_cos_manage_num">
-                                    <h3>{`01`}</h3>
-                                </div>
-                            </Link>
-                            <div className="st_cos_options_mna">
-                                <h3><i className="fas fa-chevron-circle-up"></i></h3>
-                                <div className="st_options_manage">
-                                    <ul>
-                                        <Link to={`#`}>
-                                            <li><i className="fas fa-exclamation"></i>Unenrolled Me</li>
-                                        </Link>
-                                    </ul>
-                                </div>
-                            </div>
-                            <Link to="#'">
-                                <div className="st_grid_card_mg_body">
-                                    <h3>Active Voice</h3>
-                                    <h4>LKR 255</h4>
-                                    <div className="st_purchase_row">
-                                        <button><i className="fas fa-shopping-cart"></i>Buy Key</button>
-                                        <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
-                                    </div>
-                                    <div className="cs_st_tail">
-                                        {/*<h4><ReactTimeAgo date={Date.parse(created_at)} locale="en-US" /></h4>*/}
-                                        {<h4>One  Month Ago</h4>}
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
+                    <div className="">
+                        <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
+                            {
+                                courseData.length !== 0 ?
+                                        courseData.map((cdata,index)=> <CourseCard key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                                :  <Empty target='No Courses'/>
+                            }
+                        </InfiniteScroll>
                     </div>
                 </div>     
             </div>

@@ -9,6 +9,7 @@ import Empty from '../components/Empty';
 import { AnimateSharedLayout, motion } from 'framer-motion';
 import '../assets/css/courseview.css';
 import '../assets/css/mediaFiles/viewcoursemedia.css';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function CourseView() {
 
@@ -20,6 +21,8 @@ export default function CourseView() {
     const [isRedirect, setisRedirect] = useState(false);
     const [isShowDes, setisShowDes] = useState(false);
     const [isLoading, setisLoading] = useState(true);
+    const [page, setpage] = useState(1);
+    const [allCourseData, setallCourseData] = useState(null);
     
     useEffect(async() => {
         if(usDetails.key){
@@ -37,16 +40,22 @@ export default function CourseView() {
                 }
             })
 
-            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/courses/${id}/`,{
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/courses/${id}/?page=${page}`,{
                 headers:{Authorization:"Token "+usDetails.key}
             }).then(res=>{
                 setisLoading(false);
-                setcourseData(res.data);
+                if(page > 1){
+                    setcourseData([...courseData,...res.data.results]);
+                }
+                else{
+                    setcourseData([...res.data.results]);
+                }
+                setallCourseData(res.data);
             }).catch(err=>{
                 console.log(err);
             })
         }
-    }, [usDetails]);
+    }, [usDetails, page]);
     
     const clk =()=>{
         let choose = window.confirm('Are You Sure?')
@@ -57,6 +66,11 @@ export default function CourseView() {
             }).then(()=>{
                 setisRedirect(true)
             })
+        }
+    }
+    function next(){
+        if(allCourseData.next){
+            setpage(page+1);
         }
     }
 
@@ -113,11 +127,13 @@ export default function CourseView() {
                         </Link>
                     </div>
                     <div className="manage_course_grid">
-                        {
-                            courseData.length !== 0 ? 
-                                    courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
-                            :  <Empty target='No Courses'/>
-                        }
+                        <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='course_body'>
+                            {
+                                courseData.length !== 0 ?
+                                        courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                                :  <Empty target='No Courses'/>
+                            }
+                        </InfiniteScroll>
                     </div>
                 </div>     
             </div>

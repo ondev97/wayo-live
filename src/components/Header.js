@@ -69,7 +69,6 @@ export default function Header({acDetails}) {
                         </li>
                         <li>ABOUT US</li>
                         <li>CONTACT US</li>
-                        <li>ABOUT ME</li>
                         <li>TEACHERS</li>
                         <li>COURSES</li>
                     </ul>

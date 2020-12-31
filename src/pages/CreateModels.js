@@ -57,7 +57,7 @@ function CreateModels() {
 
     const hadelSubmit = (e)=>{
         e.preventDefault();
-        setformErrors(checkErrors(formValues));
+        setformErrors(checkErrors(formValues, mediafiles));
         sethide({mn:false,msg:false});
         setisSubmit(true);
     }
