@@ -1,3 +1,4 @@
+import About from "../pages/About";
 import Home from "../pages/Home";
 import StLogin from "../pages/StLogin";
 import StSignUp from "../pages/StSignUp";
@@ -9,6 +10,10 @@ export default [
         path:'/',
         exact:true,
         components: () =><Home/>
+    },{
+        path:'/about',
+        exact:true,
+        components: () =><About/>
     },{
         path:'/stlogin',
         components: () =><StLogin/>
