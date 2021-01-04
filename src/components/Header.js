@@ -70,7 +70,9 @@ export default function Header({acDetails}) {
                         <li>
                             <Link to='/about'>ABOUT US</Link>
                         </li>
-                        <li>CONTACT US</li>
+                        <li>
+                            <Link to='/contact'>CONTACT US</Link>
+                        </li>
                         <li>TEACHERS</li>
                         <li>COURSES</li>
                     </ul>
