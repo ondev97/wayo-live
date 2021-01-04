@@ -28,7 +28,7 @@ export default function ContactUs() {
                             <h3>Phone</h3>
                         </div>
                         <div className="con_sort_body">
-                            <p>076-xxxxxx</p>
+                            <p>076-8597898</p>
                             <p>076-xxxxxx</p>
                             <p>076-xxxxxx</p>
                         </div>
