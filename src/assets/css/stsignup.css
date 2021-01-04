@@ -1,6 +1,6 @@
 .siup_body {
   width: 100%;
-  height: calc(100vh - 117px);
+  min-height: calc(100vh - 117px);
   display: flex;
   align-items: center;
 }

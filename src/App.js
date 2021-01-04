@@ -17,7 +17,7 @@ function App() {
   }, [accountDetails])
   
   const headerRoute = () =>{
-    const mainRoute = ["/","/about","/contact","/stlogin","/stsignup"];
+    const mainRoute = ["/","/about","/contact","/allteachers","/allsubjects","/stlogin","/stsignup"];
     let location = window.location.pathname;
     
     if(mainRoute.includes(location)){
