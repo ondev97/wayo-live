@@ -9,6 +9,7 @@ import SubjectsCard from "../../components/student/SubjectsCard";
 export default function StAllSubjects() {
 
     const [subDetails, setsubDetails] = useState([])
+
     const [isLoading, setisLoading] = useState(false);
     const [nextPage, setnextPage] = useState(null);
     const [search, setsearch] = useState('');
@@ -48,7 +49,7 @@ export default function StAllSubjects() {
                 if(err.response.data){
                     console.log(err.response.data);
                 }
-            })
+            });
         }
     }
 

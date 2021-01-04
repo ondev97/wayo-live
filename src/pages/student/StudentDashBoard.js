@@ -11,6 +11,7 @@ import StAllSubjects from './StAllSubjects';
 import StCourses from './StCourses';
 import Stmodules from './Stmodules';
 import StMyCourses from "./StMyCourses";
+import StSubCourses from "./StSubCourses";
 
 export default function StudentDashBoard() {
 
@@ -110,6 +111,9 @@ export default function StudentDashBoard() {
                     </Route>
                     <Route path='/studentdashboard/studentprofile/'>
                         <StProfile/>
+                    </Route>
+                    <Route path='/studentdashboard/mycoursesforsubject/:id'>
+                        <StSubCourses/>
                     </Route>
                 </div>
             </div>

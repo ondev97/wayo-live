@@ -1,23 +1,32 @@
 import Axios from 'axios';
 import React, { useRef, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
 import rjs from "../../img/rjs.jpg";
 import {AnimatePresence, motion} from "framer-motion";
+import {store} from "react-notifications-component";
+import PaymentModal from "./PaymentModal";
 
-export default function CourseCard({course_cover,course_name,price,duration,created_at,courseid,no}) {
-
+export default function CourseCard({course_cover,course_name,price,duration,created_at,courseid,no, user, is_enrolled}) {
+//https://medium.com/linkit-intecs/integrate-payhere-with-create-react-app-3b6a4fe5d5f0
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
     const [isShowDes, setisShowDes] = useState(false);
+
     const [ismodel, setismodel] = useState(false);
     const [key, setkey] = useState('');
+    const [style, setstyle] = useState({color:"red", visibility:"hidden"});
+    const [content, setcontent] = useState('');
+    const [redirect, setredirect] = useState(false);
     const modelOuter = useRef();
+
 
     const openModel = () =>{
         if(!ismodel){
             setismodel(true);
+            setcontent('');
+            setstyle({color:"red", visibility:"hidden"});
         }
         else{
             setismodel(false);
@@ -34,7 +43,6 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
             setismodel(false);
         }
     }
-
     const modelAni = {
         visible:{
             opacity:1
@@ -55,9 +63,10 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
 
     const handelKey = (e) =>{
         const key = e.target.value;
-        setkey(key)
+        setkey(key);
+        setcontent('');
+        setstyle({color:"red", visibility:"hidden"});
     }
-
     const clk =()=>{
         console.log(usDetails)
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollcourse/${courseid}/${usDetails.id}/`,{
@@ -67,9 +76,32 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
         }).then(res=>{
             console.log(res.data);
             closemodel();
+            store.addNotification({
+                title: "Sucessfully Enrolled",
+                message: "OnDevlms",
+                type: "success",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon:true
+                },
+                width:600
+            });
+            setredirect(true);
+        }).catch(err=>{
+            setcontent(err.response.data.message);
+            setstyle({color:"red", visibility:"visible"});
+            console.log(usDetails);
         })
     }
-
+    if(redirect){
+        return <Redirect to={`/studentdashboard/stmodules/${courseid}`}/>
+    }
     return (
         <>
             <AnimatePresence exitBeforeEnter>
@@ -85,6 +117,7 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                                     <input type="text" name="key" onChange={handelKey}/>
                                     <button onClick={clk}>Enroll</button>
                                 </div>
+                                <p id={"err"} style={style}>{content}</p>
                             </motion.div>
                         </motion.div>
                         : ''
@@ -117,8 +150,23 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                         <h3>{course_name}</h3>
                         <h4>LKR {price}</h4>
                         <div className="st_purchase_row">
-                            <button><i className="fas fa-shopping-cart"></i>Buy Key</button>
-                            <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
+                            {
+                                is_enrolled ?
+                                    <Link to={`/studentdashboard/stmodules/${courseid}/`}>
+                                        <button><i className="fas fa-key"></i>View Course</button>
+                                    </Link> :
+                                    <>
+                                        <PaymentModal
+                                            // Use a unique value for the orderId
+                                            course_id={courseid}
+                                            course_name={course_name}
+                                            price={price}
+                                            user={user}
+                                        />
+                                        {/*<button><i className="fas fa-shopping-cart"></i>Buy Key</button>*/}
+                                        <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
+                                    </>
+                            }
                         </div>
                         <div className="cs_st_tail">
                             <h4><ReactTimeAgo date={Date.parse(created_at)} locale="en-US" /></h4>

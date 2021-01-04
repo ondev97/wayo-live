@@ -5,6 +5,7 @@ import useDebounce from "../../utils/hooks/useDebounce";
 import React, { useEffect, useState } from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 import SubjectsCard from "../../components/student/SubjectsCard";
+import MySubjectsCard from "../../components/student/MySubjectCard";
 
 export default function StudentMainDashboard() {
 
@@ -17,7 +18,7 @@ export default function StudentMainDashboard() {
     const usDetails = useSelector(state => state.accountDetails);
 
     const debounce = useDebounce();//custom hook
-    const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/subjectlist`;
+    const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/mysubjects_stu`;
 
     useEffect(() => {
         if(search === ''){
@@ -25,7 +26,7 @@ export default function StudentMainDashboard() {
             getSubjectDetails(fetchurl);
         }
         else{
-            const fetchurl = `${url}/?page=${page}&search=${search}`;
+            const fetchurl = `${url}/`;
             getSubjectDetails(fetchurl);
         }
     }, [usDetails,page,search]);
@@ -37,13 +38,7 @@ export default function StudentMainDashboard() {
                 headers:{Authorization:"Token " + usDetails.key}
             }).then(res=>{
                 setisLoading(false);
-                if(page > 1){
-                    setsubDetails([...subDetails,...res.data.results]);
-                }
-                else{
-                    setsubDetails([...res.data.results]);
-                }
-                setnextPage(res.data.next);
+                setsubDetails([...res.data]);
             }).catch(err=>{
                 if(err.response.data){
                     console.log(err.response.data);
@@ -76,9 +71,9 @@ export default function StudentMainDashboard() {
                 </div>
 
                 <div className="">
-                    <InfiniteScroll dataLength={subDetails.length} next={next} hasMore={true} className='all_sub_body'>
+                    <InfiniteScroll dataLength={subDetails.length} hasMore={true} className='all_sub_body'>
                         {
-                            subDetails.map((det)=> <SubjectsCard key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
+                            subDetails.map((det)=> <MySubjectsCard key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
                         }
                     </InfiniteScroll>
                 </div>
