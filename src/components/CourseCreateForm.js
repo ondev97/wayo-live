@@ -4,6 +4,31 @@ import { Cropper } from 'react-cropper';
 export default function CourseCreateForm({handelSubmit,showCropper,cropData,err,image,setCropper,onChange,setshowCropper,getCropData,courseValue,handelFormValues,hideError,courseErrors,hide,progress}) {
     return (
         <form onSubmit={handelSubmit}>
+                    <p>
+                        <label htmlFor="cn">Course Name</label>
+                        <input type="text" name="course_name" value={courseValue.course_name}
+                        onChange={handelFormValues} onFocus={hideError}/>
+                        {
+                            courseErrors.course_name && <span className={`tip ${hide.course_name ? 'hidetip' : ''}`}>{courseErrors.course_name}</span>
+                        }
+                    </p>
+                    <p>
+                        <label htmlFor="cp">Course Price</label>
+                        <span className="on_row">
+                            <span className='curu'>LKR</span>
+                            <input type="number" name="course_price" min="0" value={courseValue.course_price} onChange={handelFormValues} onFocus={hideError}/>
+                        </span>
+                        {
+                            courseErrors.course_price && <span className={`tip ${hide.course_price ? 'hidetip' : ''}`}>{courseErrors.course_price}</span>
+                        }
+                    </p>
+                    <p>
+                        <label htmlFor="cd">Course Description</label>
+                        <textarea name="course_description" id="cd" rows="10" value={courseValue.course_description} onChange={handelFormValues} onFocus={hideError}></textarea>
+                        {
+                            courseErrors.course_description && <span className={`tip ${hide.course_description ? 'hidetip' : ''}`}>{courseErrors.course_description}</span>
+                        }
+                    </p>
                     <div className="up_pro_pic">
                         {
                             showCropper && cropData === '#' && !err.img &&
@@ -42,31 +67,6 @@ export default function CourseCreateForm({handelSubmit,showCropper,cropData,err,
                             }
                         </p>
                     </div>
-                    <p>
-                        <label htmlFor="cn">Course Name</label>
-                        <input type="text" name="course_name" value={courseValue.course_name}
-                        onChange={handelFormValues} onFocus={hideError}/>
-                        {
-                            courseErrors.course_name && <span className={`tip ${hide.course_name ? 'hidetip' : ''}`}>{courseErrors.course_name}</span>
-                        }
-                    </p>
-                    <p>
-                        <label htmlFor="cp">Course Price</label>
-                        <span className="on_row">
-                            <span className='curu'>LKR</span>
-                            <input type="number" name="course_price" min="0" value={courseValue.course_price} onChange={handelFormValues} onFocus={hideError}/>
-                        </span>
-                        {
-                            courseErrors.course_price && <span className={`tip ${hide.course_price ? 'hidetip' : ''}`}>{courseErrors.course_price}</span>
-                        }
-                    </p>
-                    <p>
-                        <label htmlFor="cd">Course Description</label>
-                        <textarea name="course_description" id="cd" rows="10" value={courseValue.course_description} onChange={handelFormValues} onFocus={hideError}></textarea>
-                        {
-                            courseErrors.course_description && <span className={`tip ${hide.course_description ? 'hidetip' : ''}`}>{courseErrors.course_description}</span>
-                        }
-                    </p>
                     <p>
                         <label htmlFor="st">Total Hours</label>
                         <input type="number" name="hr" min='0' step="0.1" value={courseValue.hr} onChange={handelFormValues} />

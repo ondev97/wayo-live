@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px) {
+  .main_sub {
+    display: block;
+  }
+  .main_sub .simple_nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 300px) {
+  .genkeysform .main_gen_form .disp_gen_keys table tr td:first-child,
+  .disp_gen_keys table tr th:first-child {
+    display: none;
+  }
+  .disp_all_issu_keys .disp_issu_keys .csv_down_circle {
+    width: 45px;
+    height: 45px;
+    right: 5px;
+  }
+}

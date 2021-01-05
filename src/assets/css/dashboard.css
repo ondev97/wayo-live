@@ -14,6 +14,17 @@
   background-image: linear-gradient(296deg, transparent, transparent, #b6ffd4);
   transition: 0.5s ease;
 }
+.main .main_column:first-child::-webkit-scrollbar {
+  width: 5px;
+}
+.main .main_column:first-child::-webkit-scrollbar-track {
+  background: transparent;
+}
+.main .main_column:first-child::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 20px;
+  border: transparent;
+}
 .main .main_column:last-child {
   position: relative;
   flex: 100%;
@@ -73,6 +84,7 @@
 }
 .main .main_column .sub_column {
   padding: 25px;
+  min-height: calc(100vh - 60px);
 }
 .main
   .main_column

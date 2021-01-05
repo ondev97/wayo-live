@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link, matchPath, Route, useLocation } from 'react-router-dom'
 import GenerateKeys from '../components/GenerateKeys'
-import '../assets/css/geneenrollmentkeys.css';
 import ViewIssuedKeys from './ViewIssuedKeys';
+import '../assets/css/geneenrollmentkeys.css';
+import '../assets/css/mediaFiles/enrollmentkey.css';
 
 function GeneEnrollmentkeys() {
     

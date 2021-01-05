@@ -100,7 +100,7 @@
     margin-right: 0;
   }
   .main .main_column .sub_column {
-    padding: 0;
+    padding: 10px 0 0;
   }
   .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr {
     display: block;

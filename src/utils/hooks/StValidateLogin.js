@@ -51,6 +51,8 @@ function StValidateLogin() {
                 seterrors({...errors, "comerrors": 'Someone is already logged into this account'});
             }
         }).catch(err=>{
+            //check err and set state
+            console.log(err.response.data);
             seterrors({...errors,"comerrors":err.response.data});
         })
 

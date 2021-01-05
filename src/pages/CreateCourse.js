@@ -72,7 +72,6 @@ export default function CreateCourse() {
       }
 
     function submit(){
-        console.log("submit");
         let form_data = new FormData();
 
         if(cropData !== '#'){

@@ -17,6 +17,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 5px;
 }
 .main_sub .simple_nav a {
   text-decoration: none;

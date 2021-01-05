@@ -69,8 +69,10 @@ export default function CourseView() {
         }
     }
     function next(){
-        if(allCourseData.next){
-            setpage(page+1);
+        if(courseData.length !==0){
+            if(allCourseData.next){
+                setpage(page+1);
+            }
         }
     }
 
