@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import { useEffect, useLayoutEffect, useState } from 'react';
 import ReactNotification  from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+import Footer from './components/Footer';
 
 function App() {
 
@@ -14,14 +15,27 @@ function App() {
   
   useEffect(() => {
     setacDetails(accountDetails);
-  }, [accountDetails])
+  }, [accountDetails]);
+
+  const mainRoute = ["/","/about","/contact","/allteachers","/allsubjects","/stlogin","/stsignup"];
+  let location = window.location.pathname;
   
   const headerRoute = () =>{
-    const mainRoute = ["/","/about","/contact","/allteachers","/allsubjects","/stlogin","/stsignup"];
-    let location = window.location.pathname;
     
     if(mainRoute.includes(location)){
       return <Header acDetails={acDetails} />
+    }
+    else if(acDetails && acDetails.key && acDetails.is_teacher){
+      return null
+    }
+    else if(acDetails && acDetails.key && !acDetails.is_teacher){
+      return null
+    }
+  }
+
+  const footerRout = ()=>{
+    if(mainRoute.includes(location)){
+      return <Footer/>
     }
     else if(acDetails && acDetails.key && acDetails.is_teacher){
       return null
@@ -43,6 +57,9 @@ function App() {
                 routes.map((route,index) => <Route path={route.path} key={index} exact={route.exact} component={route.components} />)
               }
             </Switch>
+            {
+              footerRout()
+            }
         </Router>
     </div>
   );

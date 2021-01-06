@@ -90,7 +90,7 @@
   transition: 0.8s ease;
 }
 .all_st_subs .all_sub_body .al_sub_card:hover .sub_ins_pro {
-  right: 10%;
+  right: 5%;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_ins_pro .ins_outer {
   width: 100%;
@@ -102,6 +102,8 @@
 .all_st_subs .all_sub_body .al_sub_card .sub_ins_pro img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .all_st_subs .all_sub_body .al_sub_card a {
   color: #000;
