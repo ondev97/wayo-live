@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import child from '../img/child.png'
 import '../assets/css/header.css'
 import '../assets/css/mediaFiles/headermedia.css';
@@ -15,13 +15,21 @@ export default function Header({acDetails}) {
         },
         hidden: {
             right:'-100%',
-            transition:{duration:0.75,ease:'easeOut'}
+            transition:{duration:1,ease:'easeIn'}
         }
     }
 
     const hambutton = () =>{
         setisham(!isham);
     }
+
+    const {pathname} = useLocation();
+
+    useEffect(() => {
+        if(isham){
+            setisham(!isham);
+        }
+    }, [pathname])
 
     const headerProPic = ()=>{
         if(acDetails.key){
