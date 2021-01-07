@@ -1,0 +1,32 @@
+@media screen and (max-width: 1119px) {
+  nav {
+    padding: 28px 20px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  nav .column:nth-child(2) {
+    display: none;
+  }
+  nav .ham {
+    display: block;
+  }
+  .hammenu {
+    display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  nav .column:nth-child(3) {
+    display: none;
+  }
+  .hammenu .butham {
+    display: block;
+  }
+}
+@media screen and (max-width: 310px) {
+  .hammenu {
+    width: 100%;
+  }
+  .hammenu .buttons button {
+    width: 80%;
+  }
+}

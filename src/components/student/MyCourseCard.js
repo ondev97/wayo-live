@@ -1,13 +1,8 @@
-import Axios from 'axios';
-import React, { useRef, useState, useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import React from 'react'
 import { Link } from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
 
 export default function MyCourseCard({course_cover,course_name,enrollkey,duration,created_at,courseid,no}) {
-
-    //get acDetails from Redux Store
-    const usDetails = useSelector(state => state.accountDetails);
 
     return (
         <Link to={`/studentdashboard/stmodules/${courseid}/`}>

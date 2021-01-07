@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import '../assets/css/header.css'
 import child from '../img/child.png'
+import '../assets/css/header.css'
+import '../assets/css/mediaFiles/headermedia.css';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Header({acDetails}) {
+    const [isham, setisham] = useState(false);
+
+    const mobnavani = {
+        visible: {
+            right:0,
+            transition:{duration:0.75,ease:'easeOut'}
+        },
+        hidden: {
+            right:'-100%',
+            transition:{duration:0.75,ease:'easeOut'}
+        }
+    }
+
+    const hambutton = () =>{
+        setisham(!isham);
+    }
+
     const headerProPic = ()=>{
         if(acDetails.key){
             if(acDetails.is_teacher){
@@ -53,6 +72,7 @@ export default function Header({acDetails}) {
 
 
     return (
+        <>
         <nav>
             <div className="column">
                 <div className="hlogo">
@@ -79,6 +99,9 @@ export default function Header({acDetails}) {
                         <li>
                             <Link to="/allsubjects">SUBJECTS</Link>
                         </li>
+                        <li>
+                            <Link to="/test">TEST</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -87,6 +110,46 @@ export default function Header({acDetails}) {
                     headerProPic()
                 }
             </div>
+            <div className="ham">
+                <button className="hambeggermenu" onClick={hambutton}><i className="fas fa-bars"></i></button>
+            </div>
         </nav>
+        <AnimatePresence exitBeforeEnter>
+        {
+
+            isham ? 
+                <motion.div className="hammenu" variants={mobnavani} animate='visible' initial='hidden' exit="hidden">
+                    <div className="menham">
+                        <ul>
+                            <li>
+                                <Link to="/">HOME</Link>
+                            </li>
+                            <li>
+                                <Link to='/about'>ABOUT US</Link>
+                            </li>
+                            <li>
+                                <Link to='/contact'>CONTACT US</Link>
+                            </li>
+                            <li>
+                                <Link to="/allteachers">TEACHERS</Link>
+                            </li>
+                            <li>
+                                <Link to="/allsubjects">SUBJECTS</Link>
+                            </li>
+                            <li>
+                                <Link to="/test">TEST</Link>
+                            </li>
+                        </ul>
+                        <div className="butham">
+                            {
+                                headerProPic()
+                            }
+                        </div>
+                    </div>
+                </motion.div>
+            : ''
+        }
+        </AnimatePresence>
+        </>
     )
 }

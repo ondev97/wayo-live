@@ -7,6 +7,7 @@ import StLogin from "../pages/StLogin";
 import StSignUp from "../pages/StSignUp";
 import StudentDashBoard from "../pages/student/StudentDashBoard";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import Test from "../pages/Test";
 
 export default [
     {
