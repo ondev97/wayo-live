@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding-bottom: 25px;
 }
 .footer_main .footer_mid .footer_column {

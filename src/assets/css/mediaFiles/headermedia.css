@@ -29,4 +29,7 @@
   .hammenu .buttons button {
     width: 80%;
   }
+  nav {
+    flex-wrap: wrap;
+  }
 }

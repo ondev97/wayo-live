@@ -8,6 +8,7 @@ nav {
   font-family: "Montserrat", sans-serif;
   top: 0;
   background-color: #fff;
+  z-index: 2000;
 }
 nav .column {
   flex: 1;
