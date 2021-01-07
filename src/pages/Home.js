@@ -13,6 +13,7 @@ import video from '../img/svg/video.svg';
 import contract from '../img/svg/contract.svg';
 import get from '../img/get.jpg';
 import '../assets/css/home.css';
+import '../assets/css/mediaFiles/homemedia.css';
 
 export default function Home() {
     const dispatch = useDispatch();

@@ -49,3 +49,20 @@
   color: #18ca79;
   text-transform: capitalize;
 }
+@media screen and (max-width: 1300px) {
+  .maininde .tech_body {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 280px) {
+  .maininde .tech_body {
+    display: block;
+  }
+  .maininde .tech_body .teach_card {
+    margin: 8px 0;
+  }
+  .maininde .tech_body .pro_pic {
+    width: 80px;
+    height: 80px;
+  }
+}

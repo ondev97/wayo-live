@@ -99,9 +99,6 @@ export default function Header({acDetails}) {
                         <li>
                             <Link to="/allsubjects">SUBJECTS</Link>
                         </li>
-                        <li>
-                            <Link to="/test">TEST</Link>
-                        </li>
                     </ul>
                 </div>
             </div>

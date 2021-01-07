@@ -120,3 +120,29 @@
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_tail p i {
   margin-right: 5px;
 }
+@media screen and (max-width: 1300px) {
+  .maininde .popular_subjects {
+    width: 100%;
+    padding: 0 25px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .maininde .popular_subjects .subject_area .subject_in_cards {
+    width: 100%;
+    margin: 15px 0;
+  }
+  .maininde .popular_subjects .subject_area {
+    display: block;
+  }
+}
+@media screen and (max-width: 250px) {
+  .maininde .popular_subjects .subject_area .subject_in_cards .subject_head {
+    height: 150px;
+  }
+  .maininde .popular_subjects {
+    padding: 0 5px;
+  }
+  .maininde .upper_cover h1 {
+    font-size: 25px;
+  }
+}
