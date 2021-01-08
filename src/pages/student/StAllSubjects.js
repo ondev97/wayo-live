@@ -5,6 +5,7 @@ import useDebounce from "../../utils/hooks/useDebounce";
 import React, { useEffect, useState } from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 import SubjectsCard from "../../components/student/SubjectsCard";
+import '../../assets/css/mediaFiles/allsubjectmedia.css';
 
 export default function StAllSubjects() {
 

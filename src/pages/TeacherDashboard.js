@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import TeacherDashboardHeader from '../components/TeacherDashboardHeader';
 import '../assets/css/dashboard.css'
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route, useLocation } from 'react-router-dom';
 import ProfileSettings from './ProfileSettings';
 import MangeCourse from './MangeCourse';
 import UserStatus from '../utils/hooks/UserStatus';
@@ -27,15 +27,20 @@ export default function TeacherDashboard() {
     const {log,hadelLogOut} = UserStatus();//custom hook
     const [teachProfilepic] =AcDetails();
     const dispatch = useDispatch();
+    const location = useLocation();
     
-    
+    useLayoutEffect(() => {
+        if(window.innerWidth < 867){
+            togglemenu();
+        }
+    },[location])
+    const togglemenu = ()=>{
+        settoggle(!toggle);
+    };
+
     useEffect(() => {
         dispatch(activeAccount());
     },[dispatch])
-    
-    const togglemenu = ()=>{
-        settoggle(!toggle);
-    }
 
     if(!log){
         return <Redirect to="/"/>

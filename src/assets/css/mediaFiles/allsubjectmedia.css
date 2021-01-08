@@ -1,0 +1,99 @@
+@media screen and (max-width: 800px) {
+  .all_st_subs .pagetop h1 {
+    font-size: 25px;
+    white-space: nowrap;
+  }
+  .models .md_all_models .md_models .al_models {
+    margin-top: 15px;
+  }
+  .key_model_outer .key_model_page {
+    width: 90% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .st_top_manage_body .st_mange_cos_body .st_manage_cos_search input {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .all_st_subs .pagetop h1 {
+    font-size: 18px;
+  }
+  .all_st_subs .all_sub_body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .all_st_subs .all_sub_body .al_sub_card {
+    width: 90% !important;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .all_st_subs .pagetop {
+    flex-direction: column;
+  }
+  .all_st_subs .pagetop h1 {
+    margin-bottom: 15px;
+  }
+  .all_st_subs .pagetop {
+    padding: 10px;
+  }
+  .st_top_manage_body .st_mange_cos_body .st_manage_course_grid {
+    padding: 8px;
+    display: block !important;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage {
+    width: 100%;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_head
+    img {
+    object-fit: cover;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_body
+    .st_purchase_row {
+    flex-wrap: wrap;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_body
+    .st_purchase_row
+    button {
+    margin-bottom: 10px;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage {
+    height: initial !important;
+    min-height: 350px;
+    max-height: 400px;
+  }
+  .key_model_outer .key_model_page .inpu input {
+    border-right: 1px solid #777 !important;
+    width: 100% !important;
+  }
+  .key_model_outer .key_model_page .inpu button {
+    width: 90px;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 5px;
+  }
+  .key_model_outer .key_model_page .inpu {
+    display: block !important;
+  }
+}

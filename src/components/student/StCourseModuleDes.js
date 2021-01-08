@@ -30,7 +30,7 @@ export default function StCourseModuleDes() {
                 <div className="course_pic">
                     <img src={`${courseData.course_cover}`} alt=""/>
                     <div className="cos_options">
-                        <button><i className="fas fa-trash-alt"></i><span>Unenroll Me</span></button>
+                        <button><i className="fas fa-exclamation"></i><span>Unenroll Me</span></button>
                     </div>
                 </div>
                 <h2>{courseData.course_name}</h2>
