@@ -52,8 +52,8 @@ function StValidateLogin() {
             }
         }).catch(err=>{
             //check err and set state
-            console.log(err.response.data);
-            seterrors({...errors,"comerrors":err.response.data});
+            // console.log(err.response.data);
+            // seterrors({...errors,"comerrors":err.response.data});
         })
 
     }

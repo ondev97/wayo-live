@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useParams } from 'react-router-dom';
+import {Redirect, useParams} from 'react-router-dom';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
 import StOneModule from '../../components/student/StOneModule';
 import StCourseModuleDes from '../../components/student/StCourseModuleDes';
+import {store} from "react-notifications-component";
 
 export default function Stmodules() {
     const [isToggle, setisToggle] = useState(false)
     const {id} = useParams();
     const [moduleData, setmoduleData] = useState([]);
     const [moduleFiles, setmoduleFiles] = useState([]);
+    const [redirect, setredirect] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 console.log(id);
@@ -23,6 +25,23 @@ console.log(id);
                 setmoduleData(res.data);
             }).catch(err=>{
                 console.log(err);
+                store.addNotification({
+                    title: err.response.data.message,
+                    message: "OnDevlms",
+                    type: "warning",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 3000,
+                        onScreen: true,
+                        pauseOnHover: true,
+                        showIcon:true
+                    },
+                    width:600
+                });
+                setredirect(true);
             })
         }
     }, [usDetails]);
@@ -42,7 +61,11 @@ console.log(id);
                 )
             }
         }, [moduleData]);
-    
+
+    if(redirect){
+        return <Redirect to={`/studentdashboard/mycourses/`}/>
+    }
+
     return (
         <div>
             <div className="models">
