@@ -64,6 +64,7 @@
   padding: 2px;
   border: 2px solid #00bf4d;
   border-radius: 50%;
+  cursor: pointer;
 }
 .main .main_column .head .column .sec .profile img {
   width: 100%;

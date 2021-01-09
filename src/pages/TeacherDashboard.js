@@ -38,6 +38,10 @@ export default function TeacherDashboard() {
         settoggle(!toggle);
     };
 
+    const togglesh = () =>{
+        settoggelProfile(!toggelProfile);
+    }
+
     useEffect(() => {
         dispatch(activeAccount());
     },[dispatch])
@@ -84,7 +88,7 @@ export default function TeacherDashboard() {
                         </div>
                         <div className="sec">
                             <div className="profile">
-                                <img src={`http://127.0.0.1:8000${teachProfilepic}`} alt="" onClick={()=>{settoggelProfile(!toggelProfile)}} />
+                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt="" onClick={togglesh} />
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>
