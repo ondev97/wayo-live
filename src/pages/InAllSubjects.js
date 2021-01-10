@@ -1,17 +1,25 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import rjs from '../img/rjs.jpg';
 import child from '../img/child.png';
 import { useDispatch } from 'react-redux';
 import { activeAccount } from '../actions';
 import { loadStDetails } from '../actions/stDetailsAction';
 import '../assets/css/allsubjects.css';
+import Axios from "axios";
+import InTeacher from "../components/InTeacher";
+import AllSubCard from "../components/AllSubCard";
 
 export default function InAllSubjects() {
     const dispatch = useDispatch();
-
+    const [allSubDetails, setallSubDetails] = useState([])
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
+        Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/indexsub/`).then(res=>{
+                setallSubDetails([...res.data])
+            }).catch(err=>{
+                console.log(err)
+            });
       },[dispatch]);
 
     return (
@@ -21,90 +29,9 @@ export default function InAllSubjects() {
             </div>
                 <div className="popular_subjects">
                     <div className="subject_area">
-                        <div className="subject_in_cards">
-                            <div className="subject_head">
-                                <div className="subject_img">
-                                    <img src={rjs} alt="subjects"/>
-                                </div>
-                                <div className="teach_img">
-                                    <img src={child} alt="child"/>
-                                </div>
-                            </div>
-                            <div className="subject_body">
-                                <h2>English For Beginners</h2>
-                                <p>Teacher Name Here</p>
-                                <div className="row_sim">
-                                    <h3><i className="far fa-user"></i>500 Students</h3>
-                                    <h3><i className="fas fa-graduation-cap"></i>A/L</h3>
-                                </div>
-                            </div>
-                            <div className="subject_tail">
-                                <p><i className="far fa-clock"></i>One Hour Ago</p>
-                            </div>
-                        </div>
-                        <div className="subject_in_cards">
-                            <div className="subject_head">
-                                <div className="subject_img">
-                                    <img src={rjs} alt="subjects"/>
-                                </div>
-                                <div className="teach_img">
-                                    <img src={child} alt="child"/>
-                                </div>
-                            </div>
-                            <div className="subject_body">
-                                <h2>English For Beginners</h2>
-                                <p>Teacher Name Here</p>
-                                <div className="row_sim">
-                                    <h3><i className="far fa-user"></i>500 Students</h3>
-                                    <h3><i className="fas fa-graduation-cap"></i>A/L</h3>
-                                </div>
-                            </div>
-                            <div className="subject_tail">
-                                <p><i className="far fa-clock"></i>One Hour Ago</p>
-                            </div>
-                        </div>
-                        <div className="subject_in_cards">
-                            <div className="subject_head">
-                                <div className="subject_img">
-                                    <img src={rjs} alt="subjects"/>
-                                </div>
-                                <div className="teach_img">
-                                    <img src={child} alt="child"/>
-                                </div>
-                            </div>
-                            <div className="subject_body">
-                                <h2>English For Beginners</h2>
-                                <p>Teacher Name Here</p>
-                                <div className="row_sim">
-                                    <h3><i className="far fa-user"></i>500 Students</h3>
-                                    <h3><i className="fas fa-graduation-cap"></i>A/L</h3>
-                                </div>
-                            </div>
-                            <div className="subject_tail">
-                                <p><i className="far fa-clock"></i>One Hour Ago</p>
-                            </div>
-                        </div>
-                        <div className="subject_in_cards">
-                            <div className="subject_head">
-                                <div className="subject_img">
-                                    <img src={rjs} alt="subjects"/>
-                                </div>
-                                <div className="teach_img">
-                                    <img src={child} alt="child"/>
-                                </div>
-                            </div>
-                            <div className="subject_body">
-                                <h2>English For Beginners</h2>
-                                <p>Teacher Name Here</p>
-                                <div className="row_sim">
-                                    <h3><i className="far fa-user"></i>500 Students</h3>
-                                    <h3><i className="fas fa-graduation-cap"></i>A/L</h3>
-                                </div>
-                            </div>
-                            <div className="subject_tail">
-                                <p><i className="far fa-clock"></i>One Hour Ago</p>
-                            </div>
-                        </div>
+                        {
+                            allSubDetails.map((tdata,index)=> <AllSubCard key={index} subject={tdata}/>)
+                        }
                     </div>
                 </div>
         </div>

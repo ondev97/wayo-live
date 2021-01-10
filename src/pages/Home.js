@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {activeAccount} from '../actions'
 import { loadStDetails } from '../actions/stDetailsAction';
@@ -14,13 +14,21 @@ import contract from '../img/svg/contract.svg';
 import get from '../img/get.jpg';
 import '../assets/css/home.css';
 import '../assets/css/mediaFiles/homemedia.css';
+import {Link} from "react-router-dom";
+import AllSubCard from "../components/AllSubCard";
+import Axios from "axios";
 
 export default function Home() {
     const dispatch = useDispatch();
-
+    const [allSubDetails, setallSubDetails] = useState([])
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
+        Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/latestsub/`).then(res=>{
+                setallSubDetails([...res.data])
+            }).catch(err=>{
+                console.log(err)
+            });
       },[dispatch])
 
     return (
@@ -62,30 +70,12 @@ export default function Home() {
                 <div className="main_container_co">
                     <div className="row_he">
                         <h1>Popular Subjects</h1>
-                        <button>Browse More</button>
+                        <Link to={'/allsubjects'}><button>Browse More</button></Link>
                     </div>
                     <div className="subject_area">
-                        <div className="subject_in_cards">
-                            <div className="subject_head">
-                                <div className="subject_img">
-                                    <img src={rjs} alt="subjects"/>
-                                </div>
-                                <div className="teach_img">
-                                    <img src={child} alt="child"/>
-                                </div>
-                            </div>
-                            <div className="subject_body">
-                                <h2>English For Beginners</h2>
-                                <p>Teacher Name Here</p>
-                                <div className="row_sim">
-                                    <h3><i className="far fa-user"></i>500 Students</h3>
-                                    <h3><i className="fas fa-graduation-cap"></i>A/L</h3>
-                                </div>
-                            </div>
-                            <div className="subject_tail">
-                                <p><i className="far fa-clock"></i>One Hour Ago</p>
-                            </div>
-                        </div>
+                        {
+                            allSubDetails.map((tdata,index)=> <AllSubCard key={index} subject={tdata}/>)
+                        }
                     </div>
                 </div>
             </div>
