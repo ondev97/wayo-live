@@ -10,7 +10,7 @@ import Axios from "axios";
 export default function About() {
 
     const dispatch = useDispatch();
-    const [statistics, setstatistics] = useState({'students':0})
+    const [statistics, setstatistics] = useState({'students':0, 'courses':0, 'teachers':0, 'subjects':0})
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
@@ -19,6 +19,7 @@ export default function About() {
             }).catch(err=>{
                 console.log(err)
             });
+        window.scrollTo(0, 0);
       },[dispatch])
 
     return (

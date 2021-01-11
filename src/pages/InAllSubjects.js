@@ -20,6 +20,7 @@ export default function InAllSubjects() {
             }).catch(err=>{
                 console.log(err)
             });
+        window.scrollTo(0, 0);
       },[dispatch]);
 
     return (

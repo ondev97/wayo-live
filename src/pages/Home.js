@@ -21,6 +21,8 @@ import Axios from "axios";
 export default function Home() {
     const dispatch = useDispatch();
     const [allSubDetails, setallSubDetails] = useState([])
+    const [statistics, setstatistics] = useState({'students':0, 'courses':0, 'teachers':0, 'subjects':0})
+
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
@@ -29,6 +31,12 @@ export default function Home() {
             }).catch(err=>{
                 console.log(err)
             });
+        Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/stat/`).then(res=>{
+                setstatistics(res.data)
+            }).catch(err=>{
+                console.log(err)
+            });
+        window.scrollTo(0, 0);
       },[dispatch])
 
     return (
@@ -37,7 +45,7 @@ export default function Home() {
                 <div className="cov_text">
                     <h1>OnDev<span>LMS</span> For Learning</h1>
                     <p>Education is the most powerful weapon which you can use to change the world</p>
-                    <button>Our Courses</button>
+                    <Link to={'/allteachers'}><button>Our Teachers</button></Link>
                 </div>
                 <div className="cov_img">
                     <img src={cov} alt="image"/>
@@ -90,19 +98,19 @@ export default function Home() {
                     <div className="wr">
                         <div className="counter_colu">
                             <h2>Students</h2>
-                            <h3>2000+</h3>
+                            <h3>{statistics.students}+</h3>
                         </div>
                         <div className="counter_colu">
                             <h2>Subjects</h2>
-                            <h3>200+</h3>
+                            <h3>{statistics.subjects}+</h3>
                         </div>
                         <div className="counter_colu">
                             <h2>Instructors</h2>
-                            <h3>2000+</h3>
+                            <h3>{statistics.teachers}+</h3>
                         </div>
                         <div className="counter_colu">
                             <h2>Courses</h2>
-                            <h3>2000+</h3>
+                            <h3>{statistics.courses}+</h3>
                         </div>
                     </div>
                 </div>

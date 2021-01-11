@@ -13,7 +13,7 @@ export default function TeacherDashboardHeader() {
     return (
         <div>
             <div className="logo">
-                <h1>OnDev <span>LMS</span></h1>
+                <Link to={'/'} style={{textDecoration:"none"}}><h1>OnDev <span>LMS</span></h1></Link>
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">
@@ -31,7 +31,7 @@ export default function TeacherDashboardHeader() {
                         <Link to="/teacherdashboard/createsubject/"><li><i className="fas fa-school"></i>Create Subject</li></Link>
                         <Link to="/teacherdashboard/managecourse/"><li><i className="fas fa-graduation-cap"></i>Manage Subject</li></Link>
                         <Link to="/teacherdashboard/profilesettings/"><li><i className="far fa-user-circle"></i>My Profile</li></Link>
-                        <li><i className="fas fa-mobile-alt"></i>Contact Us</li>
+                        <Link to={'/contact'}><li><i className="fas fa-mobile-alt"></i>Contact Us</li></Link>
                     </ul>
                 </div>
             </div>

@@ -50,6 +50,7 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
                 },
                 width:600
             });
+        console.log(res);
         setredirect(true);
     }).catch(err=>{
 

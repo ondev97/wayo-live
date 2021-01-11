@@ -135,16 +135,16 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                         <h3>{no<10 ? `0${no+1}` : no}</h3>
                     </div>
                 </Link>
-                <div className="st_cos_options_mna">
-                    <h3><i className="fas fa-chevron-circle-up"></i></h3>
-                    <div className="st_options_manage">
-                        <ul>
-                            <Link to={`#`}>
-                                <li><i className="fas fa-exclamation"></i>Unenrolled Me</li>
-                            </Link>
-                        </ul>
-                    </div>
-                </div>
+                {/*<div className="st_cos_options_mna">*/}
+                {/*    <h3><i className="fas fa-chevron-circle-up"></i></h3>*/}
+                {/*    <div className="st_options_manage">*/}
+                {/*        <ul>*/}
+                {/*            <Link to={`#`}>*/}
+                {/*                <li><i className="fas fa-exclamation"></i>Unenrolled Me</li>*/}
+                {/*            </Link>*/}
+                {/*        </ul>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <Link to="#'">
                     <div className="st_grid_card_mg_body">
                         <h3>{course_name}</h3>

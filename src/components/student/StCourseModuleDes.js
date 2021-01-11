@@ -29,9 +29,9 @@ export default function StCourseModuleDes() {
             <div className="course_desc_head">
                 <div className="course_pic">
                     <img src={`${courseData.course_cover}`} alt=""/>
-                    <div className="cos_options">
-                        <button><i className="fas fa-exclamation"></i><span>Unenroll Me</span></button>
-                    </div>
+                    {/*<div className="cos_options">*/}
+                    {/*    <button><i className="fas fa-exclamation"></i><span>Unenroll Me</span></button>*/}
+                    {/*</div>*/}
                 </div>
                 <h2>{courseData.course_name}</h2>
                 <h3><ReactTimeAgo date={Date.parse(courseData.created_at)} locale="en-US" /></h3>

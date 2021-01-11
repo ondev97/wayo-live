@@ -43,7 +43,7 @@ export default function StSubCourses() {
                 }
             })
 
-            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrolledcoursesinsubject/${id}/?page=${page}`,{
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrolledcoursesinsubject/${id}/?page=${page}&search=${search}`,{
                 headers:{Authorization:"Token "+usDetails.key}
             }).then(res=>{
                 setisLoading(false);
@@ -110,7 +110,10 @@ export default function StSubCourses() {
                         <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
                             {
                                 courseData.length !== 0 ?
-                                        courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course_cover} enrollkey={cdata.enroll_key} course_name={cdata.course_name} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                                        courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course_cover}
+                                                                                     enrollkey={cdata.enroll_key} course_name={cdata.course_name}
+                                                                                     price={cdata.price} duration={cdata.duration}
+                                                                                     created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
                                 :  <Empty target='No Courses'/>
                             }
                         </InfiniteScroll>

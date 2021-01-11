@@ -11,6 +11,7 @@ export default function ContactUs() {
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
+        window.scrollTo(0, 0);
       },[dispatch])
 
     return (
