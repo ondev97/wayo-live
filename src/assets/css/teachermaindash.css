@@ -1,0 +1,40 @@
+.header_sec {
+  width: 100%;
+  display: flex;
+}
+.header_sec .card_dash {
+  flex: 1;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+  margin-right: 10px;
+  border: 1px solid #43fd43;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 3px #ebebeb;
+}
+.header_sec .card_dash:last-child {
+  margin-right: 0;
+}
+.header_sec .card_dash img {
+  width: 65px;
+}
+.header_sec .card_dash h1 {
+  font-size: 25px;
+  font-weight: 500;
+  color: #00bf4d;
+}
+.header_sec .card_dash h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+@media screen and (max-width: 800px) {
+  .header_sec {
+    flex-wrap: wrap;
+  }
+  .header_sec .card_dash {
+    margin-bottom: 15px;
+  }
+}
