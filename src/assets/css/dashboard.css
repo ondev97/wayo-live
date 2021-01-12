@@ -140,6 +140,8 @@
   user-select: auto;
   opacity: 1;
   height: auto;
+  border: 1px solid #00bf4c71;
+  box-shadow: 0px 0px 10px #d3d3d3;
 }
 .main .active {
   width: 0px !important;

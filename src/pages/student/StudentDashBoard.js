@@ -79,8 +79,8 @@ export default function StudentDashBoard() {
                             <span><i className="fas fa-expand" onClick={full}></i></span>
                         </div>
                         <div className="sec">
-                            <div className="profile">
-                                <img src={`${initialState && `${process.env.REACT_APP_LMS_MAIN_URL}${initialState.profile_pic}` }`} alt="" onClick={()=>{settoggelProfile(!toggelProfile)}} />
+                            <div className="profile" onClick={()=>{settoggelProfile(!toggelProfile)}}>
+                                <img src={`${initialState && `${process.env.REACT_APP_LMS_MAIN_URL}${initialState.profile_pic}` }`} alt="" />
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>

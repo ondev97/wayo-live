@@ -87,8 +87,8 @@ export default function TeacherDashboard() {
                             <span><i className="fas fa-expand" onClick={full}></i></span>
                         </div>
                         <div className="sec">
-                            <div className="profile">
-                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt="" onClick={togglesh} />
+                            <div className="profile" onClick={togglesh}>
+                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt="" />
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>
