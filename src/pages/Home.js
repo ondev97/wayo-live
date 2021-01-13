@@ -6,8 +6,6 @@ import cov from '../img/cov.jpg';
 import instructor from '../img/svg/instructor.svg';
 import learning from '../img/svg/learning.svg';
 import support from '../img/svg/support.svg';
-import rjs from '../img/rjs.jpg';
-import child from '../img/child.png';
 import pencil from '../img/svg/pencil.svg';
 import video from '../img/svg/video.svg';
 import contract from '../img/svg/contract.svg';

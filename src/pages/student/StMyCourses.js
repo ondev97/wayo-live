@@ -5,23 +5,18 @@ import rjs from '../../img/rjs.jpg';
 import '../../assets/css/student/stcourse.css';
 import {useSelector} from "react-redux";
 import Axios from "axios";
-import CourseSect from "../../components/CourseSect";
 import Empty from "../../components/Empty";
-import CourseCard from "../../components/student/CourseCard";
 import useDebounce from "../../utils/hooks/useDebounce";
 import InfiniteScroll from 'react-infinite-scroll-component'
 import MyCourseCard from "../../components/student/MyCourseCard";
 
 
 export default function StMyCourses() {
-    const {id} = useParams();
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
     const [courseData, setcourseData] = useState([]);
     const [nextPage, setnextPage] = useState(null);
-    const [isShowDes, setisShowDes] = useState(false);
     const [search, setsearch] = useState('');
-    const [isRedirect, setisRedirect] = useState(false);
     const [isLoading, setisLoading] = useState(true);
     const debounce = useDebounce();//custom hook
     const [page, setpage] = useState(1);
@@ -62,10 +57,12 @@ export default function StMyCourses() {
         <div className="ful_manage_course">
             <div className="st_top_manage_body">
                 <div className="st_mange_cos_body">
-                    <h1>My Courses</h1>
-                    <div className="st_manage_cos_search">
-                        <input type="text" name='search' placeholder="Search Courses" onChange={handelSearchSubject}/>
-                        <button><i className="fas fa-search"></i></button>
+                    <div className="cou_row">
+                        <h1>My Courses</h1>
+                        <div className="st_manage_cos_search">
+                            <input type="text" name='search' placeholder="Search Courses" onChange={handelSearchSubject}/>
+                            <button><i className="fas fa-search"></i></button>
+                        </div>
                     </div>
                     <div className="">
                         <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>

@@ -153,9 +153,10 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                             {
                                 is_enrolled ?
                                     <Link to={`/studentdashboard/stmodules/${courseid}/`}>
-                                        <button><i className="fas fa-key"></i>View Course</button>
+                                        <button><i className="fas fa-eye"></i>View Course</button>
                                     </Link> :
                                     <>
+                                        {/*
                                         <PaymentModal
                                             // Use a unique value for the orderId
                                             course_id={courseid}
@@ -163,7 +164,7 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                                             price={price}
                                             user={user}
                                         />
-                                        {/*<button><i className="fas fa-shopping-cart"></i>Buy Key</button>*/}
+                                        <button><i className="fas fa-shopping-cart"></i>Buy Key</button>*/}
                                         <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
                                     </>
                             }

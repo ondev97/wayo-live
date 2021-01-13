@@ -13,7 +13,7 @@ export default function TeacherDashboardHeader() {
     return (
         <div>
             <div className="logo">
-                <Link to={'/'} style={{textDecoration:"none"}}><h1>OnDev <span>LMS</span></h1></Link>
+                <Link to={'/'} style={{textDecoration:"none"}}><h1>Eyekon <span>LMS</span></h1></Link>
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">

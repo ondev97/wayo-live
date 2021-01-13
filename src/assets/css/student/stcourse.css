@@ -68,6 +68,18 @@
 .st_top_manage_body .st_mange_cos_body {
   width: 100%;
 }
+/*all course*/
+.st_top_manage_body .st_mange_cos_body .cou_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.st_top_manage_body .st_mange_cos_body .cou_row h1 {
+  font-size: 23px;
+  color: #00bf4d;
+  font-weight: 500;
+}
+
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search {
   padding: 10px 0;
   display: flex;
