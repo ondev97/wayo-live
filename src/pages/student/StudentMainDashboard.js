@@ -65,7 +65,7 @@ export default function StudentMainDashboard() {
                 <div className="pagetop">
                     <h1>My Subjects</h1>
                     <div className="search_row">
-                        <input type="text" name='search' placeholder="Search Subject By Subject Name Instructor Name Or Class Type" onChange={handelSearchSubject}/>
+                        <input type="text" name='search' placeholder="Search Subject" onChange={handelSearchSubject}/>
                         <button><i className="fas fa-search"></i></button>
                     </div>
                 </div>

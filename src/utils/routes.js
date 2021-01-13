@@ -7,6 +7,7 @@ import StLogin from "../pages/StLogin";
 import StSignUp from "../pages/StSignUp";
 import StudentDashBoard from "../pages/student/StudentDashBoard";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import PasswordReset from "../pages/PasswordReset";
 
 export default [
     {
@@ -37,5 +38,8 @@ export default [
     },{
         path:'/studentdashboard',
         components:()=> <StudentDashBoard/>
+    },{
+        path:'/passwordreset',
+        components:()=> <PasswordReset/>
     }
 ]

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 import SubjectsCard from "../../components/student/SubjectsCard";
 import '../../assets/css/mediaFiles/allsubjectmedia.css';
+import ProfileLoader from "../../components/ProfileLoader";
 
 export default function StAllSubjects() {
 
@@ -72,7 +73,7 @@ export default function StAllSubjects() {
                 <div className="pagetop">
                     <h1>All Subjects</h1>
                     <div className="search_row">
-                        <input type="text" name='search' placeholder="Search Subject By Subject Name Instructor Name Or Class Type" onChange={handelSearchSubject}/>
+                        <input type="text" name='search' placeholder="Search Subject" onChange={handelSearchSubject}/>
                         <button><i className="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -84,6 +85,9 @@ export default function StAllSubjects() {
                         }
                     </InfiniteScroll>
                 </div>
+                {
+                    isLoading &&  <ProfileLoader/>
+                }
             </div>
 
         </>
