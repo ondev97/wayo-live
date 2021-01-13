@@ -4,9 +4,13 @@ import child from '../img/child.png'
 import '../assets/css/header.css'
 import '../assets/css/mediaFiles/headermedia.css';
 import { AnimatePresence, motion } from 'framer-motion';
+import {useSelector} from "react-redux";
+import ProfileDetails from "../utils/hooks/ProfileDetails";
 
 export default function Header({acDetails}) {
     const [isham, setisham] = useState(false);
+    const usDetails = useSelector(state => state.accountDetails);
+    const profileDetails = ProfileDetails(acDetails)
 
     const mobnavani = {
         visible: {
@@ -37,12 +41,12 @@ export default function Header({acDetails}) {
                 return(
                     <div className="pro_pic">
                         <div className="ac_details_header">
-                            <h3>Instructor</h3>
+                            <h3>{profileDetails.userName}</h3>
                             <p>Instructor</p>
                         </div>
-                        <Link to="teacherdashboard/teachermaindashboard/">
+                        <Link to="teacherdashboard/managecourse">
                             <div className="img">
-                                <img src={child} alt=""/>
+                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${profileDetails.pic}`} alt=""/>
                             </div>
                         </Link>
                     </div>
@@ -52,12 +56,12 @@ export default function Header({acDetails}) {
                 return(
                     <div className="pro_pic">
                         <div className="ac_details_header">
-                            <h3>student</h3>
+                            <h3>{profileDetails.userName}</h3>
                             <p>Student</p>
                         </div>
                         <Link to="studentdashboard">
                             <div className="img">
-                                <img src={child} alt=""/>
+                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${profileDetails.pic}`} alt=""/>
                             </div>
                         </Link>
                     </div>
@@ -71,7 +75,7 @@ export default function Header({acDetails}) {
                         <button>LOG IN</button>
                     </Link>
                     <Link to="/stsignup">
-                        <button>SIGN UP</button>
+                        <button>REGISTER</button>
                     </Link>
                 </div>
             )
@@ -126,21 +130,31 @@ export default function Header({acDetails}) {
                 <motion.div className="hammenu" variants={mobnavani} animate='visible' initial='hidden' exit="hidden">
                     <div className="menham">
                         <ul>
-                            <li>
-                                <Link to="/">HOME</Link>
-                            </li>
-                            <li>
-                                <Link to='/about'>ABOUT US</Link>
-                            </li>
-                            <li>
-                                <Link to='/contact'>CONTACT US</Link>
-                            </li>
-                            <li>
-                                <Link to="/allteachers">TEACHERS</Link>
-                            </li>
-                            <li>
-                                <Link to="/allsubjects">SUBJECTS</Link>
-                            </li>
+                            <Link to="/">
+                                <li>
+                                    HOME
+                                </li>
+                            </Link>
+                            <Link to='/about'>
+                                <li>
+                                    ABOUT US
+                                </li>
+                            </Link>
+                            <Link to='/contact'>
+                                <li>
+                                    CONTACT US
+                                </li>
+                            </Link>
+                            <Link to="/allteachers">
+                                <li>
+                                    TEACHERS
+                                </li>
+                            </Link>
+                            <Link to="/allsubjects">
+                                <li>
+                                    SUBJECTS
+                                </li>
+                            </Link>
                         </ul>
                         <div className="butham">
                             {

@@ -72,7 +72,7 @@ export default function StSignupForm() {
                     </p>
                 </div>
                 <div className="but">
-                    <button>Sign Up</button>
+                    <button>Register</button>
                     <div className="in">
                         <p>Already Have An Account?<Link to="/stlogin"> Log In Here</Link></p>
                     </div>

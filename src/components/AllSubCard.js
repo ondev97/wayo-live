@@ -24,7 +24,7 @@ export default function AllSubCard({subject}) {
                 <h2>{subject.subject_name}</h2>
                 <p>{subject.author.user.first_name}</p>
                 <div className="row_sim">
-                    <h3><i className="far fa-user"></i>500 Students</h3>
+                    {/*<h3><i className="far fa-user"></i>500 Students</h3>*/}
                     <h3><i className="fas fa-graduation-cap"></i>{subject.class_type.toUpperCase()}</h3>
                 </div>
             </div>

@@ -17,7 +17,7 @@ function App() {
     setacDetails(accountDetails);
   }, [accountDetails]);
 
-  const mainRoute = ["/","/about","/contact","/allteachers","/allsubjects","/stlogin","/stsignup"];
+  const mainRoute = ["/","/about","/contact","/allteachers","/allsubjects","/stlogin","/stsignup","/passwordreset"];
   let location = window.location.pathname;
   
   const headerRoute = () =>{

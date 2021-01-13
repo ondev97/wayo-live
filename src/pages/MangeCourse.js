@@ -9,6 +9,9 @@ import TcMaCourses from '../components/TcMaCourses'
 import useDebounce from '../utils/hooks/useDebounce'
 import '../assets/css/coursemanage.css'
 import '../assets/css/mediaFiles/managecoursemedia.css'
+import student from "../img/student.png";
+import courses from "../img/education.png";
+import Subjects from "../img/book.png";
 
 export default function MangeCourse() {
 
@@ -17,6 +20,7 @@ export default function MangeCourse() {
     const [allSubDetail, setallSubDetail] = useState(null);
     const [search, setsearch] = useState('');
     const [page, setpage] = useState(1);
+    const [statistics, setstatistics] = useState({'students':0, 'courses':0, 'subjects':0})
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
 
@@ -52,7 +56,14 @@ export default function MangeCourse() {
                 if(err.response.data){
                     console.log(err.response.data);
                 }
-            })
+            });
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teacherstat/`,{
+                headers:{Authorization:"Token " + usDetails.key}
+            }).then(res=>{
+                setstatistics(res.data);
+            }).catch(err=>{
+                console.log(err)
+            });
         }
     }
     
@@ -69,36 +80,69 @@ export default function MangeCourse() {
     }
     
     return (
-        <div className="main_ar_course">
-            <div className="course_head">
-                <div className="crcs">
-                    <Link to='/teacherdashboard/createsubject/'>
-                        <h2>Create Subject</h2>
-                    </Link>
+        <>
+            <div className="header_sec">
+                <div className="card_dash">
+                    <div className="icon_dash">
+                        <img src={student} alt="student"/>
+                    </div>
+                    <div className="body_dash">
+                        <h1>Students</h1>
+                        <h3>{statistics.students}</h3>
+                    </div>
                 </div>
-                <div className="search">
-                    <input type="text" name="search" placeholder="Search Your Subjects" onChange={handelSearchSubject}/>
-                    <button><i className="fas fa-search"></i></button>
+                <div className="card_dash">
+                    <div className="icon_dash">
+                        <img src={courses} alt="student"/>
+                    </div>
+                    <div className="body_dash">
+                        <h1>Courses</h1>
+                        <h3>{statistics.courses}</h3>
+                    </div>
+                </div>
+                <div className="card_dash">
+                    <div className="icon_dash">
+                        <img src={Subjects} alt="student"/>
+                    </div>
+                    <div className="body_dash">
+                        <h1>Subjects</h1>
+                        <h3>{statistics.subjects}</h3>
+                    </div>
                 </div>
             </div>
-            <div>
+
+            <div className="main_ar_course">
+                <br/>
+                <div className="course_head">
+                    <div className="crcs">
+                        <Link to='/teacherdashboard/createsubject/'>
+                            <h2>Create Subject</h2>
+                        </Link>
+                    </div>
+                    <div className="search">
+                        <input type="text" name="search" placeholder="Search Your Subjects" onChange={handelSearchSubject}/>
+                        <button><i className="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div>
+                    {
+                        allSubDetail !== null &&
+                        allSubDetail.count === 0 && !isLoading ?
+                            <Empty/>
+                            :
+                            subDetails && allSubDetail !== null &&
+                            <InfiniteScroll dataLength={subDetails.length} next={next} hasMore={true} className='course_body'>
+                                {
+                                    subDetails.map((det)=> <TcMaCourses key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
+                                }
+                            </InfiniteScroll>
+                    }
+
+                </div>
                 {
-                    allSubDetail !== null &&
-                    allSubDetail.count === 0 && !isLoading ?
-                        <Empty/>
-                    :
-                    subDetails && allSubDetail !== null &&
-                    <InfiniteScroll dataLength={subDetails.length} next={next} hasMore={true} className='course_body'> 
-                        {
-                        subDetails.map((det)=> <TcMaCourses key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
-                        }
-                    </InfiniteScroll>
+                    isLoading &&  <ProfileLoader/>
                 }
-                
             </div>
-            {
-                isLoading &&  <ProfileLoader/>
-            }
-        </div>
+        </>
     )
 }

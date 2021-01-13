@@ -11,7 +11,7 @@ export default function StLoginForm() {
            return <Redirect to="/studentdashboard/maindashboard" />
         }
         else if(acDetails.user.is_teacher){
-            return <Redirect to="/teacherdashboard/teachermaindashboard" />
+            return <Redirect to="/teacherdashboard/managecourse" />
         }
    }
 
@@ -39,7 +39,9 @@ export default function StLoginForm() {
                     <input type="submit" value="Log In" name="submit"/>
 
                     <div className="fpw">
-                        <p>Forget Password?</p>
+                        <p>
+                            <Link to="/passwordreset">Forgot Password?</Link>
+                        </p>
                         <p>
                             <Link to="/stsignup">Don't You Have An Account?</Link>
                         </p>
