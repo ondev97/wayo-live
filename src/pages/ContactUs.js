@@ -127,7 +127,7 @@ export default function ContactUs() {
                             <h3>Location</h3>
                         </div>
                         <div className="con_sort_body">
-                            <p>Ondev Technologies, Bandarawela RD,Hali-Ela</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                     <div className="column_con">
@@ -138,7 +138,7 @@ export default function ContactUs() {
                             <h3>Email</h3>
                         </div>
                         <div className="con_sort_body">
-                            <p>ondevtechnologies@gmail.com</p>
+                            <p>Lorem ipsum dolor sit amet co</p>
                         </div>
                     </div>
                 </div>

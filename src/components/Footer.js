@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="footer_mid">
                 <div className="footer_column">
                     <div className="lg">
-                        <h1>On Dev <span>LMS</span></h1>
+                        <h1>Eyekon <span>LMS</span></h1>
                         <h3>We Equip Smartness</h3>
                     </div>
                     <div className="ab">
@@ -19,7 +19,7 @@ export default function Footer() {
                 </div>
                 <div className="footer_column">
                     <h2>Location</h2>
-                    <p>ondev technologies,bandarawela road,haliela</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing el</p>
                     <ul className="scial">
                         <li><i className="fab fa-facebook-square"></i></li>
                         <li><i className="fab fa-twitter-square"></i></li>
@@ -48,7 +48,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="small_footer">
-                <h3>© 2021 Ondev Technologies. All Rights Reserved</h3>
+                <h3>COPYRIGHT © EYEKON INTERNATIONAL 2020</h3>
             </div>
         </div>
     )

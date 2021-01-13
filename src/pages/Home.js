@@ -43,7 +43,7 @@ export default function Home() {
         <div className='maininde'>
             <div className="uppercover">
                 <div className="cov_text">
-                    <h1>OnDev<span>LMS</span> For Learning</h1>
+                    <h1>Eyekon<span>LMS</span> For Learning</h1>
                     <p>Education is the most powerful weapon which you can use to change the world</p>
                     <Link to={'/allteachers'}><button>Our Teachers</button></Link>
                 </div>
@@ -118,7 +118,7 @@ export default function Home() {
             <div className="get_start_sec">
                 <div className="main_get_start">
                     <div className="get_start_column">
-                        <h1>Get Started With OnDev LMS</h1>
+                        <h1>Get Started With Eyekon LMS</h1>
                         <div className="get_row">
                             <div className="row_columno">
                                 <img src={pencil} alt="pencil"/>
