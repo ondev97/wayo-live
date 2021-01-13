@@ -85,7 +85,7 @@ export default function Header({acDetails}) {
             <div className="column">
                 <div className="hlogo">
                     <Link to="/">
-                        <h1><span>OnDev</span> LMS</h1>
+                        <h1><span>Eyekon</span> LMS</h1>
                     </Link>
                 </div>
             </div>
