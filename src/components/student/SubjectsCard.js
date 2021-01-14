@@ -16,11 +16,11 @@ export default function SubjectsCard({id,subject_name,subject_cover,author,creat
             <Link to={`/studentdashboard/stcourses/${id}`}>
                 <div className="sub_card_row">
                     <div className="image_sub">
-                        <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${subject_cover}`} alt=""/>
+                        <img src={`${subject_cover}`} alt=""/>
                     </div>
                     <div className="sub_ins_pro">
                         <div className="ins_outer">
-                            <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${author.profile_pic}`} alt=""/>
+                            <img src={`${author.profile_pic}`} alt=""/>
                         </div>
                     </div>
                 </div>
