@@ -50,7 +50,7 @@ export default function TcOneModel({name,msg,moduleFiles,id,setisRemoveModule}) 
         }).then(()=>{
             setisRemoveModule(true);
         }).catch(err=>{
-            console.log(err);
+
         })
 
     }

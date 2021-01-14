@@ -111,7 +111,7 @@ function CreateModels() {
                 setsucMsg(true);
             }
         }).catch(err=>{
-            console.log(err);
+
         })
     }
     
@@ -121,7 +121,7 @@ function CreateModels() {
         //showing alert
         store.addNotification({
             title: "Module Added Successfully!",
-            message: "OnDevlms",
+            message: "EyeKon LMS",
             type: "success",
             insert: "top",
             container: "top-right",

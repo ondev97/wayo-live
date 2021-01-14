@@ -36,7 +36,7 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
         console.log(res);
         store.addNotification({
                 title: "Sucessfully Enrolled",
-                message: "OnDevlms",
+                message: "EyeKon LMS",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -65,7 +65,7 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
     console.log("Payment dismissed");
     store.addNotification({
                 title: "Payment Cancelled",
-                message: "OnDevlms",
+                message: "EyeKon LMS",
                 type: "warning",
                 insert: "top",
                 container: "top-right",
@@ -87,8 +87,8 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
     console.log("Error:"  + error);
     store.addNotification({
                 title: "Payment was unsuccessfull",
-                message: "OnDevlms",
-                type: "error",
+                message: "EyeKon LMS",
+                type: "danger",
                 insert: "top",
                 container: "top-right",
                 animationIn: ["animate__animated", "animate__fadeIn"],
@@ -104,7 +104,6 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
   };
 
   function pay(){
-
     window.payhere.startPayment(payment);
   }
   if(redirect){

@@ -52,7 +52,7 @@ export default function CourseView() {
                 }
                 setallCourseData(res.data);
             }).catch(err=>{
-                console.log(err);
+
             })
         }
     }, [usDetails, page]);

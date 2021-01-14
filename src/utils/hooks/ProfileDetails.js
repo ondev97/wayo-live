@@ -13,7 +13,6 @@ function ProfileDetails(usDetails) {
         if(localStorage.getItem("usValues") !== null){
             if(Object.keys(JSON.parse(localStorage.getItem("usValues"))).length !==0){
                 const userDetails = JSON.parse(localStorage.getItem("usValues"));
-                console.log(userDetails)
                 if (userDetails.user.is_teacher) {
                     await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/profile/${userDetails.user.id}/`, {
                         headers: {Authorization: 'Token ' + userDetails.key}

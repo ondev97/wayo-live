@@ -18,7 +18,7 @@ export default function InAllSubjects() {
         Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/indexsub/`).then(res=>{
                 setallSubDetails([...res.data])
             }).catch(err=>{
-                console.log(err)
+
             });
         window.scrollTo(0, 0);
       },[dispatch]);
@@ -28,13 +28,13 @@ export default function InAllSubjects() {
             <div className="upper_cover">
                 <h1>Subjects</h1>
             </div>
-                <div className="popular_subjects">
-                    <div className="subject_area">
-                        {
-                            allSubDetails.map((tdata,index)=> <AllSubCard key={index} subject={tdata}/>)
-                        }
-                    </div>
+            <div className="popular_subjects">
+                <div className="subject_area">
+                    {
+                        allSubDetails.map((tdata,index)=> <AllSubCard key={index} subject={tdata}/>)
+                    }
                 </div>
+            </div>
         </div>
     )
 }

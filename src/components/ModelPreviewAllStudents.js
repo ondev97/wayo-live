@@ -19,7 +19,7 @@ export default function ModelPreviewAllStudents() {
             }).then(res=>{
                 setstuData([...res.data]);
             }).catch(err=>{
-                console.log(err);
+
             })
         }
     }, [usDetails]);

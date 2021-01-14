@@ -9,6 +9,7 @@ import Empty from "../../components/Empty";
 import useDebounce from "../../utils/hooks/useDebounce";
 import InfiniteScroll from 'react-infinite-scroll-component'
 import MyCourseCard from "../../components/student/MyCourseCard";
+import ProfileLoader from "../../components/ProfileLoader";
 
 
 export default function StMyCourses() {
@@ -36,7 +37,7 @@ export default function StMyCourses() {
                 }
                 setnextPage(res.data.next);
             }).catch(err=>{
-                console.log(err);
+
             })
         }
     }, [usDetails, search, page]);
@@ -69,7 +70,7 @@ export default function StMyCourses() {
                             {
                                 courseData.length !== 0 ?
                                         courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course.course_cover} course_name={cdata.course.course_name}  enrollkey={cdata.enroll_key} duration={cdata.course.duration} created_at={cdata.course.created_at} courseid={cdata.course.id} no={index} payment={cdata.is_payment}/>)
-                                :  <Empty target='No Courses'/>
+                                :  isLoading &&  <ProfileLoader/>
                             }
                         </InfiniteScroll>
                     </div>

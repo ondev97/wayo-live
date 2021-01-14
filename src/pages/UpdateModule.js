@@ -81,7 +81,6 @@ export default function UpdateModule() {
 
             for(let i=0;i<newmediafiles.length;i++){
                 if(newmediafiles[i].type === 'video/mp4'){
-                    console.log('no');
                     setformErrors({...formErrors,comerr:"Please Upload Video Files To Vimeo And paste Vimeo URL In Here"});
                 }
             }
@@ -155,7 +154,7 @@ export default function UpdateModule() {
                 setsucMsg(true);
             }
         }).catch(err=>{
-            console.log(err);
+
         })
 
     }

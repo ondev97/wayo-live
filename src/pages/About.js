@@ -17,7 +17,7 @@ export default function About() {
         Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/stat/`).then(res=>{
                 setstatistics(res.data)
             }).catch(err=>{
-                console.log(err)
+
             });
         window.scrollTo(0, 0);
       },[dispatch])

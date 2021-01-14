@@ -78,7 +78,7 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
             closemodel();
             store.addNotification({
                 title: "Sucessfully Enrolled",
-                message: "OnDevlms",
+                message: "EyeKon LMS",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -96,7 +96,6 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
         }).catch(err=>{
             setcontent(err.response.data.message);
             setstyle({color:"red", visibility:"visible"});
-            console.log(usDetails);
         })
     }
     if(redirect){
@@ -135,16 +134,6 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                         <h3>{no<10 ? `0${no+1}` : no}</h3>
                     </div>
                 </Link>
-                {/*<div className="st_cos_options_mna">*/}
-                {/*    <h3><i className="fas fa-chevron-circle-up"></i></h3>*/}
-                {/*    <div className="st_options_manage">*/}
-                {/*        <ul>*/}
-                {/*            <Link to={`#`}>*/}
-                {/*                <li><i className="fas fa-exclamation"></i>Unenrolled Me</li>*/}
-                {/*            </Link>*/}
-                {/*        </ul>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <Link to="#'">
                     <div className="st_grid_card_mg_body">
                         <h3>{course_name}</h3>

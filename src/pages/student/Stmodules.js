@@ -56,7 +56,7 @@ console.log(id);
                     arr.push({[data.id]:res.data});
                     setmoduleFiles([...arr]);
                 }).catch(err=>{
-                    console.log(err);
+
                 })
                 )
             }

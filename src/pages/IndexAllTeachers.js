@@ -18,7 +18,7 @@ export default function IndexAllTeachers() {
         Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/teachers/`).then(res=>{
                 setteacherDetails([...res.data])
             }).catch(err=>{
-                console.log(err)
+
             });
         window.scrollTo(0, 0);
       },[dispatch])
@@ -32,13 +32,6 @@ export default function IndexAllTeachers() {
                 {
                    teacherDetails.map((tdata,index)=> <InTeacher key={index} teacher={tdata}/>)
                 }
-                {/*<InTeacher/>*/}
-                {/*<InTeacher/>*/}
-                {/*<InTeacher/>*/}
-                {/*<InTeacher/>*/}
-                {/*<InTeacher/>*/}
-                {/*<InTeacher/>*/}
-                {/*<InTeacher/>*/}
             </div>
         </div>
     )

@@ -94,7 +94,9 @@ export default function StUploadProPicModel({showModel,setshowModel,filePath,set
                 },
                 width:600,
             });
-        }).catch(err=>console.log(err))
+        }).catch(err=>{
+
+        })
     }
 
     //close model page and clear page

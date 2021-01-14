@@ -8,6 +8,7 @@ import Empty from "../../components/Empty";
 import CourseCard from "../../components/student/CourseCard";
 import useDebounce from "../../utils/hooks/useDebounce";
 import InfiniteScroll from 'react-infinite-scroll-component'
+import ProfileLoader from "../../components/ProfileLoader";
 
 
 export default function StCourses() {
@@ -31,7 +32,6 @@ export default function StCourses() {
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/subject_stu/${id}/`,{
                 headers:{Authorization:"Token "+usDetails.key}
             }).then(res=>{
-                setisLoading(false);
                 if(res.data){
                     setsubData({...subData,'sub_name':res.data.subject_name,'sub_cover':res.data.subject_cover,'sub_sdes':res.data.short_description,'description':res.data.description});
                 }
@@ -57,7 +57,7 @@ export default function StCourses() {
                 }
                 setnextPage(res.data.next);
             }).catch(err=>{
-                console.log(err);
+
             });
         }
     }, [usDetails, search, page]);
@@ -113,7 +113,7 @@ export default function StCourses() {
                             {
                                 courseData.length !== 0 ?
                                         courseData.map((cdata,index)=> <CourseCard key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index} user={user} is_enrolled={cdata.is_enrolled}/>)
-                                :  <Empty target='No Courses'/>
+                                :  isLoading &&  <ProfileLoader/>
                             }
                         </InfiniteScroll>
                     </div>

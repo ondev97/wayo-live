@@ -49,7 +49,7 @@ export default function StAllSubjects() {
                 setnextPage(res.data.next);
             }).catch(err=>{
                 if(err.response.data){
-                    console.log(err.response.data);
+
                 }
             });
         }

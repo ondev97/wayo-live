@@ -53,16 +53,14 @@ export default function MangeCourse() {
                 }
                 setallSubDetail(res.data);
             }).catch(err=>{
-                if(err.response.data){
-                    console.log(err.response.data);
-                }
+
             });
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teacherstat/`,{
                 headers:{Authorization:"Token " + usDetails.key}
             }).then(res=>{
                 setstatistics(res.data);
             }).catch(err=>{
-                console.log(err)
+
             });
         }
     }

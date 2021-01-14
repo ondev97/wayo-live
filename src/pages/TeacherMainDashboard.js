@@ -24,7 +24,7 @@ export default function TeacherMainDashboard() {
             }).then(res=>{
                 setstatistics(res.data);
             }).catch(err=>{
-                console.log(err)
+
             })
         }
         console.log(usDetails)

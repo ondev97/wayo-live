@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 import SubjectsCard from "../../components/student/SubjectsCard";
 import MySubjectsCard from "../../components/student/MySubjectCard";
+import ProfileLoader from "../../components/ProfileLoader";
 
 export default function StudentMainDashboard() {
 
@@ -41,7 +42,7 @@ export default function StudentMainDashboard() {
                 setsubDetails([...res.data]);
             }).catch(err=>{
                 if(err.response.data){
-                    console.log(err.response.data);
+
                 }
             })
         }
@@ -77,6 +78,9 @@ export default function StudentMainDashboard() {
                         }
                     </InfiniteScroll>
                 </div>
+                {
+                    isLoading &&  <ProfileLoader/>
+                }
             </div>
 
         </>

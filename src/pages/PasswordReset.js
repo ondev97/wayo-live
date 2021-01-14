@@ -31,7 +31,7 @@ export default function PasswordReset() {
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/password/reset/`, {email:email}).then(res=>{
             store.addNotification({
                 title: res.data.detail,
-                message: "OnDevlms",
+                message: "EyeKon LMS",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -51,8 +51,8 @@ export default function PasswordReset() {
         }).catch(err=>{
             store.addNotification({
                 title: "Email was not sent",
-                message: "OnDevlms",
-                type: "warning",
+                message: "EyeKon LMS",
+                type: "danger",
                 insert: "top",
                 container: "top-right",
                 animationIn: ["animate__animated", "animate__fadeIn"],
@@ -65,8 +65,7 @@ export default function PasswordReset() {
                 },
                 width:600
             });
-            setreadOnly('')
-            console.log(err)
+            setreadOnly('');
         })
     }
     if(redirect){

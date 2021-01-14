@@ -83,7 +83,7 @@ export default function UpdateSubject() {
             setisredirect(true);
 
         }).catch(e=>{
-            console.log(e);
+
         })
     }
 

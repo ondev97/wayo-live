@@ -112,7 +112,6 @@ function GenerateKeys() {
                 setcouponData(res.data);
                 setisLoading(false);
             }).catch(err=>{
-                console.log(err);
                 if(err){
                     setredirect(true);
                 }

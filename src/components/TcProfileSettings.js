@@ -35,7 +35,6 @@ function TcProfileSettings({setsettings}) {
         if(inputField.length !== 0){
             for(let i=0; i<3;i++){
                 if(inputField[i]){
-                    console.log(inputField[i]);
                     all_data.append(`experience${i+1}`,inputField[i].ex);
                 }
                 else{

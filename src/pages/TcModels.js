@@ -23,7 +23,7 @@ export default function TcModels() {
             }).then(res=>{
                 setmoduleData(res.data);
             }).catch(err=>{
-                console.log(err);
+
             })
         }
     }, [usDetails,isRemoveModule]);
@@ -38,7 +38,7 @@ export default function TcModels() {
                     arr.push({[data.id]:res.data});
                     setmoduleFiles([...arr]);
                 }).catch(err=>{
-                    console.log(err);
+
                 })
                 )
             }

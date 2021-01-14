@@ -68,7 +68,7 @@ export default function CreateSubject() {
             //showing alert
             store.addNotification({
                 title: "Subject Created!",
-                message: "OnDevlms",
+                message: "EyeKon LMS",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -84,7 +84,7 @@ export default function CreateSubject() {
             });
             setredirec({id:res.data.id});
         }).catch(e=>{
-            console.log(e);
+
         })
     }
     

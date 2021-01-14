@@ -59,7 +59,7 @@ export default function Header({acDetails}) {
                             <h3>{profileDetails.userName}</h3>
                             <p>Student</p>
                         </div>
-                        <Link to="studentdashboard">
+                        <Link to="studentdashboard/maindashboard">
                             <div className="img">
                                 <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${profileDetails.pic}`} alt=""/>
                             </div>

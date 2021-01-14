@@ -84,7 +84,7 @@ export default function StudentDashBoard() {
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>
-                                            <Link to='#'><li><i className="far fa-user-circle"></i>Profile</li></Link>
+                                            <Link to='/studentdashboard/studentprofile/'><li><i className="far fa-user-circle"></i>Profile</li></Link>
                                             <li onClick={hadelLogOut}><i className="fas fa-sign-out-alt" ></i>Log Out</li>
                                         </ul>
                                     </div>

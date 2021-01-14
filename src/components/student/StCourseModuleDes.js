@@ -19,7 +19,7 @@ export default function StCourseModuleDes() {
             }).then(res=>{
                 setcourseData(res.data);
             }).catch(err=>{
-                console.log(err);
+
             })
         }
     }, [usDetails]);
