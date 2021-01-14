@@ -26,7 +26,7 @@ export default function TcMaCourses({id,subject_name,subject_cover,author,create
         <div className="course_card">
                 <div className="cscard_head">
                     <Link to={`/teacherdashboard/viewcourse/${id}`}>
-                        <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${subject_cover}`} alt=""/>
+                        <img src={`${subject_cover}`} alt=""/>
                     </Link>
                     <div className="cos_options">
                         <h3><i className="fas fa-chevron-circle-up"></i></h3>
