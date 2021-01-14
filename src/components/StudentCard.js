@@ -9,7 +9,7 @@ export default function StudentCard({student}) {
     return (
         <div className="student_row">
             <div className="student_col">
-                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${student.profile_pic}`} alt=""/>
+                <img src={`${student.profile_pic}`} alt=""/>
             </div>
             <div className="student_col_des">
                 <h3>{student.user.username}</h3>
