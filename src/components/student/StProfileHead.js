@@ -59,7 +59,7 @@ export default function StProfileHead() {
           <h2>{`${initialState && initialState.user.first_name} ${initialState && initialState.user.last_name}`}</h2>
           <p>Student</p>
           <div className="srow_pro_pic">
-            <img src={`${initialState && `${process.env.REACT_APP_LMS_MAIN_URL}${initialState.profile_pic}` }`} alt="" />
+            <img src={`${initialState && `${initialState.profile_pic}` }`} alt="" />
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>
