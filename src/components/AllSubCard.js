@@ -17,7 +17,7 @@ export default function AllSubCard({subject}) {
                     <img src={`${subject.subject_cover}`} alt="subjects"/>
                 </div>
                 <div className="teach_img">
-                    <img src={`{subject.author.profile_pic}`} alt="child"/>
+                    <img src={`${subject.author.profile_pic}`} alt="child"/>
                 </div>
             </div>
             <div className="subject_body">
