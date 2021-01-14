@@ -55,21 +55,21 @@ export default function Home() {
                         <img src={instructor} alt="instructor"/>
                     </div>
                     <h3>Expert Instructors</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus explicabo consequuntur dolore.</p>
+                    <p>Meet Best Instructors Around the Island and Enroll for Best Lessons of them. </p>
                 </div>
                 <div className="cards_indi">
                     <div className="card_ic">
                         <img src={support} alt="support"/>
                     </div>
                     <h3>Customer Support</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus explicabo consequuntur dolore.</p>
+                    <p>24/7 Reliable and Efficient Customer Support. Contact us for any Technical Issue you Faced </p>
                 </div>
                 <div className="cards_indi">
                     <div className="card_ic">
                         <img src={learning} alt="learning"/>
                     </div>
                     <h3>Remote Learning</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus explicabo consequuntur dolore.</p>
+                    <p>Stay Safe at Home Learn Whatever You Want. Select, Enroll and It's Good to Go.</p>
                 </div>
             </div>
             <div className="popular_subjects">
@@ -123,7 +123,7 @@ export default function Home() {
                             </div>
                             <div className="row_columnt">
                                 <h3>Sign up in Website</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, deleniti eveniet?</p>
+                                <p> Register with your Email, Give a Username and a Password and Enjoy the Experience! </p>
                             </div>
                         </div>
                         <div className="get_row">
@@ -132,7 +132,7 @@ export default function Home() {
                             </div>
                             <div className="row_columnt">
                                 <h3>Enroll your courses</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, deleniti eveniet?</p>
+                                <p> Choose a Subject Explore Courses inside the Find the Key then Enroll to Courses. </p>
                             </div>
                         </div>
                         <div className="get_row">
@@ -141,7 +141,7 @@ export default function Home() {
                             </div>
                             <div className="row_columnt">
                                 <h3>Start from now</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, deleniti eveniet?</p>
+                                <p>Why are you waiting to Register Right Now and Start your Journey with Us.</p>
                             </div>
                         </div>
                     </div>
