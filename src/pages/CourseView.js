@@ -85,7 +85,7 @@ export default function CourseView() {
     return (
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <img src={process.env.REACT_APP_LMS_MAIN_URL+subData.sub_cover} alt=""/>
+                <img src={subData.sub_cover} alt=""/>
                 <div className="top_manage_head">
                     <h1>{subData.sub_name || ''}</h1>
                     <h3>{subData.sub_name || ''}</h3>
