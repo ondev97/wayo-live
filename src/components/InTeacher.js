@@ -6,7 +6,7 @@ export default function InTeacher({key, teacher}) {
         <div className="teach_card">
             <div className="card_teach_head">
                 <div className="pro_pic">
-                    <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teacher.profile_pic}`} alt="teacher"/>
+                    <img src={`${teacher.profile_pic}`} alt="teacher"/>
                 </div>
             </div>
             <div className="card_teach_body">
