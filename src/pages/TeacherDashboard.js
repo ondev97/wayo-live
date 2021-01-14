@@ -88,7 +88,7 @@ export default function TeacherDashboard() {
                         </div>
                         <div className="sec">
                             <div className="profile" onClick={togglesh}>
-                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt="" />
+                                <img src={`${teachProfilepic}`} alt="" />
                                 <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
                                     <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
                                         <ul>
