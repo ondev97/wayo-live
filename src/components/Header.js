@@ -46,7 +46,7 @@ export default function Header({acDetails}) {
                         </div>
                         <Link to="teacherdashboard/managecourse">
                             <div className="img">
-                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${profileDetails.pic}`} alt=""/>
+                                <img src={`${profileDetails.pic}`} alt=""/>
                             </div>
                         </Link>
                     </div>
@@ -61,7 +61,7 @@ export default function Header({acDetails}) {
                         </div>
                         <Link to="studentdashboard/maindashboard">
                             <div className="img">
-                                <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${profileDetails.pic}`} alt=""/>
+                                <img src={`${profileDetails.pic}`} alt=""/>
                             </div>
                         </Link>
                     </div>
