@@ -14,10 +14,10 @@ export default function AllSubCard({subject}) {
         <div className="subject_in_cards">
             <div className="subject_head">
                 <div className="subject_img">
-                    <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${subject.subject_cover}`} alt="subjects"/>
+                    <img src={`${subject.subject_cover}`} alt="subjects"/>
                 </div>
                 <div className="teach_img">
-                    <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${subject.author.profile_pic}`} alt="child"/>
+                    <img src={`{subject.author.profile_pic}`} alt="child"/>
                 </div>
             </div>
             <div className="subject_body">
