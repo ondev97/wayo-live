@@ -24,7 +24,7 @@ export default function CourseSect({course_cover,course_name,price,duration,crea
         <div className="grid_card_manage">
             <Link to={`/teacherdashboard/models/${courseid}`}>
                 <div className="grid_card_mg_head">
-                    <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${course_cover}`} alt=""/>
+                    <img src={`${course_cover}`} alt=""/>
                     <div className="dura">
                         <h3><i className="far fa-clock cl"></i>{duration} Hrs</h3>
                     </div>
