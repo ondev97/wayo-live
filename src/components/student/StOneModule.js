@@ -77,7 +77,7 @@ export default function StOneModule({name,msg,moduleFiles,id}) {
                                                         <i className="fab fa-js-square"></i>
                                                 : <i className="far fa-file-alt"></i>
                                             } 
-                                            <a href={`${process.env.REACT_APP_LMS_MAIN_URL}${fl.file}`} target="_blank" download>{fl.file_name || fl.id}</a> </p>
+                                            <a href={`${fl.file}`} target="_blank" download>{fl.file_name || fl.id}</a> </p>
                                     </div>
                                 ))
                             ))
