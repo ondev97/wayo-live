@@ -59,7 +59,7 @@ export default function ProfileHead() {
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
           <p>Instructor</p>
           <div className="srow_pro_pic">
-            <img src={`${process.env.REACT_APP_LMS_MAIN_URL}${teachProfilepic}`} alt="" />
+            <img src={`${teachProfilepic}`} alt="" />
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>
