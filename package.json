@@ -2,7 +2,7 @@
   "name": "lms",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eyekoninstitute.lk/",
+  "homepage": "https://eyekoninstitute.lk/lms/",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^23.1.0",
     "@ckeditor/ckeditor5-react": "^3.0.0",
