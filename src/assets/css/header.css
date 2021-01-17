@@ -175,7 +175,7 @@ nav .ham button i {
   position: fixed;
   top: 93px;
   right: 0;
-  background: linear-gradient(125deg, #fff, #fff, #efffef, #efffef);
+  background: linear-gradient(125deg, #fff, #fff, #ffeed2, #f7f7f7);
   width: 300px;
   height: calc(100vh - 94px);
   padding: 10px;
@@ -200,7 +200,7 @@ nav .ham button i {
 .hammenu ul li {
   margin-bottom: 15px;
   padding: 8px 0;
-  border-bottom: 1px solid #8affb9;
+  border-bottom: 1px solid #eba32d;
   list-style: none;
   cursor: pointer;
   transition: 0.3s ease;
@@ -228,7 +228,7 @@ nav .ham button i {
   border: none;
   background-color: #fff;
   font-weight: 600;
-  border: 2px solid #00bf4d;
+  border: 2px solid #f3a82f;
   border-radius: 5px;
   transition: 0.4s ease-in;
   cursor: pointer;
@@ -240,18 +240,18 @@ nav .ham button i {
   color: #000;
 }
 .hammenu .buttons a:nth-child(2) button {
-  background-color: #00bf4d;
+  background-color: #eba32d;
   color: #fff;
 }
 .hammenu .buttons button:nth-child(2) a {
   color: #fff;
 }
 .hammenu .buttons button:nth-child(1):hover {
-  background-color: #00bf4d;
+  background-color: #eba32d;
   color: #fff;
 }
 .hammenu .buttons button:nth-child(2):hover {
-  background-color: #04a745;
+  background-color: #eba32d;
 }
 .hammenu .buttons button:hover a {
   color: #fff;
@@ -270,7 +270,7 @@ nav .ham button i {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #00bf4d;
+  border: 2px solid #eba32d;
 }
 .hammenu .pro_pic .img img {
   width: 100%;
@@ -283,7 +283,7 @@ nav .ham button i {
   font-size: 15px;
   word-wrap: break-word;
   text-align: right;
-  color: #09a347;
+  color: #df9929;
 }
 .hammenu .ac_details_header p {
   font-size: 13px;
