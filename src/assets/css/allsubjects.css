@@ -37,13 +37,13 @@
   .subject_in_cards
   .subject_head
   .teach_img {
-width: 65px;
+  width: 65px;
   height: 65px;
   position: absolute;
   bottom: -8px;
   right: 8px;
   border-radius: 50%;
-  border: 2px solid #13a15f;
+  border: 2px solid #ffae29;
 }
 .maininde
   .popular_subjects
@@ -85,12 +85,7 @@ width: 65px;
   padding: 8px;
   text-align: center;
 }
-.maininde
-  .popular_subjects
-  .subject_area
-  .subject_in_cards
-  .subject_body
-  h2 {
+.maininde .popular_subjects .subject_area .subject_in_cards .subject_body h2 {
   font-size: 19px;
   margin-bottom: 10px;
   color: var(--h1Fontcolor);
@@ -110,22 +105,11 @@ width: 65px;
   display: flex;
   justify-content: space-evenly;
 }
-.maininde
-  .popular_subjects
-  .subject_area
-  .subject_in_cards
-  .subject_body
-  h3 {
+.maininde .popular_subjects .subject_area .subject_in_cards .subject_body h3 {
   font-size: 13px;
   font-weight: 500;
 }
-.maininde
-  .popular_subjects
-  .subject_area
-  .subject_in_cards
-  .subject_body
-  h3
-  i {
+.maininde .popular_subjects .subject_area .subject_in_cards .subject_body h3 i {
   margin-right: 10px;
 }
 .maininde .popular_subjects .al_subject_area .subject_in_cards .subject_tail {
@@ -137,13 +121,7 @@ width: 65px;
   z-index: 150;
   font-size: 12px;
 }
-.maininde
-  .popular_subjects
-  .subject_area
-  .subject_in_cards
-  .subject_tail
-  p
-  i {
+.maininde .popular_subjects .subject_area .subject_in_cards .subject_tail p i {
   margin-right: 5px;
 }
 @media screen and (max-width: 1300px) {

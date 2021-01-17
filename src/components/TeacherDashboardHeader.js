@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import "../assets/css/dashboardHeader.css"
 import AcDetails from '../utils/hooks/AcDetails';
+import logo1 from '../img/Logo_1.png';
 
 export default function TeacherDashboardHeader() {
     const [sidebar, setsidebar] = useState(true);
@@ -13,7 +14,7 @@ export default function TeacherDashboardHeader() {
     return (
         <div>
             <div className="logo">
-                <Link to={'/'} style={{textDecoration:"none"}}><h1>Eyekon <span>LMS</span></h1></Link>
+                <Link to={'/'} style={{textDecoration:"none"}}> <img src={logo1} alt="image"/> </Link>
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">

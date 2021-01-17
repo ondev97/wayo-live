@@ -13,6 +13,9 @@
   font-family: "Montserrat", sans-serif;
   color: #00bf4d;
 }
+.logo img {
+  width: 180px;
+}
 .logo h1 span {
   font-size: 15px;
   font-weight: 500;
@@ -48,7 +51,7 @@
 .profile_menu .details h3 {
   font-weight: 400;
   font-size: 13px;
-  color: #00bf4d;
+  color: #ee9400;
 }
 .main_section {
   margin: 25px 0;
@@ -68,10 +71,9 @@
 }
 .main_section .list ul li {
   width: 100%;
-  padding: 10px 8px;
-  margin-bottom: 30px;
+  padding: 24px 8px;
   font-size: 16px;
-  color: #077533;
+  color: #bf7e16;
   border: 1px solid #00bf4d1c;
   cursor: pointer;
   font-weight: 500;
@@ -89,9 +91,9 @@
   margin-right: 15px;
 }
 .main_section .list ul li:hover {
-  background: #defdeb;
-  color: #01822f;
+  background: #fff4e2;
+  color: #bf7e16;
 }
 .main_section .list ul li:hover a {
-  color: #01822f;
+  color: #bf7e16;
 }

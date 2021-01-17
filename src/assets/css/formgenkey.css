@@ -26,7 +26,7 @@
   display: block;
   margin-bottom: 15px;
   font-size: 17px;
-  color: #00bf4d;
+  color: #f9a112;
   font-weight: 600;
 }
 .genkeysform .main_gen_form form p input {
@@ -49,7 +49,7 @@
   padding: 8px;
   margin-top: 15px;
   border: 1px solid transparent;
-  background-color: #00bf4d;
+  background-color: #f9a112;
   color: #fff;
   font-weight: 600;
   font-size: 15px;
@@ -59,7 +59,7 @@
   transition: 0.3s ease;
 }
 .genkeysform .main_gen_form form .gen_sub button:hover {
-  background-color: #049204;
+  background-color: #e49516;
 }
 .genkeysform .mid_row {
   width: 100%;
@@ -76,7 +76,7 @@
 .genkeysform .mid_row button {
   width: 130px;
   padding: 6px;
-  background-color: #00bf4d;
+  background-color: #f9a112;
   border: 1px solid transparent;
   color: #fff;
   font-weight: 600;
@@ -85,7 +85,7 @@
   transition: 0.5s ease;
 }
 .genkeysform .mid_row button:hover {
-  background-color: #07a044;
+  background-color: #e4920f;
 }
 .genkeysform .mid_row button i {
   color: #fff;
@@ -134,18 +134,18 @@
   top: 0;
   padding: 15px 12px;
   z-index: 100;
-  background-color: #dbffe89e;
+  background-color: #eeee;
 }
 .genkeysform .main_gen_form .disp_gen_keys table thead tr:first-child {
-  background-color: #eee3;
-  color: #049204;
+  background-color: #fffdfa;
+  color: #f9a112;
 }
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(1) {
   background-color: #eee3;
 }
 
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(2) {
-  color: #049204;
+  color: #e29313;
 }
 .genkeysform .main_gen_form .disp_gen_keys table tr td {
   padding: 15px 12px;
@@ -188,7 +188,7 @@
   td
   input[type="checkbox"]:checked
   ~ .toggle_fill {
-  background-color: #11af45;
+  background-color: #faa824;
 }
 .genkeysform
   .main_gen_form
@@ -210,7 +210,7 @@
 }
 .genkeysform .main_gen_form .no_keys h1 {
   margin-bottom: 25px;
-  color: #00bf4d;
+  color: #f9a112;
   font-weight: 500;
   font-size: 20px;
 }

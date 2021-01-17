@@ -45,7 +45,7 @@
   border-right: transparent;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  color: #367954;
+  color: #db9627;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -57,7 +57,7 @@
   border-left: transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #45ab73;
+  background-color: #eda227;
   color: #fff;
   font-weight: 600;
   letter-spacing: 1px;
@@ -76,7 +76,7 @@
 }
 .st_top_manage_body .st_mange_cos_body .cou_row h1 {
   font-size: 23px;
-  color: #00bf4d;
+  color: #ffae29;
   font-weight: 500;
 }
 
@@ -88,15 +88,15 @@
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search input {
   padding: 9px 5px;
   width: 400px;
-  border: 1px solid #3e9264;
+  border: 1px solid #a57221;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-right: transparent;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search button {
-  background-color: #ddffec;
+  background-color: #fff3df;
   width: 50px;
-  border: 1px solid #3e9264;
+  border: 1px solid #a57221;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-left: transparent;
@@ -114,7 +114,7 @@
   cursor: pointer;
   outline: none;
   background-color: #fff;
-  border: 2px solid #00bf4d;
+  border: 2px solid #f5d39b;
   color: #3e9264;
   font-weight: 600;
   width: 120px;
@@ -122,7 +122,7 @@
   transition: 0.3s ease-in;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_course_nav button:hover {
-  background-color: #00bf4d;
+  background-color: #eda227;
   color: #fff;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_course_grid {
@@ -165,7 +165,7 @@
   width: 100%;
   height: 180px;
   transition: 0.5s ease;
-  background-image: linear-gradient(to left, green, black);
+  background-image: linear-gradient(to left, #ffae29, black);
   margin-bottom: 15px;
 }
 .st_top_manage_body
@@ -202,7 +202,7 @@
   .st_grid_card_mg_body
   h3 {
   font-weight: 400;
-  color: #3e9264;
+  color: #ffae29;
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -248,7 +248,7 @@
   padding: 6px 0;
   width: 125px;
   background-color: #fff;
-  border: 1px solid #45ab73;
+  border: 1px solid #ffae29;
   border-radius: 3px;
   cursor: pointer;
   font-weight: 500;
@@ -293,7 +293,7 @@
   .st_grid_card_mg_body
   .st_purchase_row
   button:nth-child(1):hover {
-  background-color: #45ab73;
+  background-color: #eda227;
   color: #fff;
 }
 .st_top_manage_body
@@ -369,7 +369,7 @@
   bottom: 5px;
   right: 5px;
   padding: 7px 10px;
-  background-color: #367954;
+  background-color: #e29924;
   border-radius: 20px;
   display: flex;
   justify-content: center;

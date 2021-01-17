@@ -27,8 +27,8 @@
   font-weight: 500;
   border-radius: 5px;
   cursor: pointer;
-  background-image: linear-gradient(to left, #01b594, #03c282, #04c574);
-  border: 1px solid #00bf4d;
+  background-image: linear-gradient(to left, #ee990d, #ffae29, #ee990d);
+  border: 1px solid #ee990d;
   color: #fff;
   transition: 0.2s ease;
 }
@@ -37,7 +37,7 @@
   text-decoration: none;
 }
 .models .md_all_models .models_en_nav ul li:hover {
-  background-image: linear-gradient(to left, #02a88a, #02b177, #03b66b);
+  background-image: linear-gradient(to left, #da9019, #f8a92b, #da9019);
 }
 .models .md_all_models .models_en_nav ul li i {
   font-size: 12px;
@@ -66,7 +66,7 @@
   margin-right: 5px;
 }
 .models .md_all_models .md_models .cr_models button:hover {
-  background-color: #00bf4d;
+  background-color: #ffae29;
   color: #fff;
 }
 .models .md_all_models .md_models .al_models {
@@ -88,7 +88,7 @@
 .models .md_all_models .md_models .al_models .on_model_head h1 {
   font-size: 17px;
   font-weight: 500;
-  color: #008074;
+  color: #ffae29;
 }
 .models .md_all_models .md_models .al_models .on_model_head .heads_buts button {
   background: none;
@@ -115,7 +115,7 @@
   .heads_buts
   button:nth-child(1)
   i {
-  color: #05b17d;
+  color: #ffae29;
   font-size: 16px;
 }
 .models
@@ -234,7 +234,7 @@
   height: 200px;
   overflow: hidden;
   margin-bottom: 20px;
-  background-image: linear-gradient(to right, #008074, #000);
+  background-image: linear-gradient(to right, #cf8d23, #000);
 }
 .models .md_course_desc .course_desc_head .course_pic .cos_options {
   position: absolute;
@@ -248,7 +248,7 @@
 .models .md_course_desc .course_desc_head .course_pic .cos_options button {
   padding: 8px 5px;
   width: 120px;
-  background-color: #00bf4d;
+  background-color: #f9a112;
   border: none;
   color: #fff;
   outline: none;
@@ -273,7 +273,7 @@
   .course_pic
   .cos_options
   button:hover {
-  background-color: #02af48;
+  background-color: #e29518;
 }
 .models
   .md_course_desc
@@ -292,7 +292,7 @@
 .models .md_course_desc .course_desc_head h2 {
   font-size: 18px;
   font-weight: 500;
-  color: #00bf4d;
+  color: #f9a112;
   margin-bottom: 8px;
   margin-left: 5px;
 }
@@ -333,7 +333,7 @@
 }
 .models .md_course_desc .course_desc_body .course_short_desc h3 {
   font-size: 15px;
-  color: #00bf4d;
+  color: #f9a112;
   margin-bottom: 8px;
   font-weight: 500;
 }
@@ -350,7 +350,7 @@
   margin-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #00bf4d;
+  color: #f9a112;
 }
 .models
   .md_course_desc
@@ -413,7 +413,7 @@
   .all_course_student
   .student_row:hover {
   background-color: #f5f5f5;
-  color: #00bf4d;
+  color: #f9a112;
 }
 .md_course_desc .course_desc_body {
   scrollbar-width: thin;

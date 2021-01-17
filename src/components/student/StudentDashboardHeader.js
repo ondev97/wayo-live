@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import logo1 from '../../img/Logo_1.png'
 
 export default function StudentDashBoardHeader() {
 
@@ -9,7 +10,7 @@ export default function StudentDashBoardHeader() {
     return (
         <div>
             <div className="logo">
-                <Link to={'/'} style={{textDecoration:"none"}}><h1>Eyekon <span>LMS</span></h1></Link>
+                <Link to={'/'} style={{textDecoration:"none"}}> <img src={logo1} alt="logo"/> </Link>
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">

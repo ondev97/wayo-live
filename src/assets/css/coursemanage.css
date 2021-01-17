@@ -15,7 +15,7 @@
   font-weight: 400;
   font-size: 13px;
   cursor: pointer;
-  background-color: #13a15f;
+  background-color: #ffae29;
   padding: 7px;
   color: #fff;
   width: 120px;
@@ -58,7 +58,7 @@
 .main_ar_course .course_body .course_card {
   position: relative;
   height: 350px;
-  background-image: linear-gradient(30deg, #fff, #fff, #bdffe3);
+  background-image: linear-gradient(30deg, #fff, #fff, #e7c691);
   cursor: pointer;
   border: 1px solid #eee;
   border-radius: 3px;
@@ -73,7 +73,7 @@
   width: 100%;
   height: 55%;
   margin-bottom: 10px;
-  background-image: linear-gradient(45deg, #13b56a, #b6ffd4);
+  background-image: linear-gradient(45deg, #f3b44f, #f3ddb8);
 }
 .main_ar_course .course_body .course_card .cscard_head img {
   width: 100%;
@@ -156,7 +156,7 @@
   font-size: 17px;
   font-weight: 500;
   margin-bottom: 10px;
-  color: #13a15f;
+  color: #ffae29;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty {
   display: flex;

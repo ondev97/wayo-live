@@ -31,7 +31,7 @@
   width: 30px;
   height: 30px;
   background: none;
-  border: 1px solid #0ead3f;
+  border: 1px solid #ffae29;
   border-radius: 50%;
   outline: none;
   cursor: pointer;
@@ -40,11 +40,11 @@
 }
 .model_page .on_model_page .close_but button i {
   font-size: 18px;
-  color: #0ead3f;
+  color: #ffae29;
   user-select: none;
 }
 .model_page .on_model_page .close_but button:hover {
-  background-color: #0ead3f;
+  background-color: #ffae29;
 }
 .model_page .on_model_page .close_but button:hover i {
   color: #fff;
@@ -102,7 +102,7 @@
   stroke: #eee;
 }
 .model_page .on_model_page .preview_container svg circle:nth-child(2) {
-  stroke: #13b56a;
+  stroke: #ffae29;
 }
 .model_page .on_model_page .preview_container img {
   position: absolute;
@@ -133,14 +133,14 @@
   font-weight: 600;
   outline: none;
   cursor: pointer;
-  background-color: #13b56a;
+  background-color: #ffae29;
   transition: 0.2s ease-in;
 }
 .model_page .on_model_page .butbut button:hover {
-  background-color: #11a15e;
+  background-color: #df9825;
 }
 .model_page .on_model_page .butbut .count {
-  color: #0ead3f;
+  color: #ffae29;
   font-size: 18px;
 }
 

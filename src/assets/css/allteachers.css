@@ -29,7 +29,7 @@
   height: 130px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid #1ba064;
+  border: 1px solid #f4a31d;
   padding: 2px;
 }
 .maininde .tech_body .pro_pic img {
@@ -46,7 +46,7 @@
 .maininde .tech_body .teach_card .card_teach_body h3 {
   font-size: 15px;
   font-weight: 600;
-  color: #18ca79;
+  color: #f4a31d;
   text-transform: capitalize;
 }
 @media screen and (max-width: 1300px) {

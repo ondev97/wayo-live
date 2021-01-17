@@ -1,10 +1,10 @@
 .disp_all_issu_keys {
-  margin: 0 25px;
+  margin: 0;
 }
 .disp_all_issu_keys .disp_issu_keys {
   position: relative;
   width: 100%;
-  padding: 15px;
+  padding: 15px 0px;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd {
   position: relative;
@@ -35,9 +35,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #00bf4d;
+  border: 2px solid #ffae29;
   border-radius: 50px;
-  background-color: #00bf4d;
+  background-color: #ffae29;
   box-shadow: 0px 0px 5px 5px #e0e0e0;
   transition: 0.3s;
 }
@@ -58,8 +58,8 @@
   border: 1px solid #eee;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table tr th {
-  background-color: #d5ffe6;
-  color: #126b35;
+  background-color: #fff2dd;
+  color: #faa419;
   position: sticky;
   top: 0;
 }
@@ -79,7 +79,7 @@ th {
 .disp_all_issu_keys .disp_issu_keys .no_keys h1 {
   font-size: 20px;
   margin-bottom: 25px;
-  color: #05aa47;
+  color: #ffae29;
 }
 .disp_all_issu_keys .disp_issu_keys .no_keys .svg {
   width: 300px;

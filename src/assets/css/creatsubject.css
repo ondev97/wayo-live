@@ -36,13 +36,13 @@
   height: 0px;
   right: -38%;
   top: 30%;
-  border-top: 2px dotted #054f5a;
+  border-top: 2px dotted #c0882f;
   position: absolute;
 }
 .subject_form .uppper_section .main_upper .up_column .up_icon {
   width: 55px;
   height: 55px;
-  border: 2px solid #00a959;
+  border: 2px solid #f5af3f;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@
   margin-bottom: 20px;
 }
 .subject_form .uppper_section .main_upper .up_column .act {
-  background-color: #00a959;
+  background-color: #fab03a;
 }
 .subject_form .uppper_section .main_upper .up_column .act i {
   color: #fff;
@@ -62,7 +62,7 @@
 .subject_form .uppper_section .main_upper .up_column h3 {
   font-weight: 500;
   font-size: 15px;
-  color: #00a959;
+  color: #f0a327;
 }
 .subject_form .main_form h1 {
   width: 100%;
@@ -70,7 +70,7 @@
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 28px;
-  color: #00bf4d;
+  color: #ffae29;
 }
 .subject_form .main_form p {
   position: relative;
@@ -105,7 +105,7 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
 }
 .subject_form .main_form p span.curu {
-  background-color: #00a959;
+  background-color: #e29924;
   width: 40px;
   padding: 8px;
   color: #fff;
@@ -128,7 +128,7 @@ input[type="number"]::-webkit-outer-spin-button {
   outline: none;
   border: 1px solid #c1c1c1;
   border-radius: 3px;
-  color: #077c36;
+  color: #d49227;
   font-weight: 500;
   font-size: 13px;
 }
@@ -137,7 +137,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px !important;
   border: 1px solid transparent;
   cursor: initial;
-  background-color: #15702b;
+  background-color: #df951f;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
@@ -147,20 +147,20 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px !important;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: #28a745;
+  background-color: #df951f;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
 }
 .subject_form .main_form p input[type="submit"]:hover {
-  background-color: #139e33;
+  background-color: #d6901e;
 }
 .subject_form .main_form p button.sub {
   margin-top: 20px;
   width: 200px;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: #28a745;
+  background-color: #f3a629;
   color: #fff;
   font-weight: 600;
   padding: 10px;
@@ -168,7 +168,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: 0.3s ease;
 }
 .subject_form .main_form p button.sub:hover {
-  background-color: #139e33;
+  background-color: #db9320;
 }
 .subject_form .main_form p button .notch {
   color: #fff;
@@ -193,7 +193,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 45px;
   padding: 8px;
   text-align: center;
-  background-color: #00a959;
+  background-color: #eea126;
   color: #fff;
 }
 
@@ -235,7 +235,7 @@ input[type="number"]::-webkit-outer-spin-button {
 button.cp {
   width: 200px;
   text-align: center;
-  border: 1px solid #00a959;
+  border: 1px solid #ffae29;
   padding: 8px 5px;
   font-size: 13px;
   cursor: pointer;
@@ -244,17 +244,17 @@ button.cp {
   transition: 0.5s ease;
 }
 .subject_form .main_form .up_pro_pic label:hover {
-  background-color: #00a959;
+  background-color: #ffae29;
   color: #fff;
 }
 .subject_form .main_form .up_pro_pic button.cp {
-  background-color: #00a959;
+  background-color: #ffae29;
   color: #fff;
   font-size: 14px;
   font-weight: 600;
 }
 .subject_form .main_form .up_pro_pic button.cp:hover {
-  background-color: #04c56b;
+  background-color: #f1a325;
   color: #fff;
 }
 
@@ -294,7 +294,7 @@ button.cp {
 .subject_form .main_form .multi_files label {
   width: 190px;
   padding: 8px 4px;
-  border: 1px solid #28a745;
+  border: 1px solid #ffae29;
   text-align: center;
   cursor: pointer;
   font-size: 13px;
@@ -302,7 +302,7 @@ button.cp {
   transition: 0.3s ease;
 }
 .subject_form .main_form .multi_files label:hover {
-  background-color: #28a745;
+  background-color: #ffae29;
   color: #fff;
 }
 
@@ -327,11 +327,11 @@ button.cp {
 }
 @keyframes blinking {
   0% {
-    background-color: #f5fff5;
+    background-color: #fff8ee;
   }
   100% {
     background-color: #fff;
-    color: green;
+    color: #fdeccf;
   }
 }
 .subject_form .main_form .show_files .up_list li span i {
@@ -373,5 +373,5 @@ button.cp {
 .subject_form .main_form .multi_files .progressPath .progressBar {
   border-radius: 20px;
   height: 100%;
-  background-image: linear-gradient(to right, #13b56a, #3e9264);
+  background-image: linear-gradient(to right, #fcefda, #fff5e6);
 }

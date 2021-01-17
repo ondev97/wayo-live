@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
-import child from '../img/child.png'
+import { Link, useLocation } from 'react-router-dom'
 import '../assets/css/header.css'
 import '../assets/css/mediaFiles/headermedia.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import {useSelector} from "react-redux";
 import ProfileDetails from "../utils/hooks/ProfileDetails";
+import logo from "../img/Logo_1.png";
 
 export default function Header({acDetails}) {
     const [isham, setisham] = useState(false);
@@ -89,7 +89,7 @@ export default function Header({acDetails}) {
             <div className="column">
                 <div className="hlogo">
                     <Link to="/">
-                        <h1><span>Eyekon</span> LMS</h1>
+                        <img src={logo} alt="logo"/>
                     </Link>
                 </div>
             </div>

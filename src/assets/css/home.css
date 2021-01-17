@@ -1,9 +1,9 @@
 :root {
   --background1: #f5f6f8;
-  --mainCovHeader: #44a670;
-  --h1Fontcolor: #18be71;
-  --buttonColor1: #18be71;
-  --buttonColorHover1: #1aac68;
+  --mainCovHeader: #eda42c;
+  --h1Fontcolor: #eba32d;
+  --buttonColor1: #e49d2c;
+  --buttonColorHover1: #da9628;
 }
 .maininde {
   width: 100%;

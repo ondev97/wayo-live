@@ -39,7 +39,7 @@
   margin-bottom: 12px;
   font-size: 15px;
   font-weight: 500;
-  color: #09a347;
+  color: #e89a1d;
 }
 .siup_body .siup_column .siup_form .sect:nth-child(1),
 .siup_form .sect:nth-child(4) {
@@ -73,10 +73,10 @@
   border-color: #d3040496;
 }
 .siup_body .siup_column .siup_form input:hover {
-  border-color: green;
+  border-color: #faab2c;
 }
 .siup_body .siup_column .siup_form input:focus {
-  border-color: green;
+  border-color: #ffaf2e;
 }
 .siup_body .siup_column .siup_form .but {
   margin-top: 15px;
@@ -87,7 +87,7 @@
   width: 170px;
   padding: 10px;
   border: none;
-  background-color: #00bf4d;
+  background-color: #ffae29;
   color: #fff;
   font-weight: 600;
   border: 3px;
@@ -100,7 +100,7 @@
   text-align: left;
 }
 .siup_body .siup_column .siup_form .but .in a {
-  color: #09a347;
+  color: #faab29;
   text-decoration: none;
   font-weight: 500;
 }

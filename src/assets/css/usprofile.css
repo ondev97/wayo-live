@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, #3e9264, #008074);
+  background-image: linear-gradient(to right, #edba65, #e5991d);
   color: #fff;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .srow h2 {
@@ -141,7 +141,7 @@
   p
   i {
   margin-right: 5px;
-  color: #3e9264;
+  color: #ffbe4e;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .brow .tous {
   margin-top: 20px;
@@ -168,7 +168,7 @@
   .coscount
   h3 {
   font-size: 18px;
-  color: #008074;
+  color: #ffae29;
 }
 .main_profile
   .tcprofilecolumn
@@ -193,7 +193,7 @@
   p {
   font-size: 14px;
   margin-bottom: 3px;
-  color: #008074;
+  color: #ffae29;
 }
 .main_profile
   .tcprofilecolumn
@@ -255,7 +255,7 @@
   .skills_ouuter
   .skills_mid {
   height: 100%;
-  background-image: linear-gradient(to right, #50bfa0, #85d0a7);
+  background-image: linear-gradient(to right, #ffae29, #ffbb4f);
   border-radius: 20px;
 }
 
@@ -301,11 +301,11 @@
   text-align: center;
   font-size: 15px;
   cursor: pointer;
-  color: #008074;
+  color: #f5a31c;
 }
 .main_profile .tcdisoncolumn .about_header ul li i {
   margin-right: 10px;
-  color: #008074;
+  color: #f5a31c;
 }
 .main_profile .tcdisoncolumn .about_body {
   padding: 25px;
@@ -342,7 +342,7 @@
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h3 {
   font-size: 15px;
-  color: #50bfa0;
+  color: #f5a31c;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h4 {
   font-size: 13.5px;
@@ -441,7 +441,7 @@
   .sectpr
   p
   input:hover {
-  border-color: green;
+  border-color: #f5a31c;
 }
 .main_profile
   .tcdisoncolumn
@@ -450,7 +450,7 @@
   .sectpr
   p
   input:focus {
-  border-color: green;
+  border-color: #f5a31c;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec {
   width: 100%;
@@ -468,7 +468,7 @@
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk h3,
 i {
   font-size: 15px;
-  color: #008074;
+  color: #e9a22e;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk i {
   cursor: pointer;
@@ -579,7 +579,7 @@ i {
   margin-right: 10px;
   -webkit-appearance: none;
   height: 5px;
-  border: 1px solid #008074;
+  border: 1px solid #f5a31c;
   outline: none;
   border-radius: 20px;
 }
@@ -595,7 +595,7 @@ i {
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
-  background-color: #07a173;
+  background-color: #f5a31c;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -606,7 +606,7 @@ i {
   .sk_sec
   .nirow
   input:hover {
-  border-color: green;
+  border-color: #ffae29;
 }
 .main_profile
   .tcdisoncolumn
@@ -660,7 +660,7 @@ i {
   padding: 9px;
   border: none;
   outline: none;
-  background-color: #13b56a;
+  background-color: #ffae29;
   font-weight: 600;
   color: #fff;
   border-radius: 5px;
@@ -668,7 +668,7 @@ i {
   transition: 0.5s;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .pro_edit_sub button:hover {
-  background-color: #13a15f;
+  background-color: #eea126;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password {
   width: 100%;
@@ -713,7 +713,7 @@ i {
   .set_password
   .reset_pw
   input:hover {
-  border-color: green;
+  border-color: #ffae29;
 }
 .main_profile
   .tcdisoncolumn
@@ -721,7 +721,7 @@ i {
   .set_password
   .reset_pw
   input:focus {
-  border-color: green;
+  border-color: #ffae29;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password .butset {
   width: 100%;
@@ -734,7 +734,7 @@ i {
   padding: 9px;
   border: none;
   outline: none;
-  background-color: #13b56a;
+  background-color: #ffae29;
   font-weight: 600;
   color: #fff;
   border-radius: 5px;
@@ -747,7 +747,7 @@ i {
   .set_password
   .butset
   button:hover {
-  background-color: #13a15f;
+  background-color: #e29821;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings p .tip {
   font-size: 11px;

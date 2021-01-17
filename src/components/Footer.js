@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/footer.css';
-import '../assets/css/mediaFiles/footermedia.css'
+import '../assets/css/mediaFiles/footermedia.css';
+import ftimg from '../img/Logo_2.png';
 
 export default function Footer() {
 
@@ -10,8 +11,7 @@ export default function Footer() {
             <div className="footer_mid">
                 <div className="footer_column">
                     <div className="lg">
-                        <h1>Eyekon <span>LMS</span></h1>
-                        <h3>We Equip Smartness</h3>
+                        <img src={ftimg} alt="footer"/>
                     </div>
                     <div className="ab">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tenetur consequuntur earum voluptas perspiciatis illum doloremque quasi laboriosam itaque ab dolore, adipisci ipsam laborum quidem omnis laudantium. Voluptatem, enim amet!</p>

@@ -20,6 +20,9 @@
 .footer_main .footer_mid .footer_column:last-child {
   margin: 0;
 }
+.footer_main .footer_mid .footer_column .lg img {
+  width: 200px;
+}
 .footer_main .footer_mid .footer_column .lg,
 h2 {
   margin-bottom: 20px;
@@ -72,7 +75,7 @@ h2 {
   color: #535353;
 }
 .footer_main .footer_mid .footer_column ul.links li a:hover {
-  color: #0cbb40;
+  color: #eca22b;
 }
 .footer_main .small_footer {
   border-top: 1px solid #d5d5d5;

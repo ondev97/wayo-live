@@ -1,7 +1,7 @@
 nav {
   position: sticky;
   width: 100%;
-  padding: 28px 80px;
+  padding: 20px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,6 +27,9 @@ nav .column .hlogo h1 span {
   font-size: 30px;
   font-weight: 600;
   color: #00bf4d;
+}
+nav .column .hlogo img {
+  width: 205px;
 }
 nav .column:nth-child(2) {
   flex: 2;
@@ -63,7 +66,7 @@ nav .column:nth-child(2) .navigation ul li:before {
   bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #09a347;
+  background-color: #eda42c;
 }
 nav .column:nth-child(2) .navigation ul li:hover:before {
   display: block;
@@ -78,7 +81,7 @@ nav .column:nth-child(2) .navigation ul li:hover:before {
   }
 }
 nav .column:nth-child(2) .navigation ul li a:hover {
-  color: #09a347;
+  color: #ffae29;
 }
 nav .column .buttons {
   text-align: right;
@@ -95,7 +98,7 @@ nav .column .buttons button {
   border: none;
   background-color: #fff;
   font-weight: 600;
-  border: 2px solid #00bf4d;
+  border: 2px solid #ffae29;
   border-radius: 5px;
   transition: 0.4s ease-in;
   cursor: pointer;
@@ -106,18 +109,18 @@ nav .column .buttons button a {
   color: #000;
 }
 nav .column .buttons a:nth-child(2) button {
-  background-color: #00bf4d;
+  background-color: #ffae29;
   color: #fff;
 }
 nav .column .buttons button:nth-child(2) a {
   color: #fff;
 }
 nav .column .buttons button:nth-child(1):hover {
-  background-color: #00bf4d;
+  background-color: #efa120;
   color: #fff;
 }
 nav .column .buttons button:nth-child(2):hover {
-  background-color: #04a745;
+  background-color: #efa120;
 }
 nav .column .buttons button:hover a {
   color: #fff;
@@ -136,7 +139,7 @@ nav .column .pro_pic .img {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #00bf4d;
+  border: 2px solid #eba32d;
 }
 nav .column .pro_pic .img img {
   width: 100%;
@@ -149,7 +152,7 @@ nav .column .ac_details_header h3 {
   font-size: 15px;
   word-wrap: break-word;
   text-align: right;
-  color: #09a347;
+  color: #eba32d;
 }
 nav .column .ac_details_header p {
   font-size: 13px;

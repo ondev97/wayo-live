@@ -54,7 +54,7 @@
   margin-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #09a347;
+  color: #eea42a;
 }
 .login_body .login_column .login_form input {
   width: 100%;
@@ -73,10 +73,10 @@
   border-color: #d3040496;
 }
 .login_body .login_column .login_form input:hover {
-  border-color: green;
+  border-color: #eea42a;
 }
 .login_body .login_column .login_form input:focus {
-  border-color: green;
+  border-color: #eea42a;
 }
 .login_body .login_column .login_form .but {
   margin-top: 25px;
@@ -85,7 +85,7 @@
 }
 .login_body .login_column .login_form .but input {
   width: 150px;
-  background-color: #00bf4d;
+  background-color: #f8ab2e;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
@@ -97,7 +97,7 @@
 }
 .login_body .login_column .login_form .but p a {
   text-decoration: none;
-  color: #037b33;
+  color: #e69c23;
 }
 .login_body .login_column .login_form p .tip {
   font-size: 11px;
