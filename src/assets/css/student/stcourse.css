@@ -145,7 +145,7 @@
   .st_grid_card_manage {
   position: relative;
   height: 350px;
-  border: 1px solid #eee;
+  border: 1px solid #8b8b8b;
   background-color: #fff;
   cursor: pointer;
   transition: all 0.5s;

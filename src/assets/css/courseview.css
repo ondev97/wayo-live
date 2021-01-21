@@ -161,7 +161,7 @@
 .top_manage_body .mange_cos_body .manage_course_grid .grid_card_manage {
   position: relative;
   height: 300px;
-  border: 1px solid #eee;
+  border: 1px solid #6a6969;
   background-color: #fff;
   cursor: pointer;
   transition: all 0.5s;

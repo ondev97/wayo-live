@@ -73,7 +73,7 @@
   width: 100%;
   padding: 24px 8px;
   font-size: 16px;
-  color: #bf7e16;
+  color: #000;
   border: 1px solid #00bf4d1c;
   cursor: pointer;
   font-weight: 500;
@@ -89,6 +89,7 @@
 }
 .main_section .list ul li i {
   margin-right: 15px;
+  color: #000;
 }
 .main_section .list ul li:hover {
   background: #fff4e2;

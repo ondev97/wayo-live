@@ -57,6 +57,7 @@
   overflow: hidden;
   border-radius: 3px;
   cursor: pointer;
+  border: 1px solid #8b8b8b;
   transition: 0.2s ease;
 }
 .all_st_subs .all_sub_body .al_sub_card:hover {
