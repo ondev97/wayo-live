@@ -205,7 +205,7 @@
   .manage_course_grid
   .grid_card_manage
   .grid_card_mg_body {
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 .top_manage_body
@@ -275,7 +275,7 @@
   background-color: #fff;
   color: #e79d25;
   display: flex;
-  padding: 2px;
+  padding: 6px;
   justify-content: flex-start;
   align-items: flex-start;
   border-bottom-right-radius: 50px;

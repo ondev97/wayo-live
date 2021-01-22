@@ -46,7 +46,7 @@
   font-size: 20px;
 }
 .disp_all_issu_keys .disp_issu_keys .csv_down_circle:hover {
-  background-color: #05aa47;
+  background-color: #e99f27;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table {
   position: relative;
@@ -59,7 +59,7 @@
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table tr th {
   background-color: #fff2dd;
-  color: #faa419;
+  color: #000;
   position: sticky;
   top: 0;
 }

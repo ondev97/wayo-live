@@ -1,7 +1,7 @@
 .maininde .upper_cover {
   width: 100%;
   padding: 60px 20px;
-  background-color: #f6f6f6;
+  background-image: linear-gradient(to top, #f6f6f6, #fff, #fff);
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }

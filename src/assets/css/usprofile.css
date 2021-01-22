@@ -301,11 +301,11 @@
   text-align: center;
   font-size: 15px;
   cursor: pointer;
-  color: #f5a31c;
+  color: #000;
 }
 .main_profile .tcdisoncolumn .about_header ul li i {
   margin-right: 10px;
-  color: #f5a31c;
+  color: #000;
 }
 .main_profile .tcdisoncolumn .about_body {
   padding: 25px;

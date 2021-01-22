@@ -7,7 +7,7 @@ nav {
   align-items: center;
   font-family: "Montserrat", sans-serif;
   top: 0;
-  background-color: #fff;
+  background-color: #eee;
   z-index: 2000;
 }
 nav .column {
@@ -96,7 +96,7 @@ nav .column .buttons button {
   padding: 9px;
   font-size: 13px;
   border: none;
-  background-color: #fff;
+  background-color: #eee;
   font-weight: 600;
   border: 2px solid #ffae29;
   border-radius: 5px;

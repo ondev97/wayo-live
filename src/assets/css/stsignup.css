@@ -3,6 +3,7 @@
   min-height: calc(100vh - 117px);
   display: flex;
   align-items: center;
+  padding: 70px 0;
 }
 .siup_body .siup_column {
   flex: 1;
@@ -27,6 +28,9 @@
 .siup_body .siup_column .siup_form {
   width: 650px;
   font-family: "Montserrat", sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 20px;
 }
 .siup_body .siup_column .siup_form h2 {
   font-size: 22px;

@@ -85,6 +85,13 @@
   padding: 8px;
   text-align: center;
 }
+.maininde .popular_subjects .subject_area .subject_in_cards .subject_tail {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  font-weight: bold;
+}
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_body h2 {
   font-size: 19px;
   margin-bottom: 10px;

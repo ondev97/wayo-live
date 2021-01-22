@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #ffe0b2;
 }
 .logo h1 {
   font-size: 22px;
@@ -71,7 +72,7 @@
 }
 .main_section .list ul li {
   width: 100%;
-  padding: 24px 8px;
+  padding: 18px 8px;
   font-size: 16px;
   color: #000;
   border: 1px solid #00bf4d1c;

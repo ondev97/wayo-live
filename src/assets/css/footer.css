@@ -23,6 +23,9 @@
 .footer_main .footer_mid .footer_column .lg img {
   width: 200px;
 }
+.footer_main .footer_mid .footer_column .lg {
+  text-align-last: left;
+}
 .footer_main .footer_mid .footer_column .lg,
 h2 {
   margin-bottom: 20px;

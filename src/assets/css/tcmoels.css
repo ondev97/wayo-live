@@ -54,7 +54,7 @@
 .models .md_all_models .md_models .cr_models button {
   padding: 8px;
   width: 150px;
-  border: 1px solid #00bf4d;
+  border: 1px solid #ee990d;
   background-color: #fff;
   border-radius: 20px;
   cursor: pointer;
@@ -67,6 +67,9 @@
 }
 .models .md_all_models .md_models .cr_models button:hover {
   background-color: #ffae29;
+  color: #fff;
+}
+.models .md_all_models .md_models .cr_models button:hover i {
   color: #fff;
 }
 .models .md_all_models .md_models .al_models {
@@ -294,17 +297,17 @@
   font-weight: 500;
   color: #f9a112;
   margin-bottom: 8px;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 .models .md_course_desc .course_desc_head h3 {
   font-size: 14px;
   margin-bottom: 10px;
   font-weight: 400;
   text-transform: capitalize;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 .models .md_course_desc .course_desc_body {
-  padding: 5px;
+  padding: 5px 15px;
 }
 .models .md_course_desc .course_desc_body .course_short_desc {
   height: 15vh;

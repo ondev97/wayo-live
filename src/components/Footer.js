@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/footer.css';
 import '../assets/css/mediaFiles/footermedia.css';
-import ftimg from '../img/Logo_2.png';
+import ftimg from '../img/Logo_1.png';
 
 export default function Footer() {
 
