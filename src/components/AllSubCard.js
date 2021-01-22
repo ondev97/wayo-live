@@ -1,14 +1,8 @@
 
 import React from 'react'
-import { useSelector } from 'react-redux';
 import ReactTimeAgo from "react-time-ago";
 
 export default function AllSubCard({subject}) {
-
-    //get acDetails from Redux Store
-    const usDetails = useSelector(state => state.accountDetails);
-
-
 
     return (
         <div className="subject_in_cards">

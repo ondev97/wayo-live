@@ -1,5 +1,4 @@
 import React from 'react';
-import cs2 from '../img/cs2.jpg';
 
 export default function InTeacher({key, teacher}) {
     return (

@@ -3,13 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import '../assets/css/header.css'
 import '../assets/css/mediaFiles/headermedia.css';
 import { AnimatePresence, motion } from 'framer-motion';
-import {useSelector} from "react-redux";
 import ProfileDetails from "../utils/hooks/ProfileDetails";
 import logo from "../img/Logo_1.png";
 
 export default function Header({acDetails}) {
     const [isham, setisham] = useState(false);
-    const usDetails = useSelector(state => state.accountDetails);
     const profileDetails = ProfileDetails(acDetails)
 
     const mobnavani = {

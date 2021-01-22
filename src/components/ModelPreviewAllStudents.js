@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
-import cs1 from '../img/cs1.jpg';
+import React, { useState, useEffect } from 'react'
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import Axios from "axios";
