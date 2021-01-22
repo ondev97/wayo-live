@@ -9,6 +9,7 @@ import Axios from "axios";
 import InTeacher from "../components/InTeacher";
 import AllSubCard from "../components/AllSubCard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import ProfileLoader from "../components/ProfileLoader";
 
 export default function InAllSubjects() {
     const dispatch = useDispatch();
@@ -16,18 +17,21 @@ export default function InAllSubjects() {
     const [nextPage, setnextPage] = useState(null);
     const [search, setsearch] = useState('');
     const [page, setpage] = useState(1);
+    const [isLoading, setisLoading] = useState(false);
 
     useEffect(() => {
         dispatch(activeAccount());
         dispatch(loadStDetails());
+        setisLoading(true);
         Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/indexsub/?page=${page}`).then(res=>{
-                if(page > 1){
-                    setallSubDetails([...allSubDetails,...res.data.results]);
-                }
-                else{
-                    setallSubDetails([...res.data.results]);
-                }
-                setnextPage(res.data.next);
+            setisLoading(false);
+            if(page > 1){
+                setallSubDetails([...allSubDetails,...res.data.results]);
+            }
+            else{
+                setallSubDetails([...res.data.results]);
+            }
+            setnextPage(res.data.next);
             }).catch(err=>{
 
             });
@@ -52,6 +56,9 @@ export default function InAllSubjects() {
                             allSubDetails.map((tdata,index)=> <AllSubCard key={index} subject={tdata}/>)
                         }
                     </InfiniteScroll>
+                    {
+                        isLoading &&  <ProfileLoader/>
+                    }
                 </div>
             </div>
         </div>

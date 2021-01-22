@@ -76,12 +76,12 @@ export default function StProfileHead() {
               {initialState && initialState.user.phone_no}
             </p>
           </div>
-          <div className="tous">
-            <div className="coscount">
-              <h3>20</h3>
-              <p>Subject</p>
-            </div>
-          </div>
+          {/*<div className="tous">*/}
+          {/*  <div className="coscount">*/}
+          {/*    <h3>20</h3>*/}
+          {/*    <p>Subject</p>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
         </div>
       </div>
     </div>

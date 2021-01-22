@@ -75,12 +75,12 @@ export default function ProfileHead() {
               <i className="fas fa-phone-alt"></i>{profileDetails.phoneNumber}
             </p>
           </div>
-          <div className="tous">
-            <div className="coscount">
-              <h3>20</h3>
-              <p>Subject</p>
-            </div>
-          </div>
+          {/*<div className="tous">*/}
+          {/*  <div className="coscount">*/}
+          {/*    <h3>20</h3>*/}
+          {/*    <p>Subject</p>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
         </div>
       </div>
     </div>

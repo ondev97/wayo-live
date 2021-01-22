@@ -11,7 +11,7 @@ export default function InTeacher({key, teacher}) {
             </div>
             <div className="card_teach_body">
                 <h3>{teacher.user.first_name+" "+teacher.user.last_name}</h3>
-                <p>{teacher.user.phone_no}</p>
+                <p>{teacher.education1}</p>
             </div>
         </div>
     )

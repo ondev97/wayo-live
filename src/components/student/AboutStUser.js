@@ -32,24 +32,24 @@ export default function AboutStUser() {
                     <p>{initialState && initialState.description !== 'null' && initialState.description}</p>    
                 </div>
             </div>
-            <div className="my_row">
-                <div className="outer">
-                    <div className="txt">
-                        <h3>Total Subjects</h3>
-                    </div>
-                    <div className="count">
-                        20
-                    </div>
-                </div>
-                <div className="outer">
-                    <div className="txt">
-                        <h3>My Subjects</h3>
-                    </div>
-                    <div className="count">
-                        20
-                    </div>
-                </div>
-            </div>
+            {/*<div className="my_row">*/}
+            {/*    <div className="outer">*/}
+            {/*        <div className="txt">*/}
+            {/*            <h3>Total Subjects</h3>*/}
+            {/*        </div>*/}
+            {/*        <div className="count">*/}
+            {/*            20*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <div className="outer">*/}
+            {/*        <div className="txt">*/}
+            {/*            <h3>My Subjects</h3>*/}
+            {/*        </div>*/}
+            {/*        <div className="count">*/}
+            {/*            20*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     )
 }
