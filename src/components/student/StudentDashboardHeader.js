@@ -24,6 +24,7 @@ export default function StudentDashBoardHeader() {
             <div className="main_section">
                 <div className="list">
                     <ul>
+                        <Link to={'/'}><li><i className="fas fa-home"></i>Home</li></Link>
                         <Link to="/studentdashboard/maindashboard/"><li><i className="fas fa-home"></i> My Subjects</li></Link>
                         <Link to="/studentdashboard/mycourses/"><li><i className="fas fa-home"></i> My Courses</li></Link>
                         <Link to ="/studentdashboard/allsubjects/">
@@ -31,9 +32,6 @@ export default function StudentDashBoardHeader() {
                         </Link>
                         <Link to="/studentdashboard/studentprofile/">
                             <li><i className="far fa-user-circle"></i>My Profile</li>
-                        </Link>
-                        <Link to={'/contact'}>
-                            <li><i className="fas fa-mobile-alt"></i>Contact Us</li>
                         </Link>
                     </ul>
                 </div>

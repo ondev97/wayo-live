@@ -29,10 +29,10 @@ export default function TeacherDashboardHeader() {
                 <div className="list">
                     <ul>
                         {/*<Link to="/teacherdashboard/teachermaindashboard/"><li><i className="fas fa-home"></i> My Dashboard</li></Link>*/}
+                        <Link to={'/'}><li><i className="fas fa-home"></i>Home</li></Link>
                         <Link to="/teacherdashboard/managecourse/"><li><i className="fas fa-graduation-cap"></i>Manage Subject</li></Link>
                         <Link to="/teacherdashboard/createsubject/"><li><i className="fas fa-school"></i>Create Subject</li></Link>
                         <Link to="/teacherdashboard/profilesettings/"><li><i className="far fa-user-circle"></i>My Profile</li></Link>
-                        <Link to={'/contact'}><li><i className="fas fa-mobile-alt"></i>Contact Us</li></Link>
                     </ul>
                 </div>
             </div>

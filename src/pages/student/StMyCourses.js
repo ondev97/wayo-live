@@ -65,15 +65,19 @@ export default function StMyCourses() {
                             <button><i className="fas fa-search"></i></button>
                         </div>
                     </div>
-                    <div className="">
-                        <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
-                            {
-                                courseData.length !== 0 ?
-                                        courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course.course_cover} course_name={cdata.course.course_name}  enrollkey={cdata.enroll_key} duration={cdata.course.duration} created_at={cdata.course.created_at} courseid={cdata.course.id} no={index} payment={cdata.is_payment}/>)
-                                :  isLoading &&  <ProfileLoader/>
-                            }
-                        </InfiniteScroll>
-                    </div>
+                    {
+                        courseData.length !== 0 ?
+                            <div className="">
+                                <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
+                                    {
+                                        courseData.length !== 0 ?
+                                                courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course.course_cover} course_name={cdata.course.course_name}  enrollkey={cdata.enroll_key} duration={cdata.course.duration} created_at={cdata.course.created_at} courseid={cdata.course.id} no={index} payment={cdata.is_payment}/>)
+                                        :  isLoading &&  <ProfileLoader/>
+                                    }
+                                </InfiniteScroll>
+                            </div>
+                        : <Empty target="No Courses"/>
+                    }
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@
     object-fit: cover;
   }
 }
-@media screen and (max-width: 275px) {
+@media screen and (max-width: 300px) {
   .main_ar_course .course_head {
     flex-direction: column;
     align-items: flex-start;

@@ -52,7 +52,7 @@ export default function UpdateSujectForm({hadelChabgeFormValues,handelSubmit,hid
                             {
                                 !showCropper &&
                                 <div className="finCropImg">
-                                    <img style={{ width: "100%" }} src={cropData ==='#' ? process.env.REACT_APP_LMS_MAIN_URL+formValue.subject_cover : cropData} alt="cropped" />
+                                    <img style={{ width: "100%" }} src={cropData ==='#' ? formValue.subject_cover : cropData} alt="cropped" />
                                 </div>
                             }
                             <p>

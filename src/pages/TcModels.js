@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import ModelsCourseDescri from '../components/ModelsCourseDescri';
 import TcOneModel from '../components/TcOneModel';
 import '../assets/css/tcmoels.css';
@@ -44,6 +44,12 @@ export default function TcModels() {
             }
         }, [moduleData]);
 
+            let history = useHistory();
+            
+            const back =()=>{
+                history.goBack();
+            }
+
     return (
         <div>
             <div className="models">
@@ -56,6 +62,7 @@ export default function TcModels() {
                     </div>
                     <div className="md_models">
                         <div className="cr_models">
+                            <button onClick={back}><i className="fas fa-plus-circle"></i>Go Back</button>
                             <Link to={`/teacherdashboard/createmodels/${id}`}>
                                 <button><i className="fas fa-plus-circle"></i>Create Module</button>
                             </Link>

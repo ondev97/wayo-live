@@ -37,6 +37,17 @@
   text-align: center;
   margin-bottom: 30px;
   font-weight: 500;
+  position: relative;
+}
+.siup_body .siup_column .siup_form h2::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 2px;
+  background-color: black;
+  bottom: -25%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .siup_body .siup_column .siup_form label {
   display: block;

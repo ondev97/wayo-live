@@ -33,18 +33,6 @@ function App() {
     }
   }
 
-  const footerRout = ()=>{
-    if(mainRoute.includes(location)){
-      return <Footer/>
-    }
-    else if(acDetails && acDetails.key && acDetails.is_teacher){
-      return null
-    }
-    else if(acDetails && acDetails.key && !acDetails.is_teacher){
-      return null
-    }
-  }
-
   return (
     <div className="App">
       <ReactNotification isMobile='true'/>
@@ -57,9 +45,7 @@ function App() {
                 routes.map((route,index) => <Route path={route.path} key={index} exact={route.exact} component={route.components} />)
               }
             </Switch>
-            {
-              footerRout()
-            }
+            <Footer/>
         </Router>
     </div>
   );

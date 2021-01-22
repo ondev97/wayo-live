@@ -50,6 +50,9 @@
 .models .md_all_models .md_models .cr_models {
   width: 100%;
   margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .models .md_all_models .md_models .cr_models button {
   padding: 8px;

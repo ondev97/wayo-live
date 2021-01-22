@@ -108,15 +108,19 @@ export default function StCourses() {
                         <input type="text" name='search' placeholder="Search Courses" onChange={handelSearchSubject}/>
                         <button><i className="fas fa-search"></i></button>
                     </div>
-                    <div className="">
-                        <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
-                            {
-                                courseData.length !== 0 ?
-                                        courseData.map((cdata,index)=> <CourseCard key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index} user={user} is_enrolled={cdata.is_enrolled}/>)
-                                :  isLoading &&  <ProfileLoader/>
-                            }
-                        </InfiniteScroll>
-                    </div>
+                    {
+                        courseData.length !== 0 ?
+                            <div className="">
+                                <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
+                                    {
+                                        courseData.length !== 0 ?
+                                                courseData.map((cdata,index)=> <CourseCard key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index} user={user} is_enrolled={cdata.is_enrolled}/>)
+                                        :  isLoading &&  <ProfileLoader/>
+                                    }
+                                </InfiniteScroll>
+                            </div>
+                        : <Empty target="No Courses"/>
+                    }
                 </div>     
             </div>
         </div>

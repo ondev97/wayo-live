@@ -7,6 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import SubjectsCard from "../../components/student/SubjectsCard";
 import MySubjectsCard from "../../components/student/MySubjectCard";
 import ProfileLoader from "../../components/ProfileLoader";
+import Empty from '../../components/Empty';
 
 export default function StudentMainDashboard() {
 
@@ -70,14 +71,17 @@ export default function StudentMainDashboard() {
                         <button><i className="fas fa-search"></i></button>
                     </div>
                 </div>
-
-                <div className="">
-                    <InfiniteScroll dataLength={subDetails.length} hasMore={true} className='all_sub_body'>
-                        {
-                            subDetails.map((det)=> <MySubjectsCard key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
-                        }
-                    </InfiniteScroll>
-                </div>
+                {
+                    subDetails.length !== 0 ?
+                        <div className="">
+                            <InfiniteScroll dataLength={subDetails.length} hasMore={true} className='all_sub_body'>
+                                {
+                                    subDetails.map((det)=> <MySubjectsCard key={det.id} id={det.id} subject_name={det.subject_name} subject_cover={det.subject_cover} author={det.author} created_at={det.created_at} description={det.description} short_description={det.short_description} class_type={det.class_type} subject_type={det.subject_type}/>)
+                                }
+                            </InfiniteScroll>
+                        </div>
+                    : <Empty/>
+                }
                 {
                     isLoading &&  <ProfileLoader/>
                 }
