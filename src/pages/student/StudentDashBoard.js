@@ -11,6 +11,7 @@ import StAllSubjects from './StAllSubjects';
 import StCourses from './StCourses';
 import Stmodules from './Stmodules';
 import StMyCourses from "./StMyCourses";
+import {AnimatePresence, motion} from "framer-motion";
 import StSubCourses from "./StSubCourses";
 
 export default function StudentDashBoard() {
@@ -62,7 +63,15 @@ export default function StudentDashBoard() {
               }
         }
     }
-
+     const pageAni = {
+        visible:{
+            opacity:1,
+            transition:{delay:0.1,ease:'easeOut'}
+        },
+        hidden:{
+            opacity:0
+        }
+    }
 
     return (
         <div className="main">
@@ -81,14 +90,20 @@ export default function StudentDashBoard() {
                         <div className="sec">
                             <div className="profile" onClick={()=>{settoggelProfile(!toggelProfile)}}>
                                 <img src={`${initialState && `${initialState.profile_pic}` }`} alt="" />
-                                <div className={`drop_down ${toggelProfile ? 'prActive' : ''}`}>
-                                    <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
-                                        <ul>
-                                            <Link to='/studentdashboard/studentprofile/'><li><i className="far fa-user-circle"></i>Profile</li></Link>
-                                            <li onClick={hadelLogOut}><i className="fas fa-sign-out-alt" ></i>Log Out</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <AnimatePresence exitBeforeEnter>
+                                {
+                                    toggelProfile ?
+                                        <motion.div className={`drop_down ${toggelProfile ? 'prActive' : ''}`} variants={pageAni} animate='visible' initial='hidden' exit='hidden'>
+                                            <div className="drop_down_list" style={toggelProfile ? {display:'block'} : {display:'none'}}>
+                                                <ul>
+                                                    <Link to='/studentdashboard/studentprofile/'><li><i className="far fa-user-circle"></i>Profile</li></Link>
+                                                    <li onClick={hadelLogOut}><i className="fas fa-sign-out-alt" ></i>Log Out</li>
+                                                </ul>
+                                            </div>
+                                        </motion.div>
+                                    :''
+                                }
+                                </AnimatePresence>
                             </div>
                         </div>
                     </div>
