@@ -170,7 +170,7 @@ export default function UpdateModule() {
         //showing alert
         store.addNotification({
             title: "Module Updated Successfully!",
-            message: "OnDevlms",
+            message: "Eyekon E Class",
             type: "success",
             insert: "top",
             container: "top-right",

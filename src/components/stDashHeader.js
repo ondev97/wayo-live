@@ -3,7 +3,7 @@ import React from 'react'
 export default function stDashHeader() {
     return (
         <div>
-            <h1>Osada</h1>
+            <h1>sdf</h1>
         </div>
     )
 }

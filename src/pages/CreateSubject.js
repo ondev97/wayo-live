@@ -68,7 +68,7 @@ export default function CreateSubject() {
             //showing alert
             store.addNotification({
                 title: "Subject Created!",
-                message: "EyeKon LMS",
+                message: "Eyekon E Class",
                 type: "success",
                 insert: "top",
                 container: "top-right",

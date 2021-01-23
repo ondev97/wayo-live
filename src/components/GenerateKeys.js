@@ -85,7 +85,7 @@ function GenerateKeys() {
                 
                 store.addNotification({
                     title: `${value.hw} Keys Created`,
-                    message: "OnDevlms",
+                    message: "Eyekon E Class",
                     type: "success",
                     insert: "top",
                     container: "top-right",
@@ -147,7 +147,7 @@ function GenerateKeys() {
 
                     store.addNotification({
                         title: 'Keys Issued',
-                        message: "OnDevlms",
+                        message: "Eyekon E Class",
                         type: "info",
                         insert: "top",
                         container: "top-right",

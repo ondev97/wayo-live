@@ -27,7 +27,7 @@ console.log(id);
                 console.log(err);
                 store.addNotification({
                     title: err.response.data.message,
-                    message: "OnDevlms",
+                    message: "Eyekon E Class",
                     type: "warning",
                     insert: "top",
                     container: "top-right",

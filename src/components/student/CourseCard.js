@@ -78,7 +78,7 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
             closemodel();
             store.addNotification({
                 title: "Sucessfully Enrolled",
-                message: "EyeKon LMS",
+                message: "Eyekon E Class",
                 type: "success",
                 insert: "top",
                 container: "top-right",

@@ -52,7 +52,7 @@ function UserChangedPassword({setsettings}) {
 
                 store.addNotification({
                     title: "Password Changed Successfully!",
-                    message: "OnDevlms",
+                    message: "Eyekon E Class",
                     type: "success",
                     insert: "top",
                     container: "top-right",

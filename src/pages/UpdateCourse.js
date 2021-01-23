@@ -110,7 +110,7 @@ export default function UpdateCourse() {
             //showing alert
             store.addNotification({
                 title: "Course Updated!",
-                message: "OnDevlms",
+                message: "Eyekon E Class",
                 type: "success",
                 insert: "top",
                 container: "top-right",
