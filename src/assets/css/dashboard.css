@@ -84,7 +84,7 @@
   transition: 0.5s;
 }
 .main .main_column .sub_column {
-  padding: 25px;
+  padding: 25px 25px 90px 25px;
   min-height: calc(100vh - 60px);
 }
 .main

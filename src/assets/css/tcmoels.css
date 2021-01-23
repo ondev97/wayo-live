@@ -66,7 +66,7 @@
   transition: 0.3s;
 }
 .models .md_all_models .md_models .cr_models button i {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .models .md_all_models .md_models .cr_models button:hover {
   background-color: #ffae29;
@@ -137,12 +137,12 @@
 }
 .models .md_all_models .md_models .al_models .on_model_body {
   width: 100%;
-  padding: 10px;
+  padding: 10px 10px 5px 10px;
 }
 .models .md_all_models .md_models .al_models .on_model_body .model_body_row {
-  padding: 9px 8px;
+  padding: 10px 8px 12px;
   border-bottom: 1px solid #cfcfcf;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   cursor: pointer;
   font-size: 14px;
   transition: 0.2s;
