@@ -68,6 +68,29 @@
 .st_top_manage_body .st_mange_cos_body {
   width: 100%;
 }
+/*back button*/
+.st_top_manage_body .st_mange_cos_body .cr_models{
+  margin-top:10px;
+}
+.st_top_manage_body .st_mange_cos_body .cr_models button{
+  width:120px;
+  padding:8px 5px; 
+  border:1px solid #e29924;
+  border-radius:20px;
+  cursor:pointer;
+  background-color:#fff;
+  transition:0.3s ease;
+}
+.st_top_manage_body .st_mange_cos_body .cr_models button i{
+  margin-right:10px;
+}
+.st_top_manage_body .st_mange_cos_body .cr_models button:hover{
+  background-color:#e29924;
+  color:#fff;
+}
+.st_top_manage_body .st_mange_cos_body .cr_models button:hover i{
+  color:#fff;
+}
 /*all course*/
 .st_top_manage_body .st_mange_cos_body .cou_row {
   display: flex;
@@ -129,10 +152,9 @@
   margin-top: 25px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  justify-content: center;
   align-items: center;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_course_grid a {
@@ -192,7 +214,8 @@
   .st_manage_course_grid
   .st_grid_card_manage
   .st_grid_card_mg_body {
-  padding: 5px;
+  padding: 5px 10px;
+  text-align:center;
 }
 
 .st_top_manage_body
@@ -225,6 +248,7 @@
   font-size: 12px;
   color: #000;
   font-weight: 400;
+  text-align: center;
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -353,7 +377,7 @@
   background-color: #fff;
   color: #367954;
   display: flex;
-  padding: 2px;
+  padding: 5px 2px 2px 5px;
   justify-content: flex-start;
   align-items: flex-start;
   border-bottom-right-radius: 50px;

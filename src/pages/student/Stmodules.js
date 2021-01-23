@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import {Redirect, useParams} from 'react-router-dom';
+import {Redirect, useParams,useHistory} from 'react-router-dom';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
 import StOneModule from '../../components/student/StOneModule';
@@ -15,7 +15,11 @@ export default function Stmodules() {
     const [redirect, setredirect] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
-console.log(id);
+    let history = useHistory();
+            
+    const back =()=>{
+        history.goBack();
+    }
 
     useEffect(async () => {
         if(usDetails.key){
@@ -71,6 +75,9 @@ console.log(id);
             <div className="models">
                 <div className="md_all_models">
                     <div className="md_models">
+                         <div className="cr_models">
+                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Go Back</button>
+                        </div>
                         <div className="al_models">
                             {
                                 moduleData.length !== 0 ?

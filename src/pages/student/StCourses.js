@@ -1,6 +1,6 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import React, { useRef, useState, useEffect } from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useParams,useHistory} from 'react-router-dom'
 import '../../assets/css/student/stcourse.css';
 import {useSelector} from "react-redux";
 import Axios from "axios";
@@ -25,6 +25,11 @@ export default function StCourses() {
     const [isRedirect, setisRedirect] = useState(false);
     const [isLoading, setisLoading] = useState(true);
     const debounce = useDebounce();//custom hook
+    let history = useHistory();
+            
+    const back =()=>{
+        history.goBack();
+    }
 
     useEffect(async() => {
         setisLoading(true);
@@ -104,6 +109,9 @@ export default function StCourses() {
             </motion.div>
             <div className="st_top_manage_body">
                 <div className="st_mange_cos_body">
+                <div className="cr_models">
+                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Go Back</button>
+                        </div>
                     <div className="st_manage_cos_search">
                         <input type="text" name='search' placeholder="Search Courses" onChange={handelSearchSubject}/>
                         <button><i className="fas fa-search"></i></button>

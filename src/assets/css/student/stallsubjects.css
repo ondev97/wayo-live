@@ -48,7 +48,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 350px));
   grid-gap: 25px;
-  justify-content: center;
   align-items: center;
 }
 .all_st_subs .all_sub_body .al_sub_card {
@@ -155,6 +154,7 @@
   ul
   li {
   font-size: 13px;
+  text-transform:capitalize;
 }
 .all_st_subs
   .all_sub_body
@@ -175,7 +175,7 @@
   align-items: center;
   font-size: 11px;
   background-color: #f8f8f8;
-  color: #0c6b32;
+  color: #f5a92c;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(3) h3 {
   font-weight: 400;

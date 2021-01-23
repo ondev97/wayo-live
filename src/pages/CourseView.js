@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, Redirect, useParams } from 'react-router-dom';
+import { Link, Redirect, useParams,useHistory } from 'react-router-dom';
 import { useSpring,animated } from 'react-spring';
 import CourseSect from '../components/CourseSect';
 import ProfileLoader from '../components/ProfileLoader';
@@ -23,6 +23,11 @@ export default function CourseView() {
     const [isLoading, setisLoading] = useState(true);
     const [page, setpage] = useState(1);
     const [allCourseData, setallCourseData] = useState(null);
+    let history = useHistory();
+            
+    const back =()=>{
+        history.goBack();
+    }
     
     useEffect(async() => {
         if(usDetails.key){
@@ -124,18 +129,23 @@ export default function CourseView() {
             <div className="top_manage_body">
                 <div className="mange_cos_body">
                     <div className="manage_course_nav">
+                    <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Go Back</button>
                         <Link to={`/teacherdashboard/createcourse/${id}`}>
                             <button>Create Course</button>
                         </Link>
                     </div>
                     <div className="">
-                        <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='manage_course_grid'>
-                            {
-                                courseData.length !== 0 ?
-                                        courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
-                                :  <Empty target='No Courses'/>
-                            }
-                        </InfiniteScroll>
+                    {
+                        courseData.length !== 0 ?
+                            <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='manage_course_grid'>
+                                {
+                                    
+                                            courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                                    
+                                }
+                            </InfiniteScroll>
+                        :  <Empty target='No Courses'/>
+                    }
                     </div>
                 </div>     
             </div>

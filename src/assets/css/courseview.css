@@ -126,7 +126,6 @@
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
 }
 .top_manage_body .mange_cos_body .manage_course_nav button {
   padding: 8px;
@@ -139,10 +138,17 @@
   width: 120px;
   border-radius: 20px;
   transition: 0.3s ease-in;
+  margin-right:15px;
+}
+.top_manage_body .mange_cos_body .manage_course_nav button i{
+  margin-right:5px;
 }
 .top_manage_body .mange_cos_body .manage_course_nav button:hover {
   background-color: #ffae29;
   color: #fff;
+}
+.top_manage_body .mange_cos_body .manage_course_nav button:hover i{
+  color:#fff;
 }
 .top_manage_body .mange_cos_body .manage_course_grid {
   margin-top: 25px;
@@ -151,7 +157,6 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  justify-content: center;
   align-items: center;
 }
 .top_manage_body .mange_cos_body .manage_course_grid a {
@@ -206,6 +211,7 @@
   .grid_card_manage
   .grid_card_mg_body {
   padding: 5px 15px;
+  text-align:center;
 }
 
 .top_manage_body
@@ -251,6 +257,7 @@
   h4 {
   color: #838383;
   font-weight: 400;
+  text-align:center;
 }
 .top_manage_body
   .mange_cos_body

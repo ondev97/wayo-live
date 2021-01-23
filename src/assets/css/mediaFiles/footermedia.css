@@ -7,3 +7,8 @@
     margin-top: 15px !important;
   }
 }
+@media screen and (max-width: 300px) {
+  .footer_main .footer_mid .footer_column .lg img{
+    width:100%;
+  }
+}

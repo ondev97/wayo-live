@@ -48,7 +48,6 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 325px));
   grid-column-gap: 20px;
   grid-row-gap: 40px;
-  justify-content: center;
   align-items: center;
 }
 .main_ar_course .course_body .course_card a {
