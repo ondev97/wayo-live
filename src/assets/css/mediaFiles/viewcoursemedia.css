@@ -1,3 +1,14 @@
+@media screen and (max-width: 857px) {
+  .top_manage_body .mange_cos_body .manage_course_nav {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 440px) {
+  .top_manage_body .mange_cos_body .manage_course_nav button {
+    width: 145px;
+    font-size: 12px;
+  }
+}
 @media screen and (max-width: 343px) {
   .top_manage_course .top_manage_head h1 {
     font-size: 35px;
@@ -16,11 +27,11 @@
   .top_manage_body .mange_cos_body {
     padding: 0px 5px;
   }
-  .top_manage_body .mange_cos_body .manage_course_nav{
-    flex-direction:Column;
-    align-items:center;
+  .top_manage_body .mange_cos_body .manage_course_nav {
+    flex-direction: Column;
+    align-items: center;
   }
-  .top_manage_body .mange_cos_body .manage_course_nav button{
-    margin-bottom:5px;
+  .top_manage_body .mange_cos_body .manage_course_nav button {
+    margin-bottom: 5px;
   }
 }

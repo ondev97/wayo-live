@@ -62,7 +62,7 @@ export default function TcModels() {
                     </div>
                     <div className="md_models">
                         <div className="cr_models">
-                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Go Back</button>
+                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Courses</button>
                             <Link to={`/teacherdashboard/createmodels/${id}`}>
                                 <button><i className="fas fa-plus-circle"></i>Create Module</button>
                             </Link>

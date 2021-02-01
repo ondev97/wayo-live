@@ -35,7 +35,6 @@ export default function MyCourseCard({course_cover,course_name,enrollkey,duratio
                     }
                     <div className="cs_st_tail">
                         <h4 align={"right"}><ReactTimeAgo date={Date.parse(created_at)} locale="en-US" /></h4>
-                        {/*{<h4>One  Month Ago</h4>}*/}
                     </div>
                 </div>
             </div>

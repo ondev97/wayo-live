@@ -69,27 +69,29 @@
   width: 100%;
 }
 /*back button*/
-.st_top_manage_body .st_mange_cos_body .cr_models{
-  margin-top:10px;
+.st_top_manage_body .st_mange_cos_body .cr_models {
+  margin-top: 10px;
 }
-.st_top_manage_body .st_mange_cos_body .cr_models button{
-  width:120px;
-  padding:8px 5px; 
-  border:1px solid #e29924;
-  border-radius:20px;
-  cursor:pointer;
-  background-color:#fff;
-  transition:0.3s ease;
+.st_top_manage_body .st_mange_cos_body .cr_models button {
+  width: 160px;
+  padding: 8px 5px;
+  border: 1px solid #e29924;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  outline: none;
+  font-weight: bold;
+  transition: 0.3s ease;
 }
-.st_top_manage_body .st_mange_cos_body .cr_models button i{
-  margin-right:10px;
+.st_top_manage_body .st_mange_cos_body .cr_models button i {
+  margin-right: 10px;
 }
-.st_top_manage_body .st_mange_cos_body .cr_models button:hover{
-  background-color:#e29924;
-  color:#fff;
+.st_top_manage_body .st_mange_cos_body .cr_models button:hover {
+  background-color: #e29924;
+  color: #fff;
 }
-.st_top_manage_body .st_mange_cos_body .cr_models button:hover i{
-  color:#fff;
+.st_top_manage_body .st_mange_cos_body .cr_models button:hover i {
+  color: #fff;
 }
 /*all course*/
 .st_top_manage_body .st_mange_cos_body .cou_row {
@@ -109,12 +111,13 @@
   justify-content: flex-end;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search input {
-  padding: 9px 5px;
+  padding: 9px;
   width: 400px;
   border: 1px solid #a57221;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-right: transparent;
+  outline: none;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search button {
   background-color: #fff3df;
@@ -215,7 +218,7 @@
   .st_grid_card_manage
   .st_grid_card_mg_body {
   padding: 5px 10px;
-  text-align:center;
+  text-align: center;
 }
 
 .st_top_manage_body

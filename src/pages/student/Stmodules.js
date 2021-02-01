@@ -76,7 +76,7 @@ export default function Stmodules() {
                 <div className="md_all_models">
                     <div className="md_models">
                          <div className="cr_models">
-                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Go Back</button>
+                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Course</button>
                         </div>
                         <div className="al_models">
                             {

@@ -129,7 +129,7 @@ export default function CourseView() {
             <div className="top_manage_body">
                 <div className="mange_cos_body">
                     <div className="manage_course_nav">
-                    <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Go Back</button>
+                    <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Subjects</button>
                         <Link to={`/teacherdashboard/createcourse/${id}`}>
                             <button>Create Course</button>
                         </Link>

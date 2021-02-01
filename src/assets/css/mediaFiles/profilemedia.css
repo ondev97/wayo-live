@@ -68,6 +68,21 @@
     r: 104;
   }
 }
+@media screen and (max-width: 735px) {
+  .top_manage_body .mange_cos_body .manage_course_grid {
+    justify-content: center;
+  }
+  .st_top_manage_body .st_mange_cos_body .st_manage_course_grid {
+    justify-content: center;
+  }
+  .st_top_manage_body .st_mange_cos_body .st_manage_cos_search {
+    justify-content: center;
+    padding: 10px;
+  }
+  .st_top_manage_body .st_mange_cos_body .cr_models {
+    text-align: center;
+  }
+}
 @media screen and (max-width: 500px) {
   .main_profile .tcdisoncolumn .about_body .ab_main_card {
     display: block;

@@ -98,7 +98,8 @@ function UserChangedPassword({setsettings}) {
                         </p>
                         <p>
                             <label htmlFor="npw">New Password</label>
-                            <input type="password" id="npw" name="npw" value={values.npw} onChange={handelValues} onFocus={hideError}/>
+                            <span>Use at least 1 letter, 1 numeral, 1 special charcters and 8 characters</span>
+                            <input type="password" id="npw" name="npw" value={values.npw} onChange={handelValues} onFocus={hideError}  />
                             {
                                 errors.npw && <span className={`tip ${hide.npw ? 'hidetip' : ''}`}>{errors.npw}</span>
                             }

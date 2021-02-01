@@ -1,3 +1,8 @@
+@media screen and (max-width: 735px) {
+  .main_ar_course .course_body {
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 642px) {
   .main_ar_course .course_head .search {
     width: 50%;

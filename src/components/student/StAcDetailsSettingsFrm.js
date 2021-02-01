@@ -39,7 +39,7 @@ export default function StAcDetailsSettingsFrm({values,hadelChange,hadelSubmitFo
                 <div className="sectpr">
                     <p>
                         <label htmlFor="ad">Email</label>
-                        <input type="text" id="ad" name="email" value={values.email || '' } onChange={hadelChange} onFocus={hideError} />
+                        <input type="text" id="em" name="email" value={values.email || '' } onChange={hadelChange} onFocus={hideError} />
                         {
                             errors.email && <span className={`tip ${hide.email ? 'hidetip' : ''}`}>{errors.email}</span>
                         }

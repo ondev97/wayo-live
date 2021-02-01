@@ -10,6 +10,11 @@
     width: 90% !important;
   }
 }
+@media screen and (max-width: 735px) {
+  .all_st_subs .all_sub_body {
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 550px) {
   .st_top_manage_body .st_mange_cos_body .st_manage_cos_search input {
     width: 100% !important;

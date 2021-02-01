@@ -162,7 +162,7 @@ export default function ContactUs() {
                             </p>
                             <p>
                                 <label htmlFor="pn">Enter Phone Number</label>
-                                <input type="tel" name='pn' id='pn' placeholder="07X-xxxxxxx" pattern="[+]{1}[0-9]{11,14}" onChange={handelphone_no} required/>
+                                <input type="tel" name='pn' id='pn' placeholder="+947x-xxxxxxx" pattern="[+]{1}[0-9]{11,14}" onChange={handelphone_no} required/>
                             </p>
                         </div>
                         <p>

@@ -2,7 +2,6 @@ import ReactTimeAgo from 'react-time-ago'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import child from "../../img/child.png";
 
 export default function SubjectsCard({id,subject_name,subject_cover,author,created_at,short_description,class_type,subject_type}) {
 

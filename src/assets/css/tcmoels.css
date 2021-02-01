@@ -50,7 +50,7 @@
 .models .md_all_models .md_models .cr_models {
   width: 100%;
   margin: 25px 0;
-  padding-right:20px;
+  padding-right: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -82,6 +82,7 @@
 .models .md_all_models .md_models .al_models .al_on_model {
   margin-bottom: 15px;
   background-color: #fff;
+  border: 1px solid #ccc;
 }
 .models .md_all_models .md_models .al_models .on_model_head {
   width: 100%;
@@ -230,6 +231,7 @@
 }
 .models .md_course_desc .colCourseView {
   height: 100%;
+  border: 1px solid #ccc;
 }
 .models .md_course_desc .course_desc_head {
   position: relative;
@@ -317,9 +319,9 @@
   height: 15vh;
   overflow-y: auto;
   margin-bottom: 10px;
-  border-bottom:1px solid #ccc;
-  border-top:1px solid #ccc;
-  padding-top:10px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
 }
 .models
   .md_course_desc
@@ -405,8 +407,8 @@
   .student_row
   .student_col_des {
   flex: 0.7;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 }
 .md_course_desc
   .course_desc_body
@@ -418,7 +420,7 @@
   color: #000;
   font-size: 14px;
   font-weight: 400;
-  margin:0;
+  margin: 0;
 }
 .md_course_desc
   .course_desc_body
