@@ -49,5 +49,5 @@ export default function UseStprofileUpdate(submit) {
         }
      }, [errors])
 
-    return({values,hadelChange,hadelSubmitForm,hideError,errors,hide,seterrors})
+    return({values,hadelChange,hadelSubmitForm,hideError,errors,hide,seterrors,setvalues})
 }

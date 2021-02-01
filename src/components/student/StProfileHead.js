@@ -69,7 +69,7 @@ export default function StProfileHead() {
         <div className="brow">
           <div className="brow_info">
             <p>
-            {initialState && initialState.description}
+            {initialState && initialState.description != 'null' && initialState.description}
             </p>
             <p>
               <i className="fas fa-phone-alt"></i>

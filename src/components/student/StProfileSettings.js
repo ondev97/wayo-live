@@ -9,7 +9,7 @@ import StAcDetailsSettingsFrm from './StAcDetailsSettingsFrm';
 
 export default function StProfileSettings({setsettings}) {
 
-    const {values,hadelChange,hadelSubmitForm,hideError,errors,hide,seterrors} = UseStprofileUpdate(submit);
+    const {values,hadelChange,hadelSubmitForm,hideError,errors,hide,seterrors,setvalues} = UseStprofileUpdate(submit);
 
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
@@ -21,7 +21,7 @@ export default function StProfileSettings({setsettings}) {
         all_data.append('first_name',values.firstName);
         all_data.append('last_name',values.lastName);
         all_data.append('username',values.userName);
-        all_data.append('phone_number',values.phoneNumber);
+        all_data.append('phone_no',values.phoneNumber);
         all_data.append('email',values.email);
         all_data.append('address',values.address);
         all_data.append('password',values.pw);
@@ -36,6 +36,7 @@ export default function StProfileSettings({setsettings}) {
             }).then(()=>{
                 dispatch(loadStDetails());
                 setsettings(false);
+                setvalues({...values,pw:""});
                 
                 store.addNotification({
                     title: "Profile Changed Successfully!",

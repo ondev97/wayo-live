@@ -73,8 +73,12 @@ function UserChangedPassword({setsettings}) {
                 seterrors({...errors,"cpw":e.response.data.old_password})
                 setvalues({...values,cpw:"",npw:"",ncpw:""});
             }
-            else if(e.response.data.new_password2){
+            else if(e.response.data.new_password2[1]){
                 seterrors({...errors,"npw":e.response.data.new_password2[1]})
+                setvalues({...values,npw:"",ncpw:""});
+            }
+            else if(e.response.data.new_password2[0]){
+                seterrors({...errors,"npw":e.response.data.new_password2[0]})
                 setvalues({...values,npw:"",ncpw:""});
             }
         })
