@@ -118,10 +118,10 @@ export default function StSubCourses() {
                         <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='st_manage_course_grid'>
                             {
                                 courseData.length !== 0 ?
-                                        courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course_cover}
-                                                                                     enrollkey={cdata.enroll_key} course_name={cdata.course_name}
-                                                                                     price={cdata.price} duration={cdata.duration}
-                                                                                     created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                                        courseData.map((cdata,index)=> <MyCourseCard key={index} course_cover={cdata.course.course_cover}
+                                                                                     enrollkey={cdata.enroll_key} course_name={cdata.course.course_name}
+                                                                                     price={cdata.course.price} duration={cdata.course.duration}
+                                                                                     created_at={cdata.course.created_at} courseid={cdata.course.id} no={index}/>)
                                 :  isLoading &&  <ProfileLoader/>
                             }
                         </InfiniteScroll>
