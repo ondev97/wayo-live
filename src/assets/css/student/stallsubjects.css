@@ -47,7 +47,7 @@
   padding-top: 25px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 317px));
   grid-gap: 25px;
   align-items: center;
 }

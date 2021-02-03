@@ -108,7 +108,7 @@ export default function StSubCourses() {
             <div className="st_top_manage_body">
                 <div className="st_mange_cos_body">
                     <div className="cr_models">
-                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Subjects</button>
+                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to My Subjects</button>
                         </div>
                     <div className="st_manage_cos_search">
                         <input type="text" name='search' placeholder="Search Courses" onChange={handelSearchSubject}/>
