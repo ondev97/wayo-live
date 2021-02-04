@@ -154,7 +154,7 @@
   margin-top: 25px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 317px));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   align-items: center;

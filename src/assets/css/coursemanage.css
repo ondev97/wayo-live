@@ -164,19 +164,21 @@
   margin-top: 5px;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid h3 {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 300;
   margin-bottom: 10px;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty h4 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
+  color: #606060;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty h5 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   text-transform: capitalize;
+  color: #606060;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty i {
   margin-right: 5px;
