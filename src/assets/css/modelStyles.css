@@ -40,7 +40,7 @@
 }
 .model_page .on_model_page .close_but button i {
   font-size: 18px;
-  color: #ffae29;
+  color: #ff9d00;
   user-select: none;
 }
 .model_page .on_model_page .close_but button:hover {
@@ -137,10 +137,10 @@
   transition: 0.2s ease-in;
 }
 .model_page .on_model_page .butbut button:hover {
-  background-color: #df9825;
+  background-color: #ffae29;
 }
 .model_page .on_model_page .butbut .count {
-  color: #ffae29;
+  color: #ff9d00;
   font-size: 18px;
 }
 

@@ -54,7 +54,7 @@
   margin-bottom: 12px;
   font-size: 15px;
   font-weight: 500;
-  color: #e89a1d;
+  color: #ff9d00;
 }
 .siup_body .siup_column .siup_form .sect:nth-child(1),
 .siup_form .sect:nth-child(4) {
@@ -115,7 +115,7 @@
   text-align: left;
 }
 .siup_body .siup_column .siup_form .but .in a {
-  color: #faab29;
+  color: #ff9d00;
   text-decoration: none;
   font-weight: 500;
 }

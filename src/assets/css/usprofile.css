@@ -77,7 +77,7 @@
   position: absolute;
   bottom: -4px;
   right: -13px;
-  color: green;
+  color: #ff9d00;
   font-size: 16px;
   width: 23px;
   height: 23px;
@@ -141,7 +141,7 @@
   p
   i {
   margin-right: 5px;
-  color: #ffbe4e;
+  color: #ff9d00;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .brow .tous {
   margin-top: 20px;
@@ -168,7 +168,7 @@
   .coscount
   h3 {
   font-size: 18px;
-  color: #ffae29;
+  color: #ff9d00;
 }
 .main_profile
   .tcprofilecolumn
@@ -193,7 +193,7 @@
   p {
   font-size: 14px;
   margin-bottom: 3px;
-  color: #ffae29;
+  color: #ff9d00;
 }
 .main_profile
   .tcprofilecolumn
@@ -342,7 +342,7 @@
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h3 {
   font-size: 15px;
-  color: #f5a31c;
+  color: #ff9d00;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h4 {
   font-size: 13.5px;
@@ -468,7 +468,7 @@
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk h3,
 i {
   font-size: 15px;
-  color: #e9a22e;
+  color: #ff9d00;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk i {
   cursor: pointer;
@@ -668,7 +668,7 @@ i {
   transition: 0.5s;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .pro_edit_sub button:hover {
-  background-color: #eea126;
+  background-color: #ffae29;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password {
   width: 100%;
@@ -751,7 +751,7 @@ i {
   .set_password
   .butset
   button:hover {
-  background-color: #e29821;
+  background-color: #ffae29;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings p .tip {
   font-size: 11px;

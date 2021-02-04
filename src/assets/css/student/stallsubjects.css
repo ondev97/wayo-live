@@ -13,7 +13,7 @@
 .all_st_subs .pagetop h1 {
   font-size: 28px;
   font-weight: 500;
-  color: #eca126;
+  color: #ff9d00;
   text-align: left;
   flex: 0.3;
   text-transform: uppercase;
@@ -36,7 +36,7 @@
 .all_st_subs .pagetop .search_row button {
   width: 60px;
   background-color: #fff;
-  border: 1px solid #eca126;
+  border: 1px solid #ffae29;
   border-left: transparent;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -122,7 +122,7 @@
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) h3 {
   font-size: 17px;
   font-weight: 600;
-  color: #e89e26;
+  color: #ff9d00;
   margin-bottom: 8px;
   margin-top: 8px;
 }
@@ -176,7 +176,7 @@
   align-items: center;
   font-size: 11px;
   background-color: #f8f8f8;
-  color: #f5a92c;
+  color: #ff9d00;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(3) h3 {
   font-weight: 400;

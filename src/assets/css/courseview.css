@@ -221,7 +221,7 @@
   .grid_card_mg_body
   h3 {
   font-weight: 400;
-  color: #d0973a;
+  color: #ff9d00;
 }
 .top_manage_body
   .mange_cos_body
@@ -477,10 +477,10 @@ i.cl {
   font-size: 13px;
   color: #000;
   padding: 3px;
-  border: 1px solid #ffae29;
+  border: 1px solid #ff9d00;
 }
 .top_manage_body .cos_details .cos_details_head .cos_tool_bar h3:hover {
-  background-color: #ffae29;
+  background-color: #ff9d00;
   color: #fff;
   transition: 0.5s ease;
 }
@@ -502,7 +502,7 @@ i.cl {
   margin-bottom: 3px;
   font-weight: 500;
   font-size: 20px;
-  color: #e49920;
+  color: #ff9d00;
 }
 .top_manage_body .cos_details .cos_details_head h4 {
   margin-bottom: 10px;
@@ -512,7 +512,7 @@ i.cl {
 }
 .top_manage_body .cos_details .cos_details_body h4 {
   font-size: 14px;
-  color: #e9a12c;
+  color: #ff9d00;
   font-weight: 500;
   margin-bottom: 8px;
 }

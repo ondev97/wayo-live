@@ -26,7 +26,7 @@ nav .column .hlogo h1 {
 nav .column .hlogo h1 span {
   font-size: 30px;
   font-weight: 600;
-  color: #00bf4d;
+  color: #ff9d00;
 }
 nav .column .hlogo img {
   width: 205px;
@@ -81,7 +81,7 @@ nav .column:nth-child(2) .navigation ul li:hover:before {
   }
 }
 nav .column:nth-child(2) .navigation ul li a:hover {
-  color: #ffae29;
+  color: #ff9d00;
 }
 nav .column .buttons {
   text-align: right;
@@ -116,11 +116,11 @@ nav .column .buttons button:nth-child(2) a {
   color: #fff;
 }
 nav .column .buttons button:nth-child(1):hover {
-  background-color: #efa120;
+  background-color: #ffae29;
   color: #fff;
 }
 nav .column .buttons button:nth-child(2):hover {
-  background-color: #efa120;
+  background-color: #ffae29;
 }
 nav .column .buttons button:hover a {
   color: #fff;
@@ -154,7 +154,7 @@ nav .column .ac_details_header h3 {
   font-size: 15px;
   word-wrap: break-word;
   text-align: right;
-  color: #eba32d;
+  color: #ff9d00;
 }
 nav .column .ac_details_header p {
   font-size: 13px;
@@ -242,18 +242,18 @@ nav .ham button i {
   color: #000;
 }
 .hammenu .buttons a:nth-child(2) button {
-  background-color: #eba32d;
+  background-color: #ffae29;
   color: #fff;
 }
 .hammenu .buttons button:nth-child(2) a {
   color: #fff;
 }
 .hammenu .buttons button:nth-child(1):hover {
-  background-color: #eba32d;
+  background-color: #ffae29;
   color: #fff;
 }
 .hammenu .buttons button:nth-child(2):hover {
-  background-color: #eba32d;
+  background-color: #ffae29;
 }
 .hammenu .buttons button:hover a {
   color: #fff;
@@ -285,7 +285,7 @@ nav .ham button i {
   font-size: 15px;
   word-wrap: break-word;
   text-align: right;
-  color: #df9929;
+  color: #ff9d00;
 }
 .hammenu .ac_details_header p {
   font-size: 13px;

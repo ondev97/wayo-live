@@ -70,7 +70,7 @@
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 28px;
-  color: #ffae29;
+  color: #ff9d00;
 }
 .subject_form .main_form p {
   position: relative;
@@ -105,7 +105,7 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
 }
 .subject_form .main_form p span.curu {
-  background-color: #e29924;
+  background-color: #ffae29;
   width: 40px;
   padding: 8px;
   color: #fff;
@@ -128,7 +128,7 @@ input[type="number"]::-webkit-outer-spin-button {
   outline: none;
   border: 1px solid #c1c1c1;
   border-radius: 3px;
-  color: #d49227;
+  color: #ff9d00;
   font-weight: 500;
   font-size: 13px;
 }
@@ -137,7 +137,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px !important;
   border: 1px solid transparent;
   cursor: initial;
-  background-color: #df951f;
+  background-color: #ffae29;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
@@ -147,20 +147,20 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px !important;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: #df951f;
+  background-color: #ffae29;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
 }
 .subject_form .main_form p input[type="submit"]:hover {
-  background-color: #d6901e;
+  background-color: #ffae29;
 }
 .subject_form .main_form p button.sub {
   margin-top: 20px;
   width: 200px;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: #f3a629;
+  background-color: #ffae29;
   color: #fff;
   font-weight: 600;
   padding: 10px;
@@ -168,7 +168,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: 0.3s ease;
 }
 .subject_form .main_form p button.sub:hover {
-  background-color: #db9320;
+  background-color: #ffae29;
 }
 .subject_form .main_form p button .notch {
   color: #fff;
@@ -193,7 +193,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 45px;
   padding: 8px;
   text-align: center;
-  background-color: #eea126;
+  background-color: #ffae29;
   color: #fff;
 }
 
@@ -254,7 +254,7 @@ button.cp {
   font-weight: 600;
 }
 .subject_form .main_form .up_pro_pic button.cp:hover {
-  background-color: #f1a325;
+  background-color: #ffae29;
   color: #fff;
 }
 

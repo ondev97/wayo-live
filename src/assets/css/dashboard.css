@@ -43,7 +43,7 @@
 .main .main_column .head .column:first-child i {
   cursor: pointer;
   font-size: 23px;
-  color: #ffae29;
+  color: #ff9d00;
 }
 .main .main_column .head .column:last-child {
   display: flex;
@@ -54,7 +54,7 @@
 }
 .main .main_column .head .column .sec span {
   font-size: 18px;
-  color: #00bf4d;
+  color: #ff9d00;
   cursor: pointer;
 }
 .main .main_column .head .column .sec .profile {

@@ -67,7 +67,7 @@
   margin-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #eea42a;
+  color: #ff9d00;
 }
 .login_body .login_column .login_form input {
   width: 100%;
@@ -110,7 +110,7 @@
 }
 .login_body .login_column .login_form .but p a {
   text-decoration: none;
-  color: #e69c23;
+  color: #ff9d00;
 }
 .login_body .login_column .login_form p .tip {
   font-size: 11px;

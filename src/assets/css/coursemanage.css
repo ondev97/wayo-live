@@ -15,7 +15,7 @@
   font-weight: 400;
   font-size: 13px;
   cursor: pointer;
-  background-color: #ffae29;
+  background-color: #ff9d00;
   padding: 7px;
   color: #fff;
   width: 120px;
@@ -155,7 +155,7 @@
   font-size: 17px;
   font-weight: 500;
   margin-bottom: 10px;
-  color: #ffae29;
+  color: #ff9d00;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid .ty {
   display: flex;

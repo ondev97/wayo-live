@@ -26,13 +26,13 @@
   display: block;
   margin-bottom: 15px;
   font-size: 17px;
-  color: #f9a112;
+  color: #ff9d00;
   font-weight: 600;
 }
 .genkeysform .main_gen_form form p input {
   width: 100%;
   padding: 8px 5px;
-  color: #0a6b31;
+  color: #ff9d00;
   outline: none;
   border: 1px solid #c1c0c0;
   border-radius: 3px;
@@ -49,7 +49,7 @@
   padding: 8px;
   margin-top: 15px;
   border: 1px solid transparent;
-  background-color: #f9a112;
+  background-color: #ffae29;
   color: #fff;
   font-weight: 600;
   font-size: 15px;
@@ -59,7 +59,7 @@
   transition: 0.3s ease;
 }
 .genkeysform .main_gen_form form .gen_sub button:hover {
-  background-color: #e49516;
+  background-color: #ffae29;
 }
 .genkeysform .mid_row {
   width: 100%;
@@ -76,7 +76,7 @@
 .genkeysform .mid_row button {
   width: 130px;
   padding: 6px;
-  background-color: #f9a112;
+  background-color: #ffae29;
   border: 1px solid transparent;
   color: #fff;
   font-weight: 600;
@@ -85,7 +85,7 @@
   transition: 0.5s ease;
 }
 .genkeysform .mid_row button:hover {
-  background-color: #e4920f;
+  background-color: #ffae29;
 }
 .genkeysform .mid_row button i {
   color: #fff;
@@ -139,14 +139,14 @@
 }
 .genkeysform .main_gen_form .disp_gen_keys table thead tr:first-child {
   background-color: #fffdfa;
-  color: #f9a112;
+  color: #ff9d00;
 }
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(1) {
   background-color: #eee3;
 }
 
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(2) {
-  color: #e29313;
+  color: #ff9d00;
 }
 .genkeysform .main_gen_form .disp_gen_keys table tr td {
   padding: 15px 12px;
@@ -211,7 +211,7 @@
 }
 .genkeysform .main_gen_form .no_keys h1 {
   margin-bottom: 25px;
-  color: #f9a112;
+  color: #ff9d00;
   font-weight: 500;
   font-size: 20px;
 }

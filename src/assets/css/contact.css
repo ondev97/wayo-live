@@ -60,7 +60,7 @@
 .maininde .con_body .short_con .column_con .con_upprt h3 {
   font-weight: 600;
   font-size: 22px;
-  color: #eb9b1b;
+  color: #ff9d00;
 }
 .maininde .con_body .short_con .column_con .con_sort_body {
   width: 100%;
@@ -115,7 +115,7 @@ p textarea {
 }
 .maininde .con_form .sect p input:focus,
 p textarea:focus {
-  border-color: #f4a31d;
+  border-color: #ff9d00;
 }
 .maininde .con_form p.last {
   text-align: center;
@@ -124,7 +124,7 @@ p textarea:focus {
   font-size: 13px;
   padding: 8px;
   width: 150px;
-  background-color: #f4a31d;
+  background-color: #ffae29;
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
@@ -133,7 +133,7 @@ p textarea:focus {
   transition: 0.3s ease;
 }
 .maininde .con_form p.last input:hover {
-  background-color: #e69a21;
+  background-color: #ffae29;
 }
 @media screen and (max-width: 1100px) {
   .maininde .con_body .short_con {
