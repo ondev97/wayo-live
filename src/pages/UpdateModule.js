@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Axios from 'axios';
@@ -24,6 +24,11 @@ export default function UpdateModule() {
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
     const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api`;
+    let history = useHistory();
+            
+    const back =()=>{
+        history.goBack();
+    }
 
     const getValues = async ()=>{
         await Axios.get(`${url}/getsinglemodule/${cosid}/`,{
@@ -195,6 +200,9 @@ export default function UpdateModule() {
 
     return (
         <div className="subject_form">
+            <div className="back">
+                <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Module</button>
+            </div>
             <div className="main_form">
                 <h1>Update Module</h1>
                 <form onSubmit={hadelSubmit}>
@@ -245,7 +253,7 @@ export default function UpdateModule() {
                         }
                     </div>
                     <p>
-                        <input type={`${uploading ? 'button' : 'submit'}`} name="submit" value={`${uploading ? 'Updating' : 'Updating Module'}`}/>
+                        <input type={`${uploading ? 'button' : 'submit'}`} name="submit" value={`${uploading ? 'Updating' : 'Update Module'}`}/>
                     </p>
                 </form>
             </div>

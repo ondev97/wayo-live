@@ -4,7 +4,7 @@ import UpdateSubjectFunc from '../utils/hooks/SubjectUpdateValidation';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
 import { store } from 'react-notifications-component';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import UpdateSujectForm from '../components/UpdateSujectForm';
 
 export default function UpdateSubject() {
@@ -18,6 +18,11 @@ export default function UpdateSubject() {
 
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
+    let history = useHistory();
+            
+    const back =()=>{
+        history.goBack();
+    }
 
     //function for base64 to blob 
     const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
@@ -92,6 +97,9 @@ export default function UpdateSubject() {
     }
     return (
         <div className="subject_form">
+            <div className="back">
+                <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Subjects</button>
+            </div>
             <div className="main_form">
                 <h1>Update Subject</h1>
                    <UpdateSujectForm hadelChabgeFormValues={hadelChabgeFormValues} handelSubmit={handelSubmit} hideError={hideError} hide={hide} formErrors={formErrors} image={image} getCropData={getCropData} setCropper={setCropper} onChange={onChange} err={err} showCropper={showCropper} setshowCropper={setshowCropper} isUploading={isUploading} formValue={formValue} cropData={cropData} />  

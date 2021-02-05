@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { store } from 'react-notifications-component';
 import { useSelector } from 'react-redux';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { checkErrors } from '../components/CourseFormValidation';
 import UpdateCourseForm from '../components/UpdateCourseForm';
 import CropImages from '../utils/hooks/CropImages';
@@ -21,7 +21,12 @@ export default function UpdateCourse() {
     const usDetails = useSelector(state => state.accountDetails);
     
     const {subid} = useParams();
-
+    let history = useHistory();
+            
+    const back =()=>{
+        history.goBack();
+    }
+    
     useEffect(async() => {
         if(usDetails.key){
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/list/${subid}/`,{
@@ -142,6 +147,9 @@ export default function UpdateCourse() {
 
     return (
         <div className="subject_form">
+            <div className="back">
+                <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Courses</button>
+            </div>
             <div className="main_form">
             <h1>Update Course</h1>
                 <UpdateCourseForm handelSubmit={handelSubmit} showCropper={showCropper} cropData={cropData} err={err} image={image} setCropper={setCropper} courseValue={courseValue} onChange={onChange} setshowCropper={setshowCropper} getCropData={getCropData} handelFormValues={handelFormValues} hideError={hideError} courseErrors={courseErrors} hide={hide} progress={progress}/>

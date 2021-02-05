@@ -195,7 +195,7 @@ function CreateModels() {
                         }
                     </div>
                     <p>
-                        <input type={`${uploading ? 'button' : 'submit'}`} name="submit" value={`${uploading ? 'Uploading' : 'Upload Module'}`} />
+                        <input type={`${uploading ? 'button' : 'submit'}`} name="submit" value={`${uploading ? 'Creating' : 'Create Module'}`} />
                     </p>
                 </form>
             </div>
