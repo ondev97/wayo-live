@@ -31,7 +31,7 @@ export default function PasswordReset() {
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/password/reset/`, {email:email}).then(res=>{
             store.addNotification({
                 title: res.data.detail,
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -51,7 +51,7 @@ export default function PasswordReset() {
         }).catch(err=>{
             store.addNotification({
                 title: "Email was not sent",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "danger",
                 insert: "top",
                 container: "top-right",

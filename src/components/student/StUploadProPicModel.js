@@ -79,7 +79,7 @@ export default function StUploadProPicModel({showModel,setshowModel,filePath,set
 
                store.addNotification({
                 title: "Profile Picture Updated!",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "success",
                 insert: "top",
                 container: "top-right",

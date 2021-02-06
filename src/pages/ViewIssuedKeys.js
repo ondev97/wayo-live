@@ -44,7 +44,7 @@ export default function ViewIssuedKeys() {
         //showing alert
         store.addNotification({
             title: "Invalid Module!",
-            message: "EyeKon eClass",
+            message: "Eyekon eClass",
             type: "danger",
             insert: "top",
             container: "top-right",

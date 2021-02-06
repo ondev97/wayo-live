@@ -71,7 +71,7 @@ export default function UpdateSubject() {
             //showing alert
             store.addNotification({
                 title: "Subject Updated!",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "success",
                 insert: "top",
                 container: "top-right",

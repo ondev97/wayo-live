@@ -121,7 +121,7 @@ function CreateModels() {
         //showing alert
         store.addNotification({
             title: "Module Added Successfully!",
-            message: "EyeKon eClass",
+            message: "Eyekon eClass",
             type: "success",
             insert: "top",
             container: "top-right",

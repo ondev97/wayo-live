@@ -36,7 +36,7 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
         console.log(res);
         store.addNotification({
                 title: "Sucessfully Enrolled",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -65,7 +65,7 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
     console.log("Payment dismissed");
     store.addNotification({
                 title: "Payment Cancelled",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "warning",
                 insert: "top",
                 container: "top-right",
@@ -87,7 +87,7 @@ const PaymentModal = ({ course_id, course_name, price, user}) => {
     console.log("Error:"  + error);
     store.addNotification({
                 title: "Payment was unsuccessfull",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "danger",
                 insert: "top",
                 container: "top-right",

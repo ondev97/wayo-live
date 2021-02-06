@@ -63,7 +63,7 @@ export default function ContactUs() {
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/contact/`, email_data).then(res=>{
             store.addNotification({
                 title: "Email was sent successfully",
-                message: "OnDevlms",
+                message: "Eyekon eClass",
                 type: "success",
                 insert: "top",
                 container: "top-right",
@@ -82,7 +82,7 @@ export default function ContactUs() {
         }).catch(err=>{
             store.addNotification({
                 title: "Email was not sent",
-                message: "EyeKon eClass",
+                message: "Eyekon eClass",
                 type: "warning",
                 insert: "top",
                 container: "top-right",
