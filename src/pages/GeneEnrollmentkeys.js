@@ -13,8 +13,6 @@ function GeneEnrollmentkeys() {
         strict: false 
     });
 
-    console.log(location.params.ccid);
-
     return (
         <div className="main_sub">
             <div className="simple_nav">
