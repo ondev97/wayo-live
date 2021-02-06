@@ -82,7 +82,7 @@ export default function ContactUs() {
         }).catch(err=>{
             store.addNotification({
                 title: "Email was not sent",
-                message: "Eyekon E Class",
+                message: "EyeKon eClass",
                 type: "warning",
                 insert: "top",
                 container: "top-right",

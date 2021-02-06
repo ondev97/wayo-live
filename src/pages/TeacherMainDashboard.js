@@ -14,7 +14,6 @@ export default function TeacherMainDashboard() {
     const usDetails = useSelector(state => state.accountDetails);
 
     const [statistics, setstatistics] = useState({'students':0, 'courses':0, 'subjects':0})
-    const [isLoading, setisLoading] = useState(false);
 
     useEffect(async() => {
         dispatch(activeAccount());

@@ -15,7 +15,6 @@ export default function InAllSubjects() {
     const dispatch = useDispatch();
     const [allSubDetails, setallSubDetails] = useState([])
     const [nextPage, setnextPage] = useState(null);
-    const [search, setsearch] = useState('');
     const [page, setpage] = useState(1);
     const [isLoading, setisLoading] = useState(false);
 

@@ -115,7 +115,7 @@ export default function UpdateCourse() {
             //showing alert
             store.addNotification({
                 title: "Course Updated!",
-                message: "Eyekon E Class",
+                message: "EyeKon eClass",
                 type: "success",
                 insert: "top",
                 container: "top-right",

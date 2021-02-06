@@ -33,7 +33,7 @@ export default function StProfileHead() {
           //setshowModel(!showModel);
           store.addNotification({
           title: "Invalid File Type!",
-          message: "Eyekon E Class",
+          message: "EyeKon eClass",
           type: "danger",
           insert: "top",
           container: "top-left",

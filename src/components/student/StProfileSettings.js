@@ -40,7 +40,7 @@ export default function StProfileSettings({setsettings}) {
                 
                 store.addNotification({
                     title: "Profile Changed Successfully!",
-                    message: "Eyekon E Class",
+                    message: "EyeKon eClass",
                     type: "success",
                     insert: "top",
                     container: "top-right",
