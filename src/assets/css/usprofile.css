@@ -320,11 +320,14 @@
 .main_profile .tcdisoncolumn .about_body .ab_main_card {
   width: 100%;
   margin: 25px 0;
-  display: flex;
+  display: block;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card {
   flex: 1;
   margin-right: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card:last-child {
   margin: 0;
@@ -341,8 +344,9 @@
   }
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h3 {
-  font-size: 15px;
+  font-size: 13px;
   color: #ff9d00;
+  margin-right: 10px;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h4 {
   font-size: 13.5px;

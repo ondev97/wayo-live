@@ -27,8 +27,8 @@
   font-weight: 500;
   border-radius: 5px;
   cursor: pointer;
-  background-image: linear-gradient(to left, #ee990d, #ffae29, #ee990d);
-  border: 1px solid #ee990d;
+  background: #ffae29;
+  border: 1px solid #ffae29;
   color: #fff;
   transition: 0.2s ease;
 }
@@ -37,7 +37,7 @@
   text-decoration: none;
 }
 .models .md_all_models .models_en_nav ul li:hover {
-  background-image: linear-gradient(to left, #da9019, #f8a92b, #da9019);
+  background-image: #ffae29;
 }
 .models .md_all_models .models_en_nav ul li i {
   font-size: 12px;
@@ -91,7 +91,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f9f9f9;
+  background-color: #f4f4f4;
 }
 .models .md_all_models .md_models .al_models .on_model_head h1 {
   font-size: 17px;

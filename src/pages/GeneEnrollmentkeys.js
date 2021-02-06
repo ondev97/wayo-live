@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link, matchPath, Route, useLocation } from 'react-router-dom'
+import { Link, matchPath, Route, useHistory, useLocation, useParams } from 'react-router-dom'
 import GenerateKeys from '../components/GenerateKeys'
 import ViewIssuedKeys from './ViewIssuedKeys';
 import '../assets/css/geneenrollmentkeys.css';
 import '../assets/css/mediaFiles/enrollmentkey.css';
 
 function GeneEnrollmentkeys() {
-    
+
     let location = matchPath(useLocation().pathname,{
         path: ['/teacherdashboard/keys/genkeys/:id','/teacherdashboard/keys/viewallissuekey/:id'],
         exact: true,
@@ -24,6 +24,11 @@ function GeneEnrollmentkeys() {
                 </Link>
             </div>
             <div className="show">
+            <div className="back">
+                <Link to={`/teacherdashboard/models/${location.params.id}`}>
+                <button><i className="fas fa-chevron-circle-left"></i>Back to Courses</button>
+                </Link>
+            </div>
                 <Route path='/teacherdashboard/keys/genkeys/:id'>
                     <GenerateKeys/>
                 </Route>

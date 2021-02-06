@@ -26,16 +26,39 @@
   font-size: 13px;
   font-weight: 500;
   padding: 7px;
-  border: 1px solid #f9a112;
+  border: 1px solid #ffae29;
   text-align: center;
   transition: 0.3s ease;
 }
 .main_sub .simple_nav a:hover {
-  background-color: #f9a112;
+  background-color: #ffae29;
   color: #fff;
 }
 .main_sub .show {
   margin-top: 10px;
   width: 100%;
   flex: 1;
+}
+/*back button*/
+.main_sub .show .back {
+  width: 100%;
+}
+.main_sub .show .back button {
+  padding: 8px 10px;
+  background-color: #fff;
+  border: 1px solid #ffae29;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.main_sub .show .back button i {
+  margin-right: 5px;
+}
+.main_sub .show .back button:hover {
+  background-color: #ffae29;
+  color: #fff;
+}
+.main_sub .show .back button:hover i {
+  color: #fff;
 }
