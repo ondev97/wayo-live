@@ -52,8 +52,8 @@ export default function TcModels() {
                 <div className="md_all_models">
                     <div className="models_en_nav">
                         <ul>
-                            <Link to={`/teacherdashboard/keys/genkeys/${id}`}><li><i className="fas fa-key"></i>Generate Enrollment Keys</li></Link>
-                            <Link to={`/teacherdashboard/keys/viewallissuekey/${id}`}><li><i className="fas fa-key"></i>View All Enrollment Keys</li></Link>
+                            <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li><i className="fas fa-key"></i>Generate Enrollment Keys</li></Link>
+                            <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li><i className="fas fa-key"></i>View All Enrollment Keys</li></Link>
                         </ul>
                     </div>
                     <div className="md_models">

@@ -41,7 +41,7 @@ export default function Home() {
         <div className='maininde'>
             <div className="uppercover">
                 <div className="cov_text">
-                    <h1>EyeKon eClass For Learning</h1>
+                    <h1>Eyekon eClass For Learning</h1>
                     <p>Education is the most powerful weapon which you can use to change the world</p>
                     <Link to={'/allteachers'}><button>Our Teachers</button></Link>
                 </div>
