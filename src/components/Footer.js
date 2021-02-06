@@ -14,7 +14,7 @@ export default function Footer() {
                         <img src={ftimg} alt="footer"/>
                     </div>
                     <div className="ab">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tenetur consequuntur earum voluptas perspiciatis illum doloremque quasi laboriosam itaque ab dolore, adipisci ipsam laborum quidem omnis laudantium. Voluptatem, enim amet!</p>
+                        <p>'eyekoneclass.lk' provides facilities in a higher manner to the Sri Lankan educational sector. All the courses are being conducted by leading and fully qualified panel of teachers in the Island. With the direct guidance of the teachers, students follow their syllabus. At 'eyekoneclass.lk', conduct online examinations and will be assessed the student’s progress accordingly.</p>
                     </div>
                 </div>
                 <div className="footer_column">

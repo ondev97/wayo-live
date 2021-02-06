@@ -114,9 +114,7 @@ export default function ContactUs() {
                             <h3>Phone</h3>
                         </div>
                         <div className="con_sort_body">
-                            <p>076-8597898</p>
-                            <p>076-xxxxxx</p>
-                            <p>076-xxxxxx</p>
+                            <p>+94 70 600 2947</p>
                         </div>
                     </div>
                     <div className="column_con">
@@ -127,7 +125,7 @@ export default function ContactUs() {
                             <h3>Location</h3>
                         </div>
                         <div className="con_sort_body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p>Eyekon International Private Limited:<br/>No 156/2 2-6,<br/>‘S. De. S. Jayasinghe Mawatha,<br/>Kohuwala Road,<br/>Nugegoda</p>
                         </div>
                     </div>
                     <div className="column_con">
@@ -138,7 +136,7 @@ export default function ContactUs() {
                             <h3>Email</h3>
                         </div>
                         <div className="con_sort_body">
-                            <p>Lorem ipsum dolor sit amet co</p>
+                            <p>support@eyekoneclass.lk</p>
                         </div>
                     </div>
                 </div>

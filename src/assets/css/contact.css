@@ -7,7 +7,7 @@
   width: 1000px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 285px));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 293px));
   grid-gap: 45px;
   justify-content: center;
   margin-top: 80px;
@@ -37,7 +37,7 @@
 }
 .maininde .con_body .short_con .column_con .con_upprt {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +72,7 @@
 }
 .maininde .con_body .short_con .column_con .con_sort_body p {
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   word-break: break-all;
   color: #777;
