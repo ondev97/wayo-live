@@ -107,7 +107,7 @@ export default function CreateCourse() {
         return <Redirect to={`/teacherdashboard/createsubject`} />
     }
     if(redirec.id){
-        return <Redirect to={`/teacherdashboard/createmodels/${redirec.id}`} />
+        return <Redirect to={`/teacherdashboard/createmodels/${redirec.id}/${id}`} />
         
     }
 

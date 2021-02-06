@@ -11,6 +11,7 @@ import checkErrors from '../components/ValidateModule';
 function CreateModels() {
 
     const {id} = useParams();
+    const {ccid} = useParams();
     const [formValues, setformValues] = useState({mn:"",msg:""});
     const [formErrors, setformErrors] = useState({mn:"",msg:"",comerr:""});
     const [hide, sethide] = useState({mn:false,msg:false});
@@ -143,7 +144,7 @@ function CreateModels() {
     }
 
     if(isRedirect){
-        return <Redirect to={`/teacherdashboard/models/${id}`}/>
+        return <Redirect to={`/teacherdashboard/models/${id}/${ccid}`}/>
     }
 
     return (

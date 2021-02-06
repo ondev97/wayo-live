@@ -19,7 +19,7 @@ export default function Footer() {
                 </div>
                 <div className="footer_column">
                     <h2>Location</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing el</p>
+                    <p>No 156/2 2-6,‘S. De. S. Jayasinghe Mawatha,<br/>Kohuwala Road,Nugegoda</p>
                     <ul className="scial">
                         <li><i className="fab fa-facebook-square"></i></li>
                         <li><i className="fab fa-twitter-square"></i></li>

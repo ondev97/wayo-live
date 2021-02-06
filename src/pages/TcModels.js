@@ -61,7 +61,7 @@ export default function TcModels() {
                             <Link to={`/teacherdashboard/viewcourse/${cid}`}>
                                 <button><i className="fas fa-chevron-circle-left"></i>Back to Courses</button>
                             </Link>
-                            <Link to={`/teacherdashboard/createmodels/${id}`}>
+                            <Link to={`/teacherdashboard/createmodels/${id}/${cid}`}>
                                 <button><i className="fas fa-plus-circle"></i>Create Module</button>
                             </Link>
                         </div>
