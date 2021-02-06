@@ -136,7 +136,7 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/viewcourse/:id'>
                         <CourseView/>
                     </Route>
-                    <Route path='/teacherdashboard/models/:id'>
+                    <Route path='/teacherdashboard/models/:id/:cid'>
                         <TcModels/>
                     </Route>
                     <Route path='/teacherdashboard/profilesettings'>
@@ -148,7 +148,7 @@ export default function TeacherDashboard() {
                     <Route path='/teacherdashboard/updatecourse/:subid'>
                         <UpdateCourse/>
                     </Route>
-                    <Route path='/teacherdashboard/updatemodule/:cosid'>
+                    <Route path='/teacherdashboard/updatemodule/:cosid/:ccid'>
                         <UpdateModule/>
                     </Route>
                     <Route path='/teacherdashboard/keys'>

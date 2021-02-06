@@ -140,7 +140,7 @@ export default function CourseView() {
                             <InfiniteScroll dataLength={courseData.length} next={next} hasMore={true} className='manage_course_grid'>
                                 {
                                     
-                                            courseData.map((cdata,index)=> <CourseSect key={index} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
+                                            courseData.map((cdata,index)=> <CourseSect key={index} id={id} course_cover={cdata.course_cover} course_name={cdata.course_name} duration={cdata.duration} price={cdata.price} duration={cdata.duration} created_at={cdata.created_at} courseid={cdata.id} no={index}/>)
                                     
                                 }
                             </InfiniteScroll>

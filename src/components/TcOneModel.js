@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player/lazy';
 import { useSelector } from 'react-redux';
 import ModuleBody from './ModuleBody';
 
-export default function TcOneModel({name,msg,moduleFiles,id,setisRemoveModule}) {
+export default function TcOneModel({name,msg,moduleFiles,id,cid,setisRemoveModule}) {
 
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
@@ -64,7 +64,7 @@ export default function TcOneModel({name,msg,moduleFiles,id,setisRemoveModule}) 
     
     return (
             <AnimateSharedLayout>
-            <ModuleBody name={name} id={id} handelDeleteModule={handelDeleteModule}>
+            <ModuleBody name={name} id={id} cid={cid} handelDeleteModule={handelDeleteModule}>
                 <div className="on_model_body">
                     {
                         msg &&

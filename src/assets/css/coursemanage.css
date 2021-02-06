@@ -15,12 +15,19 @@
   font-weight: 400;
   font-size: 13px;
   cursor: pointer;
-  background-color: #ff9d00;
+  background-color: #ffff;
   padding: 7px;
-  color: #fff;
+  color: #ff9d00;
   width: 120px;
   text-align: center;
+  border: 1px solid #ff9d00;
+  font-weight: 500;
   border-radius: 20px;
+  transition: 0.3s ease;
+}
+.main_ar_course .course_head .crcs h2:hover {
+  background-color: #ff9d00;
+  color: #fff;
 }
 .main_ar_course .course_head .crcs a {
   text-decoration: none;

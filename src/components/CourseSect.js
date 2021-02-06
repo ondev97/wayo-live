@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
 
-export default function CourseSect({course_cover,course_name,price,duration,created_at,courseid,no}) {
+export default function CourseSect({id,course_cover,course_name,price,duration,created_at,courseid,no}) {
 
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
@@ -22,7 +22,7 @@ export default function CourseSect({course_cover,course_name,price,duration,crea
     }
     return (
         <div className="grid_card_manage">
-            <Link to={`/teacherdashboard/models/${courseid}`}>
+            <Link to={`/teacherdashboard/models/${courseid}/${id}`}>
                 <div className="grid_card_mg_head">
                     <img src={`${course_cover}`} alt=""/>
                     <div className="dura">
@@ -44,7 +44,7 @@ export default function CourseSect({course_cover,course_name,price,duration,crea
                         </ul>
                     </div>
                 </div>
-            <Link to={`/teacherdashboard/models/${courseid}`}>
+            <Link to={`/teacherdashboard/models/${courseid}/${id}`}>
                 <div className="grid_card_mg_body">
                     <h3>{course_name}</h3>
                     <h4>LKR {price}</h4>

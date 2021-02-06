@@ -15,6 +15,7 @@ export default function TcModels() {
     const [isRemoveModule, setisRemoveModule] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
+    const {cid} = useParams();
 
     useEffect(async () => {
         if(usDetails.key){
@@ -43,12 +44,7 @@ export default function TcModels() {
                 )
             }
         }, [moduleData]);
-
-            let history = useHistory();
-            
-            const back =()=>{
-                history.goBack();
-            }
+        
 
     return (
         <div>
@@ -62,7 +58,9 @@ export default function TcModels() {
                     </div>
                     <div className="md_models">
                         <div className="cr_models">
-                            <button onClick={back}><i className="fas fa-chevron-circle-left"></i>Back to Courses</button>
+                            <Link to={`/teacherdashboard/viewcourse/${cid}`}>
+                                <button><i className="fas fa-chevron-circle-left"></i>Back to Courses</button>
+                            </Link>
                             <Link to={`/teacherdashboard/createmodels/${id}`}>
                                 <button><i className="fas fa-plus-circle"></i>Create Module</button>
                             </Link>
@@ -71,10 +69,10 @@ export default function TcModels() {
                             {
                                 moduleData.length !== 0 ?
                                     moduleData.map((data)=>(
-                                       <TcOneModel key={data.id} msg={data.module_content} name={data.module_name} id={data.id} moduleFiles={moduleFiles} setisRemoveModule={setisRemoveModule}/>
+                                       <TcOneModel key={data.id} msg={data.module_content} name={data.module_name} id={data.id} cid={cid} moduleFiles={moduleFiles} setisRemoveModule={setisRemoveModule}/>
                                     ))
                                 :   <div className="empy">
-                                        <h3>No Course Module Available..</h3>
+                                        <h3>No Course Modules Available..</h3>
                                     </div>
                             }
                         </div>

@@ -10,6 +10,7 @@ import { store } from 'react-notifications-component';
 export default function UpdateModule() {
 
     const {cosid} = useParams();
+    const {ccid} = useParams();
     const [formValues, setformValues] = useState({mn:"",msg:"",cid:""});
     const [formErrors, setformErrors] = useState({mn:"",msg:"",comerr:""});
     const [hide, sethide] = useState({mn:false,msg:false});
@@ -195,7 +196,7 @@ export default function UpdateModule() {
         return <Redirect to="/teacherdashboard/managecourse/"/>
     }
     if(isRedirect.ne){
-        return <Redirect to={`/teacherdashboard/models/${formValues.cid}`}/>
+        return <Redirect to={`/teacherdashboard/models/${formValues.cid}/${ccid}/`}/>
     }
 
     return (

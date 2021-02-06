@@ -25,7 +25,7 @@ export default function ModelsCourseDescri({id}) {
     }, [usDetails]);
 
     const deleteCourse = async () =>{
-        let confirms = window.confirm('Are You Sure?🙄');
+        let confirms = window.confirm('Are You Sure?');
         if(confirms){
             await Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletecourse/${id}/`,{
                 headers:{Authorization:'Token '+usDetails.key}
