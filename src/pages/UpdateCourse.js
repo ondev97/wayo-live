@@ -129,8 +129,8 @@ export default function UpdateCourse() {
                 },
                 width:600
             });
-
-            setredirec({id:res.data.id});
+            //setredirec({id:res.data.id}); use for redirec to module
+            setredirec({id:res.data.subject.id}); //use for redirec to subject
         }).catch(err=>{
             if(err.response.data.message){
                 setredirec({err:true});
@@ -142,7 +142,7 @@ export default function UpdateCourse() {
         return <Redirect to='/teacherdashboard/managecourse/'/>
     }
     if(redirec.id){
-        return <Redirect to={`/teacherdashboard/models/${redirec.id}`}/>
+        return <Redirect to={`/teacherdashboard/viewcourse/${redirec.id}`}/>
     }
 
     return (
