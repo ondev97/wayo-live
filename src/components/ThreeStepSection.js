@@ -21,7 +21,7 @@ export default function ThreeStepSection({set}) {
                         <div className={`up_icon ${set==='acm' && 'act'}`}>
                         <i className="fas fa-pen-nib"></i>
                         </div>
-                        <h3>Add Course Materials</h3>
+                        <h3>Add Course Modules</h3>
                     </div>
                 </div>
             </div>
