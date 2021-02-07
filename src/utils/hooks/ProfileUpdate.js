@@ -43,9 +43,16 @@ function ProfileUpdate(submit) {
     //set values to states
      const hadelChange =(e)=>{
          const {name,value} = e.target
-        setvalues({
-            ...values,[name]:value
-        })
+         if(e.target.id === 'un'){
+            setvalues({
+                ...values,[name]:value.trim()
+            })
+        }
+        else{
+            setvalues({
+                ...values,[name]:value
+            })
+        }
      }
 
      //handel dynamic input fields and set values

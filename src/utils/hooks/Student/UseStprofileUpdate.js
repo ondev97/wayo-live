@@ -21,9 +21,16 @@ export default function UseStprofileUpdate(submit) {
     //set values to states
     const hadelChange =(e)=>{
         const {name,value} = e.target
-       setvalues({
-           ...values,[name]:value
-       })
+        if(e.target.id === 'un'){
+            setvalues({
+                ...values,[name]:value.trim()
+            })
+        }
+        else{
+            setvalues({
+                ...values,[name]:value
+            })
+        }
     }
 
      //hadel form submit

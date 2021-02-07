@@ -19,8 +19,11 @@ export default function ValidateSignUp(values) {
     if(!values.userName.trim()){
         errors.userName = "User Name Is Required"
     }
-    else if(values.userName.length > 30){
-        errors.userName = "User Name Must Be More Than 10 characters";
+    else if(values.userName.length > 6){
+        errors.userName = "User Name Must Be Less Than 6 characters";
+    }
+    else if(values.userName.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)){
+        errors.userName = "User Name Must Not Be Contain Special Characters";
     }
     if(!values.email.trim()){
         errors.email = "Email is Required"
@@ -33,6 +36,9 @@ export default function ValidateSignUp(values) {
     }
     if(!values.phonenumber.trim()){
         errors.phonenumber = "Phone Number is Required"
+    }
+    else if(isNaN(values.phonenumber)){
+        errors.phonenumber = "Please Insert Valied Phone Number"
     }
     else if(values.phonenumber.length >12){
         errors.phonenumber = "Phone Number Must Be Less Than 12 characters"

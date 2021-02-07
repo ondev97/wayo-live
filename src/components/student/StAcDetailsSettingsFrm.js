@@ -23,7 +23,7 @@ export default function StAcDetailsSettingsFrm({values,hadelChange,hadelSubmitFo
                 <div className="sectpr">
                     <p>
                         <label htmlFor="un">User Name</label>
-                        <input type="text" id="un" name="userName" value={values.userName || ''} onChange={hadelChange} onFocus={hideError}/>
+                        <input type="text" id="un" name="userName" style={{textTransform:'uppercase'}} value={values.userName || ''} onChange={hadelChange} onFocus={hideError}/>
                         {
                             errors.userName && <span className={`tip ${hide.userName ? 'hidetip' : ''}`}>{errors.userName}</span>
                         }

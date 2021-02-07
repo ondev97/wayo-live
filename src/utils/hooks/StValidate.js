@@ -12,10 +12,16 @@ function StValidate(ValidateSignUp) {
     //pass these errors to form
     const hadelChanege = (e) =>{
         const {name,value} = e.target;
-        
-        setvalues({
-            ...values,[name]:value
-        })
+        if(e.target.id === 'un'){
+            setvalues({
+                ...values,[name]:value.trim()
+            })
+        }
+        else{
+            setvalues({
+                ...values,[name]:value
+            })
+        }
     }
     
     const hadelSubmit = (e) =>{
