@@ -72,9 +72,9 @@ export default function Header({acDetails}) {
                     <Link to="/stlogin">
                         <button>LOG IN</button>
                     </Link>
-                    <Link to="/stsignup">
+                    {/* <Link to="/stsignup">
                         <button>REGISTER</button>
-                    </Link>
+                    </Link> */}
                 </div>
             )
         }
