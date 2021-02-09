@@ -40,7 +40,7 @@ export default function Header({acDetails}) {
                 return(
                     <div className="pro_pic">
                         <div className="ac_details_header">
-                            <h3>{profileDetails.userName}</h3>
+                            <h3 style={{textTransform:"uppercase"}}>{profileDetails.userName}</h3>
                             <p>Instructor</p>
                         </div>
                         <Link to="teacherdashboard/managecourse">
@@ -55,7 +55,7 @@ export default function Header({acDetails}) {
                 return(
                     <div className="pro_pic">
                         <div className="ac_details_header">
-                            <h3>{profileDetails.userName}</h3>
+                            <h3 style={{textTransform:"uppercase"}}>{profileDetails.userName}</h3>
                             <p>Student</p>
                         </div>
                         <Link to="studentdashboard/maindashboard">

@@ -18,8 +18,8 @@ export default function validation(values){
     if(!values.userName.trim()){
         errors.userName = "User Name Is Required"
     }
-    else if(values.userName.length > 6){
-        errors.userName = "User Name Must Be Less Than 6 characters";
+    else if(values.userName.length < 6){
+        errors.userName = "User Name Must Be More Than 6 characters";
     }
     else if(values.userName.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)){
         errors.userName = "User Name Must Not Be Contain Special Characters";

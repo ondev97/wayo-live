@@ -16,7 +16,7 @@ export default function AboutUser() {
                     </div>
                     <div className="ab_card">
                     <h3>User Name</h3>
-                    <h4>{profileDetails.userName && profileDetails.userName}</h4>
+                    <h4 style={{textTransform:"uppercase"}}>{profileDetails.userName && profileDetails.userName}</h4>
                     </div>
                     <div className="ab_card">
                     <h3>Mobile</h3>
