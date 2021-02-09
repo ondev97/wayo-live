@@ -1,5 +1,7 @@
 import React from 'react'
 import { Cropper } from 'react-cropper';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,image,setCropper,courseValue,onChange,setshowCropper,getCropData,handelFormValues,hideError,courseErrors,hide,progress}) {
     return (
@@ -56,7 +58,7 @@ export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,
                         {
                             !showCropper &&
                                 <div className="finCropImg">
-                                    <img style={{ width: "100%" }} src={cropData ==='#' ? courseValue.course_img : cropData} alt="cropped" />
+                                    <LazyLoadImage style={{ width: "100%" }} src={cropData ==='#' ? courseValue.course_img : cropData} alt="cropped" effect="blur" width="100%" height="100%"/>
                                 </div>
                         }
                         <p>

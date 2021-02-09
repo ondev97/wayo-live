@@ -1,4 +1,5 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo1 from '../../img/Logo_1.png'
@@ -14,7 +15,7 @@ export default function StudentDashBoardHeader() {
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">
-                <img src={`${initialState && `${initialState.profile_pic}` }`} alt="" />
+                <LazyLoadImage src={`${initialState && `${initialState.profile_pic}` }`} alt="" effect="blur"/>
                 </div>
                 <div className="details">
                     <h2>{initialState && initialState.user.first_name} {initialState && initialState.user.last_name}</h2>

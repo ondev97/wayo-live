@@ -68,6 +68,7 @@
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub {
   height: 170px;
+  overflow: hidden;
   background: linear-gradient(150deg, #ffae29, black);
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub img {

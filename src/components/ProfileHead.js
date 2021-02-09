@@ -4,6 +4,8 @@ import UploadPropicModel from "./UploadPropicModel";
 import AcDetails from "../utils/hooks/AcDetails";
 import { store } from "react-notifications-component";
 import CropImages from "../utils/hooks/CropImages";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function ProfileHead() {
 
@@ -59,7 +61,7 @@ export default function ProfileHead() {
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
           <p>Instructor</p>
           <div className="srow_pro_pic">
-            <img src={`${teachProfilepic}`} alt="" />
+            <LazyLoadImage src={`${teachProfilepic}`} alt="" effect="blur" />
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>

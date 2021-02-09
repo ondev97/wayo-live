@@ -1,11 +1,13 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function InTeacher({key, teacher}) {
     return (
         <div className="teach_card">
             <div className="card_teach_head">
                 <div className="pro_pic">
-                    <img src={`${teacher.profile_pic}`} alt="teacher"/>
+                    <LazyLoadImage src={`${teacher.profile_pic}`} alt="teacher" effect="blur"/>
                 </div>
             </div>
             <div className="card_teach_body">

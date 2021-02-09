@@ -1,8 +1,10 @@
 import Axios from 'axios';
-import React from 'react'
+import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
-import ReactTimeAgo from 'react-time-ago'
+import { Link } from 'react-router-dom';
+import ReactTimeAgo from 'react-time-ago';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function TcMaCourses({id,subject_name,subject_cover,author,created_at,short_description,class_type,subject_type}) {
 
@@ -26,7 +28,7 @@ export default function TcMaCourses({id,subject_name,subject_cover,author,create
         <div className="course_card">
                 <div className="cscard_head">
                     <Link to={`/teacherdashboard/viewcourse/${id}`}>
-                        <img src={`${subject_cover}`} alt=""/>
+                        <LazyLoadImage src={`${subject_cover}`} alt="" effect="blur" height="100%"/>
                     </Link>
                     <div className="cos_options">
                         <h3><i className="fas fa-chevron-circle-up"></i></h3>

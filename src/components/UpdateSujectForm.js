@@ -1,5 +1,7 @@
 import React from 'react'
 import { Cropper } from 'react-cropper';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function UpdateSujectForm({hadelChabgeFormValues,handelSubmit,hideError,hide,formErrors,image, getCropData,setCropper,onChange,err,showCropper,setshowCropper,isUploading,formValue,cropData}) {
     return (
@@ -52,7 +54,7 @@ export default function UpdateSujectForm({hadelChabgeFormValues,handelSubmit,hid
                             {
                                 !showCropper &&
                                 <div className="finCropImg">
-                                    <img style={{ width: "100%" }} src={cropData ==='#' ? formValue.subject_cover : cropData} alt="cropped" />
+                                    <LazyLoadImage style={{ width: "100%" }} src={cropData ==='#' ? formValue.subject_cover : cropData} alt="cropped" effect="blur" width="100%" height="100%"/>
                                 </div>
                             }
                             <p>

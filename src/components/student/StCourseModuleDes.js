@@ -1,11 +1,10 @@
 import {useParams} from "react-router-dom";
-
 import React, { useEffect, useState } from 'react';
-import rjs from '../../img/rjs.jpg'
 import ModelPreviewAllStudents from '../ModelPreviewAllStudents';
 import {useSelector} from "react-redux";
 import Axios from "axios";
 import ReactTimeAgo from "react-time-ago";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function StCourseModuleDes() {
     const usDetails = useSelector(state => state.accountDetails);
@@ -28,7 +27,7 @@ export default function StCourseModuleDes() {
         <div className='colCourseView'>
             <div className="course_desc_head">
                 <div className="course_pic">
-                    <img src={`${courseData.course_cover}`} alt=""/>
+                    <LazyLoadImage effect="blur" width="100%" height="100%" style={{opacity:"0.75"}} src={`${courseData.course_cover}`} alt=""/>
                     {/*<div className="cos_options">*/}
                     {/*    <button><i className="fas fa-exclamation"></i><span>Unenroll Me</span></button>*/}
                     {/*</div>*/}

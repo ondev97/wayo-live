@@ -1,6 +1,8 @@
 
 import React from 'react'
 import ReactTimeAgo from "react-time-ago";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function AllSubCard({subject}) {
 
@@ -8,10 +10,10 @@ export default function AllSubCard({subject}) {
         <div className="subject_in_cards">
             <div className="subject_head">
                 <div className="subject_img">
-                    <img src={`${subject.subject_cover}`} alt="subjects"/>
+                    <LazyLoadImage src={`${subject.subject_cover}`} alt="subjects" effect="blur"/>
                 </div>
                 <div className="teach_img">
-                    <img src={`${subject.author.profile_pic}`} alt="child"/>
+                    <LazyLoadImage src={`${subject.author.profile_pic}`} alt="child" />
                 </div>
             </div>
             <div className="subject_body">

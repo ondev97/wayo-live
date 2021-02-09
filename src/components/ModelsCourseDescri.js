@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import ModelPreviewAllStudents from '../components/ModelPreviewAllStudents';
 import ReactTimeAgo from 'react-time-ago';
 import { Link, Redirect} from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; 
 
 export default function ModelsCourseDescri({id}) {
 
@@ -44,7 +46,7 @@ export default function ModelsCourseDescri({id}) {
         <div className='colCourseView'>
             <div className="course_desc_head">
                 <div className="course_pic">
-                    <img src={`${courseDetails.course_cover}`} alt=""/>
+                    <LazyLoadImage src={`${courseDetails.course_cover}`} alt="" effect="blur" width="100%" height="100%"/>
                     <div className="cos_options">
                         <Link to={`/teacherdashboard/updatecourse/${id}/`}>
                             <button title="Edit This Course"><i className="fas fa-pencil-alt"></i><span>Edit Course</span></button>

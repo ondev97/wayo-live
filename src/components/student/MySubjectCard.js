@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import child from "../../img/child.png";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function MySubjectsCard({id,subject_name,subject_cover,author,created_at,short_description,class_type,subject_type}) {
 
@@ -16,11 +17,11 @@ export default function MySubjectsCard({id,subject_name,subject_cover,author,cre
             <Link to={`/studentdashboard/mycoursesforsubject/${id}`}>
                 <div className="sub_card_row">
                     <div className="image_sub">
-                        <img src={`${subject_cover}`} alt=""/>
+                        <LazyLoadImage effect="blur" src={`${subject_cover}`} alt=""/>
                     </div>
                     <div className="sub_ins_pro">
                         <div className="ins_outer">
-                            <img src={`${author.profile_pic}`} alt=""/>
+                            <LazyLoadImage effect="blur" src={`${author.profile_pic}`} alt=""/>
                         </div>
                     </div>
                 </div>

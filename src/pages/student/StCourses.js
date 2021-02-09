@@ -1,6 +1,6 @@
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-import React, { useRef, useState, useEffect } from 'react'
-import {Link, useParams,useHistory} from 'react-router-dom'
+import { AnimateSharedLayout, motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { useParams,useHistory} from 'react-router-dom'
 import '../../assets/css/student/stcourse.css';
 import {useSelector} from "react-redux";
 import Axios from "axios";
@@ -9,6 +9,7 @@ import CourseCard from "../../components/student/CourseCard";
 import useDebounce from "../../utils/hooks/useDebounce";
 import InfiniteScroll from 'react-infinite-scroll-component'
 import ProfileLoader from "../../components/ProfileLoader";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 export default function StCourses() {
@@ -82,7 +83,7 @@ export default function StCourses() {
         <>
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <img src={subData.sub_cover} alt=""/>
+                <LazyLoadImage effect="blur" style={{opacity:"0.75"}} src={subData.sub_cover} alt=""/>
                 <div className="top_manage_head">
                     <h1>{subData.sub_name}</h1>
                     <h3>{subData.sub_sdes}</h3>

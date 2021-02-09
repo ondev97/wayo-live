@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { store } from 'react-notifications-component';
-import { useDispatch, useSelector } from 'react-redux'
-import { loadStDetails } from '../../actions/stDetailsAction';
+import { useSelector } from 'react-redux'
 import CropImages from '../../utils/hooks/CropImages';
 import StUploadProPicModel from './StUploadProPicModel';
 
@@ -59,7 +59,7 @@ export default function StProfileHead() {
           <h2>{`${initialState && initialState.user.first_name} ${initialState && initialState.user.last_name}`}</h2>
           <p>Student</p>
           <div className="srow_pro_pic">
-            <img src={`${initialState && `${initialState.profile_pic}` }`} alt="" />
+            <LazyLoadImage effect="blur" src={`${initialState && `${initialState.profile_pic}` }`} alt="" />
             <label htmlFor="uppic" >
             <i className="fas fa-camera"></i>
             </label>

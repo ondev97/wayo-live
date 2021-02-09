@@ -13,6 +13,7 @@ import Stmodules from './Stmodules';
 import StMyCourses from "./StMyCourses";
 import {AnimatePresence, motion} from "framer-motion";
 import StSubCourses from "./StSubCourses";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function StudentDashBoard() {
 
@@ -89,7 +90,7 @@ export default function StudentDashBoard() {
                         </div>
                         <div className="sec">
                             <div className="profile" onClick={()=>{settoggelProfile(!toggelProfile)}}>
-                                <img src={`${initialState && `${initialState.profile_pic}` }`} alt="" />
+                                <LazyLoadImage src={`${initialState && `${initialState.profile_pic}` }`} alt="" effect="blur"/>
                                 <AnimatePresence exitBeforeEnter>
                                 {
                                     toggelProfile ?

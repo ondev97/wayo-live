@@ -1,8 +1,10 @@
 import Axios from 'axios';
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function CourseSect({id,course_cover,course_name,price,duration,created_at,courseid,no}) {
 
@@ -24,7 +26,7 @@ export default function CourseSect({id,course_cover,course_name,price,duration,c
         <div className="grid_card_manage">
             <Link to={`/teacherdashboard/models/${courseid}/${id}`}>
                 <div className="grid_card_mg_head">
-                    <img src={`${course_cover}`} alt=""/>
+                    <LazyLoadImage src={`${course_cover}`} alt=""effect="blur" width="100%" height="100%" />
                     <div className="dura">
                         <h3><i className="far fa-clock cl"></i>{duration} Hrs</h3>
                     </div>

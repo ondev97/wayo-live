@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "../assets/css/dashboardHeader.css"
 import AcDetails from '../utils/hooks/AcDetails';
 import logo1 from '../img/Logo_1.png';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function TeacherDashboardHeader() {
     const [sidebar, setsidebar] = useState(true);
@@ -18,7 +19,7 @@ export default function TeacherDashboardHeader() {
             </div>
             <div className="profile_menu">
                 <div className="pro_pic">
-                    <img src={`${teachProfilepic}`} alt=""/>
+                    <LazyLoadImage src={`${teachProfilepic}`} alt="" effect="blur"/>
                 </div>
                 <div className="details">
                     <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>

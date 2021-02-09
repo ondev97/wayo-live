@@ -1,4 +1,5 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
 
@@ -8,7 +9,7 @@ export default function MyCourseCard({course_cover,course_name,enrollkey,duratio
         <Link to={`/studentdashboard/stmodules/${courseid}/`}>
             <div className="st_grid_card_manage" style={{height:"300px"}}>
                 <div className="st_grid_card_mg_head">
-                    <img src={`${course_cover}`} alt=""/>
+                    <LazyLoadImage effect="blur" width="100%" height="100%" src={`${course_cover}`} alt=""/>
                     <div className="dura">
                         <h3><i className="far fa-clock cl"></i>{duration} Hrs</h3>
                     </div>

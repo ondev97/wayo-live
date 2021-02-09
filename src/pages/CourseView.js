@@ -10,6 +10,8 @@ import { AnimateSharedLayout, motion } from 'framer-motion';
 import '../assets/css/courseview.css';
 import '../assets/css/mediaFiles/viewcoursemedia.css';
 import InfiniteScroll from "react-infinite-scroll-component";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function CourseView() {
 
@@ -90,7 +92,7 @@ export default function CourseView() {
     return (
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <img src={subData.sub_cover} alt=""/>
+                <LazyLoadImage src={subData.sub_cover} alt="" effect="blur" width="100%" height="100%" style={{opacity:"0.6"}}/>
                 <div className="top_manage_head">
                     <h1>{subData.sub_name || ''}</h1>
                     <h3>{subData.sub_name || ''}</h3>

@@ -1,17 +1,14 @@
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-import React, { useRef, useState, useEffect } from 'react'
-import {Link, useParams,useHistory} from 'react-router-dom'
-import rjs from '../../img/rjs.jpg';
+import { AnimateSharedLayout, motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import {useParams,useHistory} from 'react-router-dom'
 import '../../assets/css/student/stcourse.css';
 import {useSelector} from "react-redux";
 import Axios from "axios";
-import CourseSect from "../../components/CourseSect";
-import Empty from "../../components/Empty";
-import CourseCard from "../../components/student/CourseCard";
 import useDebounce from "../../utils/hooks/useDebounce";
 import InfiniteScroll from 'react-infinite-scroll-component'
 import MyCourseCard from "../../components/student/MyCourseCard";
 import ProfileLoader from "../../components/ProfileLoader";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 export default function StSubCourses() {
@@ -80,7 +77,7 @@ export default function StSubCourses() {
         <>
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <img src={subData.sub_cover} alt=""/>
+                <LazyLoadImage effect="blur" width="100%" height="100%" src={subData.sub_cover} alt="" style={{opacity:"0.6"}}/>
                 <div className="top_manage_head">
                     <h1>{subData.sub_name}</h1>
                     <h3>{subData.sub_sdes}</h3>

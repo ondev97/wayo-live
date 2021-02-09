@@ -5,6 +5,7 @@ import '../assets/css/mediaFiles/headermedia.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import ProfileDetails from "../utils/hooks/ProfileDetails";
 import logo from "../img/Logo_1.png";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function Header({acDetails}) {
     const [isham, setisham] = useState(false);
@@ -44,7 +45,7 @@ export default function Header({acDetails}) {
                         </div>
                         <Link to="teacherdashboard/managecourse">
                             <div className="img">
-                                <img src={`${profileDetails.pic}`} alt=""/>
+                                <LazyLoadImage src={`${profileDetails.pic}`} alt="" effect="blur"/>
                             </div>
                         </Link>
                     </div>
@@ -59,7 +60,7 @@ export default function Header({acDetails}) {
                         </div>
                         <Link to="studentdashboard/maindashboard">
                             <div className="img">
-                                <img src={`${profileDetails.pic}`} alt=""/>
+                                <LazyLoadImage src={`${profileDetails.pic}`} alt="" effect="blur"/>
                             </div>
                         </Link>
                     </div>

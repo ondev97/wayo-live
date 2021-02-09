@@ -19,6 +19,7 @@ import UpdateSubject from './UpdateSubject';
 import UpdateCourse from './UpdateCourse';
 import UpdateModule from './UpdateModule';
 import {AnimatePresence, motion} from "framer-motion";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function TeacherDashboard() {
 
@@ -98,7 +99,7 @@ export default function TeacherDashboard() {
                         </div>
                         <div className="sec">
                             <div className="profile" onClick={togglesh}>
-                                <img src={`${teachProfilepic}`} alt="" />
+                                <LazyLoadImage src={`${teachProfilepic}`} alt="" effect="blur"/>
                                 <AnimatePresence exitBeforeEnter>
                                 {
                                     toggelProfile ?

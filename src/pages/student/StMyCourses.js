@@ -1,7 +1,4 @@
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-import React, { useRef, useState, useEffect } from 'react'
-import {Link, useParams} from 'react-router-dom'
-import rjs from '../../img/rjs.jpg';
+import React, {  useState, useEffect } from 'react'
 import '../../assets/css/student/stcourse.css';
 import {useSelector} from "react-redux";
 import Axios from "axios";

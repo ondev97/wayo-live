@@ -1,12 +1,12 @@
 import Axios from 'axios';
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import {Link, Redirect} from 'react-router-dom'
 import ReactTimeAgo from 'react-time-ago'
-import rjs from "../../img/rjs.jpg";
 import {AnimatePresence, motion} from "framer-motion";
 import {store} from "react-notifications-component";
 import PaymentModal from "./PaymentModal";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function CourseCard({course_cover,course_name,price,duration,created_at,courseid,no, user, is_enrolled}) {
 //https://medium.com/linkit-intecs/integrate-payhere-with-create-react-app-3b6a4fe5d5f0
@@ -125,7 +125,7 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
             <div className="st_grid_card_manage">
                 <Link to={`#`}>
                     <div className="st_grid_card_mg_head">
-                        <img src={`${course_cover}`} alt=""/>
+                        <LazyLoadImage effect="blur" width="100%" height="100%" src={`${course_cover}`} alt=""/>
                         <div className="dura">
                             <h3><i className="far fa-clock cl"></i>{duration} Hrs</h3>
                         </div>
