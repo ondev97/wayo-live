@@ -46,7 +46,7 @@ export default function CreateSubject() {
         if(cropData !== '#'){
             let input = cropData.split(',')[1];
             const blob = b64toBlob(input,file.type)
-            formData.append("subject_cover",blob,file.name);
+            formData.append("subject_cover",file,file.name);
         }
         
 

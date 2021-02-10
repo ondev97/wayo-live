@@ -96,7 +96,7 @@ export default function UpdateCourse() {
         if(cropData !== '#'){
             let input = cropData.split(',')[1];
             const blob = b64toBlob(input,file.type)
-            form_data.append("course_cover",blob,file.name);
+            form_data.append("course_cover",file,file.name);
         }
 
         form_data.append('course_name',courseValue.course_name);

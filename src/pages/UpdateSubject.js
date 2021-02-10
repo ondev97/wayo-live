@@ -51,7 +51,7 @@ export default function UpdateSubject() {
         if(cropData !== '#'){
             let input = cropData.split(',')[1];
             const blob = b64toBlob(input,file.type)
-            form_data.append("subject_cover",blob,file.name);
+            form_data.append("subject_cover",file,file.name);
         }
 
         form_data.append("subject_name",formValue.subject_title);
