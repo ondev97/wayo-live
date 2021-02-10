@@ -92,7 +92,7 @@ export default function CourseView() {
     return (
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <LazyLoadImage src={subData.sub_cover} alt="" effect="blur" width="100%" height="100%" style={{opacity:"0.6"}}/>
+                <LazyLoadImage src={subData.sub_cover} alt="" effect="blur" width="100%" height="100%" style={{opacity:"0.8"}}/>
                 <div className="top_manage_head">
                     <h1>{subData.sub_name || ''}</h1>
                     <h3>{subData.sub_name || ''}</h3>

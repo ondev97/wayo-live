@@ -7,7 +7,6 @@ import StCourseModuleDes from '../../components/student/StCourseModuleDes';
 import {store} from "react-notifications-component";
 
 export default function Stmodules() {
-    const [isToggle, setisToggle] = useState(false)
     const {id} = useParams();
     const [moduleData, setmoduleData] = useState([]);
     const [moduleFiles, setmoduleFiles] = useState([]);

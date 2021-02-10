@@ -27,7 +27,7 @@ export default function StCourseModuleDes() {
         <div className='colCourseView'>
             <div className="course_desc_head">
                 <div className="course_pic">
-                    <LazyLoadImage effect="blur" width="100%" height="100%" style={{opacity:"0.75"}} src={`${courseData.course_cover}`} alt=""/>
+                    <LazyLoadImage effect="blur" width="100%" height="100%" style={{opacity:"1"}} src={`${courseData.course_cover}`} alt=""/>
                     {/*<div className="cos_options">*/}
                     {/*    <button><i className="fas fa-exclamation"></i><span>Unenroll Me</span></button>*/}
                     {/*</div>*/}
