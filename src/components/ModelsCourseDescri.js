@@ -66,7 +66,12 @@ export default function ModelsCourseDescri({id}) {
                     <p>{courseDetails.course_description}</p>
                 </div>
                 <div className="course_all_student">
-                    <h3>Students</h3>
+                    <div className="student_top">
+                        <h3>Students</h3>
+                        <Link to={`/teacherdashboard/viewallst/${id}`}>
+                            View All
+                        </Link>
+                    </div>
                     <ModelPreviewAllStudents/>
                 </div>
             </div>

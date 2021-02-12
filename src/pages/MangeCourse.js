@@ -9,6 +9,7 @@ import TcMaCourses from '../components/TcMaCourses'
 import useDebounce from '../utils/hooks/useDebounce'
 import '../assets/css/coursemanage.css'
 import '../assets/css/mediaFiles/managecoursemedia.css'
+import '../assets/css/teachermaindash.css'
 import student from "../img/student.png";
 import courses from "../img/education.png";
 import Subjects from "../img/book.png";

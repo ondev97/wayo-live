@@ -17,6 +17,7 @@ export default function UpdateCourse() {
     const [isSubmitting, setisSubmitting] = useState(false);
     const [progress, setprogress] = useState(false);
     const [redirec, setredirec] = useState({err:"",id:""});
+    const [freeac, setfreeac] = useState(false);
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
     
@@ -50,7 +51,7 @@ export default function UpdateCourse() {
     }
     const handelSubmit = (e)=>{
         e.preventDefault();
-        setcourseErrors(checkErrors(courseValue));
+        setcourseErrors(checkErrors(courseValue,freeac));
         sethide({course_name:false,course_price:false,course_description:false});
         setisSubmitting(true);
     }
@@ -152,7 +153,7 @@ export default function UpdateCourse() {
             </div>
             <div className="main_form">
             <h1>Update Course</h1>
-                <UpdateCourseForm handelSubmit={handelSubmit} showCropper={showCropper} cropData={cropData} err={err} image={image} setCropper={setCropper} courseValue={courseValue} onChange={onChange} setshowCropper={setshowCropper} getCropData={getCropData} handelFormValues={handelFormValues} hideError={hideError} courseErrors={courseErrors} hide={hide} progress={progress}/>
+                <UpdateCourseForm handelSubmit={handelSubmit} showCropper={showCropper} cropData={cropData} err={err} image={image} setCropper={setCropper} courseValue={courseValue} onChange={onChange} setshowCropper={setshowCropper} getCropData={getCropData} handelFormValues={handelFormValues} hideError={hideError} courseErrors={courseErrors} hide={hide} progress={progress} setfreeac={setfreeac} freeac={freeac} setcourseValue={setcourseValue}/>
             </div>
         </div>
     )

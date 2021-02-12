@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Cropper } from 'react-cropper';
 
 export default function CourseCreateForm({handelSubmit,showCropper,cropData,err,image,setCropper,onChange,setshowCropper,getCropData,courseValue,handelFormValues,hideError,courseErrors,hide,progress}) {
+    
+    const [freeac, setfreeac] = useState(false);
+
+    const activefree = (e) =>{
+        if(e.target.checked){
+            setfreeac(true);
+        }
+        else{
+            setfreeac(false);
+        }
+    }
+
     return (
         <form onSubmit={handelSubmit}>
                     <p>
@@ -12,16 +24,30 @@ export default function CourseCreateForm({handelSubmit,showCropper,cropData,err,
                             courseErrors.course_name && <span className={`tip ${hide.course_name ? 'hidetip' : ''}`}>{courseErrors.course_name}</span>
                         }
                     </p>
-                    <p>
-                        <label htmlFor="cp">Course Price</label>
-                        <span className="on_row">
-                            <span className='curu'>LKR</span>
-                            <input type="number" name="course_price" min="0" value={courseValue.course_price} onChange={handelFormValues} onFocus={hideError}/>
-                        </span>
-                        {
-                            courseErrors.course_price && <span className={`tip ${hide.course_price ? 'hidetip' : ''}`}>{courseErrors.course_price}</span>
-                        }
-                    </p>
+                    <div className="costtype">
+                        <label htmlFor="">Course Payment Type</label>
+                        <label className="toggle" htmlFor="myToggle">
+                            <input type="checkbox" className="toggleinput" id="myToggle" onClick={activefree}/>
+                            <div className="fill">
+                                <p>Free</p>
+                            </div>
+                        </label>
+                        
+                    </div>
+                    {
+                        freeac ? (
+                            <p>
+                                <label htmlFor="cp">Course Price</label>
+                                <span className="on_row">
+                                    <span className='curu'>LKR</span>
+                                    <input type="number" name="course_price" min="0" value={courseValue.course_price} onChange={handelFormValues} onFocus={hideError}/>
+                                </span>
+                                {
+                                    courseErrors.course_price && <span className={`tip ${hide.course_price ? 'hidetip' : ''}`}>{courseErrors.course_price}</span>
+                                }
+                            </p>
+                        ) : ""
+                    }
                     <p>
                         <label htmlFor="cd">Course Description</label>
                         <textarea name="course_description" id="cd" rows="10" value={courseValue.course_description} onChange={handelFormValues} onFocus={hideError}></textarea>

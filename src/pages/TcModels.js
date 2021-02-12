@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ModelsCourseDescri from '../components/ModelsCourseDescri';
 import TcOneModel from '../components/TcOneModel';
 import '../assets/css/tcmoels.css';
@@ -63,6 +63,9 @@ export default function TcModels() {
                             </Link>
                             <Link to={`/teacherdashboard/createmodels/${id}/${cid}`}>
                                 <button><i className="fas fa-plus-circle"></i>Create Module</button>
+                            </Link>
+                            <Link to={`/teacherdashboard/viewallst/${id}`} id="viewst">
+                                <button><i className="far fa-eye"></i>View Students</button>
                             </Link>
                         </div>
                         <div className="al_models">

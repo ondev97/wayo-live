@@ -6,7 +6,6 @@ import ProfileSettings from './ProfileSettings';
 import MangeCourse from './MangeCourse';
 import UserStatus from '../utils/hooks/UserStatus';
 import AcDetails from '../utils/hooks/AcDetails';
-import TeacherMainDashboard from './TeacherMainDashboard';
 import { useDispatch } from 'react-redux';
 import { activeAccount } from '../actions';
 import CreateCourse from './CreateCourse';
@@ -18,6 +17,7 @@ import GeneEnrollmentkeys from './GeneEnrollmentkeys';
 import UpdateSubject from './UpdateSubject';
 import UpdateCourse from './UpdateCourse';
 import UpdateModule from './UpdateModule';
+import AllStList from './AllStList';
 import {AnimatePresence, motion} from "framer-motion";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -139,6 +139,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/models/:id/:cid'>
                         <TcModels/>
+                    </Route>
+                    <Route path='/teacherdashboard/viewallst/:cid'>
+                        <AllStList/>
                     </Route>
                     <Route path='/teacherdashboard/profilesettings'>
                         <ProfileSettings/>
