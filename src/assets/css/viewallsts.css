@@ -83,7 +83,7 @@ td {
   border-bottom: 2px solid #dcdcdc;
 }
 .sttable table th:nth-child(1),
-td:nth-child(1) {
+.sttable table td:nth-child(1) {
   display: none;
 }
 .sttable table td {
