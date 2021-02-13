@@ -2,11 +2,12 @@ import React from 'react';
 import child1 from '../img/child.png';
 import '../assets/css/viewst.css';
 
-export default function ViewStuTc({setmodelOp,modelOp}) {
+export default function ViewStuTc({setmodelOp,modelOp,stPrDetail,setstPrDetail}) {
 
     const close = (e) =>{
         if(e.target.classList.contains('modelbg') || e.target.classList.contains('vlvl')){
             setmodelOp(false);
+            setstPrDetail([]);
         }
     }
 
@@ -14,6 +15,7 @@ export default function ViewStuTc({setmodelOp,modelOp}) {
         <div>
             {
                 modelOp ? (
+                    stPrDetail.length !== 0 ? (
                         <div className="modelbg" onClick={close}>
                             <div className="modelcard">
                                 <div className="clsst">
@@ -25,17 +27,19 @@ export default function ViewStuTc({setmodelOp,modelOp}) {
                                     </div>
                                 </div>
                                 <div className="pagebottom">
-                                    <h1>Osada Manohara Rathnayake</h1>
-                                    <h2>Ozka</h2>
-                                    <h3>076-859790</h3>
-                                    <h3>osadamanohara55@gmail.com</h3>
-                                    <h4>Chirathma Furniture,kandegedara road,haliela</h4>
+                                    <h1>{stPrDetail.user.first_name+" "+stPrDetail.user.last_name}</h1>
+                                    <h2>{stPrDetail.user.username}</h2>
+                                    <h3>{stPrDetail.user.email}</h3>
+                                    <h3>{stPrDetail.user.phone_no}</h3>
+                                    <h4>{stPrDetail.user.address}</h4>
                                     <div className="dis">
-                                        <p>kaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane rkaksnd kask dka kas asdn jkas maksn kjas ndkasdkaj nk nasdnjaks dnka saksnjk n soiane r</p>
+                                        <p>{stPrDetail.description}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    ):""
+                        
                 ) :""
             }
         </div>
