@@ -36,13 +36,9 @@ export default function StCourseModuleDes() {
                 <h3><ReactTimeAgo date={Date.parse(courseData.created_at)} locale="en-US" /></h3>
             </div>
             <div className="course_desc_body">
-                <div className="course_short_desc">
+                <div className="course_short_desc st_course_short_desc">
                     <h3>Course Description</h3>
                     <p>{courseData.course_description}</p>
-                </div>
-                <div className="course_all_student">
-                    <h3>Students</h3>
-                    <ModelPreviewAllStudents/>
                 </div>
             </div>
         </div>

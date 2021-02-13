@@ -50,12 +50,6 @@ export default function TcModels() {
         <div>
             <div className="models">
                 <div className="md_all_models">
-                    <div className="models_en_nav">
-                        <ul>
-                            <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li><i className="fas fa-key"></i>Generate Enrollment Keys</li></Link>
-                            <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li><i className="far fa-eye"></i>View All Enrollment Keys</li></Link>
-                        </ul>
-                    </div>
                     <div className="md_models">
                         <div className="cr_models">
                             <Link to={`/teacherdashboard/viewcourse/${cid}`}>
@@ -63,9 +57,6 @@ export default function TcModels() {
                             </Link>
                             <Link to={`/teacherdashboard/createmodels/${id}/${cid}`}>
                                 <button><i className="fas fa-plus-circle"></i>Create Module</button>
-                            </Link>
-                            <Link to={`/teacherdashboard/viewallst/${id}`} id="viewst">
-                                <button><i className="far fa-eye"></i>View Students</button>
                             </Link>
                         </div>
                         <div className="al_models">
