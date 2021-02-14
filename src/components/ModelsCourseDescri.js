@@ -52,7 +52,7 @@ export default function ModelsCourseDescri({id}) {
                         <ul>
                             <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li>Generate Enrollment Keys</li></Link>
                             <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li>View Enrollment Keys</li></Link>
-                            <li>Add Students For Courses</li>
+                            <Link to={`/teacherdashboard/addstudents/${id}`}><li>Add Students For Courses</li></Link>
                             <Link to={`/teacherdashboard/viewallst/${id}`}><li>View All Enrolled Students</li></Link>
                         </ul>
                     </div>
@@ -63,7 +63,7 @@ export default function ModelsCourseDescri({id}) {
                     <ul>
                         <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li>Generate Enrollment Keys</li></Link>
                         <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li>View Enrollment Keys</li></Link>
-                        <li>Add Students For Courses</li>
+                        <Link to={`/teacherdashboard/addstudents/${id}`}><li>Add Students For Courses</li></Link>
                         <Link to={`/teacherdashboard/viewallst/${id}`}><li>View All Enrolled Students</li></Link>
                     </ul>
                 </div>

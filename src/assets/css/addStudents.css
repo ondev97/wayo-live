@@ -1,0 +1,228 @@
+.modeladdstfile {
+  position: fixed;
+  background-color: #0000003b;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modeladdstfile .filecsv {
+  position: relative;
+  width: 50%;
+  min-height: 120px;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 13px 1px #eee;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modeladdstfile .filecsv .closebut {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.modeladdstfile .filecsv .closebut button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.modeladdstfile .filecsv .closebut button i {
+  font-size: 20px;
+}
+.modeladdstfile .filecsv .filearea {
+  display: flex;
+  flex: 0.5;
+  justify-content: space-around;
+  align-items: center;
+}
+.modeladdstfile .filecsv .filearea i {
+  font-size: 20px;
+  margin-right: 5px;
+  margin: 0;
+}
+.modeladdstfile .filecsv .filearea p {
+  font-size: 14px;
+  font-weight: 500;
+}
+.modeladdstfile .filecsv label {
+  width: 150px;
+  padding: 8px;
+  background-color: #ff9d00;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+}
+.modeladdstfile .filecsv input[type="file"] {
+  display: none;
+}
+.modeladdstfile .filecsv button {
+  width: 150px;
+  padding: 8px;
+  background-color: #fff;
+  color: #ff9d00;
+  text-align: center;
+  border: 1px solid #ff9d00;
+  border-radius: 2px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filerow {
+  width: 100%;
+  padding: 25px 0;
+}
+.filerow button {
+  width: 200px;
+  padding: 8px 5px;
+  border: 1px solid #ff9d00;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #ff9d00;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.filerow button:hover {
+  background-color: #ff9d00;
+  color: #fff;
+}
+
+.top_head_row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top_head_row .added_main {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefbf6;
+  z-index: 105;
+  text-align: center;
+}
+.top_head_row .added_main button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ff9d00;
+  background-color: #fff;
+}
+.top_head_row .added_main button i {
+  font-size: 25px;
+}
+.select_row {
+  width: 80%;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.select_row .card_row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+.select_row .scard {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 8px;
+  overflow: hidden;
+}
+.select_row .scard .name {
+  font-size: 11px;
+}
+.select_row .scard .name h3 {
+  font-weight: 300;
+  word-wrap: break-word;
+}
+.select_row .scard .relcard {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.select_row .scard .relcard .rembut {
+  position: absolute;
+  z-index: 100;
+  bottom: 3px;
+  left: 3px;
+}
+.select_row .scard .relcard .rembut button {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.select_row .scard .relcard .rembut button i {
+  font-size: 18px;
+  color: red;
+}
+.select_row .scard .relcard .sestimage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.select_row .scard .relcard img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1000px) {
+  .modeladdstfile .filecsv {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .modeladdstfile .filecsv {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modeladdstfile .filecsv {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .modeladdstfile .filecsv button {
+    margin-top: 15px;
+  }
+  .modeladdstfile .filecsv .closebut button {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modeladdstfile .filecsv .filearea {
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .modeladdstfile .filecsv .filearea p {
+    margin-top: 5px;
+  }
+  .modeladdstfile .filecsv label {
+    width: 90%;
+  }
+  .modeladdstfile .filecsv button {
+    width: 90%;
+  }
+}

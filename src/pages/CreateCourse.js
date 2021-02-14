@@ -12,7 +12,7 @@ export default function CreateCourse() {
     const [image,getCropData,setCropper,onChange,cropData,err,file] = CropImages();//custom h
     const [showCropper , setshowCropper] = useState(false);
 
-    const [courseValue, setcourseValue] = useState({course_name:"",course_price:"",course_description:"",hr:""});
+    const [courseValue, setcourseValue] = useState({course_name:"",course_price:0,course_description:"",hr:""});
     const [courseErrors, setcourseErrors] = useState({course_name:"",course_price:"",course_description:"",hr:""});
     const [hide, sethide] = useState({course_name:false,course_price:false,course_description:false,hr:false});
     const [isSubmitting, setisSubmitting] = useState(false);

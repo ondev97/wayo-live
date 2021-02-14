@@ -8,6 +8,7 @@ import Empty from '../components/Empty';
 import ViewStuTc from '../components/ViewStuTc';
 import { store } from 'react-notifications-component';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import useDebounce from '../utils/hooks/useDebounce';
 
 export default function AllStList() {
 
@@ -20,22 +21,31 @@ export default function AllStList() {
     const [stPrDetail, setstPrDetail] = useState([]);
     const [page, setpage] = useState(1);
     const history = useHistory();
+    const [search, setsearch] = useState('');
     const {cid} = useParams();
+
+    const debounce = useDebounce();//custom hook
 
     const getallStude = async () =>{
         if(usDetails){
-            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/students/${cid}/?page=${page}`,{
+            await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/students/${cid}/?page=${page}&search=${search}`,{
                 headers:{Authorization:'Token '+usDetails.key}
             }).then(res=>{
-                setallDetailSt(res.data);
-                setallstudent([...allstudent,...res.data.results])
+                if(page > 1){
+                    setallDetailSt(res.data);
+                    setallstudent([...allstudent,...res.data.results]);
+                }
+                else{
+                    setallDetailSt(res.data);
+                    setallstudent([...res.data.results]);
+                }
             })
         }
     }
 
     useEffect(() => {
         getallStude();
-    }, [usDetails,unEnrol,page]);
+    }, [usDetails,unEnrol,page,search]);
     /*model page*/
     const back = () =>{
         history.goBack();
@@ -61,7 +71,10 @@ export default function AllStList() {
             await Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/unenroll/${cid}/${id}/`,{
                 headers:{Authorization:'Token ' + usDetails.key}
             }).then(()=>{
+                setallstudent([]);
                 setunEnrol(!unEnrol);
+                setpage(1);
+
                 store.addNotification({
                     title: `Unenrolled Successfully`,
                     message: "Eyekon eClass",
@@ -71,24 +84,28 @@ export default function AllStList() {
                     animationIn: ["animate__animated", "animate__fadeIn"],
                     animationOut: ["animate__animated", "animate__fadeOut"],
                     dismiss: {
-                      duration: 2000,
-                      onScreen: true,
-                      pauseOnHover: true,
-                      showIcon:true
+                        duration: 2000,
+                        onScreen: true,
+                        pauseOnHover: true,
+                        showIcon:true
                     },
                     width:400
                 });
                 
-            }).catch(err=>{
-                console.log(err);
             })
         }
     }
     function next(){
         if(allDetailSt.next){
-            console.log(page);
             setpage(page+1);
         };
+    }
+
+    /*Search */
+    const handelSearchSubject = (e) =>{
+        const search = e.target.value; 
+        setpage(1);
+        debounce(()=>setsearch(search),500);
     }
 
 
@@ -100,7 +117,7 @@ export default function AllStList() {
             </div>
             <div className="search_st">
                 <button onClick={back}><i className="fas fa-arrow-circle-left"></i> Back to Course</button>
-                <div className="search">
+                <div className="search" onChange={handelSearchSubject}>
                     <input type="text"/>
                     <button><i className="fas fa-search"></i></button>
                 </div>

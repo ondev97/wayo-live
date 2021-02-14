@@ -3,7 +3,7 @@ import { Cropper } from 'react-cropper';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,image,setCropper,courseValue,onChange,setshowCropper,getCropData,handelFormValues,hideError,courseErrors,hide,progress,setfreeac,freeac}) {
+export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,image,setCropper,courseValue,onChange,setshowCropper,getCropData,handelFormValues,hideError,courseErrors,hide,progress,setfreeac,freeac,setcourseValue}) {
 
     const intis = useRef();
 
@@ -12,6 +12,9 @@ export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,
             setfreeac(true);
         }
         else{
+            if(courseValue.course_price > 0){
+                setcourseValue({...courseValue,course_price:0});
+            }
             setfreeac(false);
         }
     }

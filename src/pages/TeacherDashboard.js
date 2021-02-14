@@ -20,6 +20,7 @@ import UpdateModule from './UpdateModule';
 import AllStList from './AllStList';
 import {AnimatePresence, motion} from "framer-motion";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import AddStudents from './AddStudents';
 
 export default function TeacherDashboard() {
 
@@ -142,6 +143,9 @@ export default function TeacherDashboard() {
                     </Route>
                     <Route path='/teacherdashboard/viewallst/:cid'>
                         <AllStList/>
+                    </Route>
+                    <Route path='/teacherdashboard/addstudents/:cid'>
+                        <AddStudents/>
                     </Route>
                     <Route path='/teacherdashboard/profilesettings'>
                         <ProfileSettings/>

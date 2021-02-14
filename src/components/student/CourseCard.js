@@ -12,8 +12,6 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
 //https://medium.com/linkit-intecs/integrate-payhere-with-create-react-app-3b6a4fe5d5f0
     //get acDetails from Redux Store
     const usDetails = useSelector(state => state.accountDetails);
-    const [isShowDes, setisShowDes] = useState(false);
-
     const [ismodel, setismodel] = useState(false);
     const [key, setkey] = useState('');
     const [style, setstyle] = useState({color:"red", visibility:"hidden"});
@@ -68,13 +66,11 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
         setstyle({color:"red", visibility:"hidden"});
     }
     const clk =()=>{
-        console.log(usDetails)
         Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollcourse/${courseid}/${usDetails.id}/`,{
             'coupon_key': key
         },{
             headers:{Authorization:"Token "+usDetails.key}
         }).then(res=>{
-            console.log(res.data);
             closemodel();
             store.addNotification({
                 title: "Sucessfully Enrolled",
@@ -96,6 +92,30 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
         }).catch(err=>{
             setcontent(err.response.data.message);
             setstyle({color:"red", visibility:"visible"});
+        })
+    }
+    /*Free Enrollement */
+    const freeEn = () =>{
+        Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/freenroll/${courseid}/${usDetails.id}/`,{},{
+            headers:{Authorization:"Token "+usDetails.key}
+        }).then(res=>{
+            store.addNotification({
+                title: "Sucessfully Enrolled",
+                message: "Eyekon eClass",
+                type: "success",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon:true
+                },
+                width:600
+            });
+            setredirect(true);
         })
     }
     if(redirect){
@@ -154,7 +174,12 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                                             user={user}
                                         />
                                         <button><i className="fas fa-shopping-cart"></i>Buy Key</button>*/}
-                                        <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
+                                        {
+                                            price === null || price === 0 ?
+                                                <button onClick={freeEn}>Free Enrolle</button>
+                                            :   
+                                            <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
+                                        }
                                     </>
                             }
                         </div>

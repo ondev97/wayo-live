@@ -476,6 +476,7 @@
   font-size: 12px;
   text-align: justify;
   color: #808080;
+  word-break: break-all;
 }
 .models .md_course_desc .course_desc_body .course_all_student {
   height: 30vh;
