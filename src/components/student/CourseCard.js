@@ -157,7 +157,11 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                 <Link to="#'">
                     <div className="st_grid_card_mg_body">
                         <h3>{course_name}</h3>
-                        <h4>LKR {price}</h4>
+                        {
+                            price === null || price === 0 ?
+                                    <h4>Free</h4>
+                                    : <h4>LKR {price}</h4>
+                        }
                         <div className="st_purchase_row">
                             {
                                 is_enrolled ?
