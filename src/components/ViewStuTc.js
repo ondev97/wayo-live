@@ -1,6 +1,7 @@
 import React from 'react';
 import child1 from '../img/child.png';
 import '../assets/css/viewst.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function ViewStuTc({setmodelOp,modelOp,stPrDetail,setstPrDetail}) {
 
@@ -23,7 +24,7 @@ export default function ViewStuTc({setmodelOp,modelOp,stPrDetail,setstPrDetail})
                                 </div>
                                 <div className="pageHead">
                                     <div className="propicst">
-                                        <img src={child1} alt=""/>
+                                        <LazyLoadImage src={stPrDetail.profile_pic} alt="" effect="blur"/>
                                     </div>
                                 </div>
                                 <div className="pagebottom">
