@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { store } from 'react-notifications-component';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -31,14 +31,14 @@ export default function AddStFileSe({IsfoleModel,setIsfoleModel,setaddedProfile,
     const nnarra = [];
     for (let i = 1; i < dataStringLines.length; i++) {
       const row = dataStringLines[i].split(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/);
-      if (headers && row.length == headers.length) {
+      if (headers && row.length === headers.length) {
         const obj = {};
         for (let j = 0; j < headers.length; j++) {
           let d = row[j];
           if (d.length > 0) {
-            if (d[0] == '"')
+            if (d[0] === '"')
               d = d.substring(1, d.length - 1);
-            if (d[d.length - 1] == '"')
+            if (d[d.length - 1] === '"')
               d = d.substring(d.length - 2, 1);
           }
           if (headers[j]) {
@@ -88,6 +88,9 @@ const handleFileUpload = e => {
     reader.readAsBinaryString(file);
 }
 
+    let pass = 0;
+    let fail = 0;
+
     /*Add students to course*/
     const addStToCos = async () =>{
         
@@ -100,42 +103,49 @@ const handleFileUpload = e => {
                 res.data.map(data=>(
                     Object.values(data).pop() === false ? 
                         
-                        (store.addNotification({
-                            title: `Enrollement Unsuccessfully`,
-                            message: "Eyekon eClass",
-                            type: "danger",
-                            insert: "top",
-                            container: "top-right",
-                            animationIn: ["animate__animated", "animate__fadeIn"],
-                            animationOut: ["animate__animated", "animate__fadeOut"],
-                            dismiss: {
-                            duration: 2000,
-                            onScreen: true,
-                            pauseOnHover: true,
-                            showIcon:true
-                            },
-                            width:400
-                        }))
+                        fail = fail + 1
                     : (
-                        (store.addNotification({
-                            title: `Enrollement Successfully`,
-                            message: "Eyekon eClass",
-                            type: "success",
-                            insert: "top",
-                            container: "top-right",
-                            animationIn: ["animate__animated", "animate__fadeIn"],
-                            animationOut: ["animate__animated", "animate__fadeOut"],
-                            dismiss: {
-                            duration: 2000,
-                            onScreen: true,
-                            pauseOnHover: true,
-                            showIcon:true
-                            },
-                            width:400
-                        })) 
+                        pass = pass +1 
                     )
     
                 ))
+
+                if(pass > 0){
+                    (store.addNotification({
+                        title: `${pass} Enrollement Successfully`,
+                        message: "Eyekon eClass",
+                        type: "success",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__fadeIn"],
+                        animationOut: ["animate__animated", "animate__fadeOut"],
+                        dismiss: {
+                            duration: 2000,
+                            onScreen: true,
+                        pauseOnHover: true,
+                        showIcon:true
+                    },
+                    width:400
+                }))
+            }
+            if(fail > 0){
+                    (store.addNotification({
+                        title: `${fail} Enrollement Unsuccessfully`,
+                        message: "Eyekon eClass",
+                        type: "danger",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__fadeIn"],
+                        animationOut: ["animate__animated", "animate__fadeOut"],
+                        dismiss: {
+                        duration: 2000,
+                        onScreen: true,
+                        pauseOnHover: true,
+                        showIcon:true
+                        },
+                        width:400
+                    }))
+                }
     
                 setaddedProfile([]);
                 setselectst([]);

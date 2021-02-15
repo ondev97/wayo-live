@@ -67,8 +67,11 @@ export default function AddStudents() {
             if(selectst.length < 8){
                 const stvalue = e.target.parentElement.value;
                 const arr = stvalue.split(',');//string to array
-                setaddedProfile([...addedProfile,{"img":arr[2],"un":arr[0],"id":arr[1]}]);
-                setselectst([...selectst,arr[0]]);
+                
+                if(!selectst.includes(arr[0])){
+                    setaddedProfile([...addedProfile,{"img":arr[2],"un":arr[0],"id":arr[1]}]);
+                    setselectst([...selectst,arr[0]]);
+                }
             }
 
         }
