@@ -180,7 +180,7 @@ export default function CourseCard({course_cover,course_name,price,duration,crea
                                         <button><i className="fas fa-shopping-cart"></i>Buy Key</button>*/}
                                         {
                                             price === null || price === 0 ?
-                                                <button onClick={freeEn}>Free Enrolle</button>
+                                                <button onClick={freeEn}>Free Enroll</button>
                                             :   
                                             <button onClick={openModel}><i className="fas fa-key"></i>Key</button>
                                         }

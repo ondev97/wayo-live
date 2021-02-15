@@ -29,7 +29,7 @@ export default function CourseCreateForm({handelSubmit,showCropper,cropData,err,
                         <label className="toggle" htmlFor="myToggle">
                             <input type="checkbox" className="toggleinput" id="myToggle" onClick={activefree}/>
                             <div className="fill">
-                                <p>Free</p>
+                                <p>{freeac ? "Paid" : "Free"}</p>
                             </div>
                         </label>
                         

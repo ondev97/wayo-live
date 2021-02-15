@@ -43,7 +43,7 @@ export default function UpdateCourseForm({showCropper,handelSubmit,cropData,err,
                         <label className="toggle" htmlFor="myToggle">
                             <input type="checkbox" ref={intis} className="toggleinput" id="myToggle" onClick={activefree}/>
                             <div className="fill">
-                                <p>Free</p>
+                                <p>{freeac ? "Paid" : "Free"}</p>
                             </div>
                         </label>
                         
