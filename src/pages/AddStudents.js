@@ -10,6 +10,7 @@ import AddStFileSe from '../components/AddStFileSe';
 import SelectStudentsTopRow from '../components/SelectStudentsTopRow';
 import { store } from 'react-notifications-component';
 import useDebounce from '../utils/hooks/useDebounce';
+import ViewStuTc from '../components/ViewStuTc';
 
 export default function AddStudents() {
 
@@ -24,6 +25,8 @@ export default function AddStudents() {
     const [page, setpage] = useState(1);
     const [suncess, setsuncess] = useState(false);
     const [search, setsearch] = useState('');
+    const [modelOp, setmodelOp] = useState(false);
+    const [stPrDetail, setstPrDetail] = useState([]);
     const {cid} = useParams();
 
     const debounce = useDebounce();//custom hook
@@ -114,11 +117,27 @@ export default function AddStudents() {
         setpage(1);
         debounce(()=>setsearch(search),500);
     }
+
+     /*model page*/
+     const viewPr = (id) =>{
+        if(!modelOp){
+            setmodelOp(true);
+            /*get studet details */
+            Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/stuprofile/${id}/`,{
+                headers:{Authorization:'Token '+usDetails.key}
+            }).then(res=>{
+                setstPrDetail(res.data);
+            }).catch(err=>{
+                console.log(err);
+            })
+        }
+    }
     
 
     return (
         <div className="stlist">
             <AddStFileSe setIsfoleModel={setIsfoleModel} IsfoleModel={IsfoleModel} setaddedProfile={setaddedProfile} setselectst={setselectst} setallStudents={setallStudents} setpage={setpage} setsuncess={setsuncess} suncess={suncess}/>
+            <ViewStuTc setmodelOp={setmodelOp} modelOp={modelOp} stPrDetail={stPrDetail} setstPrDetail={setstPrDetail}/>
             <div className="pageTop">
                 <h1>Add Students</h1>
             </div>
@@ -156,11 +175,11 @@ export default function AddStudents() {
                                             {
                                                     allStudents.map((data)=>(
                                                             <tr key={data.id}>
-                                                                <td>{data.id}</td>
-                                                                <td><LazyLoadImage src={data.profile_pic} effect="blur"/></td>
-                                                                <td>{data.user.first_name+" "+data.user.last_name}</td>
-                                                                <td>{data.user.username}</td>
-                                                                <td>{data.user.email}</td>
+                                                                <td onClick={()=>viewPr(data.user.id)}>{data.id}</td>
+                                                                <td onClick={()=>viewPr(data.user.id)}><LazyLoadImage src={data.profile_pic} effect="blur"/></td>
+                                                                <td onClick={()=>viewPr(data.user.id)}>{data.user.first_name+" "+data.user.last_name}</td>
+                                                                <td onClick={()=>viewPr(data.user.id)}>{data.user.username}</td>
+                                                                <td onClick={()=>viewPr(data.user.id)}>{data.user.email}</td>
                                                                 <td>
                                                                     {/* <input type="checkbox" value={data.user.username+','+data.user.id+','+data.profile_pic} onChange={addToSelect} /> */}
                                                                     <button className="addbutst" value={data.user.username+','+data.user.id+','+data.profile_pic} onClick={addToSelect}><i className="fas fa-plus-circle"></i></button>
