@@ -222,12 +222,26 @@
 
 .models .md_course_desc {
   flex: 0.3;
-  max-height: 85vh;
+  max-height: 90vh;
   position: sticky;
   top: 90px;
   bottom: 0;
   background-color: #fff;
+  overflow: auto;
+  border: 1px solid #ccc;
 }
+.models .md_course_desc::-webkit-scrollbar {
+  width: 5px;
+}
+.models .md_course_desc::-webkit-scrollbar-track {
+  background: transparent;
+}
+.models .md_course_desc::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 20px;
+  border: transparent;
+}
+
 /*mobile links*/
 .models .md_course_desc .colCourseView .mobile_list {
   position: absolute;
@@ -285,7 +299,6 @@
 .models .md_course_desc .colCourseView {
   position: relative;
   height: 100%;
-  border: 1px solid #ccc;
 }
 .models .md_course_desc .course_desc_head {
   position: relative;
