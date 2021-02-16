@@ -49,7 +49,7 @@ export default function CourseSect({id,course_cover,course_name,price,duration,c
             <Link to={`/teacherdashboard/models/${courseid}/${id}`}>
                 <div className="grid_card_mg_body">
                     <h3>{course_name}</h3>
-                    <h4>{price === 0 ? 'Free':`LKR ${price}`}</h4>
+                    <h4>{price === 0 || price === null ? 'Free':`LKR ${price}`}</h4>
                     <div className="cs_tail">
                         <h4><ReactTimeAgo date={Date.parse(created_at)} locale="en-US" /></h4>
                     </div>
