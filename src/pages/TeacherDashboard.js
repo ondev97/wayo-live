@@ -34,7 +34,7 @@ export default function TeacherDashboard() {
     
     useLayoutEffect(() => {
         if(window.innerWidth < 867){
-            togglemenu();
+            settoggle(true);
         }
     },[location])
     const togglemenu = ()=>{
