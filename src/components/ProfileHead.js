@@ -25,9 +25,11 @@ export default function ProfileHead() {
   const hadelFileUpload =(e)=>{
     if(e.target.files[0] && e.target.files[0].name){
       if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
-        setimgObjectURL(URL.createObjectURL(e.target.files[0]));
-        setfilePath(e.target.files[0]);
-        openModel();
+        if(e.target.files[0].size <= 2000000){
+          setimgObjectURL(URL.createObjectURL(e.target.files[0]));
+          setfilePath(e.target.files[0]);
+          openModel();
+        }
       }
       else{
           setshowModel(!showModel);
