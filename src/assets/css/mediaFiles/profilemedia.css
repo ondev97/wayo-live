@@ -149,6 +149,15 @@
     padding: 25px 5px;
     width: 100%;
   }
+  .main_profile
+    .tcprofilecolumn
+    .profile_sub_column
+    .profil_box
+    .srow
+    .srow_pro_pic
+    label::after {
+    left: -180px;
+  }
 }
 @media screen and (max-width: 250px) {
   .main_profile
@@ -167,5 +176,17 @@
   }
   .my_row {
     display: none;
+  }
+  .main_profile
+    .tcprofilecolumn
+    .profile_sub_column
+    .profil_box
+    .srow
+    .srow_pro_pic
+    label::after {
+    width: 148px;
+    left: -150px;
+    height: 34px;
+    font-size: 11px;
   }
 }

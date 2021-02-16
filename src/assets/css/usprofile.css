@@ -93,6 +93,35 @@
   .profil_box
   .srow
   .srow_pro_pic
+  label:after {
+  content: "Image Should Be Less Than 2mb";
+  position: absolute;
+  top: 25px;
+  left: -100px;
+  z-index: 100;
+  width: 200px;
+  height: 20px;
+  background-color: #fff;
+  color: #ff9d00;
+  font-size: 12px;
+  text-align: center;
+  display: none;
+}
+.main_profile
+  .tcprofilecolumn
+  .profile_sub_column
+  .profil_box
+  .srow
+  .srow_pro_pic
+  label:hover:after {
+  display: block;
+}
+.main_profile
+  .tcprofilecolumn
+  .profile_sub_column
+  .profil_box
+  .srow
+  .srow_pro_pic
   input {
   display: none;
 }
