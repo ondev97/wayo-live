@@ -86,10 +86,14 @@ export default function ModelsCourseDescri({id}) {
                                 <h3><ReactTimeAgo date={Date.parse(courseDetails.created_at)} locale="en-US" /></h3>
 
                         }
-                        <div className="course_short_desc">
-                            <h3>Course Description</h3>
-                            <p>{courseDetails.course_description}</p>
-                        </div>
+                        {
+                            courseDetails.course_description !== "null" ? (
+                                <div className="course_short_desc">
+                                    <h3>Course Description</h3>
+                                    <p>{courseDetails.course_description}</p>
+                                </div>
+                            ):""
+                        }
                     </div>
                 </div>
             </div>

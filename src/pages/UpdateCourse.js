@@ -33,7 +33,7 @@ export default function UpdateCourse() {
             await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/course-api/list/${subid}/`,{
                 headers:{Authorization:"Token "+usDetails.key}
             }).then(res=>{
-                setcourseValue({course_name:res.data.course_name,course_price:res.data.price,course_description:res.data.course_description,hr:res.data.duration,course_img:res.data.course_cover});
+                setcourseValue({course_name:res.data.course_name,course_price:res.data.price || 0,course_description:res.data.course_description,hr:res.data.duration,course_img:res.data.course_cover});
             }).catch(err=>{
                 if(err.response.data.detail){
                     setredirec({...redirec,err:err.response.data.detail});    

@@ -301,8 +301,11 @@
   height: 100%;
 }
 .models .md_course_desc .course_desc_head {
-  position: relative;
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 102;
+  background-color: #fff;
 }
 .models .md_course_desc .course_desc_head .menulist {
   width: 100%;
