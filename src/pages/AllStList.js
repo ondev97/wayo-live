@@ -126,7 +126,7 @@ export default function AllStList() {
                 allDetailSt !== null ?
             <div className="sttable">
                 {
-                    allstudent ? 
+                    allstudent.length !==0 ? 
                         (
                             <InfiniteScroll dataLength={allDetailSt.count} next={next} hasMore={true}>
                             <table>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import Empty from '../components/Empty';
 import '../assets/css/addStudents.css'
 import AddStFileSe from '../components/AddStFileSe';
@@ -11,6 +11,7 @@ import SelectStudentsTopRow from '../components/SelectStudentsTopRow';
 import { store } from 'react-notifications-component';
 import useDebounce from '../utils/hooks/useDebounce';
 import ViewStuTc from '../components/ViewStuTc';
+import donwloadFile from '../img/Template.xlsx';
 
 export default function AddStudents() {
 
@@ -148,7 +149,12 @@ export default function AddStudents() {
                     <button><i className="fas fa-search"></i></button>
                 </div>
             </div>
+            <div className="ins_area">
+                <h4>Special Instructions</h4>
+                <p>First, click on "Download Template" to download the empty template for add bulk student list. Then, add student details in that template and click on the "Upload List" button.</p>
+            </div>
             <div className="filerow">
+                <Link to ={donwloadFile} target='__blanck' download><button>Download Template</button></Link>
                 <button onClick={()=>setIsfoleModel(true)}>Add Student Using File</button> 
             </div>
 

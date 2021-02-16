@@ -79,6 +79,21 @@
   font-weight: 600;
   cursor: pointer;
 }
+.ins_area {
+  margin-top: 25px;
+  width: 100%;
+  padding: 15px 10px;
+  background-color: #fff;
+}
+.ins_area h4 {
+  color: #ff9d00;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.ins_area p {
+  font-size: 13px;
+  word-wrap: break-word;
+}
 .filerow {
   width: 100%;
   padding: 25px 0;
@@ -92,6 +107,8 @@
   color: #ff9d00;
   transition: 0.5s ease;
   cursor: pointer;
+  outline: none;
+  margin: 8px;
 }
 .filerow button:hover {
   background-color: #ff9d00;
