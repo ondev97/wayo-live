@@ -25,10 +25,29 @@ export default function ProfileHead() {
   const hadelFileUpload =(e)=>{
     if(e.target.files[0] && e.target.files[0].name){
       if(e.target.files[0].type === 'image/jpeg' || e.target.files[0].type ==='image/png' || e.target.files[0].type === 'image/jpg'){
-        if(e.target.files[0].size <= 2000000){
+        if(e.target.files[0].size <= 1000000){
           setimgObjectURL(URL.createObjectURL(e.target.files[0]));
           setfilePath(e.target.files[0]);
           openModel();
+        }
+        else{
+            //setshowModel(!showModel);
+            store.addNotification({
+              title: "File Should Be Less Than 2mb!",
+              message: "Eyekon eClass",
+              type: "danger",
+              insert: "top",
+              container: "top-left",
+              animationIn: ["animate__animated", "animate__fadeIn"],
+              animationOut: ["animate__animated", "animate__fadeOut"],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+                pauseOnHover: true,
+                showIcon:true
+              },
+              width:600
+          });
         }
       }
       else{

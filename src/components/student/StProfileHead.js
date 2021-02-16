@@ -33,7 +33,7 @@ export default function StProfileHead() {
         else{
             //setshowModel(!showModel);
             store.addNotification({
-              title: "File Should Be Less Than 3mb!",
+              title: "File Should Be Less Than 2mb!",
               message: "Eyekon eClass",
               type: "danger",
               insert: "top",
