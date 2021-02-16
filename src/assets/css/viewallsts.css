@@ -46,6 +46,7 @@
   border-right-color: transparent;
   border: 1px solid transparent;
   box-shadow: 0px 0px 18px #dbdbdb;
+  outline: none;
 }
 .search_st .search button {
   width: 50px;
