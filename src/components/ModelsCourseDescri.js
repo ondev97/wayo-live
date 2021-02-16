@@ -50,10 +50,10 @@ export default function ModelsCourseDescri({id}) {
                         <button><i className="fas fa-bars"></i></button>
                     <div className="listmob">
                         <ul>
-                            <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li>Generate Enrollment Keys</li></Link>
-                            <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li>View Enrollment Keys</li></Link>
-                            <Link to={`/teacherdashboard/addstudents/${id}`}><li>Add Students For Courses</li></Link>
-                            <Link to={`/teacherdashboard/viewallst/${id}`}><li>View All Enrolled Students</li></Link>
+                            <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li><i className="fas fa-caret-right"></i> Generate Enrollment Keys</li></Link>
+                            <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li><i className="fas fa-caret-right"></i> View Enrollment Keys</li></Link>
+                            <Link to={`/teacherdashboard/addstudents/${id}`}><li><i className="fas fa-caret-right"></i> Add Students For Courses</li></Link>
+                            <Link to={`/teacherdashboard/viewallst/${id}`}><li><i className="fas fa-caret-right"></i> View All Enrolled Students</li></Link>
                         </ul>
                     </div>
                     </div>
@@ -61,10 +61,10 @@ export default function ModelsCourseDescri({id}) {
             <div className="course_desc_head tc_course_desc_head">
                 <div className="menulist">
                     <ul>
-                        <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li>Generate Enrollment Keys</li></Link>
-                        <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li>View Enrollment Keys</li></Link>
-                        <Link to={`/teacherdashboard/addstudents/${id}`}><li>Add Students For Courses</li></Link>
-                        <Link to={`/teacherdashboard/viewallst/${id}`}><li>View All Enrolled Students</li></Link>
+                        <Link to={`/teacherdashboard/keys/genkeys/${id}/${cid}/`}><li><i className="fas fa-caret-right"></i> Generate Enrollment Keys</li></Link>
+                        <Link to={`/teacherdashboard/keys/viewallissuekey/${id}/${cid}/`}><li><i className="fas fa-caret-right"></i> View Enrollment Keys</li></Link>
+                        <Link to={`/teacherdashboard/addstudents/${id}`}><li><i className="fas fa-caret-right"></i> Add Students For Courses</li></Link>
+                        <Link to={`/teacherdashboard/viewallst/${id}`}><li><i className="fas fa-caret-right"></i> View All Enrolled Students</li></Link>
                     </ul>
                 </div>
             </div>

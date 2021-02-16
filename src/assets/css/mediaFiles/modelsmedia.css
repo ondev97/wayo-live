@@ -15,7 +15,6 @@
     display: flex;
     height: auto;
     min-height: 20vh;
-    overflow: hidden;
   }
   .models .md_all_models {
     order: 2;

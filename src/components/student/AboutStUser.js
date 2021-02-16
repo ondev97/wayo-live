@@ -16,7 +16,7 @@ export default function AboutStUser() {
                     <h4>{initialState && `${initialState.user.first_name} ${initialState.user.last_name}`}</h4>
                     </div>
                     <div className="ab_card">
-                    <h3>User Name</h3>
+                    <h3>Class Number</h3>
                     <h4 style={{textTransform:"uppercase"}}>{initialState && initialState.user.username}</h4>
                     </div>
                     <div className="ab_card">

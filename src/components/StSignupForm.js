@@ -32,7 +32,7 @@ export default function StSignupForm() {
                 </div>
                 <div className="sect">
                     <p>
-                        <label htmlFor="un">User Name</label>
+                        <label htmlFor="un">Class Number</label>
                         <input type="text" name="userName" id="un" min="6" value={values.userName} onChange={hadelChanege} className={errors.userName ? "error" : ""} onFocus={hideError} style={{textTransform:'uppercase'}} />
                         {
                             errors.userName && <span className={`tip ${hide.userName ? 'hidetip' : ''}`}>{errors.userName}</span>

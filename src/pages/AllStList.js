@@ -135,7 +135,7 @@ export default function AllStList() {
                                     <th>Id</th>
                                     <th>Profile Picture</th>
                                     <th>Name</th>
-                                    <th>User Name</th>
+                                    <th>Class Number</th>
                                     <th>Email</th>
                                     <th>Unenroll</th>
                                 </tr>

@@ -166,7 +166,7 @@ export default function AddStudents() {
                                                 <th>Id</th>
                                                 <th>Profile Picture</th>
                                                 <th>Name</th>
-                                                <th>User Name</th>
+                                                <th>Class Number</th>
                                                 <th>Email</th>
                                                 <th>Select</th>
                                             </tr>
