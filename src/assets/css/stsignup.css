@@ -1,3 +1,36 @@
+/*information area*/
+.regi_ins {
+  width: 90%;
+  font-family: "Monsterrat", sans-serif;
+  border-radius: 20px;
+  margin: 30px auto;
+  border: 1px solid #d6d6d6;
+  overflow: hidden;
+}
+.regi_ins .regi_head {
+  background-color: #d6d6d6;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  display: inline-block;
+}
+.regi_ins .regi_head h1 {
+  font-size: 25px;
+}
+.regi_ins .regi_body {
+  padding: 15px;
+}
+.regi_ins .regi_body section {
+  border-left: 4px solid #ff9d00;
+  padding-left: 8px;
+  margin-bottom: 5px;
+}
+.regi_ins .regi_body section p {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #464646;
+}
+
 .siup_body {
   width: 100%;
   min-height: calc(100vh - 117px);
