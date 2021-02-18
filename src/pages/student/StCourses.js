@@ -83,7 +83,7 @@ export default function StCourses() {
         <>
         <div className="ful_manage_course">
             <div className="top_manage_course">
-                <LazyLoadImage effect="blur" style={{opacity:"0.75"}} src={subData.sub_cover} alt=""/>
+                <LazyLoadImage effect="blur" style={{opacity:"0.75"}} width='100%' height='100%' src={subData.sub_cover} alt=""/>
                 <div className="top_manage_head">
                     <h1>{subData.sub_name}</h1>
                     <h3>{subData.sub_sdes}</h3>
