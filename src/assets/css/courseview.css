@@ -55,8 +55,7 @@
 }
 .top_manage_course .options_subs .options_manage ul li {
   list-style: none;
-  margin-bottom: 20px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
   color: #000;
   text-align: left;
   cursor: pointer;
@@ -64,7 +63,7 @@
 }
 .top_manage_course .options_subs .options_manage ul li i {
   color: #000;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 .top_manage_course .options_subs .options_manage ul li i {
   color: red;
