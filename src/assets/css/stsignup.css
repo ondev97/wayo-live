@@ -1,11 +1,12 @@
 /*information area*/
 .regi_ins {
-  width: 90%;
+  width: 48%;
+  flex: 1;
   font-family: "Monsterrat", sans-serif;
   border-radius: 10px;
-  margin: 30px auto;
   border: 1px solid #d6d6d6;
   overflow: hidden;
+  margin-right: 8px;
 }
 .regi_ins .regi_head {
   background-color: #d6d6d6;
@@ -37,8 +38,9 @@
   width: 100%;
   min-height: calc(100vh - 117px);
   display: flex;
-  align-items: center;
-  padding: 70px 0;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 70px 45px;
 }
 .siup_body .siup_column {
   flex: 1;
@@ -57,7 +59,6 @@
   height: 100%;
 }
 .siup_body .siup_column:nth-child(2) {
-  margin-right: 50px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -11,6 +11,16 @@
   .siup_body .siup_column:nth-child(2) {
     margin-right: 0 !important;
   }
+  .siup_body {
+    flex-direction: column;
+  }
+  .siup_body .regi_ins {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .siup_body .siup_column:nth-child(2) {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 700px) {
   .login_body .login_column .login_form {

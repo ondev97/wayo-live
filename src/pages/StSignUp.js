@@ -14,12 +14,12 @@ export default function StSignUp() {
       },[])
     return (
         <>
-            <RegisterInfo/>
             <div className="siup_body">
+            <RegisterInfo/>
                 <div className="siup_column">
                     <div className="siup_form">
                         <div className="topSign">
-                            <h2>Student Sign Up</h2>
+                            <h2>Student Registration</h2>
                         </div>
                         <StSignupForm/>
                     </div>
