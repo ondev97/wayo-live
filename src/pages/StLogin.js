@@ -16,13 +16,10 @@ export default function StLogin() {
     return (
         <div className="login_body">
             <div className="login_column">
-                <div className="svg">
-                    <img src={logsvg} alt=""/>
-                </div>
-            </div>
-            <div className="login_column">
                 <div className="login_form">
-                    <h2>Login</h2>
+                    <div className="topSign">
+                        <h2>Login</h2>
+                    </div>
                     <StLoginForm/>
                 </div>
             </div>

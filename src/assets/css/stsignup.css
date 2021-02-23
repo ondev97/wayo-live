@@ -2,7 +2,7 @@
 .regi_ins {
   width: 90%;
   font-family: "Monsterrat", sans-serif;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 30px auto;
   border: 1px solid #d6d6d6;
   overflow: hidden;
@@ -11,14 +11,16 @@
   background-color: #d6d6d6;
   width: 100%;
   padding: 15px;
+  border-radius: 10px;
   text-align: center;
   display: inline-block;
 }
+
 .regi_ins .regi_head h1 {
   font-size: 25px;
 }
 .regi_ins .regi_body {
-  padding: 15px;
+  padding: 30px 15px;
 }
 .regi_ins .regi_body section {
   border-left: 4px solid #ff9d00;
@@ -40,6 +42,8 @@
 }
 .siup_body .siup_column {
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 .siup_body .siup_column .svg {
   width: 100%;
@@ -63,24 +67,27 @@
   font-family: "Montserrat", sans-serif;
   border: 1px solid #ccc;
   border-radius: 3px;
-  padding: 20px;
+  padding: 0;
+  border-radius: 10px;
+}
+.siup_body .siup_column .siup_form .topSign {
+  width: 100%;
+  background-color: #d6d6d6;
+  padding: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-radius: 10px;
 }
 .siup_body .siup_column .siup_form h2 {
   font-size: 22px;
   text-align: center;
-  margin-bottom: 30px;
   font-weight: 500;
   position: relative;
 }
-.siup_body .siup_column .siup_form h2::after {
-  content: "";
-  position: absolute;
-  width: 10%;
-  height: 2px;
-  background-color: black;
-  bottom: -25%;
-  left: 50%;
-  transform: translateX(-50%);
+.siup_body .siup_column .siup_form form {
+  padding: 20px;
 }
 .siup_body .siup_column .siup_form label {
   display: block;

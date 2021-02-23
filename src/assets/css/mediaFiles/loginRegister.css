@@ -1,8 +1,4 @@
 @media screen and (max-width: 1100px) {
-  .login_body .login_column:first-child {
-    display: none;
-    margin: 0;
-  }
   .login_body .login_column:nth-child(2) {
     margin-right: 0;
   }

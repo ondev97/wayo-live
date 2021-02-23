@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {activeAccount} from '../actions'
 import { loadStDetails } from '../actions/stDetailsAction';
-import cov from '../img/cov.jpg';
+import cov from '../img/cover.jpg';
 import instructor from '../img/svg/instructor.svg';
 import learning from '../img/svg/learning.svg';
 import support from '../img/svg/support.svg';
@@ -41,8 +41,8 @@ export default function Home() {
         <div className='maininde'>
             <div className="uppercover">
                 <div className="cov_text">
-                    <h1>Eyekon eClass For Learning</h1>
-                    <p>Education is the most powerful weapon which you can use to change the world</p>
+                    <h1>Eyekon eClass For <br/>Learning</h1>
+                    <p>Education is the most powerful weapon which you can <br/> use to change the world</p>
                     <Link to={'/allteachers'}><button>Our Teachers</button></Link>
                 </div>
                 <div className="cov_img">

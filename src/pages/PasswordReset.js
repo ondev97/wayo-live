@@ -74,15 +74,7 @@ export default function PasswordReset() {
     return (
         <div className="login_body">
             <div className="login_column">
-                <div className="svg">
-                    <img src={logsvg} alt=""/>
-                </div>
-            </div>
-            <div className="login_column">
-                <div className="login_form">
-                    <div className="logpic">
-                        <img src={logpic} alt=""/>
-                    </div>
+                <div className="login_form" style={{padding:"25px 0"}}>
                     <h2>Password Reset</h2>
                     <div>
                         <form>
