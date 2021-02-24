@@ -29,8 +29,8 @@
   margin-bottom: 5px;
 }
 .regi_ins .regi_body section p {
-  font-size: 15px;
-  margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
   color: #464646;
 }
 
@@ -74,7 +74,7 @@
 .siup_body .siup_column .siup_form .topSign {
   width: 100%;
   background-color: #d6d6d6;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -82,9 +82,9 @@
   border-radius: 10px;
 }
 .siup_body .siup_column .siup_form h2 {
-  font-size: 22px;
+  font-size: 25px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
 }
 .siup_body .siup_column .siup_form form {

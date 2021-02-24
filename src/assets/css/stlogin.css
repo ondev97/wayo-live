@@ -36,7 +36,7 @@
 .login_body .login_column .login_form .topSign {
   width: 100%;
   background-color: #d6d6d6;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -53,8 +53,8 @@
   width: 100px;
 }
 .login_body .login_column .login_form h2 {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 25px;
+  font-weight: 600;
   text-align: center;
   position: relative;
 }
