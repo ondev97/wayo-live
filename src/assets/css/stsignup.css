@@ -2,7 +2,7 @@
 .regi_ins {
   width: 48%;
   flex: 1;
-  font-family: "Monsterrat", sans-serif;
+  font-family: "Open Sans", sans-seri;
   border-radius: 10px;
   border: 1px solid #d6d6d6;
   overflow: hidden;
@@ -65,7 +65,7 @@
 }
 .siup_body .siup_column .siup_form {
   width: 650px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-seri;
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 0;

@@ -22,6 +22,11 @@
     width: 100%;
   }
 }
+@media screen and (max-width: 991px) {
+  .login_body .login_column:nth-child(2) {
+    display: none;
+  }
+}
 @media screen and (max-width: 700px) {
   .login_body .login_column .login_form {
     width: 100%;

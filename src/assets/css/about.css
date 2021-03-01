@@ -2,7 +2,7 @@
   width: 100%;
   padding: 60px 20px;
   background-image: linear-gradient(to top, #f6f6f6, #fff, #fff);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-seri;
   text-align: center;
 }
 .maininde .upper_cover h1 {
@@ -11,7 +11,7 @@
   color: #ff9d00;
 }
 .maininde .body_sec {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-seri;
   width: 1000px;
   margin: 80px auto;
   display: flex;
