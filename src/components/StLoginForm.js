@@ -16,7 +16,7 @@ export default function StLoginForm() {
    }
 
     return (
-        <div>
+        <>
             <form onSubmit={hadelSubmit}>
                 {
                     errors.comerrors && <p className={`comtip ${hide.email ? 'hidetip' : ''}`}>{errors.comerrors}</p>
@@ -48,6 +48,6 @@ export default function StLoginForm() {
                     </div>
                 </div>
             </form>
-        </div>
+        </>
     )
 }

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import logsvg from '../img/svg/booklover.svg';
-import logpic from '../img/child.png';
+import logo from '../img/Logo_1.png';
 import { useDispatch } from 'react-redux';
 import { activeAccount } from '../actions';
 import "../assets/css/stlogin.css";
@@ -76,7 +75,6 @@ export default function PasswordReset() {
             <div className="login_column">
                 <div className="login_form" style={{padding:"25px 0"}}>
                     <h2>Password Reset</h2>
-                    <div>
                         <form>
                             <p>
                                 <label htmlFor="em">Email</label>
@@ -86,8 +84,15 @@ export default function PasswordReset() {
                                 <input onClick={handlesubmit} type="button" value="Reset Password" name="submit" style={{display:readOnly}}/>
                             </div>
                         </form>
-                    </div>
                 </div>
+            </div>
+            <div className="login_column">
+                <div className="image_login">
+                    <img src={logo} alt=""/>
+                </div>
+                <div className="image_content">
+                    <h3>“Anyone who has never made a mistake has never tried anything new.”<br/><b>Albert Einstein</b></h3>    
+                </div>   
             </div>
         </div>
     )

@@ -6,7 +6,7 @@
 }
 .login_body .login_column {
   flex: 1;
-  height: 100%;
+  min-height: calc(100vh - 93px);
   display: flex;
   justify-content: center;
 }
@@ -22,7 +22,6 @@
   height: 100%;
 }
 .login_body .login_column:nth-child(2) {
-  margin-right: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,12 +29,15 @@
 .login_body .login_column .login_form {
   width: 650px;
   font-family: "Montserrat", sans-serif;
-  border: 1px solid #ccc;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .login_body .login_column .login_form .topSign {
   width: 100%;
-  background-color: #d6d6d6;
+  background-color: #eaeaea;
   padding: 15px;
   display: flex;
   text-align: center;
@@ -63,6 +65,7 @@
 }
 .login_body .login_column .login_form form {
   padding: 24px;
+  width: 100%;
 }
 .login_body .login_column .login_form label {
   display: block;
@@ -135,4 +138,21 @@
   font-size: 13px;
   margin-bottom: 12px;
   color: red;
+}
+.login_body .login_column:nth-child(2) {
+  flex-direction: column;
+  background-color: #fdfdfd;
+}
+.login_body .login_column .image_login {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.login_body .login_column .image_login img {
+  width: 70%;
+}
+.login_body .login_column .image_content h3 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
 }
