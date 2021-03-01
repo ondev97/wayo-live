@@ -1,7 +1,7 @@
 nav {
   position: sticky;
   width: 100%;
-  padding: 20px 80px;
+  padding: 20px 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,17 +96,18 @@ nav .column .buttons button {
   padding: 9px;
   font-size: 13px;
   border: none;
-  background-color: #eee;
+  background-color: #ffae29;
   font-weight: 600;
   border: 2px solid #ffae29;
   border-radius: 5px;
   transition: 0.4s ease-in;
   cursor: pointer;
   outline: none;
+  color: #fff;
 }
 nav .column .buttons button a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 nav .column .buttons a:nth-child(2) button {
   background-color: #ffae29;

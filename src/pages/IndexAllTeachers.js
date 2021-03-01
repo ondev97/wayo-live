@@ -5,7 +5,6 @@ import { loadStDetails } from '../actions/stDetailsAction';
 import { useDispatch } from 'react-redux';
 import InTeacher from '../components/InTeacher';
 import Axios from "axios";
-import SubjectsCard from "../components/student/SubjectsCard";
 import ProfileLoader from "../components/ProfileLoader";
 
 export default function IndexAllTeachers() {

@@ -7,11 +7,27 @@
   justify-content: center;
 }
 .maininde .tech_body .teach_card {
+  position: relative;
   border: 1px solid #ecf0ee;
   padding: 35px 12px;
   height: 300px;
   border-radius: 5px;
+  overflow: hidden;
   transition: 0.3s ease;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.maininde .tech_body .teach_card:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: -50px;
+  right: -50px;
+  z-index: -1;
+  background-color: #f5a31c1f;
 }
 .maininde .tech_body .teach_card:hover {
   box-shadow: 0px 0px 10px #ece8e8;
