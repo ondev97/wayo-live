@@ -18,7 +18,11 @@ export default function StLogin() {
             <div className="login_column">
                 <div className="login_form">
                     <div className="topSign">
+                        <div className="lgsi">
+                            <img src={logo} alt=""/>
+                        </div>
                         <h2>Login</h2>
+                        <p>Access the EyeKon eClass Dashboard using your Email and password.</p>
                     </div>
                     <StLoginForm/>
                 </div>

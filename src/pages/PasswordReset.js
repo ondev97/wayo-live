@@ -74,7 +74,13 @@ export default function PasswordReset() {
         <div className="login_body">
             <div className="login_column">
                 <div className="login_form" style={{padding:"25px 0"}}>
-                    <h2>Password Reset</h2>
+                <div className="topSign">
+                        <div className="lgsi">
+                            <img src={logo} alt=""/>
+                        </div>
+                        <h2>Password Reset</h2>
+                        <p>Reset Your Password using your Email</p>
+                    </div>
                         <form>
                             <p>
                                 <label htmlFor="em">Email</label>
