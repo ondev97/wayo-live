@@ -4,21 +4,19 @@
   flex: 1;
   font-family: "Open Sans", sans-seri;
   border-radius: 10px;
-  border: 1px solid #d6d6d6;
   overflow: hidden;
   margin-right: 8px;
 }
 .regi_ins .regi_head {
-  background-color: #d6d6d6;
   width: 100%;
   padding: 15px;
   border-radius: 10px;
-  text-align: center;
+  text-align: left;
   display: inline-block;
 }
 
 .regi_ins .regi_head h1 {
-  font-size: 25px;
+  font-size: 18px;
 }
 .regi_ins .regi_body {
   padding: 30px 15px;
@@ -29,7 +27,7 @@
   margin-bottom: 5px;
 }
 .regi_ins .regi_body section p {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 20px;
   color: #464646;
 }
@@ -40,12 +38,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-  padding: 70px 45px;
 }
 .siup_body .siup_column {
   flex: 1;
   display: flex;
   justify-content: center;
+  padding: 30px 0;
 }
 .siup_body .siup_column .svg {
   width: 100%;
@@ -62,33 +60,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fdfdfd;
+  flex: 1;
+  min-height: calc(100vh - 117px);
 }
 .siup_body .siup_column .siup_form {
-  width: 650px;
+  width: 70%;
   font-family: "Open Sans", sans-seri;
-  border: 1px solid #ccc;
   border-radius: 3px;
   padding: 0;
   border-radius: 10px;
 }
 .siup_body .siup_column .siup_form .topSign {
   width: 100%;
-  background-color: #d6d6d6;
-  padding: 15px;
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 30px;
   border-radius: 10px;
 }
 .siup_body .siup_column .siup_form h2 {
-  font-size: 25px;
+  font-size: 18px;
   text-align: center;
   font-weight: 600;
   position: relative;
+  margin-top: 20px;
 }
-.siup_body .siup_column .siup_form form {
-  padding: 20px;
+.siup_body .siup_column .siup_form .lgsi img {
+  width: 150px;
 }
 .siup_body .siup_column .siup_form label {
   display: block;

@@ -5,9 +5,6 @@
   .login_body {
     justify-content: center;
   }
-  .siup_body .siup_column {
-    display: none;
-  }
   .siup_body .siup_column:nth-child(2) {
     margin-right: 0 !important;
   }
@@ -19,6 +16,11 @@
     margin-bottom: 12px;
   }
   .siup_body .siup_column:nth-child(2) {
+    width: 100%;
+    order: 2;
+  }
+  .siup_body .siup_column:nth-child(1) {
+    order: 1;
     width: 100%;
   }
 }
