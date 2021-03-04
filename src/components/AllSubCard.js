@@ -13,7 +13,7 @@ export default function AllSubCard({subject}) {
                     <LazyLoadImage src={`${subject.subject_cover}`} alt="subjects" effect="blur"/>
                 </div>
                 <div className="teach_img">
-                    <LazyLoadImage src={`${subject.author.profile_pic}`} alt="child" />
+                    <LazyLoadImage src={`${subject.author.profile_pic}`} alt="child" effect="blur"/>
                 </div>
             </div>
             <div className="subject_body">
