@@ -30,7 +30,7 @@ export default function StLoginForm() {
           </p>
         )}
         <p>
-          <label htmlFor="em">Username</label>
+          <label htmlFor="em">Username (Class Number)</label>
           <input
             type="text"
             name="un"
