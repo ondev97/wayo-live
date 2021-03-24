@@ -17,10 +17,8 @@
   }
   .siup_body .siup_column:nth-child(2) {
     width: 100%;
-    order: 2;
   }
   .siup_body .siup_column:nth-child(1) {
-    order: 1;
     width: 100%;
   }
 }
@@ -34,7 +32,7 @@
     width: 100%;
   }
   .siup_body .siup_column .siup_form {
-    width: 100% !important;
+    width: 90% !important;
     padding: 0px 10px;
   }
 }

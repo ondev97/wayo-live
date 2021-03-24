@@ -37,7 +37,7 @@
 }
 .login_body .login_column .login_form .topSign {
   width: 100%;
-  padding: 15px;
+  padding: 15px 15px 15px 30px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -79,7 +79,7 @@
   position: relative;
 }
 .login_body .login_column .login_form form {
-  padding: 24px;
+  padding: 24px 24px 24px 30px;
   width: 100%;
 }
 .login_body .login_column .login_form label {
@@ -161,10 +161,13 @@
 .login_body .login_column .image_login {
   width: 100%;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 .login_body .login_column .image_login img {
-  width: 70%;
+  width: 50%;
+}
+.login_body .login_column .image_content {
+  padding: 0 20px;
 }
 .login_body .login_column .image_content h3 {
   text-align: center;
