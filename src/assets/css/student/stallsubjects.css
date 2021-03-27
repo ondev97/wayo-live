@@ -119,6 +119,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+}
+.all_st_subs
+  .all_sub_body
+  .al_sub_card
+  .sub_card_row:nth-child(2)::-webkit-scrollbar {
+  width: 5px;
+  display: none;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) h3 {
   font-size: 17px;

@@ -222,7 +222,7 @@
 
 .models .md_course_desc {
   flex: 0.3;
-  max-height: 90vh;
+  max-height: 100vh;
   position: sticky;
   top: 90px;
   bottom: 0;
@@ -396,6 +396,7 @@
   background-color: #ffae29;
   border: none;
   color: #fff;
+  font-size: 12px;
   outline: none;
   cursor: pointer;
   transition: 0.3s ease;
@@ -456,7 +457,7 @@
   font-weight: 600;
 }
 .models .md_course_desc .course_desc_body .course_short_desc {
-  max-height: 22vh;
+  max-height: 28vh;
   overflow-y: auto;
   margin-bottom: 10px;
   border-bottom: 1px solid transparent;
@@ -472,6 +473,14 @@
   .course_desc_body
   .course_short_desc::-webkit-scrollbar {
   width: 5px;
+  display: none;
+}
+.models
+  .md_course_desc
+  .course_desc_body
+  .course_short_desc:hover::-webkit-scrollbar {
+  width: 5px;
+  display: block;
 }
 .models
   .md_course_desc

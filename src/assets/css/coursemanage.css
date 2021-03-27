@@ -157,6 +157,12 @@
 .main_ar_course .course_body .course_card .cscard_body {
   position: relative;
   padding: 15px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.main_ar_course .course_body .course_card .cscard_body::-webkit-scrollbar {
+  width: 5px;
+  display: none;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid h2 {
   font-size: 17px;
@@ -172,7 +178,7 @@
   margin-top: 5px;
 }
 .main_ar_course .course_body .course_card .cscard_body .cscard_mid h3 {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   margin-bottom: 10px;
   text-align: center;
