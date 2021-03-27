@@ -204,65 +204,66 @@ export default function AddStudents() {
         addStudemts={addStudemts}
       />
 
-      <div className="sttable">
-        {totStud ? (
-          <InfiniteScroll dataLength={totStud.count} next={next} hasMore={true}>
-            {allStudents.length !== 0 ? (
-              <table>
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Profile Picture</th>
-                    <th>Name</th>
-                    <th>Class Number</th>
-                    <th>Email</th>
-                    <th>Select</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {allStudents.map((data) => (
-                    <tr key={data.id}>
-                      <td onClick={() => viewPr(data.user.id)}>{data.id}</td>
-                      <td onClick={() => viewPr(data.user.id)}>
-                        <LazyLoadImage src={data.profile_pic} effect="blur" />
-                      </td>
-                      <td onClick={() => viewPr(data.user.id)}>
-                        {data.user.first_name + " " + data.user.last_name}
-                      </td>
-                      <td onClick={() => viewPr(data.user.id)}>
-                        {data.user.username}
-                      </td>
-                      <td onClick={() => viewPr(data.user.id)}>
-                        {data.user.email}
-                      </td>
-                      <td>
-                        {/* <input type="checkbox" value={data.user.username+','+data.user.id+','+data.profile_pic} onChange={addToSelect} /> */}
-                        <button
-                          className="addbutst"
-                          value={
-                            data.user.username +
-                            "," +
-                            data.user.id +
-                            "," +
-                            data.profile_pic
-                          }
-                          onClick={addToSelect}
-                        >
-                          <i className="fas fa-plus-circle"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <Empty target="No Students" />
-            )}
-          </InfiniteScroll>
-        ) : (
-          <Empty target="No Students" />
-        )}
-      </div>
+      {allStudents.length !== 0 ? (
+        <div className="sttable">
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Profile Picture</th>
+                <th>Name</th>
+                <th>Class Number</th>
+                <th>Email</th>
+                <th>Select</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allStudents.map((data) => (
+                <tr key={data.id}>
+                  <td onClick={() => viewPr(data.user.id)}>{data.id}</td>
+                  <td onClick={() => viewPr(data.user.id)}>
+                    <LazyLoadImage src={data.profile_pic} effect="blur" />
+                  </td>
+                  <td onClick={() => viewPr(data.user.id)}>
+                    {data.user.first_name + " " + data.user.last_name}
+                  </td>
+                  <td onClick={() => viewPr(data.user.id)}>
+                    {data.user.username}
+                  </td>
+                  <td onClick={() => viewPr(data.user.id)}>
+                    {data.user.email}
+                  </td>
+                  <td>
+                    {/* <input type="checkbox" value={data.user.username+','+data.user.id+','+data.profile_pic} onChange={addToSelect} /> */}
+                    <button
+                      className="addbutst"
+                      value={
+                        data.user.username +
+                        "," +
+                        data.user.id +
+                        "," +
+                        data.profile_pic
+                      }
+                      onClick={addToSelect}
+                    >
+                      <i className="fas fa-plus-circle"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {totStud.next ? (
+            <div className="butnext">
+              <button onClick={next}>Load More</button>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+      ) : (
+        <Empty target="No Students" />
+      )}
     </div>
   );
 }

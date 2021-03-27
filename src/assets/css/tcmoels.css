@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   font-family: "Open Sans", sans-seri;
 }
 .models .md_all_models {
@@ -222,7 +223,6 @@
 
 .models .md_course_desc {
   flex: 0.3;
-  max-height: 100vh;
   position: sticky;
   top: 90px;
   bottom: 0;

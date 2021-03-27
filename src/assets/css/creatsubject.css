@@ -83,6 +83,9 @@
   color: #000;
   font-weight: 600;
 }
+.subject_form .main_form p label span {
+  font-size: 12px;
+}
 .subject_form .main_form p input,
 p textarea {
   position: relative;

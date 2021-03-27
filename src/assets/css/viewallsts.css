@@ -109,6 +109,31 @@ td {
   border: 1px solid #ff9d00;
 }
 
+/*load more button*/
+.sttable .butnext {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sttable .butnext button {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid #ff9d00;
+  border-radius: 3px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  color: #ff9d00;
+  transition: background-color 0.5s ease;
+}
+.sttable .butnext button:hover {
+  background-color: #ff9d00;
+  color: #fff;
+}
+
 @media screen and (max-width: 700px) {
   .sttable table th:nth-child(1),
   td:nth-child(1) {
