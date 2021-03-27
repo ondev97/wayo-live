@@ -136,9 +136,10 @@
   margin-top: 8px;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) p {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: lighter;
   margin-bottom: 8px;
+  text-align: center;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) .sub_type {
   margin-top: 8px;
