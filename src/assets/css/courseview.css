@@ -164,7 +164,7 @@
 }
 .top_manage_body .mange_cos_body .manage_course_grid .grid_card_manage {
   position: relative;
-  height: 300px;
+  height: 330px;
   border: 1px solid #6a6969;
   background-color: #fff;
   cursor: pointer;
@@ -221,6 +221,7 @@
   h3 {
   font-weight: 400;
   color: #ff9d00;
+  font-size: 16px;
 }
 .top_manage_body
   .mange_cos_body

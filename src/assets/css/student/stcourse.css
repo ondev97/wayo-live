@@ -169,12 +169,41 @@
   .st_manage_course_grid
   .st_grid_card_manage {
   position: relative;
-  height: 350px;
+  height: 360px;
   border: 1px solid #8b8b8b;
   background-color: #fff;
   cursor: pointer;
   transition: all 0.5s;
+  overflow-y: auto;
 }
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
+  .st_grid_card_manage::-webkit-scrollbar {
+  width: 1px;
+  display: none;
+}
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
+  .st_grid_card_manage::-webkit-scrollbar-track {
+  background: transparent;
+}
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
+  .st_grid_card_manage::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 20px;
+  border: transparent;
+}
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
+  .st_grid_card_manage:hover::-webkit-scrollbar {
+  display: block;
+}
+
 .st_top_manage_body
   .st_mange_cos_body
   .st_manage_course_grid
@@ -229,6 +258,7 @@
   h3 {
   font-weight: 400;
   color: #ff9d00;
+  font-size: 17px;
 }
 .st_top_manage_body
   .st_mange_cos_body
