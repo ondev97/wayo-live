@@ -71,9 +71,9 @@ export default function StLoginForm() {
             <p>
               <Link to="/passwordreset">Forgot Password?</Link>
             </p>
-            <p>
+            {/* <p>
               <Link to="/stsignup">Don't You Have An Account?</Link>
-            </p>
+            </p> */}
           </div>
         </div>
       </form>

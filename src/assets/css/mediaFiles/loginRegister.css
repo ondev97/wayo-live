@@ -54,6 +54,9 @@
   .siup_body .siup_column .siup_form .but {
     flex-direction: column;
   }
+  .ins-cont {
+    padding: 10px;
+  }
 }
 @media screen and (max-width: 256px) {
   .login_body .login_column .login_form {

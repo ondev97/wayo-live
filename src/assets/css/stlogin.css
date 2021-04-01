@@ -175,3 +175,26 @@
   font-weight: 500;
   font-family: "Open Sans", sans-serif;
 }
+
+/*instruction content*/
+.ins-cont {
+  position: relative;
+  width: 95%;
+  margin: 0 auto 100px;
+  padding: 50px;
+  border: 1px solid #d0d0d0;
+  background-color: #fbfbfb;
+  border-radius: 20px;
+  text-align: center;
+}
+.ins-cont h3 {
+  margin-bottom: 40px;
+}
+.ins-cont p {
+  margin-bottom: 14px;
+  line-height: 30px;
+}
+.ins-cont p a {
+  font-weight: 600;
+  color: #f8ab2e;
+}
