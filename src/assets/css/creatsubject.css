@@ -84,7 +84,7 @@
   font-weight: 600;
 }
 .subject_form .main_form p label span {
-  font-size: 12px;
+  color: #868686;
 }
 .subject_form .main_form p input,
 p textarea {
@@ -105,6 +105,9 @@ p textarea {
 .subject_form .main_form .costtype label {
   font-size: 14px;
   font-weight: 600;
+}
+.subject_form .main_form .costtype label span {
+  color: #868686;
 }
 .subject_form .main_form .costtype .toggle {
   width: 60px;

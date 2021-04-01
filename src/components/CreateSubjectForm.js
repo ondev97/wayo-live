@@ -21,7 +21,9 @@ export default function CreateSubjectForm({
   return (
     <form onSubmit={handelSubmit}>
       <p>
-        <label htmlFor="st">Subject Title</label>
+        <label htmlFor="st">
+          Subject Title <span>(Max 45 Characters)</span>
+        </label>
         <input
           type="text"
           name="subject_title"

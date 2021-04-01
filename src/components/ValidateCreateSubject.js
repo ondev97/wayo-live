@@ -4,6 +4,9 @@ export default function ValidateSubjectCreateForm(values) {
   if (!values.subject_title.trim()) {
     errors.subject_title = "Subject Title Is Required";
   }
+  if (values.subject_title.length > 45) {
+    errors.subject_title = "Subject Title Is Must Be Less Than 45 Characters";
+  }
   if (!values.subject_shdes.trim()) {
     errors.subject_shdes = "Short Description Is Required";
   }

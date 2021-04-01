@@ -4,8 +4,8 @@ export const checkErrors = (value, freeac) => {
   if (!value.course_name.trim()) {
     formErrors.course_name = "Course Name Is Required";
   }
-  if (value.course_name.length > 80) {
-    formErrors.course_name = "Course Name Must Be Less Than 80 Characters";
+  if (value.course_name.length > 45) {
+    formErrors.course_name = "Course Name Must Be Less Than 45 Characters";
   }
   if (freeac) {
     if (!value.course_price) {

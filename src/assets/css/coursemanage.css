@@ -155,7 +155,7 @@
 }
 .main_ar_course .course_body .course_card .cscard_body {
   position: relative;
-  padding: 5px 8px;
+  padding: 12px 8px 15px;
   max-height: 100px;
   overflow-y: auto;
 }

@@ -240,7 +240,7 @@
   .grid_card_manage
   .grid_card_mg_body
   .cs_tail {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   width: 100%;
