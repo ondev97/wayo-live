@@ -45,7 +45,7 @@
 }
 .footer_main .footer_mid .footer_column .ab p {
   font-size: 14px;
-  text-align: justify;
+  text-align: left;
 }
 .footer_main .footer_mid .footer_column h2 {
   font-size: 20px;
@@ -88,4 +88,8 @@
 .footer_main .small_footer h3 {
   font-size: 15px;
   color: #777;
+}
+.footer_main .small_footer h3 span a {
+  color: #ff9d00;
+  text-decoration: none;
 }

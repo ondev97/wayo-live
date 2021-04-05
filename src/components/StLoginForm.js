@@ -76,6 +76,13 @@ export default function StLoginForm() {
             </p> */}
           </div>
         </div>
+        <div className="instruc">
+          <p>
+            ඔබගේ Eyekon eClass Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක්
+            පවතීනම් එය නිරාකරණය කරගැනීම සදහා පහත සදහන් කර ඇති උපදෙස් අනුව කටයුතු
+            කරන්න.
+          </p>
+        </div>
       </form>
     </>
   );

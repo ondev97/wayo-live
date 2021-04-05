@@ -176,6 +176,12 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/*shot instruction*/
+.login_body .login_column .instruc p {
+  font-size: 15px;
+  color: #3d3d3d;
+}
+
 /*instruction content*/
 .ins-cont {
   position: relative;
