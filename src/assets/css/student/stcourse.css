@@ -248,6 +248,10 @@
   .st_grid_card_mg_body {
   padding: 5px 10px;
   text-align: center;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .st_top_manage_body
