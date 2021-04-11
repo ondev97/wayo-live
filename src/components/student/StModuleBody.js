@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 export default function StModuleBody({ children, name }) {
-  const [isToggle, setisToggle] = useState(false);
+  const [isToggle, setisToggle] = useState(true);
 
   return (
     <motion.div layout className="al_on_model">
