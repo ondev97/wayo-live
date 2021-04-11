@@ -19,6 +19,7 @@
   }
   .models .md_all_models {
     order: 2;
+    width: 100%;
   }
   .models .md_course_desc .course_desc_head {
     flex: 0.5;
