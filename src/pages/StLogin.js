@@ -53,7 +53,13 @@ export default function StLogin() {
         <p>
           ඔබ Eyekon eClass සදහා log වීමට ප්‍රථම ඔබට Eyekon eClass student
           account එකක් තිබිය යුතුය. ඒ සදහා institute වෙත ඔබගේ අනන්‍යතාවය තහවුරු
-          කර ඔබගේ student account එක ලබාගන්න.
+          කර ඔබගේ student account එක ලබාගන්න.{" "}
+          <span className="red">
+            ලියාපදිංචි වීමේදී Username (Class Number) ලෙස ඔබගේ institute එකෙන්
+            ඔබට ලබාදෙන ඔබටම අනන්‍ය වූ අංකය පමණක් භාවිතා කිරීම අනිවාර්ය වේ. (EX:
+            23A011). ඉන් පරිබාහිරව ලබාදෙන username සහිත සියලු student accounts
+            ස්වයංක්‍රියව අප පද්ධතියෙන් ඉවත් වේ.
+          </span>
         </p>
         <p>
           මෙම ගැටලුවට හේතුව වනුයේ, ඔබ විසින් ඔබගේ student account සදහා log වීමට
