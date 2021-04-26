@@ -115,7 +115,6 @@
   border-color: #eea42a;
 }
 .login_body .login_column .login_form .but {
-  margin-top: 25px;
   display: flex;
   align-items: center;
 }
@@ -135,6 +134,22 @@
 .login_body .login_column .login_form .but p a {
   text-decoration: none;
   color: #ff9d00;
+}
+.login_body .login_column .login_form .showpw p {
+  width: 100%;
+  display: flex;
+  padding: 15px 0;
+  text-align: center;
+}
+.login_body .login_column .login_form .showpw p input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.login_body .login_column .login_form .showpw p label {
+  font-size: 16px;
+  cursor: pointer;
 }
 .login_body .login_column .login_form p .tip {
   font-size: 11px;

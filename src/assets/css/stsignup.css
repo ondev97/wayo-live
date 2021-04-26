@@ -140,6 +140,22 @@
 .siup_body .siup_column .siup_form input:focus {
   border-color: #ffaf2e;
 }
+.siup_body .siup_column .siup_form .showpw p {
+  width: 100%;
+  display: flex;
+  padding: 15px 0;
+  text-align: center;
+}
+.siup_body .siup_column .siup_form .showpw p input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.siup_body .siup_column .siup_form .showpw p label {
+  font-size: 16px;
+  cursor: pointer;
+}
 .siup_body .siup_column .siup_form .but {
   margin-top: 15px;
   display: flex;

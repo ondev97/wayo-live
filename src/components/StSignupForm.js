@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import StValidate from "../utils/hooks/StValidate";
 import ValidateSignUp from "./ValidateSignUp";
@@ -13,6 +13,22 @@ export default function StSignupForm() {
     hide,
     ac,
   ] = StValidate(ValidateSignUp); //custom hook
+
+  const passwordRef = useRef();
+  const repasswordRef = useRef();
+
+  //function for trigger show password field
+  const showPassword = (e) => {
+    let checked = e.target.checked;
+
+    if (checked) {
+      passwordRef.current.type = "text";
+      repasswordRef.current.type = "text";
+    } else {
+      passwordRef.current.type = "password";
+      repasswordRef.current.type = "password";
+    }
+  };
 
   if (ac) {
     return <Redirect to="/stlogin" />;
@@ -125,6 +141,7 @@ export default function StSignupForm() {
               onChange={hadelChanege}
               className={errors.pw ? "error" : ""}
               onFocus={hideError}
+              ref={passwordRef}
             />
             {errors.pw && (
               <span className={`tip ${hide.pw ? "hidetip" : ""}`}>
@@ -142,12 +159,24 @@ export default function StSignupForm() {
               onChange={hadelChanege}
               className={errors.cpw ? "error" : ""}
               onFocus={hideError}
+              ref={repasswordRef}
             />
             {errors.cpw && (
               <span className={`tip ${hide.cpw ? "hidetip" : ""}`}>
                 {errors.cpw}
               </span>
             )}
+          </p>
+        </div>
+        <div className="showpw">
+          <p>
+            <input
+              type="checkbox"
+              name="showPw"
+              id="showpw"
+              onChange={(e) => showPassword(e)}
+            />
+            <label htmlFor="showpw">Show Password</label>
           </p>
         </div>
         <div className="but">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
@@ -12,6 +12,18 @@ export default function StLoginForm() {
     hide,
     acDetails,
   ] = StValidateLogin();
+  const passwordRef = useRef();
+
+  //function for trigger show password field
+  const showPassword = (e) => {
+    let checked = e.target.checked;
+
+    if (checked) {
+      passwordRef.current.type = "text";
+    } else {
+      passwordRef.current.type = "password";
+    }
+  };
 
   if (Object.values(acDetails).length !== 0) {
     if (!acDetails.user.is_teacher) {
@@ -57,6 +69,7 @@ export default function StLoginForm() {
             onChange={hadelOnChange}
             className={errors.pw ? "error" : ""}
             onFocus={hideError}
+            ref={passwordRef}
           />
           {errors.pw && (
             <span className={`tip ${hide.pw ? "hidetip" : ""}`}>
@@ -64,6 +77,17 @@ export default function StLoginForm() {
             </span>
           )}
         </p>
+        <div className="showpw">
+          <p>
+            <input
+              type="checkbox"
+              name="showPw"
+              id="showpw"
+              onChange={(e) => showPassword(e)}
+            />
+            <label htmlFor="showpw">Show Password</label>
+          </p>
+        </div>
         <div className="but">
           <input type="submit" value="Log In" name="submit" />
 
@@ -76,6 +100,7 @@ export default function StLoginForm() {
             </p> */}
           </div>
         </div>
+
         <div className="instruc">
           <p>
             ඔබගේ Eyekon eClass Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක්
