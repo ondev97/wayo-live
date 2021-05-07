@@ -164,6 +164,7 @@ export default function StSubCourses() {
                         duration={cdata.course.duration}
                         created_at={cdata.course.created_at}
                         courseid={cdata.course.id}
+                        is_freeze={cdata.course.is_freeze}
                         no={index}
                       />
                     ))

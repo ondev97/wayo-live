@@ -24,6 +24,7 @@ export default function UpdateCourse() {
     course_description: "",
     hr: "",
     course_img: "",
+    is_freeze: false,
   });
   const [courseErrors, setcourseErrors] = useState({
     course_name: "",
@@ -66,6 +67,7 @@ export default function UpdateCourse() {
             course_description: res.data.course_description,
             hr: res.data.duration,
             course_img: res.data.course_cover,
+            is_freeze: res.data.is_freeze,
           });
         })
         .catch((err) => {
@@ -142,6 +144,7 @@ export default function UpdateCourse() {
     form_data.append("course_description", courseValue.course_description);
     form_data.append("price", courseValue.course_price);
     form_data.append("duration", courseValue.hr);
+    form_data.append("is_freeze", courseValue.is_freeze);
 
     Axios.put(
       `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/updatecourse/${subid}/`,
