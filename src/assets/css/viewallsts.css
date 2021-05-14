@@ -63,6 +63,13 @@
   width: 100%;
   padding-top: 18px;
 }
+.sttable h2 {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #28a745;
+}
 .sttable table {
   width: 100%;
   background-color: #fff;
