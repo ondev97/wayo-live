@@ -1,6 +1,6 @@
 import Axios from "axios";
 import { AnimateSharedLayout } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import LazyLoad from "react-lazyload";
 import ReactPlayer from "react-player/lazy";
@@ -14,9 +14,29 @@ export default function TcOneModel({
   id,
   cid,
   setisRemoveModule,
+  setvideoLink,
+  setsetVideo,
 }) {
+  const [playing, setplaying] = useState(false);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
+
+  const playPush = (e) => {
+    if (e.target.className.includes("player_overlay")) {
+      if (playing) {
+        setplaying(false);
+      } else {
+        setplaying(true);
+      }
+    }
+  };
+
+  const play = (link) => {
+    setplaying(true);
+    setvideoLink(link);
+    setsetVideo(true);
+    setplaying(false);
+  };
 
   //filtering message and embed react player
   function filterTags(nodes) {
@@ -30,18 +50,47 @@ export default function TcOneModel({
           if (nodes[i].props.children) {
             for (let x = 0; x < nodes[i].props.children.length; x++) {
               if (nodes[i].props.children[x].type === "oembed") {
-                media.push(
-                  <div className="re_player" key={i}>
-                    <ReactPlayer
-                      url={nodes[i].props.children[x].props.url}
-                      controls={true}
-                      pip={true}
-                      className="player"
-                      width="100%"
-                      height="100%"
-                    />
-                  </div>
-                );
+                if (nodes[i].props.children[x].props.url.includes("youtu")) {
+                  media.push(
+                    <div className="re_player" id="re_player" key={i}>
+                      <div className="player_overlay" onClick={playPush}></div>
+                      <ReactPlayer
+                        url={nodes[i].props.children[x].props.url}
+                        controls={true}
+                        pip={true}
+                        className="player"
+                        width="100%"
+                        height="100%"
+                        muted={true}
+                        playing={playing}
+                        onPlay={() =>
+                          play(nodes[i].props.children[x].props.url)
+                        }
+                        config={{
+                          youtube: {
+                            playerVars: {
+                              modestbranding: 1,
+                              fs: 0,
+                            },
+                          },
+                        }}
+                      />
+                    </div>
+                  );
+                } else {
+                  media.push(
+                    <div className="re_player" key={i}>
+                      <ReactPlayer
+                        url={nodes[i].props.children[x].props.url}
+                        controls={true}
+                        pip={true}
+                        className="player"
+                        width="100%"
+                        height="100%"
+                      />
+                    </div>
+                  );
+                }
               } else {
                 media = [...media, nodes[i]];
               }

@@ -161,6 +161,22 @@
   padding: 23%;
   margin: 10px 5px 20px;
 }
+/*Youtube Player Overlay*/
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  .re_player
+  .player_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 .models
   .md_all_models
   .md_models
@@ -613,4 +629,93 @@
 /*view all students button*/
 #viewst {
   display: none;
+}
+
+.full_screen_video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000bd;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full_screen_video .video_player {
+  position: relative;
+  width: 90%;
+  height: 90%;
+}
+/*Youtube Player Overlay*/
+.full_screen_video .video_player .player_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px;
+}
+.full_screen_video .video_player .player_overlay .volume {
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+}
+.full_screen_video .video_player .player_overlay .volume .icon {
+  margin-right: 5px;
+  width: 30px;
+}
+.full_screen_video .video_player .player_overlay .volume .icon i {
+  font-size: 20px;
+  color: #eee;
+}
+.full_screen_video .video_player .player_overlay .volume .seekslider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full_screen_video
+  .video_player
+  .player_overlay
+  .volume
+  .seekslider
+  input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  -webkit-transition: 0.2s;
+}
+.full_screen_video
+  .video_player
+  .player_overlay
+  .volume
+  .seekslider
+  input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  cursor: pointer;
+}
+.full_screen_video .video_player .player_overlay .playPush {
+  width: 20px;
+  margin-right: 5px;
+  visibility: hidden;
+}
+.full_screen_video .video_player .player_overlay .playPush .icon i {
+  color: #eee;
+}
+.full_screen_video .video_player .player_overlay:hover .playPush {
+  visibility: visible;
+}
+.full_screen_video .video_player .player_overlay:hover .volume {
+  visibility: visible;
 }
