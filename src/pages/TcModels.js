@@ -66,6 +66,13 @@ export default function TcModels() {
     }
   };
 
+  //disable right click
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.className === "player_overlay") {
+      e.preventDefault();
+    }
+  });
+
   return (
     <div>
       {setVideo ? (

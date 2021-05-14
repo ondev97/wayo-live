@@ -92,6 +92,13 @@ export default function Stmodules() {
     }
   };
 
+  //disable right click
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.className === "player_overlay") {
+      e.preventDefault();
+    }
+  });
+
   return (
     <div>
       {setVideo ? (
