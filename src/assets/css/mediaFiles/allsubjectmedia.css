@@ -101,4 +101,19 @@
   .key_model_outer .key_model_page .inpu {
     display: block !important;
   }
+  .models .md_all_models .md_models .al_models .on_model_body {
+    padding: 10px 2px 5px !important;
+  }
+  .models .md_all_models .md_models .al_models .on_model_body .model_body_row {
+    padding: 0 !important;
+  }
+  .models
+    .md_all_models
+    .md_models
+    .al_models
+    .on_model_body
+    .model_body_row
+    .re_player {
+    margin: 0 !important;
+  }
 }
