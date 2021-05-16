@@ -79,6 +79,33 @@ export default function Stmodules() {
     }
   }, [moduleData]);
 
+  //add external script tag for model page and disable context menu
+  useEffect(() => {
+    const script = document.createElement("script");
+    if (setVideo) {
+      //disable right click
+      document.addEventListener("contextmenu", (e) => {
+        if (e.target.className === "player_overlay") {
+          e.preventDefault();
+        }
+      });
+      script.setAttribute("id", "tidio");
+      script.src = "//code.tidio.co/vordp7zskjhjmejdgqprrjv2lnhubhk4.js";
+      script.async = true;
+
+      document.body.appendChild(script);
+    } else {
+      const tidioId = document.getElementById("tidio");
+      const tidioChat = document.getElementById("tidio-chat");
+      const tidioChatCode = document.getElementById("tidio-chat-code");
+      if (tidioId) {
+        tidioId.remove();
+        tidioChatCode.remove();
+        tidioChat.remove();
+      }
+    }
+  }, [setVideo]);
+
   if (redirect) {
     return <Redirect to={`/studentdashboard/mycourses/`} />;
   }
@@ -91,13 +118,6 @@ export default function Stmodules() {
       setvideoLink("");
     }
   };
-
-  //disable right click
-  document.addEventListener("contextmenu", (e) => {
-    if (e.target.className === "player_overlay") {
-      e.preventDefault();
-    }
-  });
 
   return (
     <div>
