@@ -35,9 +35,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #ffae29;
+  border: 2px solid var(--buttonColor1);
   border-radius: 50px;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   box-shadow: 0px 0px 5px 5px #e0e0e0;
   transition: 0.3s;
 }
@@ -46,7 +46,7 @@
   font-size: 20px;
 }
 .disp_all_issu_keys .disp_issu_keys .csv_down_circle:hover {
-  background-color: #e99f27;
+  background-color: var(--buttonColorHover1);
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table {
   position: relative;
@@ -58,7 +58,7 @@
   border: 1px solid #eee;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table tr th {
-  background-color: #fff2dd;
+  background-color: #deffea;
   color: #000;
   position: sticky;
   top: 0;
@@ -79,7 +79,7 @@ th {
 .disp_all_issu_keys .disp_issu_keys .no_keys h1 {
   font-size: 20px;
   margin-bottom: 25px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .disp_all_issu_keys .disp_issu_keys .no_keys .svg {
   width: 300px;

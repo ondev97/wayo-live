@@ -45,7 +45,7 @@
   border-right: transparent;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -57,7 +57,7 @@
   border-left: transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-weight: 600;
   letter-spacing: 1px;
@@ -75,7 +75,7 @@
 .st_top_manage_body .st_mange_cos_body .cr_models button {
   width: 175px;
   padding: 8px 5px;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   border-radius: 20px;
   cursor: pointer;
   background-color: #fff;
@@ -85,9 +85,10 @@
 }
 .st_top_manage_body .st_mange_cos_body .cr_models button i {
   margin-right: 10px;
+  color: var(--buttonColor1);
 }
 .st_top_manage_body .st_mange_cos_body .cr_models button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .st_top_manage_body .st_mange_cos_body .cr_models button:hover i {
@@ -101,7 +102,7 @@
 }
 .st_top_manage_body .st_mange_cos_body .cou_row h1 {
   font-size: 23px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
 }
 
@@ -113,16 +114,16 @@
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search input {
   padding: 9px;
   width: 400px;
-  border: 1px solid #a57221;
+  border: 1px solid var(--buttonColor1);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-right: transparent;
   outline: none;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search button {
-  background-color: #fff3df;
+  background-color: #e1ffed;
   width: 50px;
-  border: 1px solid #a57221;
+  border: 1px solid var(--buttonColor1);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-left: transparent;
@@ -140,15 +141,15 @@
   cursor: pointer;
   outline: none;
   background-color: #fff;
-  border: 2px solid #f5d39b;
-  color: #ff9d00;
+  border: 2px solid #c8ffde;
+  color: var(--buttonColor1);
   font-weight: 600;
   width: 120px;
   border-radius: 20px;
   transition: 0.3s ease-in;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_course_nav button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_course_grid {
@@ -220,7 +221,7 @@
   width: 100%;
   height: 180px;
   transition: 0.5s ease;
-  background-image: linear-gradient(to left, #ffae29, black);
+  background-image: linear-gradient(to left, #55f592, black);
   margin-bottom: 15px;
 }
 .st_top_manage_body
@@ -262,7 +263,7 @@
   .st_grid_card_mg_body
   h3 {
   font-weight: 400;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-size: 17px;
 }
 .st_top_manage_body
@@ -310,7 +311,7 @@
   padding: 6px 0;
   width: 125px;
   background-color: #fff;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   border-radius: 3px;
   cursor: pointer;
   font-weight: 500;
@@ -327,6 +328,7 @@
   i {
   font-size: 12px;
   margin-right: 10px;
+  color: var(--buttonColor1);
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -355,7 +357,7 @@
   .st_grid_card_mg_body
   .st_purchase_row
   button:nth-child(1):hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .st_top_manage_body
@@ -413,7 +415,7 @@
   width: 50px;
   height: 50px;
   background-color: #fff;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   display: flex;
   padding: 5px 2px 2px 5px;
   justify-content: flex-start;
@@ -431,7 +433,7 @@
   bottom: 5px;
   right: 5px;
   padding: 7px 10px;
-  background-color: #e29924;
+  background-color: var(--h1Fontcolor);
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -594,14 +596,14 @@ i.cl {
   font-size: 13px;
   color: #000;
   padding: 3px;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--h1Fontcolor);
 }
 .st_top_manage_body
   .st_cos_details
   .st_cos_details_head
   .cos_tool_bar
   h3:hover {
-  background-color: #ff9d00;
+  background-color: var(--h1Fontcolor);
   color: #fff;
   transition: 0.5s ease;
 }
@@ -623,7 +625,7 @@ i.cl {
   margin-bottom: 3px;
   font-weight: 500;
   font-size: 20px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .st_top_manage_body .st_cos_details .st_cos_details_head h4 {
   margin-bottom: 10px;
@@ -633,7 +635,7 @@ i.cl {
 }
 .st_top_manage_body .st_cos_details .st_cos_details_body h4 {
   font-size: 14px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
   margin-bottom: 8px;
 }

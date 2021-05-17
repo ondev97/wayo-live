@@ -26,13 +26,13 @@
   display: block;
   margin-bottom: 15px;
   font-size: 17px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 600;
 }
 .genkeysform .main_gen_form form p input {
   width: 100%;
   padding: 8px 5px;
-  color: #ff9d00;
+  color: var(--buttonColor1);
   outline: none;
   border: 1px solid #c1c0c0;
   border-radius: 3px;
@@ -49,7 +49,7 @@
   padding: 8px;
   margin-top: 15px;
   border: 1px solid transparent;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-weight: 600;
   font-size: 15px;
@@ -59,7 +59,7 @@
   transition: 0.3s ease;
 }
 .genkeysform .main_gen_form form .gen_sub button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .genkeysform .mid_row {
   width: 100%;
@@ -76,7 +76,7 @@
 .genkeysform .mid_row button {
   width: 130px;
   padding: 6px;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   border: 1px solid transparent;
   color: #fff;
   font-weight: 600;
@@ -85,7 +85,7 @@
   transition: 0.5s ease;
 }
 .genkeysform .mid_row button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .genkeysform .mid_row button i {
   color: #fff;
@@ -139,14 +139,14 @@
 }
 .genkeysform .main_gen_form .disp_gen_keys table thead tr:first-child {
   background-color: #fffdfa;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(1) {
   background-color: #eee3;
 }
 
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(2) {
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .genkeysform .main_gen_form .disp_gen_keys table tr td {
   padding: 15px 12px;
@@ -189,7 +189,7 @@
   td
   input[type="checkbox"]:checked
   ~ .toggle_fill {
-  background-color: #faa824;
+  background-color: var(--h1Fontcolor);
 }
 .genkeysform
   .main_gen_form
@@ -211,7 +211,7 @@
 }
 .genkeysform .main_gen_form .no_keys h1 {
   margin-bottom: 25px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
   font-size: 20px;
 }

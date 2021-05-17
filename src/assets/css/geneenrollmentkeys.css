@@ -26,12 +26,12 @@
   font-size: 13px;
   font-weight: 500;
   padding: 7px;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   text-align: center;
   transition: 0.3s ease;
 }
 .main_sub .simple_nav a:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .main_sub .show {
@@ -46,7 +46,7 @@
 .main_sub .show .back button {
   padding: 8px 10px;
   background-color: #fff;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   border-radius: 20px;
   outline: none;
   cursor: pointer;
@@ -54,9 +54,10 @@
 }
 .main_sub .show .back button i {
   margin-right: 5px;
+  color: var(--buttonColor1);
 }
 .main_sub .show .back button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .main_sub .show .back button:hover i {

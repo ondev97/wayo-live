@@ -13,7 +13,7 @@
 .all_st_subs .pagetop h1 {
   font-size: 28px;
   font-weight: 500;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   text-align: left;
   flex: 0.3;
   text-transform: uppercase;
@@ -27,7 +27,7 @@
   padding: 12px;
   width: 60%;
   background-color: #fff;
-  border: 1px solid #eca126;
+  border: 1px solid var(--h1Fontcolor);
   border-right: transparent;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -36,7 +36,7 @@
 .all_st_subs .pagetop .search_row button {
   width: 60px;
   background-color: #fff;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--h1Fontcolor);
   border-left: transparent;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -69,7 +69,7 @@
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub {
   height: 170px;
   overflow: hidden;
-  background: linear-gradient(150deg, #ffae29, black);
+  background: linear-gradient(150deg, var(--dashboardBack), #ffecf2);
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub img {
   width: 100%;
@@ -99,7 +99,7 @@
   height: 100%;
   padding: 3px;
   border-radius: 50%;
-  border: 2px solid #e89e26;
+  border: 2px solid var(--h1Fontcolor);
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_ins_pro img {
   width: 100%;
@@ -131,7 +131,7 @@
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) h3 {
   font-size: 17px;
   font-weight: 600;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   margin-bottom: 8px;
   margin-top: 8px;
 }
@@ -186,7 +186,7 @@
   align-items: center;
   font-size: 11px;
   background-color: #f8f8f8;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(3) h3 {
   font-weight: 400;

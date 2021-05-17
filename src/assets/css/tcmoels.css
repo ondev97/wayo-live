@@ -28,8 +28,8 @@
   font-weight: 500;
   border-radius: 5px;
   cursor: pointer;
-  background: #ffae29;
-  border: 1px solid #ffae29;
+  background: var(--h1Fontcolor);
+  border: 1px solid var(--h1Fontcolor);
   color: #fff;
   transition: 0.2s ease;
 }
@@ -38,7 +38,7 @@
   text-decoration: none;
 }
 .models .md_all_models .models_en_nav ul li:hover {
-  background-image: #ffae29;
+  background-image: var(--h1Fontcolor);
 }
 .models .md_all_models .models_en_nav ul li i {
   font-size: 12px;
@@ -59,7 +59,7 @@
 .models .md_all_models .md_models .cr_models button {
   padding: 8px;
   width: 150px;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   background-color: #fff;
   border-radius: 20px;
   cursor: pointer;
@@ -69,9 +69,10 @@
 }
 .models .md_all_models .md_models .cr_models button i {
   margin-right: 10px;
+  color: var(--buttonColor1);
 }
 .models .md_all_models .md_models .cr_models button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .models .md_all_models .md_models .cr_models button:hover i {
@@ -97,7 +98,7 @@
 .models .md_all_models .md_models .al_models .on_model_head h1 {
   font-size: 17px;
   font-weight: 500;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .models .md_all_models .md_models .al_models .on_model_head .heads_buts button {
   background: none;
@@ -124,7 +125,7 @@
   .heads_buts
   button:nth-child(1)
   i {
-  color: #ff9d00;
+  color: var(--buttonColor1);
   font-size: 16px;
 }
 .models
@@ -356,7 +357,7 @@
   height: 200px;
   overflow: hidden;
   margin-bottom: 20px;
-  background-image: linear-gradient(to right, #cf8d23, #000);
+  background-image: linear-gradient(to right, var(--h1Fontcolor), #000);
 }
 .models .md_course_desc img {
   width: 100%;
@@ -367,7 +368,7 @@
 .models .md_course_desc .course_desc_head h2 {
   font-size: 18px;
   font-weight: 500;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   margin-bottom: 8px;
   margin-left: 15px;
 }
@@ -409,7 +410,7 @@
 .models .md_course_desc .course_desc_body .card_of_course .cos_options button {
   padding: 8px 5px;
   width: 120px;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   border: none;
   color: #fff;
   font-size: 12px;
@@ -441,7 +442,7 @@
   .card_of_course
   .cos_options
   button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .models
   .md_course_desc
@@ -452,7 +453,7 @@
   background-color: #be1e12;
 }
 .models .md_course_desc .course_desc_body .card_of_course .course_detail h2 {
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-size: 17px;
   margin-top: 15px;
   text-transform: capitalize;
@@ -514,7 +515,7 @@
 }
 .models .md_course_desc .course_desc_body .course_short_desc h3 {
   font-size: 15px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   margin-bottom: 8px;
   font-weight: 500;
 }
@@ -543,7 +544,7 @@
   margin-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .models
   .md_course_desc
@@ -609,7 +610,7 @@
   .all_course_student
   .student_row:hover {
   background-color: #f5f5f5;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .md_course_desc .course_desc_body {
   scrollbar-width: thin;

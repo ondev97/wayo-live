@@ -56,7 +56,7 @@
 .modeladdstfile .filecsv label {
   width: 150px;
   padding: 8px;
-  background-color: #ff9d00;
+  background-color: var(--buttonColor1);
   color: #fff;
   text-align: center;
   border-radius: 2px;
@@ -72,9 +72,9 @@
   width: 150px;
   padding: 8px;
   background-color: #fff;
-  color: #ff9d00;
+  color: var(--buttonColor1);
   text-align: center;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--buttonColor1);
   border-radius: 2px;
   font-weight: 600;
   cursor: pointer;
@@ -86,7 +86,7 @@
   background-color: #fff;
 }
 .ins_area h4 {
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   margin-bottom: 8px;
   font-size: 13px;
 }
@@ -101,17 +101,17 @@
 .filerow button {
   width: 200px;
   padding: 8px 5px;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--buttonColor1);
   border-radius: 20px;
   background-color: #fff;
-  color: #ff9d00;
+  color: var(--buttonColor1);
   transition: 0.5s ease;
   cursor: pointer;
   outline: none;
   margin: 8px;
 }
 .filerow button:hover {
-  background-color: #ff9d00;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 
@@ -127,7 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fefbf6;
+  background-color: var(--dashboardBack);
   z-index: 105;
   text-align: center;
 }
@@ -136,7 +136,7 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--mainCovHeader);
   background-color: #fff;
 }
 .top_head_row .added_main button i {
@@ -188,6 +188,7 @@
   height: 20px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   outline: none;
 }
 .select_row .scard .relcard .rembut button i {

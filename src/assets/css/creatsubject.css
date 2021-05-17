@@ -36,13 +36,13 @@
   height: 0px;
   right: -38%;
   top: 30%;
-  border-top: 2px dotted #c0882f;
+  border-top: 2px dotted var(--buttonColor1);
   position: absolute;
 }
 .subject_form .uppper_section .main_upper .up_column .up_icon {
   width: 55px;
   height: 55px;
-  border: 2px solid #f5af3f;
+  border: 2px solid var(--buttonColor1);
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -51,13 +51,14 @@
   margin-bottom: 20px;
 }
 .subject_form .uppper_section .main_upper .up_column .act {
-  background-color: #fab03a;
+  background-color: var(--buttonColor1);
 }
 .subject_form .uppper_section .main_upper .up_column .act i {
-  color: #fff;
+  color: #fff !important;
 }
 .subject_form .uppper_section .main_upper .up_column .up_icon i {
   font-size: 18px;
+  color: var(--buttonColor1);
 }
 .subject_form .uppper_section .main_upper .up_column h3 {
   font-weight: 500;
@@ -70,7 +71,7 @@
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 28px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .subject_form .main_form p {
   position: relative;
@@ -128,8 +129,8 @@ p textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffce81;
-  border: 1px solid #ffce81;
+  background-color: #ffd6e3;
+  border: 1px solid #ffd6e3;
 }
 .subject_form .main_form .costtype .fill p {
   margin: 0;
@@ -151,7 +152,7 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
 }
 .subject_form .main_form p span.curu {
-  background-color: #ffae29;
+  background-color: var(--h1Fontcolor);
   width: 40px;
   padding: 8px;
   color: #fff;
@@ -174,7 +175,7 @@ input[type="number"]::-webkit-outer-spin-button {
   outline: none;
   border: 1px solid #c1c1c1;
   border-radius: 3px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
   font-size: 13px;
 }
@@ -183,7 +184,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px !important;
   border: 1px solid transparent;
   cursor: initial;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
@@ -193,20 +194,20 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px !important;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
 }
 .subject_form .main_form p input[type="submit"]:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
 }
 .subject_form .main_form p button.sub {
   margin-top: 20px;
   width: 200px;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-weight: 600;
   padding: 10px;
@@ -214,7 +215,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: 0.3s ease;
 }
 .subject_form .main_form p button.sub:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .subject_form .main_form p button .notch {
   color: #fff;
@@ -239,7 +240,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 45px;
   padding: 8px;
   text-align: center;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 
@@ -281,7 +282,7 @@ input[type="number"]::-webkit-outer-spin-button {
 button.cp {
   width: 200px;
   text-align: center;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   padding: 8px 5px;
   font-size: 13px;
   cursor: pointer;
@@ -290,17 +291,17 @@ button.cp {
   transition: 0.5s ease;
 }
 .subject_form .main_form .up_pro_pic label:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .subject_form .main_form .up_pro_pic button.cp {
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
 }
 .subject_form .main_form .up_pro_pic button.cp:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
   color: #fff;
 }
 
@@ -340,7 +341,7 @@ button.cp {
 .subject_form .main_form .multi_files label {
   width: 190px;
   padding: 8px 4px;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--h1Fontcolor);
   text-align: center;
   cursor: pointer;
   font-size: 13px;
@@ -348,7 +349,7 @@ button.cp {
   transition: 0.3s ease;
 }
 .subject_form .main_form .multi_files label:hover {
-  background-color: #ffae29;
+  background-color: var(--h1Fontcolor);
   color: #fff;
 }
 
@@ -418,11 +419,11 @@ button.cp {
 
 @keyframes blinking {
   0% {
-    background-color: #fff8ee;
+    background-color: #f2ffef;
   }
   100% {
     background-color: #fff;
-    color: #fdeccf;
+    color: var(--buttonColor1);
   }
 }
 .subject_form .main_form .show_files .up_list li span i {
@@ -464,7 +465,7 @@ button.cp {
 .subject_form .main_form .multi_files .progressPath .progressBar {
   border-radius: 20px;
   height: 100%;
-  background-image: linear-gradient(to right, #fcefda, #fff5e6);
+  background-image: llinear-gradient(to right, #c1ffc6, #83d28f);
 }
 
 /*back button*/
@@ -475,7 +476,7 @@ button.cp {
   width: 160px;
   padding: 8px;
   background-color: #fff;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--buttonColor1);
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
@@ -485,7 +486,7 @@ button.cp {
   margin-right: 8px;
 }
 .subject_form .back button:hover {
-  background-color: #ff9d00;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .subject_form .back button:hover i {

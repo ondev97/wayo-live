@@ -10,7 +10,7 @@
   align-items: center;
   background-color: #f6f6f6;
   font-family: "Open Sans", sans-seri;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .search_st {
   width: 100%;
@@ -23,18 +23,19 @@
   width: 140px;
   padding: 8px;
   border-radius: 20px;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--buttonColor1);
   background-color: #fff;
-  color: #ff9d00;
+  color: var(--buttonColor1);
   cursor: pointer;
   outline: none;
   transition: 0.3s ease;
 }
 .search_st button i {
   margin-right: 8px;
+  color: var(--buttonColor1);
 }
 .search_st button:hover {
-  background-color: #ff9d00;
+  background-color: var(--buttonColor1);
   color: #fff;
 }
 .search_st button:hover i {

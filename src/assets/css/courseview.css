@@ -131,8 +131,8 @@
   cursor: pointer;
   outline: none;
   background-color: #fff;
-  border: 2px solid #ffae29;
-  color: #e99d23;
+  border: 2px solid var(--buttonColor1);
+  color: var(--buttonColorHover1);
   font-weight: 600;
   width: 160px;
   border-radius: 20px;
@@ -141,9 +141,10 @@
 }
 .top_manage_body .mange_cos_body .manage_course_nav button i {
   margin-right: 5px;
+  color: var(--buttonColorHover1);
 }
 .top_manage_body .mange_cos_body .manage_course_nav button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
   color: #fff;
 }
 .top_manage_body .mange_cos_body .manage_course_nav button:hover i {
@@ -182,7 +183,7 @@
   width: 100%;
   height: 180px;
   transition: 0.5s ease;
-  background-image: linear-gradient(to left, #d0973a, black);
+  background-image: linear-gradient(to left, #a6ffc8, #95f5ba);
   margin-bottom: 15px;
 }
 .top_manage_body
@@ -220,7 +221,7 @@
   .grid_card_mg_body
   h3 {
   font-weight: 400;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-size: 16px;
 }
 .top_manage_body
@@ -280,7 +281,7 @@
   width: 50px;
   height: 50px;
   background-color: #fff;
-  color: #e79d25;
+  color: var(--h1Fontcolor);
   display: flex;
   padding: 6px;
   justify-content: flex-start;
@@ -298,7 +299,7 @@
   bottom: 5px;
   right: 5px;
   padding: 7px 10px;
-  background-color: #ff9d00;
+  background-color: var(--h1Fontcolor);
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -477,10 +478,10 @@ i.cl {
   font-size: 13px;
   color: #000;
   padding: 3px;
-  border: 1px solid #ff9d00;
+  border: 1px solid var(--h1Fontcolor);
 }
 .top_manage_body .cos_details .cos_details_head .cos_tool_bar h3:hover {
-  background-color: #ff9d00;
+  background-color: var(--h1Fontcolor);
   color: #fff;
   transition: 0.5s ease;
 }
@@ -502,7 +503,7 @@ i.cl {
   margin-bottom: 3px;
   font-weight: 500;
   font-size: 20px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .top_manage_body .cos_details .cos_details_head h4 {
   margin-bottom: 10px;
@@ -512,7 +513,7 @@ i.cl {
 }
 .top_manage_body .cos_details .cos_details_body h4 {
   font-size: 14px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
   margin-bottom: 8px;
 }
