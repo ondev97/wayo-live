@@ -43,7 +43,7 @@
   bottom: -8px;
   right: 8px;
   border-radius: 50%;
-  border: 2px solid #ffae29;
+  border: 2px solid var(--h1Fontcolor);
 }
 .maininde
   .popular_subjects

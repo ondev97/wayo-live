@@ -1,9 +1,9 @@
 :root {
   --background1: #f5f6f8;
-  --mainCovHeader: #ff9d00;
-  --h1Fontcolor: #ff9d00;
-  --buttonColor1: #ffae29;
-  --buttonColorHover1: #ffae29;
+  --mainCovHeader: #ff0052;
+  --h1Fontcolor: #ff0052;
+  --buttonColor1: #008231;
+  --buttonColorHover1: #05913b;
 }
 .maininde {
   width: 100%;
@@ -29,8 +29,8 @@
   background: linear-gradient(
     to right,
     #fff,
-    #ffffffd9,
-    #ffffffab,
+    #fffffffc,
+    #ffffffcc,
     transparent
   );
   display: flex;
@@ -70,7 +70,7 @@
   width: 150px;
   border-radius: 3px;
   border: 1px solid transparent;
-  background-color: #ffae29;
+  background-color: #008231;
   outline: none;
   font-weight: 600;
   color: #fff;

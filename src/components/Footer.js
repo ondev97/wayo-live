@@ -14,11 +14,11 @@ export default function Footer() {
           </div>
           <div className="ab">
             <p>
-              'Eyekoneclass.lk' provides facilities in a higher manner to the
+              'jathikapasala.com' provides facilities in a higher manner to the
               Sri Lankan educational sector. All the courses are being conducted
               by leading and fully qualified panel of teachers in the Island.
               With the direct guidance of the teachers, students follow their
-              syllabus. At 'eyekoneclass.lk', conduct online examinations and
+              syllabus. At 'jathikapasala.com', conduct online examinations and
               will be assessed the student’s progress accordingly.
             </p>
           </div>
