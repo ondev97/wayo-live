@@ -103,7 +103,7 @@ export default function StLoginForm() {
 
         <div className="instruc">
           <p>
-            ඔබගේ Eyekon eClass Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක්
+            ඔබගේ ජාතික පාසල Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක්
             පවතීනම් එය නිරාකරණය කරගැනීම සදහා පහත සදහන් කර ඇති උපදෙස් අනුව කටයුතු
             කරන්න.
           </p>

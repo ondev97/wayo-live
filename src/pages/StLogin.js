@@ -22,7 +22,7 @@ export default function StLogin() {
             <div className="topSign">
               <h2>Login</h2>
               <p>
-                Access the Eyekon eClass Dashboard using your Username (Class
+                Access the ජාතික පාසල Dashboard using your Username (Class
                 Number) and Password.
               </p>
             </div>
@@ -35,25 +35,25 @@ export default function StLogin() {
           </div>
           <div className="image_content">
             <h3>
-              Eyekon eClass provides facilities in a higher manner to the Sri
+              ජාතික පාසල provides facilities in a higher manner to the Sri
               Lankan educational sector. All the courses are being conducted by
               leading and fully qualified panel of teachers in the Island. With
               the direct guidance of the teachers, students follow their
-              syllabus. At Eyekon eClass, conduct online examinations and will
-              be assessed the student’s progress accordingly.
+              syllabus. At ජාතික පාසල, conduct online examinations and will be
+              assessed the student’s progress accordingly.
             </h3>
           </div>
         </div>
       </div>
       <div className="ins-cont">
         <h3>
-          Eyekon eClass සදහා log වීමේදී "Unable to log in with provided
+          ජාතික පාසල සදහා log වීමේදී "Unable to log in with provided
           credentials" ලෙස error message එකක් පැමිණීම.
         </h3>
         <p>
-          ඔබ Eyekon eClass සදහා log වීමට ප්‍රථම ඔබට Eyekon eClass student
-          account එකක් තිබිය යුතුය. ඒ සදහා institute වෙත ඔබගේ අනන්‍යතාවය තහවුරු
-          කර ඔබගේ student account එක ලබාගන්න.{" "}
+          ඔබ ජාතික පාසල සදහා log වීමට ප්‍රථම ඔබට Eyekon eClass student account
+          එකක් තිබිය යුතුය. ඒ සදහා institute වෙත ඔබගේ අනන්‍යතාවය තහවුරු කර ඔබගේ
+          student account එක ලබාගන්න.{" "}
           <span className="red">
             ලියාපදිංචි වීමේදී Username (Class Number) ලෙස ඔබගේ institute එකෙන්
             ඔබට ලබාදෙන ඔබටම අනන්‍ය වූ අංකය පමණක් භාවිතා කිරීම අනිවාර්ය වේ. (EX:
