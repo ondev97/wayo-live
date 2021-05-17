@@ -41,7 +41,7 @@ export default function Stmodules() {
           console.log(err);
           store.addNotification({
             title: err.response.data.message,
-            message: "Eyekon eClass",
+            message: "Jathikapasala",
             type: "warning",
             insert: "top",
             container: "top-right",

@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
 import "../assets/css/stlogin.css";
 import "../assets/css/mediaFiles/loginRegister.css";
-import { Link } from "react-router-dom";
 
 export default function StLogin() {
   const dispatch = useDispatch();

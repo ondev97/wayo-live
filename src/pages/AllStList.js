@@ -86,7 +86,7 @@ export default function AllStList() {
 
         store.addNotification({
           title: `Unenrolled Successfully`,
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "success",
           insert: "top",
           container: "top-right",

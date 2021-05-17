@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
 import "../assets/css/stlogin.css";
 import "../assets/css/mediaFiles/loginRegister.css";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Axios from "axios";
 import { store } from "react-notifications-component";
 
@@ -33,7 +33,7 @@ export default function PasswordReset() {
       .then((res) => {
         store.addNotification({
           title: res.data.detail,
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "success",
           insert: "top",
           container: "top-right",
@@ -54,7 +54,7 @@ export default function PasswordReset() {
       .catch((err) => {
         store.addNotification({
           title: "Email was not sent",
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "danger",
           insert: "top",
           container: "top-right",

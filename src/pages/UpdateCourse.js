@@ -8,15 +8,8 @@ import UpdateCourseForm from "../components/UpdateCourseForm";
 import CropImages from "../utils/hooks/CropImages";
 
 export default function UpdateCourse() {
-  const [
-    image,
-    getCropData,
-    setCropper,
-    onChange,
-    cropData,
-    err,
-    file,
-  ] = CropImages(); //custom hook
+  const [image, getCropData, setCropper, onChange, cropData, err, file] =
+    CropImages(); //custom hook
   const [showCropper, setshowCropper] = useState(false);
   const [courseValue, setcourseValue] = useState({
     course_name: "",
@@ -163,7 +156,7 @@ export default function UpdateCourse() {
         //showing alert
         store.addNotification({
           title: "Course Updated!",
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "success",
           insert: "top",
           container: "top-right",

@@ -88,7 +88,7 @@ export default function CourseCard({
         closemodel();
         store.addNotification({
           title: "Sucessfully Enrolled",
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "success",
           insert: "top",
           container: "top-right",
@@ -120,7 +120,7 @@ export default function CourseCard({
     ).then((res) => {
       store.addNotification({
         title: "Sucessfully Enrolled",
-        message: "Eyekon eClass",
+        message: "Jathikapasala",
         type: "success",
         insert: "top",
         container: "top-right",

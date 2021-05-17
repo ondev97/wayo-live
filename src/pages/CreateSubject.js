@@ -19,15 +19,8 @@ export default function CreateSubject() {
     hide,
     hideError,
   } = UseCreateSubject(submitForm); //custom hook
-  const [
-    image,
-    getCropData,
-    setCropper,
-    onChange,
-    cropData,
-    err,
-    file,
-  ] = CropImages(); //custom hook
+  const [image, getCropData, setCropper, onChange, cropData, err, file] =
+    CropImages(); //custom hook
   const [redirec, setredirec] = useState(null);
   const [uploading, setuploading] = useState(false);
   //get acDetails from Redux Store
@@ -86,7 +79,7 @@ export default function CreateSubject() {
         //showing alert
         store.addNotification({
           title: "Subject Created!",
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "success",
           insert: "top",
           container: "top-right",

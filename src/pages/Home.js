@@ -3,17 +3,17 @@ import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
 import { loadStDetails } from "../actions/stDetailsAction";
 import cov from "../img/cover.jpg";
-import instructor from "../img/svg/instructor.svg";
-import learning from "../img/svg/learning.svg";
-import support from "../img/svg/support.svg";
-import pencil from "../img/svg/pencil.svg";
-import video from "../img/svg/video.svg";
-import contract from "../img/svg/contract.svg";
-import get from "../img/get.jpg";
+// import instructor from "../img/svg/instructor.svg";
+// import learning from "../img/svg/learning.svg";
+// import support from "../img/svg/support.svg";
+// import pencil from "../img/svg/pencil.svg";
+// import video from "../img/svg/video.svg";
+// import contract from "../img/svg/contract.svg";
+// import get from "../img/get.jpg";
 import "../assets/css/home.css";
 import "../assets/css/mediaFiles/homemedia.css";
 import { Link } from "react-router-dom";
-import AllSubCard from "../components/AllSubCard";
+// import AllSubCard from "../components/AllSubCard";
 import Axios from "axios";
 
 export default function Home() {

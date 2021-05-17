@@ -17,15 +17,8 @@ export default function UpdateSubject() {
     hide,
     formErrors,
   } = UpdateSubjectFunc(submitForm, subid);
-  const [
-    image,
-    getCropData,
-    setCropper,
-    onChange,
-    cropData,
-    err,
-    file,
-  ] = CropImages(); //custom hook
+  const [image, getCropData, setCropper, onChange, cropData, err, file] =
+    CropImages(); //custom hook
   const [showCropper, setshowCropper] = useState(false);
   const [isUploading, setisUploading] = useState(false);
   const [isredirect, setisredirect] = useState(false);
@@ -91,7 +84,7 @@ export default function UpdateSubject() {
         //showing alert
         store.addNotification({
           title: "Subject Updated!",
-          message: "Eyekon eClass",
+          message: "Jathikapasala",
           type: "success",
           insert: "top",
           container: "top-right",

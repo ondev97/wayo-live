@@ -98,7 +98,7 @@ export default function AddStudents() {
     ).then(() => {
       store.addNotification({
         title: `Enrollement Successfully`,
-        message: "Eyekon eClass",
+        message: "Jathikapasala",
         type: "success",
         insert: "top",
         container: "top-right",
