@@ -48,11 +48,17 @@ export default function Footer() {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/about">About</Link>
             </li>
             <li>
               <Link to="/contact">Contact Us</Link>
+            </li> */}
+            <li>
+              <Link to="/guidelines">Guidelines</Link>
+            </li>
+            <li>
+              <Link to="/features">Our Features</Link>
             </li>
             <li>
               <Link to="/allteachers">Teachers</Link>
