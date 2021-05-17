@@ -27,7 +27,7 @@
   top: -50px;
   right: -50px;
   z-index: -1;
-  background-color: #f5a31c1f;
+  background-color: var(--buttonColorHover1);
 }
 .maininde .tech_body .teach_card:hover {
   box-shadow: 0px 0px 10px #ece8e8;
@@ -45,7 +45,7 @@
   height: 130px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid #f4a31d;
+  border: 2px solid var(--buttonColorHover1);
   padding: 2px;
 }
 .maininde .tech_body .pro_pic img {
@@ -62,7 +62,7 @@
 .maininde .tech_body .teach_card .card_teach_body h3 {
   font-size: 15px;
   font-weight: 600;
-  color: #ff9d00;
+  color: var(--buttonColorHover1);
   text-transform: capitalize;
 }
 @media screen and (max-width: 1300px) {

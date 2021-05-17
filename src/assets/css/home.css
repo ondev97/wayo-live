@@ -2,8 +2,10 @@
   --background1: #f5f6f8;
   --mainCovHeader: #ff0052;
   --h1Fontcolor: #ff0052;
+  --inputFocColor: #d60547;
   --buttonColor1: #008231;
   --buttonColorHover1: #05913b;
+  --cardBackground: #ff85ac;
 }
 .maininde {
   width: 100%;

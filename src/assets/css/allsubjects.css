@@ -28,7 +28,7 @@
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_head {
   position: relative;
   height: 190px;
-  background: linear-gradient(to right, var(--mainCovHeader), #000);
+  background: linear-gradient(to right, var(--cardBackground), #000);
   margin-bottom: 15px;
 }
 .maininde

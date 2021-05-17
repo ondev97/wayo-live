@@ -45,7 +45,7 @@ export default function StLogin() {
           </div>
         </div>
       </div>
-      <div className="ins-cont">
+      {/* <div className="ins-cont">
         <h3>
           ජාතික පාසල සදහා log වීමේදී "Unable to log in with provided
           credentials" ලෙස error message එකක් පැමිණීම.
@@ -91,7 +91,7 @@ export default function StLogin() {
           student account සදහා log වීමට භාවිත කල යුත්තේ එම නව මුරපදයයි (new
           password).
         </p>
-      </div>
+      </div> */}
     </>
   );
 }

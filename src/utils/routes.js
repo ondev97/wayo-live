@@ -15,14 +15,14 @@ export default [
     exact: true,
     components: () => <Home />,
   },
+  ,
   /*{
-        path:'/about',
-        components: () =><About/>
-    },{
+    path: "/about",
+    components: () => <About />,
+  } {
         path:'/contact',
         components: () =><ContactUs/>
-    },*/
-  {
+    },*/ {
     path: "/features",
     components: () => <Features />,
   },

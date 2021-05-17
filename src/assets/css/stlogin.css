@@ -90,7 +90,7 @@
   margin-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .login_body .login_column .login_form input {
   width: 100%;
@@ -109,10 +109,10 @@
   border-color: #d3040496;
 }
 .login_body .login_column .login_form input:hover {
-  border-color: #eea42a;
+  border-color: var(--inputFocColor);
 }
 .login_body .login_column .login_form input:focus {
-  border-color: #eea42a;
+  border-color: var(--inputFocColor);
 }
 .login_body .login_column .login_form .but {
   display: flex;
@@ -120,12 +120,16 @@
 }
 .login_body .login_column .login_form .but input {
   width: 150px;
-  background-color: #f8ab2e;
+  background-color: var(--buttonColor1);
   color: #fff;
   font-weight: 600;
   cursor: pointer;
   margin-right: 20px;
   margin-bottom: 5px;
+}
+.login_body .login_column .login_form .but input:hover {
+  background-color: var(--buttonColorHover1);
+  transition: 0.2s ease;
 }
 .login_body .login_column .login_form .but p {
   font-size: 13px;
@@ -133,7 +137,7 @@
 }
 .login_body .login_column .login_form .but p a {
   text-decoration: none;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .login_body .login_column .login_form .showpw p {
   width: 100%;

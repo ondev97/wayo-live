@@ -1,14 +1,14 @@
 .maininde .upper_cover {
   width: 100%;
   padding: 60px 20px;
-  background-image: linear-gradient(to top, #f6f6f6, #fff, #fff);
+  background-image: linear-gradient(to top, #f6fffa, #fdfffe, #fff);
   font-family: "Open Sans", sans-seri;
   text-align: center;
 }
 .maininde .upper_cover h1 {
   font-size: 35px;
   font-weight: 600;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .maininde .body_sec {
   font-family: "Open Sans", sans-seri;
@@ -29,7 +29,7 @@
 .maininde .body_sec .ab_column h1 {
   margin-bottom: 25px;
   font-size: 22px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
 }
 .maininde .body_sec .ab_column p {

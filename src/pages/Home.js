@@ -46,16 +46,10 @@ export default function Home() {
     <div className="maininde">
       <div className="uppercover">
         <div className="cov_text">
-          <h1>
-            ජාතික පාසල For <br />
-            Learning
-          </h1>
-          <p>
-            Education is the most powerful weapon which you can <br /> use to
-            change the world
-          </p>
-          <Link to={"/allteachers"}>
-            <button>Our Teachers</button>
+          <h1>ජාතික පාසල</h1>
+          <p>ජාතියේ දූ පුතුන්ගේ ජාත්‍යන්තර තක්සලාව.</p>
+          <Link to={"#"}>
+            <button>Guidelines</button>
           </Link>
         </div>
         <div className="cov_img">
