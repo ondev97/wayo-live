@@ -1,10 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../assets/css/footer.css";
 import "../assets/css/mediaFiles/footermedia.css";
 import ftimg from "../img/Logo_1.png";
 
 export default function Footer() {
+  let location = useLocation();
+  if (location.pathname === "/") {
+    return "";
+  }
   return (
     <div className="footer_main">
       <div className="footer_mid">

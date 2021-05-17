@@ -8,9 +8,11 @@ import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
   const accountDetails = useSelector((state) => state.accountDetails);
   const [acDetails, setacDetails] = useState("");
+
+  let location = window.location.pathname;
 
   useEffect(() => {
     setacDetails(accountDetails);
@@ -28,7 +30,6 @@ function App() {
     "/guidelines",
     "/features",
   ];
-  let location = window.location.pathname;
 
   const headerRoute = () => {
     if (mainRoute.includes(location)) {
@@ -55,10 +56,10 @@ function App() {
             />
           ))}
         </Switch>
-        {location !== "/" ? <Footer /> : ""}
+        <Footer />
       </Router>
     </div>
   );
-}
+};
 
 export default App;
