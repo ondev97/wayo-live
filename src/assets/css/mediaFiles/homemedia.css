@@ -51,6 +51,9 @@
   .maininde .get_start_sec {
     padding: 0;
   }
+  .maininde .uppercover .cov_text p {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 630px) {
   .maininde .uppercover .cov_text {
@@ -65,6 +68,14 @@
   }
   .maininde .get_start_sec .main_get_start .get_start_column img {
     width: 100%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .maininde .uppercover .cov_text h1 {
+    font-size: 50px;
+  }
+  .maininde .uppercover .simple_footer {
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 350px) {
@@ -89,13 +100,20 @@
     .subject_head {
     height: 150px !important;
   }
+  .maininde .uppercover .simple_footer {
+    bottom: 10px;
+  }
 }
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 310px) {
   .maininde .uppercover .cov_text h1 {
-    font-size: 30px;
+    font-size: 40px;
+    line-height: 40px;
   }
   .maininde .uppercover .cov_text p {
     font-size: 15px;
+  }
+  .maininde .uppercover .simple_footer {
+    bottom: 20px;
   }
 }
 @media screen and (max-width: 250px) {

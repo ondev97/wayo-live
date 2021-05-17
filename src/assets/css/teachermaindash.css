@@ -10,7 +10,7 @@
   align-items: center;
   background-color: #fff;
   margin-right: 10px;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--h1Fontcolor);
   border-radius: 5px;
   box-shadow: 0px 0px 10px 3px #ebebeb;
 }
@@ -23,7 +23,7 @@
 .header_sec .card_dash h1 {
   font-size: 25px;
   font-weight: 500;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .header_sec .card_dash h3 {
   width: 100%;

@@ -14,22 +14,14 @@ export default function Footer() {
           </div>
           <div className="ab">
             <p>
-              'jathikapasala.com' provides facilities in a higher manner to the
-              Sri Lankan educational sector. All the courses are being conducted
-              by leading and fully qualified panel of teachers in the Island.
-              With the direct guidance of the teachers, students follow their
-              syllabus. At 'jathikapasala.com', conduct online examinations and
-              will be assessed the student’s progress accordingly.
+              ශ්‍රී ලාංකීය දු දරුවන්ගේ අධ්‍යාපනය වෙනුවෙන් නිරතුරුවම කැපවුන
+              ජාතිකපාසල හරහා ඔබගේ විෂයට අදාල ලංකාවේ ප්‍රවීන ගුරුවරුන් සමග
+              සම්බන්ද වෙමින් නිවසේ සිට සුරක්ෂිතව අධ්‍යාපන කටයුතු සිදු කරන්න.
             </p>
           </div>
         </div>
         <div className="footer_column">
-          <h2>Location</h2>
-          <p>
-            No 156/2 2-6, S. De. S. Jayasinghe Mawatha,
-            <br />
-            Kohuwala Road, Nugegoda
-          </p>
+          <h2>Follow Us</h2>
           <ul className="scial">
             <li>
               <i className="fab fa-facebook-square"></i>
@@ -55,10 +47,10 @@ export default function Footer() {
               <Link to="/contact">Contact Us</Link>
             </li> */}
             <li>
-              <Link to="/guidelines">Guidelines</Link>
+              <Link to="#">Guidelines</Link>
             </li>
             <li>
-              <Link to="/features">Our Features</Link>
+              <Link to="#">Our Features</Link>
             </li>
             <li>
               <Link to="/allteachers">Teachers</Link>
@@ -71,7 +63,7 @@ export default function Footer() {
       </div>
       <div className="small_footer">
         <h3>
-          COPYRIGHT © EYEKON INSTITUTE | PROUDLY POWERED BY
+          COPYRIGHT © JATHIKAPASALA | PROUDLY POWERED BY
           <span>
             {
               <Link to="//helamid.com" target="_blank">

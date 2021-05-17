@@ -55,7 +55,7 @@ function App() {
             />
           ))}
         </Switch>
-        <Footer />
+        {location !== "/" ? <Footer /> : ""}
       </Router>
     </div>
   );

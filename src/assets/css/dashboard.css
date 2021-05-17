@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  background-color: #fefbf6;
+  background-color: var(--dashboardBack);
   display: flex;
 }
 .main .main_column:first-child {
@@ -11,7 +11,7 @@
   background: #fff;
   overflow-y: auto;
   overflow-x: hidden;
-  background-image: linear-gradient(296deg, transparent, transparent, #ffe4b7);
+  background-image: linear-gradient(296deg, transparent, transparent, #e1ffed);
   transition: 0.5s ease;
 }
 .main .main_column:first-child::-webkit-scrollbar {

@@ -114,10 +114,10 @@ export default function Header({ acDetails }) {
                 <Link to="/contact">CONTACT US</Link>
               </li> */}
               <li>
-                <Link to="/guidelines">GUIDELINES</Link>
+                <Link to="#">GUIDELINES</Link>
               </li>
               <li>
-                <Link to="/features">OUR FEATURES</Link>
+                <Link to="#">OUR FEATURES</Link>
               </li>
               <li>
                 <Link to="/allteachers">TEACHERS</Link>
@@ -159,10 +159,10 @@ export default function Header({ acDetails }) {
                                     CONTACT US
                                 </li>
                             </Link> */}
-                <Link to="/guidelines">
+                <Link to="#">
                   <li>GUIDELINES</li>
                 </Link>
-                <Link to="/features">
+                <Link to="#">
                   <li>OUR FEATURES</li>
                 </Link>
                 <Link to="/allteachers">

@@ -46,17 +46,37 @@ export default function Home() {
     <div className="maininde">
       <div className="uppercover">
         <div className="cov_text">
-          <h1>ජාතික පාසල</h1>
-          <p>ජාතියේ දූ පුතුන්ගේ ජාත්‍යන්තර තක්සලාව.</p>
+          <h1>
+            "ජාතිකපාසල"
+            <br />
+            <span>ජාතියේ දූ පුතුන්ගේ ජාත්‍යන්තර තක්සලාව.</span>
+          </h1>
+          <p>
+            ශ්‍රී ලාංකීය දු දරුවන්ගේ අධ්‍යාපනය වෙනුවෙන් නිරතුරුවම කැපවුන
+            ජාතිකපාසල හරහා ඔබගේ විෂයට අදාල ලංකාවේ ප්‍රවීන ගුරුවරුන් සමග සම්බන්ද
+            වෙමින් නිවසේ සිට සුරක්ෂිතව අධ්‍යාපන කටයුතු සිදු කරන්න.
+          </p>
           <Link to={"#"}>
             <button>Guidelines</button>
           </Link>
+          <div className="simple_footer">
+            <h3>
+              COPYRIGHT © JATHIKAPASALA | PROUDLY POWERED BY
+              <span>
+                {
+                  <Link to="//helamid.com" target="_blank">
+                    &nbsp;HELAMID
+                  </Link>
+                }
+              </span>
+            </h3>
+          </div>
         </div>
         <div className="cov_img">
           <img src={cov} alt="image" />
         </div>
       </div>
-      <div className="cards_section">
+      {/* <div className="cards_section">
         <div className="cards_indi">
           <div className="card_ic">
             <img src={instructor} alt="instructor" />
@@ -180,7 +200,7 @@ export default function Home() {
             <img src={get} alt="get" />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

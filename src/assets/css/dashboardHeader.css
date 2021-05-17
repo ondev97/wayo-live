@@ -6,13 +6,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #ffe0b2;
+  border-bottom: 1px solid var(--cardBackground);
 }
 .logo h1 {
   font-size: 22px;
   white-space: nowrap;
   font-family: "Open Sans", sans-seri;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .logo img {
   width: 180px;
@@ -52,7 +52,7 @@
 .profile_menu .details h3 {
   font-weight: 400;
   font-size: 13px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .main_section {
   margin: 25px 0;
@@ -85,7 +85,7 @@
   width: 100%;
   font-size: 16px;
   text-decoration: none;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-weight: 500;
 }
 .main_section .list ul li i {
@@ -93,9 +93,9 @@
   color: #000;
 }
 .main_section .list ul li:hover {
-  background: #fff4e2;
-  color: #ff9d00;
+  background: #fff2f6;
+  color: var(--h1Fontcolor);
 }
 .main_section .list ul li:hover a {
-  color: #ff9d00;
+  color: var(--cardBackground);
 }

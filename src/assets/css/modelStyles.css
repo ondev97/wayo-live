@@ -26,12 +26,12 @@
 }
 .model_page .on_model_page .close_but button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 15px;
   width: 30px;
   height: 30px;
   background: none;
-  border: 1px solid #ffae29;
+  border: 1px solid var(--buttonColor1);
   border-radius: 50%;
   outline: none;
   cursor: pointer;
@@ -40,11 +40,12 @@
 }
 .model_page .on_model_page .close_but button i {
   font-size: 18px;
-  color: #ff9d00;
+  color: var(--buttonColor1);
+  line-height: 20px;
   user-select: none;
 }
 .model_page .on_model_page .close_but button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .model_page .on_model_page .close_but button:hover i {
   color: #fff;
@@ -60,7 +61,7 @@
 .model_page .on_model_page .image_crop_container {
   position: relative;
   width: 80%;
-  height: 90%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,7 +103,7 @@
   stroke: #eee;
 }
 .model_page .on_model_page .preview_container svg circle:nth-child(2) {
-  stroke: #ffae29;
+  stroke: var(--h1Fontcolor);
 }
 .model_page .on_model_page .preview_container img {
   position: absolute;
@@ -133,14 +134,14 @@
   font-weight: 600;
   outline: none;
   cursor: pointer;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   transition: 0.2s ease-in;
 }
 .model_page .on_model_page .butbut button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .model_page .on_model_page .butbut .count {
-  color: #ff9d00;
+  color: var(--buttonColor1);
   font-size: 18px;
 }
 

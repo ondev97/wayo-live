@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, #edba65, #e5991d);
+  background-image: linear-gradient(to right, #ff4e87, var(--h1Fontcolor));
   color: #fff;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .srow h2 {
@@ -77,7 +77,7 @@
   position: absolute;
   bottom: -4px;
   right: -13px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-size: 16px;
   width: 23px;
   height: 23px;
@@ -102,7 +102,7 @@
   width: 200px;
   height: 20px;
   background-color: #fff;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   font-size: 12px;
   text-align: center;
   display: none;
@@ -170,7 +170,7 @@
   p
   i {
   margin-right: 5px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .brow .tous {
   margin-top: 20px;
@@ -197,7 +197,7 @@
   .coscount
   h3 {
   font-size: 18px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .main_profile
   .tcprofilecolumn
@@ -222,7 +222,7 @@
   p {
   font-size: 14px;
   margin-bottom: 3px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .main_profile
   .tcprofilecolumn
@@ -284,7 +284,11 @@
   .skills_ouuter
   .skills_mid {
   height: 100%;
-  background-image: linear-gradient(to right, #ffae29, #ffbb4f);
+  background-image: linear-gradient(
+    to right,
+    var(--h1Fontcolor),
+    var(--h1Fontcolor)
+  );
   border-radius: 20px;
 }
 
@@ -374,7 +378,7 @@
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h3 {
   font-size: 13px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
   margin-right: 10px;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h4 {
@@ -474,7 +478,7 @@
   .sectpr
   p
   input:hover {
-  border-color: #f5a31c;
+  border-color: var(--h1Fontcolor);
 }
 .main_profile
   .tcdisoncolumn
@@ -483,7 +487,7 @@
   .sectpr
   p
   input:focus {
-  border-color: #f5a31c;
+  border-color: var(--h1Fontcolor);
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec {
   width: 100%;
@@ -501,7 +505,7 @@
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk h3,
 i {
   font-size: 15px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .skills_sec .adSk i {
   cursor: pointer;
@@ -612,7 +616,7 @@ i {
   margin-right: 10px;
   -webkit-appearance: none;
   height: 5px;
-  border: 1px solid #f5a31c;
+  border: 1px solid var(--h1Fontcolor);
   outline: none;
   border-radius: 20px;
 }
@@ -628,7 +632,7 @@ i {
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
-  background-color: #f5a31c;
+  background-color: var(--h1Fontcolor);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -639,7 +643,7 @@ i {
   .sk_sec
   .nirow
   input:hover {
-  border-color: #ffae29;
+  border-color: var(--h1Fontcolor);
 }
 .main_profile
   .tcdisoncolumn
@@ -693,7 +697,7 @@ i {
   padding: 9px;
   border: none;
   outline: none;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   font-weight: 600;
   color: #fff;
   border-radius: 5px;
@@ -701,7 +705,7 @@ i {
   transition: 0.5s;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .pro_edit_sub button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password {
   width: 100%;
@@ -743,6 +747,7 @@ i {
   border: 1px solid #d6d5d5;
   border-radius: 3px;
   transition: 0.3s;
+  outline: none;
 }
 .main_profile
   .tcdisoncolumn
@@ -750,7 +755,7 @@ i {
   .set_password
   .reset_pw
   input:hover {
-  border-color: #ffae29;
+  border-color: var(--h1Fontcolor);
 }
 .main_profile
   .tcdisoncolumn
@@ -758,7 +763,7 @@ i {
   .set_password
   .reset_pw
   input:focus {
-  border-color: #ffae29;
+  border-color: var(--h1Fontcolor);
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password .butset {
   width: 100%;
@@ -771,7 +776,7 @@ i {
   padding: 9px;
   border: none;
   outline: none;
-  background-color: #ffae29;
+  background-color: var(--buttonColor1);
   font-weight: 600;
   color: #fff;
   border-radius: 5px;
@@ -784,7 +789,7 @@ i {
   .set_password
   .butset
   button:hover {
-  background-color: #ffae29;
+  background-color: var(--buttonColorHover1);
 }
 .main_profile .tcdisoncolumn .tc_profile_settings p .tip {
   font-size: 11px;

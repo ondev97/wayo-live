@@ -6,6 +6,7 @@
   --buttonColor1: #008231;
   --buttonColorHover1: #05913b;
   --cardBackground: #ff85ac;
+  --dashboardBack: #fbfffc;
 }
 .maininde {
   width: 100%;
@@ -19,8 +20,9 @@
   background-color: var(--background1);
   padding: 0;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
+  font-family: "Abhaya Libre", serif;
+  align-items: center;
 }
 .maininde .uppercover .cov_text {
   width: 60%;
@@ -53,19 +55,22 @@
   object-fit: cover;
 }
 .maininde .uppercover .cov_text h1 {
-  font-size: 50px;
+  font-size: 60px;
   color: var(--mainCovHeader);
   margin-bottom: 25px;
+  line-height: 50px;
 }
 .maininde .uppercover .cov_text h1 span {
-  font-size: 20px;
+  font-size: 35px;
   color: black;
+  line-height: 30px;
 }
 .maininde .uppercover .cov_text p {
-  font-size: 19px;
+  font-size: 21px;
   margin-bottom: 35px;
-  text-align: justify;
-  font-weight: 500;
+  text-align: left;
+  font-weight: 600;
+  width: 70%;
 }
 .maininde .uppercover .cov_text button {
   padding: 12px;
@@ -82,6 +87,16 @@
 }
 .maininde .uppercover .cov_text button:hover {
   background-color: var(--buttonColorHover1);
+}
+.maininde .uppercover .simple_footer {
+  position: absolute;
+  font-family: "Open Sans", sans-seri;
+  bottom: 35px;
+  font-size: 13px;
+}
+.maininde .uppercover .simple_footer h3 span a {
+  color: var(--h1Fontcolor);
+  text-decoration: none;
 }
 .maininde .cards_section {
   position: relative;
