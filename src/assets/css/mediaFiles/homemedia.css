@@ -53,6 +53,7 @@
   }
   .maininde .uppercover .cov_text p {
     width: 100%;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 630px) {
@@ -76,6 +77,7 @@
   }
   .maininde .uppercover .simple_footer {
     font-size: 10px;
+    bottom: 5px;
   }
 }
 @media screen and (max-width: 350px) {
