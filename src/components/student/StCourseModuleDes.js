@@ -54,7 +54,12 @@ export default function StCourseModuleDes() {
       <div className="course_desc_body">
         <div className="course_short_desc st_course_short_desc">
           <h3>Course Description</h3>
-          <p>{courseData.course_description}</p>
+          <p>
+            {courseData.course_description ||
+            courseData.course_description !== "null"
+              ? courseData.course_description
+              : ""}
+          </p>
         </div>
       </div>
     </div>
