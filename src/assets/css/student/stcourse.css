@@ -121,7 +121,7 @@
   outline: none;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_cos_search button {
-  background-color: #e1ffed;
+  background-color: #d7ebff;
   width: 50px;
   border: 1px solid var(--buttonColor1);
   border-top-right-radius: 20px;
@@ -141,7 +141,7 @@
   cursor: pointer;
   outline: none;
   background-color: #fff;
-  border: 2px solid #c8ffde;
+  border: 2px solid #a0ceff;
   color: var(--buttonColor1);
   font-weight: 600;
   width: 120px;
@@ -221,7 +221,7 @@
   width: 100%;
   height: 180px;
   transition: 0.5s ease;
-  background-image: linear-gradient(to left, #55f592, black);
+  background-image: linear-gradient(to left, #007bff, black);
   margin-bottom: 15px;
 }
 .st_top_manage_body
