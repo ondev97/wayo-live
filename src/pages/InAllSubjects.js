@@ -47,19 +47,26 @@ export default function InAllSubjects() {
         <h1>Subjects</h1>
       </div>
       <div className="popular_subjects">
-        <div className="">
-          <InfiniteScroll
-            dataLength={allSubDetails.length}
-            next={next}
-            hasMore={true}
-            className="subject_area"
-          >
-            {allSubDetails.map((tdata, index) => (
-              <AllSubCard key={index} subject={tdata} />
-            ))}
-          </InfiniteScroll>
-          {isLoading && <ProfileLoader />}
-        </div>
+        {!isLoading && allSubDetails.length > 0 ? (
+          <div className="">
+            <InfiniteScroll
+              dataLength={allSubDetails.length}
+              next={next}
+              hasMore={true}
+              className="subject_area"
+            >
+              {allSubDetails.map((tdata, index) => (
+                <AllSubCard key={index} subject={tdata} />
+              ))}
+            </InfiniteScroll>
+          </div>
+        ) : isLoading ? (
+          <ProfileLoader />
+        ) : (
+          <div className="emheading">
+            <h1>No Subjects Available In The System</h1>
+          </div>
+        )}
       </div>
     </div>
   );

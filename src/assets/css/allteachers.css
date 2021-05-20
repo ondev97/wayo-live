@@ -65,6 +65,15 @@
   color: var(--buttonColorHover1);
   text-transform: capitalize;
 }
+/*All Teacher empty heading*/
+.maininde .emheading {
+  width: 100%;
+  min-height: calc(100vh - 400px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1300px) {
   .maininde .tech_body {
     width: 100%;

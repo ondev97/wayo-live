@@ -31,12 +31,19 @@ export default function IndexAllTeachers() {
       <div className="upper_cover">
         <h1>Teachers</h1>
       </div>
-      <div className="tech_body">
-        {teacherDetails.map((tdata, index) => (
-          <InTeacher key={index} teacher={tdata} />
-        ))}
-      </div>
-      {isLoading && <ProfileLoader />}
+      {!isLoading && teacherDetails.length > 0 ? (
+        <div className="tech_body">
+          {teacherDetails.map((tdata, index) => (
+            <InTeacher key={index} teacher={tdata} />
+          ))}
+        </div>
+      ) : isLoading ? (
+        <ProfileLoader />
+      ) : (
+        <div className="emheading">
+          <h1>No Teachers Available In The System</h1>
+        </div>
+      )}
     </div>
   );
 }
