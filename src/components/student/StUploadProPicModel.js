@@ -96,7 +96,7 @@ export default function StUploadProPicModel({
 
         store.addNotification({
           title: "Profile Picture Updated!",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",

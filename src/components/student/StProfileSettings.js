@@ -57,7 +57,7 @@ export default function StProfileSettings({ setsettings }) {
 
           store.addNotification({
             title: "Profile Changed Successfully!",
-            message: "Jathikapasala",
+            message: process.env.REACT_APP_LMS_ALERT_NAME,
             type: "success",
             insert: "top",
             container: "top-right",

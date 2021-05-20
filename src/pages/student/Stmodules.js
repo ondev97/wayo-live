@@ -41,7 +41,7 @@ export default function Stmodules() {
           console.log(err);
           store.addNotification({
             title: err.response.data.message,
-            message: "Jathikapasala",
+            message: process.env.REACT_APP_LMS_ALERT_NAME,
             type: "warning",
             insert: "top",
             container: "top-right",

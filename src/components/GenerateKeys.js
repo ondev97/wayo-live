@@ -87,7 +87,7 @@ function GenerateKeys() {
 
         store.addNotification({
           title: `${value.hw} Keys Created`,
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",
@@ -155,7 +155,7 @@ function GenerateKeys() {
 
           store.addNotification({
             title: "Keys Issued",
-            message: "Jathikapasala",
+            message: process.env.REACT_APP_LMS_ALERT_NAME,
             type: "info",
             insert: "top",
             container: "top-right",

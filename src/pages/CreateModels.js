@@ -137,7 +137,7 @@ function CreateModels() {
     //showing alert
     store.addNotification({
       title: "Module Added Successfully!",
-      message: "Jathikapasala",
+      message: process.env.REACT_APP_LMS_ALERT_NAME,
       type: "success",
       insert: "top",
       container: "top-right",

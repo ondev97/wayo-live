@@ -122,7 +122,7 @@ export default function AddStFileSe({
           if (pass > 0) {
             store.addNotification({
               title: `${pass} Enrollement Successfully`,
-              message: "Jathikapasala",
+              message: process.env.REACT_APP_LMS_ALERT_NAME,
               type: "success",
               insert: "top",
               container: "top-right",
@@ -140,7 +140,7 @@ export default function AddStFileSe({
           if (fail > 0) {
             store.addNotification({
               title: `${fail} Enrollement Unsuccessfully`,
-              message: "Jathikapasala",
+              message: process.env.REACT_APP_LMS_ALERT_NAME,
               type: "danger",
               insert: "top",
               container: "top-right",
@@ -169,7 +169,7 @@ export default function AddStFileSe({
     } else {
       store.addNotification({
         title: `Please Select A File`,
-        message: "Jathikapasala",
+        message: process.env.REACT_APP_LMS_ALERT_NAME,
         type: "danger",
         insert: "top",
         container: "top-right",

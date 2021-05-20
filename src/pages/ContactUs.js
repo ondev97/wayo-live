@@ -66,7 +66,7 @@ export default function ContactUs() {
       .then((res) => {
         store.addNotification({
           title: "Email was sent successfully",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",
@@ -86,7 +86,7 @@ export default function ContactUs() {
       .catch((err) => {
         store.addNotification({
           title: "Email was not sent",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "warning",
           insert: "top",
           container: "top-right",

@@ -7,7 +7,6 @@ import { useHistory, useParams } from "react-router-dom";
 import Empty from "../components/Empty";
 import ViewStuTc from "../components/ViewStuTc";
 import { store } from "react-notifications-component";
-import InfiniteScroll from "react-infinite-scroll-component";
 import useDebounce from "../utils/hooks/useDebounce";
 
 export default function AllStList() {
@@ -86,7 +85,7 @@ export default function AllStList() {
 
         store.addNotification({
           title: `Unenrolled Successfully`,
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",

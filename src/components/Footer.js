@@ -67,7 +67,7 @@ export default function Footer() {
       </div>
       <div className="small_footer">
         <h3>
-          COPYRIGHT © JATHIKAPASALA | PROUDLY POWERED BY
+          COPYRIGHT © HDOLSET | PROUDLY POWERED BY
           <span>
             {
               <Link to="//helamid.com" target="_blank">

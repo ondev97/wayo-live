@@ -79,7 +79,7 @@ export default function CreateSubject() {
         //showing alert
         store.addNotification({
           title: "Subject Created!",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",

@@ -45,7 +45,7 @@ export default function StProfileHead() {
           //setshowModel(!showModel);
           store.addNotification({
             title: "File Should Be Less Than 2mb!",
-            message: "Jathikapasala",
+            message: process.env.REACT_APP_LMS_ALERT_NAME,
             type: "danger",
             insert: "top",
             container: "top-left",
@@ -64,7 +64,7 @@ export default function StProfileHead() {
         //setshowModel(!showModel);
         store.addNotification({
           title: "Invalid File Type!",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "danger",
           insert: "top",
           container: "top-left",

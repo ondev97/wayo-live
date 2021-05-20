@@ -33,7 +33,7 @@ export default function PasswordReset() {
       .then((res) => {
         store.addNotification({
           title: res.data.detail,
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",
@@ -54,7 +54,7 @@ export default function PasswordReset() {
       .catch((err) => {
         store.addNotification({
           title: "Email was not sent",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "danger",
           insert: "top",
           container: "top-right",

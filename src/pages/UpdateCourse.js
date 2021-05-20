@@ -156,7 +156,7 @@ export default function UpdateCourse() {
         //showing alert
         store.addNotification({
           title: "Course Updated!",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",

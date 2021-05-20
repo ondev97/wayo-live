@@ -88,7 +88,7 @@ export default function CourseCard({
         closemodel();
         store.addNotification({
           title: "Sucessfully Enrolled",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",
@@ -120,7 +120,7 @@ export default function CourseCard({
     ).then((res) => {
       store.addNotification({
         title: "Sucessfully Enrolled",
-        message: "Jathikapasala",
+        message: process.env.REACT_APP_LMS_ALERT_NAME,
         type: "success",
         insert: "top",
         container: "top-right",

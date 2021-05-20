@@ -61,7 +61,7 @@ export default function Home() {
           </Link>
           <div className="simple_footer">
             <h3>
-              COPYRIGHT © JATHIKAPASALA | PROUDLY POWERED BY
+              COPYRIGHT © HDOLSET | PROUDLY POWERED BY
               <span>
                 {
                   <Link to="//helamid.com" target="_blank">

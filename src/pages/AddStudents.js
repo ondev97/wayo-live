@@ -1,6 +1,5 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
@@ -98,7 +97,7 @@ export default function AddStudents() {
     ).then(() => {
       store.addNotification({
         title: `Enrollement Successfully`,
-        message: "Jathikapasala",
+        message: process.env.REACT_APP_LMS_ALERT_NAME,
         type: "success",
         insert: "top",
         container: "top-right",

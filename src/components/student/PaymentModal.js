@@ -41,7 +41,7 @@ const PaymentModal = ({ course_id, course_name, price, user }) => {
         console.log(res);
         store.addNotification({
           title: "Sucessfully Enrolled",
-          message: "Jathikapasala",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
           container: "top-right",
@@ -73,7 +73,7 @@ const PaymentModal = ({ course_id, course_name, price, user }) => {
     console.log("Payment dismissed");
     store.addNotification({
       title: "Payment Cancelled",
-      message: "Jathikapasala",
+      message: process.env.REACT_APP_LMS_ALERT_NAME,
       type: "warning",
       insert: "top",
       container: "top-right",
@@ -95,7 +95,7 @@ const PaymentModal = ({ course_id, course_name, price, user }) => {
     console.log("Error:" + error);
     store.addNotification({
       title: "Payment was unsuccessfull",
-      message: "Jathikapasala",
+      message: process.env.REACT_APP_LMS_ALERT_NAME,
       type: "danger",
       insert: "top",
       container: "top-right",

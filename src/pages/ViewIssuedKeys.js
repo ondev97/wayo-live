@@ -48,7 +48,7 @@ export default function ViewIssuedKeys() {
     //showing alert
     store.addNotification({
       title: "Invalid Module!",
-      message: "Jathikapasala",
+      message: process.env.REACT_APP_LMS_ALERT_NAME,
       type: "danger",
       insert: "top",
       container: "top-right",
