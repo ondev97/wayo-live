@@ -117,11 +117,11 @@ export default function PasswordReset() {
         </div>
         <div className="image_content">
           <h3>
-            ජාතිකපාසල Student Account සදහා Log වීමට ප්‍රථම ඔබ ජාතිකපාසල හි
+            HDOLSET Student Account සදහා Log වීමට ප්‍රථම ඔබ HDOLSET හි
             ලියාපදිංචි විය යුතුය. ඒ සදහා ඔබගේ අනන්‍යතාවය ගුරුවරයා වෙත තහවුරු කර
-            ඔබගේ student account සදහා අදාල Username සහ Password ලබාගන්න.
-            ජාතිකපාසල Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක් පවතීනම් එය
-            නිරාකරණය කරගැනීම සදහා ඔබගේ ගුරුවරයා සම්බන්ද කරගන්න.
+            ඔබගේ student account සදහා අදාල Username සහ Password ලබාගන්න. HDOLSET
+            Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක් පවතීනම් එය නිරාකරණය
+            කරගැනීම සදහා ඔබගේ ගුරුවරයා සම්බන්ද කරගන්න.
           </h3>
         </div>
       </div>
