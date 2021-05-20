@@ -419,7 +419,7 @@ button.cp {
 
 @keyframes blinking {
   0% {
-    background-color: #f2ffef;
+    background-color: #f1f1ff;
   }
   100% {
     background-color: #fff;

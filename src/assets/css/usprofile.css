@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, #ff4e87, var(--h1Fontcolor));
+  background-image: linear-gradient(to right, #4100c1, var(--h1Fontcolor));
   color: #fff;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .srow h2 {

@@ -65,7 +65,7 @@
 .modelbg .modelcard .pagebottom h1 {
   font-size: 18px;
   margin-bottom: 8px;
-  color: #ff9d00;
+  color: var(--h1Fontcolor);
 }
 .modelbg .modelcard .pagebottom h2 {
   font-size: 16px;

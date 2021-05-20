@@ -206,7 +206,7 @@
   .al_models
   .on_model_body
   .model_body_row:hover {
-  background-color: #f1fff1c9;
+  background-color: #f8f8ff;
 }
 .models .md_all_models .md_models .al_models .on_model_body .model_body_row p {
   font-size: 15px;

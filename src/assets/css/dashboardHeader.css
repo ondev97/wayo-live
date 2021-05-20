@@ -93,7 +93,7 @@
   color: #000;
 }
 .main_section .list ul li:hover {
-  background: #fff2f6;
+  background: #f2f8ff;
   color: var(--h1Fontcolor);
 }
 .main_section .list ul li:hover a {
