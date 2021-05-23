@@ -134,6 +134,7 @@
   color: var(--h1Fontcolor);
   margin-bottom: 8px;
   margin-top: 8px;
+  text-align: center;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) p {
   font-size: 13px;
@@ -182,8 +183,9 @@
   width: 100%;
   padding: 0px 8px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-size: 11px;
   background-color: #f8f8f8;
   color: var(--h1Fontcolor);
