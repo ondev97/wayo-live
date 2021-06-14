@@ -80,8 +80,8 @@ export default function Header({ acDetails }) {
     } else {
       return (
         <div className="buttons">
-          <Link to="/stlogin">
-            <button>LOG IN</button>
+          <Link to="/stsignup">
+            <button>Register</button>
           </Link>
           {/* <Link to="/stsignup">
                         <button>REGISTER</button>
@@ -92,7 +92,7 @@ export default function Header({ acDetails }) {
   };
 
   return (
-    <>
+    <div className="header-nav">
       <nav>
         <div className="column">
           <div className="hlogo">
@@ -114,16 +114,13 @@ export default function Header({ acDetails }) {
                 <Link to="/contact">CONTACT US</Link>
               </li> */}
               <li>
-                <Link to="#">GUIDELINES</Link>
+                <Link to="#">USER GUIDE</Link>
               </li>
               <li>
-                <Link to="#">OUR FEATURES</Link>
+                <Link to="#">CONTACT US</Link>
               </li>
               <li>
-                <Link to="/allteachers">TEACHERS</Link>
-              </li>
-              <li>
-                <Link to="/allsubjects">SUBJECTS</Link>
+                <Link to="/allteachers">UPCOMING EVENTS</Link>
               </li>
             </ul>
           </div>
@@ -179,6 +176,6 @@ export default function Header({ acDetails }) {
           ""
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }

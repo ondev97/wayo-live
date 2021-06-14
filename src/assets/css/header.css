@@ -1,14 +1,24 @@
-nav {
-  position: sticky;
+.header-nav {
+  position: fixed;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+}
+nav {
+  width: 90%;
   padding: 20px 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Open Sans", sans-serif;
   top: 0;
-  background-color: #f9f9f9;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #f9f9f9bf;
   z-index: 2000;
+  position: relative;
 }
 nav .column {
   flex: 1;
@@ -46,7 +56,6 @@ nav .column:nth-child(2) .navigation ul li {
   flex: 0.3;
   margin: 0 10px;
   font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
@@ -54,6 +63,7 @@ nav .column:nth-child(2) .navigation ul li {
 }
 nav .column:nth-child(2) .navigation ul li a {
   text-decoration: none;
+  font-weight: 900;
   color: #000;
   transition: 0.5s ease-in 0s;
 }
@@ -89,6 +99,7 @@ nav .column .buttons {
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
+  cursor: pointer;
 }
 nav .column .buttons button {
   width: 120px;
