@@ -13,6 +13,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(activeAccount());
     dispatch(loadStDetails());
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   return (

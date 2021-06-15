@@ -37,9 +37,9 @@ export default function MyCourseCard({
             </h3>
           </div>
         </div>
-        <div className="st_cos_manage_num">
+        {/* <div className="st_cos_manage_num">
           <h3>{no < 10 ? `0${no + 1}` : no}</h3>
-        </div>
+        </div> */}
         {/*<div className="st_cos_options_mna">*/}
         {/*    <h3><i className="fas fa-chevron-circle-up"></i></h3>*/}
         {/*    <div className="st_options_manage">*/}
@@ -60,11 +60,11 @@ export default function MyCourseCard({
             ""
           )}
           {is_freeze ? <p className="freezep">Course freezed</p> : ""}
-          <div className="cs_st_tail">
+          {/* <div className="cs_st_tail">
             <h4 align={"right"}>
               <ReactTimeAgo date={Date.parse(created_at)} locale="en-US" />
             </h4>
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>

@@ -205,13 +205,6 @@
   .st_grid_card_manage:hover::-webkit-scrollbar {
   display: block;
 }
-
-.st_top_manage_body
-  .st_mange_cos_body
-  .st_manage_course_grid
-  .st_grid_card_manage:hover {
-  box-shadow: 0px 0px 4px 8px #eeeeeeb3;
-}
 .st_top_manage_body
   .st_mange_cos_body
   .st_manage_course_grid
@@ -219,7 +212,7 @@
   .st_grid_card_mg_head {
   position: relative;
   width: 100%;
-  height: 180px;
+  min-height: 25vh;
   transition: 0.5s ease;
   background-image: linear-gradient(to left, #007bff, black);
   margin-bottom: 15px;

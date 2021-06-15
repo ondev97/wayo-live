@@ -85,7 +85,11 @@ function StValidateLogin() {
 
   //save data in Local Storage
   useEffect(() => {
-    localStorage.setItem("usValues", JSON.stringify(acDetails)); //for save to local storage
+    if (
+      Object.keys(JSON.parse(localStorage.getItem("usValues"))).length === 0
+    ) {
+      localStorage.setItem("usValues", JSON.stringify(acDetails)); //for save to local storage
+    }
   }, [acDetails]);
 
   return [

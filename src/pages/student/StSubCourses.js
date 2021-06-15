@@ -135,7 +135,7 @@ export default function StSubCourses() {
                 Subjects
               </button>
             </div>
-            <div className="st_manage_cos_search">
+            {/* <div className="st_manage_cos_search">
               <input
                 type="text"
                 name="search"
@@ -145,7 +145,7 @@ export default function StSubCourses() {
               <button>
                 <i className="fas fa-search"></i>
               </button>
-            </div>
+            </div> */}
             <div className="">
               <InfiniteScroll
                 dataLength={courseData.length}
