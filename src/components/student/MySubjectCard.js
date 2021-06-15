@@ -24,7 +24,7 @@ export default function MySubjectsCard({
           <div className="image_sub">
             <LazyLoadImage effect="blur" src={`${subject_cover}`} alt="" />
           </div>
-          <div className="sub_ins_pro">
+          {/* <div className="sub_ins_pro">
             <div className="ins_outer">
               <LazyLoadImage
                 effect="blur"
@@ -32,7 +32,7 @@ export default function MySubjectsCard({
                 alt=""
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="sub_card_row">
           <h3>{subject_name}</h3>
@@ -50,7 +50,7 @@ export default function MySubjectsCard({
             </ul>
           </div>
         </div>
-        <div className="sub_card_row">
+        {/* <div className="sub_card_row">
           <h3>
             By:
             {author.user.first_name && author.user.last_name
@@ -62,7 +62,7 @@ export default function MySubjectsCard({
               <ReactTimeAgo date={Date.parse(created_at)} locale="en-US" />
             </h3>
           </div>
-        </div>
+        </div> */}
       </Link>
     </div>
   );

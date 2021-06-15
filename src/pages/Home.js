@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import videoCover from "../img/production.mp4";
 import "../assets/css/home.css";
 import "../assets/css/mediaFiles/homemedia.css";
+import { useDispatch } from "react-redux";
+import { activeAccount } from "../actions";
+import { loadStDetails } from "../actions/stDetailsAction";
+import CoverForm from "../components/CoverForm";
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(activeAccount());
+    dispatch(loadStDetails());
+  }, [dispatch]);
+
   return (
     <>
       <div className="uppercover">
@@ -18,21 +29,7 @@ export default function Home() {
               </div>
             </div>
             <div className="cover-col">
-              <form>
-                <h2>Audience Login</h2>
-                <p>
-                  <label>Username</label>
-                  <input type="text" name="username" />
-                </p>
-                <p>
-                  <label>Password</label>
-                  <input type="password" name="password" />
-                </p>
-                <div className="but-sec">
-                  <button>Login</button>
-                  <h4>Forgot Password</h4>
-                </div>
-              </form>
+              <CoverForm />
             </div>
           </div>
           <div className="upcoming-event">
@@ -61,7 +58,7 @@ export default function Home() {
       </div>
 
       {/* event section */}
-      <div className="event-section">
+      {/* <div className="event-section">
         <div className="event-main-container">
           <div className="event-section-column">
             <div className="event-row">
@@ -137,7 +134,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
