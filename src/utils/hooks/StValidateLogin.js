@@ -85,10 +85,20 @@ function StValidateLogin() {
 
   //save data in Local Storage
   useEffect(() => {
-    if (
-      Object.keys(JSON.parse(localStorage.getItem("usValues"))).length === 0
-    ) {
-      localStorage.setItem("usValues", JSON.stringify(acDetails)); //for save to local storage
+    if (Object.keys(acDetails).length !== 0) {
+      let date = new Date();
+      let time_to_live = date.getTime() + 10000000;
+
+      if (localStorage.getItem("usValues") === null) {
+        let newAcDetails = { ...acDetails, expire: time_to_live };
+        localStorage.setItem("usValues", JSON.stringify(newAcDetails)); //for save to local storage
+      } else if (
+        localStorage.getItem("usValues") !== null &&
+        Object.keys(JSON.parse(localStorage.getItem("usValues"))).length === 0
+      ) {
+        let newAcDetails = { ...acDetails, expire: time_to_live };
+        localStorage.setItem("usValues", JSON.stringify(newAcDetails)); //for save to local storage
+      }
     }
   }, [acDetails]);
 

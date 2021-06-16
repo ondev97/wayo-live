@@ -90,50 +90,10 @@ export default function StSubCourses() {
   return (
     <>
       <div className="ful_manage_course">
-        <div className="top_manage_course">
-          <LazyLoadImage
-            effect="blur"
-            width="100%"
-            height="100%"
-            src={subData.sub_cover}
-            alt=""
-            style={{ opacity: "0.8" }}
-          />
-          <div className="top_manage_head">
-            <h1>{subData.sub_name}</h1>
-            <h3>{subData.sub_sdes}</h3>
-          </div>
-
-          {
-            //subData.description ?
-            <motion.div layout className="down">
-              <motion.i
-                layout
-                className={`fas fa-chevron-down ${isShowDes ? "up" : ""}`}
-                onClick={() => setisShowDes(!isShowDes)}
-              ></motion.i>
-            </motion.div>
-            //:''
-          }
-        </div>
-        <motion.div layout>
-          <AnimateSharedLayout>
-            {isShowDes /*&& subData.description*/ ? (
-              <div className="sub_des_show">
-                <p>{subData.description}</p>
-              </div>
-            ) : (
-              ""
-            )}
-          </AnimateSharedLayout>
-        </motion.div>
         <div className="st_top_manage_body">
           <div className="st_mange_cos_body">
-            <div className="cr_models">
-              <button onClick={back}>
-                <i className="fas fa-chevron-circle-left"></i>Back to My
-                Subjects
-              </button>
+            <div className="pagetop">
+              <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>
             {/* <div className="st_manage_cos_search">
               <input

@@ -10,6 +10,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Header({ acDetails }) {
   const [isham, setisham] = useState(false);
   const profileDetails = ProfileDetails(acDetails);
+  let location = window.location.pathname;
 
   const mobnavani = {
     visible: {
@@ -21,7 +22,18 @@ export default function Header({ acDetails }) {
       transition: { duration: 1, ease: "easeIn" },
     },
   };
-
+  const mainRoute = [
+    "/",
+    "/about",
+    "/contact",
+    "/allteachers",
+    "/allsubjects",
+    "/stlogin",
+    "/stsignup",
+    "/passwordreset",
+    "/guidelines",
+    "/features",
+  ];
   const hambutton = () => {
     setisham(!isham);
   };
@@ -91,91 +103,95 @@ export default function Header({ acDetails }) {
     }
   };
 
-  return (
-    <div className="header-nav">
-      <nav>
-        <div className="column">
-          <div className="hlogo">
-            <Link to="/">
-              <img src={logo} alt="logo" />
-            </Link>
-          </div>
-        </div>
-        <div className="column">
-          <div className="navigation">
-            <ul>
-              <li>
-                <Link to="/">HOME</Link>
-              </li>
-              {/* <li>
-                <Link to="/about">ABOUT US</Link>
-              </li>
-              <li>
-                <Link to="/contact">CONTACT US</Link>
-              </li> */}
-              <li>
-                <Link to="#">USER GUIDE</Link>
-              </li>
-              <li>
-                <Link to="#">CONTACT US</Link>
-              </li>
-              <li>
-                <Link to="/allteachers">UPCOMING EVENTS</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="column">{headerProPic()}</div>
-        <div className="ham">
-          <button className="hambeggermenu" onClick={hambutton}>
-            <i className="fas fa-bars"></i>
-          </button>
-        </div>
-      </nav>
-      <AnimatePresence exitBeforeEnter>
-        {isham ? (
-          <motion.div
-            className="hammenu"
-            variants={mobnavani}
-            animate="visible"
-            initial="hidden"
-            exit="hidden"
-          >
-            <div className="menham">
-              <ul>
-                <Link to="/">
-                  <li>HOME</li>
-                </Link>
-                {/* <Link to='/about'>
-                                <li>
-                                    ABOUT US
-                                </li>
-                            </Link>
-                            <Link to='/contact'>
-                                <li>
-                                    CONTACT US
-                                </li>
-                            </Link> */}
-                <Link to="#">
-                  <li>GUIDELINES</li>
-                </Link>
-                <Link to="#">
-                  <li>OUR FEATURES</li>
-                </Link>
-                <Link to="/allteachers">
-                  <li>TEACHERS</li>
-                </Link>
-                <Link to="/allsubjects">
-                  <li>SUBJECTS</li>
-                </Link>
-              </ul>
-              <div className="butham">{headerProPic()}</div>
+  if (mainRoute.includes(location)) {
+    return (
+      <div className="header-nav">
+        <nav>
+          <div className="column">
+            <div className="hlogo">
+              <Link to="/">
+                <img src={logo} alt="logo" />
+              </Link>
             </div>
-          </motion.div>
-        ) : (
-          ""
-        )}
-      </AnimatePresence>
-    </div>
-  );
+          </div>
+          <div className="column">
+            <div className="navigation">
+              <ul>
+                <li>
+                  <Link to="/">HOME</Link>
+                </li>
+                {/* <li>
+                  <Link to="/about">ABOUT US</Link>
+                </li>
+                <li>
+                  <Link to="/contact">CONTACT US</Link>
+                </li> */}
+                <li>
+                  <Link to="#">USER GUIDE</Link>
+                </li>
+                <li>
+                  <Link to="#">CONTACT US</Link>
+                </li>
+                <li>
+                  <Link to="/allteachers">UPCOMING EVENTS</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="column">{headerProPic()}</div>
+          <div className="ham">
+            <button className="hambeggermenu" onClick={hambutton}>
+              <i className="fas fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+        <AnimatePresence exitBeforeEnter>
+          {isham ? (
+            <motion.div
+              className="hammenu"
+              variants={mobnavani}
+              animate="visible"
+              initial="hidden"
+              exit="hidden"
+            >
+              <div className="menham">
+                <ul>
+                  <Link to="/">
+                    <li>HOME</li>
+                  </Link>
+                  {/* <Link to='/about'>
+                                  <li>
+                                      ABOUT US
+                                  </li>
+                              </Link>
+                              <Link to='/contact'>
+                                  <li>
+                                      CONTACT US
+                                  </li>
+                              </Link> */}
+                  <Link to="#">
+                    <li>GUIDELINES</li>
+                  </Link>
+                  <Link to="#">
+                    <li>OUR FEATURES</li>
+                  </Link>
+                  <Link to="/allteachers">
+                    <li>TEACHERS</li>
+                  </Link>
+                  <Link to="/allsubjects">
+                    <li>SUBJECTS</li>
+                  </Link>
+                </ul>
+                <div className="butham">{headerProPic()}</div>
+              </div>
+            </motion.div>
+          ) : (
+            ""
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  } else {
+    return "";
+  }
 }

@@ -12,40 +12,15 @@ const App = () => {
   const accountDetails = useSelector((state) => state.accountDetails);
   const [acDetails, setacDetails] = useState("");
 
-  let location = window.location.pathname;
-
   useEffect(() => {
     setacDetails(accountDetails);
   }, [accountDetails]);
-
-  const mainRoute = [
-    "/",
-    "/about",
-    "/contact",
-    "/allteachers",
-    "/allsubjects",
-    "/stlogin",
-    "/stsignup",
-    "/passwordreset",
-    "/guidelines",
-    "/features",
-  ];
-
-  const headerRoute = () => {
-    if (mainRoute.includes(location)) {
-      return <Header acDetails={acDetails} />;
-    } else if (acDetails && acDetails.key && acDetails.is_teacher) {
-      return null;
-    } else if (acDetails && acDetails.key && !acDetails.is_teacher) {
-      return null;
-    }
-  };
 
   return (
     <div className="App">
       <ReactNotification isMobile="true" />
       <Router>
-        {headerRoute()}
+        <Header acDetails={acDetails} />
         <Switch>
           {routes.map((route, index) => (
             <Route

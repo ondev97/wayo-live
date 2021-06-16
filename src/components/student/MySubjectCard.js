@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import wayo from "../../img/wayo.jpg";
 
 export default function MySubjectsCard({
   id,
@@ -22,7 +23,7 @@ export default function MySubjectsCard({
       <Link to={`/studentdashboard/mycoursesforsubject/${id}`}>
         <div className="sub_card_row">
           <div className="image_sub">
-            <LazyLoadImage effect="blur" src={`${subject_cover}`} alt="" />
+            <LazyLoadImage effect="blur" src={wayo} alt="band" />
           </div>
           {/* <div className="sub_ins_pro">
             <div className="ins_outer">

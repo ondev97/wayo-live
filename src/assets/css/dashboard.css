@@ -34,7 +34,7 @@
   width: 98%;
   margin: 0 auto;
   padding: 5px 8px;
-  background-color: #ffffff33;
+  background-color: #383838;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -80,14 +80,14 @@
   position: absolute;
   right: -10px;
   bottom: -98px;
-  background-color: #ffffffab;
+  background-color: #383838;
   width: 150px;
   padding: 8px 5px;
   z-index: 1000;
   transition: 0.5s;
 }
 .main .main_column .sub_column {
-  padding: 25px 25px 90px 25px;
+  padding: 10px 25px 90px 25px;
   min-height: calc(100vh - 60px);
 }
 .main

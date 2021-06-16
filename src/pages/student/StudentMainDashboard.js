@@ -64,7 +64,7 @@ export default function StudentMainDashboard() {
     <>
       <div className="all_st_subs">
         <div className="pagetop">
-          <h1>BANDS</h1>
+          <h1>ALL BANDS</h1>
           {/* <div className="search_row">
             <input
               type="text"
