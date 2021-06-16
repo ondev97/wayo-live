@@ -37,7 +37,7 @@ export default function MySubjectsCard({
         <div className="sub_card_row">
           <h3>{subject_name}</h3>
           <p>{short_description}</p>
-          <div className="sub_type">
+          {/* <div className="sub_type">
             <ul>
               <li>
                 <i className="fas fa-graduation-cap"></i>
@@ -48,7 +48,7 @@ export default function MySubjectsCard({
                 {class_type}
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         {/* <div className="sub_card_row">
           <h3>

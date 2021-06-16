@@ -20,7 +20,6 @@ export default function MyCourseCard({
         className={
           is_freeze ? `st_grid_card_manage freezeCard` : `st_grid_card_manage`
         }
-        style={{ height: "340px" }}
       >
         <div className="st_grid_card_mg_head">
           <LazyLoadImage

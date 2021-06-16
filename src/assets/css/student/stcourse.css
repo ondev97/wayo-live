@@ -70,7 +70,7 @@
 }
 /*back button*/
 .st_top_manage_body .st_mange_cos_body .cr_models {
-  margin-top: 10px;
+  margin: 30px 0;
 }
 .st_top_manage_body .st_mange_cos_body .cr_models button {
   width: 175px;
@@ -155,10 +155,6 @@
 .st_top_manage_body .st_mange_cos_body .st_manage_course_grid {
   margin-top: 25px;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
   align-items: center;
 }
 .st_top_manage_body .st_mange_cos_body .st_manage_course_grid a {
@@ -170,13 +166,19 @@
   .st_manage_course_grid
   .st_grid_card_manage {
   position: relative;
-  height: 360px;
-  margin-bottom: 10px;
+  min-height: 20vh;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
   border: 1px solid #8b8b8b;
-  background-color: #fff;
+  background-color: #ffffff40;
   cursor: pointer;
   transition: all 0.5s;
   overflow-y: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 25px;
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -212,10 +214,10 @@
   .st_grid_card_mg_head {
   position: relative;
   width: 100%;
-  min-height: 25vh;
+  min-height: 100%;
+  flex-basis: 225px;
   transition: 0.5s ease;
   background-image: linear-gradient(to left, #007bff, black);
-  margin-bottom: 15px;
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -241,9 +243,8 @@
   .st_manage_course_grid
   .st_grid_card_manage
   .st_grid_card_mg_body {
-  padding: 5px 10px;
-  text-align: center;
-  height: 40%;
+  text-align: left;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -257,7 +258,7 @@
   h3 {
   font-weight: 400;
   color: var(--h1Fontcolor);
-  font-size: 17px;
+  font-size: 25px;
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -267,7 +268,7 @@
   h4 {
   margin-top: 10px;
   font-size: 15px;
-  color: #000;
+  color: #eee;
   font-weight: 500;
 }
 .st_top_manage_body

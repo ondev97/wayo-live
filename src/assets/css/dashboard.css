@@ -10,7 +10,7 @@
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #ffffffbd;
+  background-color: #ffffff33;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: 0.5s ease;
@@ -34,7 +34,7 @@
   width: 98%;
   margin: 0 auto;
   padding: 5px 8px;
-  background-color: #ffffffbd;
+  background-color: #ffffff33;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -80,7 +80,7 @@
   position: absolute;
   right: -10px;
   bottom: -98px;
-  background-color: #fff;
+  background-color: #ffffffab;
   width: 150px;
   padding: 8px 5px;
   z-index: 1000;
@@ -108,6 +108,7 @@
   font-weight: 500;
   user-select: none;
   transition: 0.3s;
+  color: #000;
 }
 .main .main_column .head .column .sec .profile .drop_down .drop_down_list ul a {
   text-decoration: none;
