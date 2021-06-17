@@ -54,7 +54,7 @@
 .all_st_subs .all_sub_body .al_sub_card {
   padding: 25px;
   width: 100%;
-  background-color: #ffffff40;
+  background-color: #7f7f7f;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
@@ -66,10 +66,8 @@
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub {
   max-width: 200px;
-  max-height: 27vh;
   margin: 0 auto;
   overflow: hidden;
-  background: linear-gradient(150deg, var(--dashboardBack), #7bbcfd);
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub img {
   width: 100%;
@@ -134,15 +132,15 @@
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) h3 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--h1Fontcolor);
+  color: #000;
   margin-top: 12px;
   text-align: left;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) p {
   font-size: 13px;
-  font-weight: lighter;
+  font-weight: normal;
   text-align: left;
-  color: #eee;
+  color: #000;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) .sub_type {
   margin-top: 8px;

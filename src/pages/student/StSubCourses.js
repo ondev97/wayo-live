@@ -9,6 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import MyCourseCard from "../../components/student/MyCourseCard";
 import ProfileLoader from "../../components/ProfileLoader";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import EventsFilter from "../../components/student/EventsFilter";
 
 export default function StSubCourses() {
   const { id } = useParams();
@@ -95,41 +96,34 @@ export default function StSubCourses() {
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>
-            {/* <div className="st_manage_cos_search">
-              <input
-                type="text"
-                name="search"
-                placeholder="Search Courses"
-                onChange={handelSearchSubject}
-              />
-              <button>
-                <i className="fas fa-search"></i>
-              </button>
-            </div> */}
-            <div className="">
-              <InfiniteScroll
-                dataLength={courseData.length}
-                next={next}
-                hasMore={true}
-                className="st_manage_course_grid"
-              >
-                {courseData.length !== 0
-                  ? courseData.map((cdata, index) => (
-                      <MyCourseCard
-                        key={index}
-                        course_cover={cdata.course.course_cover}
-                        enrollkey={cdata.enroll_key}
-                        course_name={cdata.course.course_name}
-                        price={cdata.course.price}
-                        duration={cdata.course.duration}
-                        created_at={cdata.course.created_at}
-                        courseid={cdata.course.id}
-                        is_freeze={cdata.course.is_freeze}
-                        no={index}
-                      />
-                    ))
-                  : isLoading && <ProfileLoader />}
-              </InfiniteScroll>
+            <EventsFilter />
+            <div className="outer_section">
+              <h2>ALL EVENTS</h2>
+              <div className="inner_section">
+                <InfiniteScroll
+                  dataLength={courseData.length}
+                  next={next}
+                  hasMore={true}
+                  className="st_manage_course_grid"
+                >
+                  {courseData.length !== 0
+                    ? courseData.map((cdata, index) => (
+                        <MyCourseCard
+                          key={index}
+                          course_cover={cdata.course.course_cover}
+                          enrollkey={cdata.enroll_key}
+                          course_name={cdata.course.course_name}
+                          price={cdata.course.price}
+                          duration={cdata.course.duration}
+                          created_at={cdata.course.created_at}
+                          courseid={cdata.course.id}
+                          is_freeze={cdata.course.is_freeze}
+                          no={index}
+                        />
+                      ))
+                    : isLoading && <ProfileLoader />}
+                </InfiniteScroll>
+              </div>
             </div>
           </div>
         </div>

@@ -22,19 +22,8 @@ export default function MyCourseCard({
         }
       >
         <div className="st_grid_card_mg_head">
-          <LazyLoadImage
-            effect="blur"
-            width="100%"
-            height="100%"
-            src={`${course_cover}`}
-            alt=""
-          />
-          <div className="dura">
-            <h3>
-              <i className="far fa-clock cl"></i>
-              {duration} Hrs
-            </h3>
-          </div>
+          <h3>25 JUNE 2021</h3>
+          <h3>06.30 PM</h3>
         </div>
         {/* <div className="st_cos_manage_num">
           <h3>{no < 10 ? `0${no + 1}` : no}</h3>
@@ -64,6 +53,10 @@ export default function MyCourseCard({
               <ReactTimeAgo date={Date.parse(created_at)} locale="en-US" />
             </h4>
           </div> */}
+          <h3 className="label">EVENT LABEL</h3>
+        </div>
+        <div className="st_grid_card_mg_tail">
+          <button>JOIN EVENT</button>
         </div>
       </div>
     </Link>
