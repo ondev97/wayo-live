@@ -76,9 +76,9 @@
   margin: 30px 0;
 }
 .st_top_manage_body .st_mange_cos_body .pagetop h1 {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 500;
-  color: var(--background1);
+  color: #fff;
   text-align: left;
   flex: 0.3 1;
   text-transform: uppercase;
@@ -266,6 +266,17 @@
   .st_manage_course_grid
   .st_grid_card_manage
   .st_grid_card_mg_head
+  .label {
+  background-color: var(--h1Fontcolor);
+  padding: 4px;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
+  .st_grid_card_manage
+  .st_grid_card_mg_head
   img {
   opacity: 1;
   width: 100%;
@@ -299,9 +310,9 @@
   .st_grid_card_manage
   .st_grid_card_mg_body
   h3 {
-  font-weight: 400;
+  font-weight: 600;
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
 }
 .st_top_manage_body
   .st_mange_cos_body
@@ -322,11 +333,20 @@
   .st_mange_cos_body
   .st_manage_course_grid
   .st_grid_card_manage
+  .st_grid_card_mg_tail {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+}
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
+  .st_grid_card_manage
   .st_grid_card_mg_tail
   button {
   background-color: var(--h1Fontcolor);
-  padding: 12px 8px;
-  width: 120px;
+  padding: 8px;
+  width: 100px;
   color: #fff;
   border: 1px solid transparent;
   cursor: pointer;

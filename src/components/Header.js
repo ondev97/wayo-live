@@ -55,7 +55,6 @@ export default function Header({ acDetails }) {
               <h3 style={{ textTransform: "uppercase" }}>
                 {profileDetails.userName}
               </h3>
-              <p>Instructor</p>
             </div>
             <Link to="teacherdashboard/managecourse">
               <div className="img">
@@ -75,7 +74,6 @@ export default function Header({ acDetails }) {
               <h3 style={{ textTransform: "uppercase" }}>
                 {profileDetails.userName}
               </h3>
-              <p>Student</p>
             </div>
             <Link to="studentdashboard/maindashboard">
               <div className="img">

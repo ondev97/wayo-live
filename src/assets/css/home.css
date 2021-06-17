@@ -77,6 +77,11 @@
 .uppercover .cover-cont .wrp .cover-col:nth-child(2) form p {
   position: relative;
 }
+.uppercover .cover-cont .wrp .cover-col:nth-child(2) form p.comtip {
+  color: red;
+  font-size: 14px;
+  padding-bottom: 12px;
+}
 .uppercover .cover-cont .wrp .cover-col:nth-child(2) form p label {
   display: block;
   margin-bottom: 10px;

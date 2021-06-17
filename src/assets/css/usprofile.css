@@ -16,9 +16,9 @@
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box {
   width: 100%;
-  background-color: #fff;
+  background-color: #7f7f7f;
   margin-bottom: 20px;
-  box-shadow: 0px 0px 15px 2px #eee;
+  box-shadow: 0px 0px 15px 2px #7f7f7f;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .srow {
   width: 100%;
@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, #4100c1, var(--h1Fontcolor));
+  background-image: linear-gradient(to right, #ffd084, var(--h1Fontcolor));
   color: #fff;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .srow h2 {
@@ -160,6 +160,7 @@
   font-size: 13px;
   letter-spacing: 1.1px;
   font-weight: 300;
+  color: #fff;
 }
 .main_profile
   .tcprofilecolumn
@@ -170,7 +171,7 @@
   p
   i {
   margin-right: 5px;
-  color: var(--h1Fontcolor);
+  color: #fff;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .brow .tous {
   margin-top: 20px;
@@ -210,9 +211,9 @@
   font-size: 13px;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .bottom_box {
-  background-color: #fff;
+  background-color: #7f7f7f;
   padding: 25px;
-  box-shadow: 0px 0px 13px 2px #eee;
+  box-shadow: 0px 0px 13px 2px #7f7f7f;
 }
 .main_profile
   .tcprofilecolumn
@@ -222,7 +223,8 @@
   p {
   font-size: 14px;
   margin-bottom: 3px;
-  color: var(--h1Fontcolor);
+  color: #000;
+  font-weight: 600;
 }
 .main_profile
   .tcprofilecolumn
@@ -236,6 +238,7 @@
   font-weight: 400;
   word-wrap: break-word;
   display: inline-block;
+  color: #fff;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .bottom_box .teachskills {
   width: 100%;
@@ -319,7 +322,7 @@
 .main_profile .tcdisoncolumn .about_header {
   width: 100%;
   padding: 8px 3px;
-  background-color: #fff;
+  background-color: #7f7f7f;
   border-bottom: 2px solid #eee;
 }
 .main_profile .tcdisoncolumn .about_header ul {
@@ -342,13 +345,14 @@
 }
 .main_profile .tcdisoncolumn .about_body {
   padding: 25px;
-  background-color: #fff;
+  background-color: #7f7f7f;
 }
 .main_profile .tcdisoncolumn .about_body h3 {
   font-size: 16px;
   margin-bottom: 10px;
   font-weight: 600;
   text-transform: uppercase;
+  color: #fff;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card {
   width: 100%;
@@ -378,13 +382,14 @@
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h3 {
   font-size: 13px;
-  color: var(--h1Fontcolor);
+  color: #000;
   margin-right: 10px;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h4 {
   font-size: 13.5px;
   font-weight: 400;
   word-wrap: break-word;
+  color: #fff;
 }
 .main_profile .tcdisoncolumn .about_body .disdis {
   margin-bottom: 25px;
@@ -410,11 +415,12 @@
 .main_profile .tcdisoncolumn .tc_profile_settings {
   width: 100%;
   padding: 25px;
-  background-color: #fff;
+  background-color: #7f7f7f;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det h2 {
   font-size: 17px;
   margin-bottom: 20px;
+  color: #fff;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr {
   display: flex;
@@ -460,12 +466,15 @@
   display: block;
   font-size: 14px;
   margin-bottom: 13px;
+  color: #000;
+  font-weight: 600;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr p input,
 .ac_det .sectpr p textarea {
   width: 100%;
   padding: 9px 5px;
-  border: 1px solid #d6d5d5;
+  border: 1px solid #e2e7ef;
+  background-color: #e2e7ef;
   outline: none;
   border-radius: 3px;
   margin-bottom: 20px;
@@ -716,7 +725,7 @@ i {
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password p span {
   font-size: 12px;
-  color: #a5a3a3;
+  color: #000;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password h2 {
   font-size: 17px;
@@ -734,6 +743,7 @@ i {
   display: block;
   font-size: 14px;
   margin-bottom: 8px;
+  font-weight: 600;
 }
 .main_profile
   .tcdisoncolumn

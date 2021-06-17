@@ -129,14 +129,14 @@
   align-items: center;
   grid-column-gap: 15px;
 }
-.filter_section .filter_column form input[type="radio"] {
+.filter_section .filter_column form input[type="checkbox"] {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
   background-color: #000;
   cursor: pointer;
 }
-.filter_section .filter_column form input[type="radio"]:checked {
+.filter_section .filter_column form input[type="checkbox"]:checked {
   background-color: var(--h1Fontcolor);
 }
 .filter_section .filter_column form p label {

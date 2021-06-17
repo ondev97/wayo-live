@@ -34,29 +34,22 @@ export default function StudentDashBoardHeader() {
         <div className="list">
           <ul>
             <Link to={"/"}>
-              <li>
-                <i className="fas fa-home"></i>Home
-              </li>
+              <li>HOME</li>
             </Link>
             <Link to="/studentdashboard/maindashboard/">
-              <li>
-                <i className="fas fa-school"></i>USER GUIDE
-              </li>
+              <li>ALL EVENTS</li>
             </Link>
-            <Link to="/studentdashboard/allsubjects/">
-              <li>
-                <i className="fas fa-graduation-cap"></i>CONTACT US
-              </li>
+            <Link to="#">
+              <li>USER GUIDE</li>
             </Link>
-            <Link to="/studentdashboard/studentprofile/">
-              <li>
-                <i className="far fa-user-circle"></i>My Profile
-              </li>
+            <Link to="/studentdashboard/contact/">
+              <li>CONTACT US</li>
             </Link>
             <Link to="/studentdashboard/studentprofile/">
-              <li>
-                <i className="far fa-user-circle"></i>LOGOUT
-              </li>
+              <li>MY PROFILE</li>
+            </Link>
+            <Link to="#">
+              <li>LOGOUT</li>
             </Link>
           </ul>
         </div>

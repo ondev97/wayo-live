@@ -97,12 +97,12 @@ function EventsFilter() {
           <h2>SELECT BAND</h2>
           <form>
             <p>
-              <input type="radio" id="live" name="record" checked />
-              <label id="live">Live Streaming</label>
+              <input type="checkbox" id="live" name="record" />
+              <label htmlFor="live">Live Streaming</label>
             </p>
             <p>
-              <input type="radio" id="liveR" name="record" />
-              <label id="liveR">Live Recorded</label>
+              <input type="checkbox" id="liveR" name="record" />
+              <label htmlFor="liveR">Live Recorded</label>
             </p>
           </form>
         </div>
@@ -117,7 +117,7 @@ function EventsFilter() {
               <input
                 type="text"
                 id="option_view_button"
-                placeholder="Select A Band"
+                placeholder="Select A Event"
                 disabled
                 ref={eventRef}
               />

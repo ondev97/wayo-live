@@ -11,9 +11,9 @@
   align-items: center;
 }
 .all_st_subs .pagetop h1 {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 500;
-  color: var(--background1);
+  color: #fff;
   text-align: left;
   flex: 0.3;
   text-transform: uppercase;

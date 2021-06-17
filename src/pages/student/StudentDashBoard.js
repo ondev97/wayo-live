@@ -7,7 +7,7 @@ import UserStatus from "../../utils/hooks/UserStatus";
 import StudentMainDashboard from "./StudentMainDashboard";
 import StudentDashBoardHeader from "../../components/student/StudentDashboardHeader";
 import StProfile from "./StProfile";
-import StAllSubjects from "./StAllSubjects";
+import Contact from "./Contact";
 import StCourses from "./StCourses";
 import Stmodules from "./Stmodules";
 import StMyCourses from "./StMyCourses";
@@ -146,8 +146,8 @@ function StudentDashBoard() {
           <Route path="/studentdashboard/maindashboard">
             <StudentMainDashboard />
           </Route>
-          <Route path="/studentdashboard/allsubjects/">
-            <StAllSubjects />
+          <Route path="/studentdashboard/contact/">
+            <Contact />
           </Route>
           <Route path="/studentdashboard/mycourses/">
             <StMyCourses />

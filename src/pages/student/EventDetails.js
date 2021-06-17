@@ -20,17 +20,23 @@ export default function EventDetails() {
                 <div className="event_head">
                   <h2>25 JUNE 2021</h2>
                   <h2>06.30 PM</h2>
+                  <h3 className="label">EVENT LABEL</h3>
                 </div>
               </div>
               <div className="event_column">
                 <div className="event_dis_col">
                   <h1>"Jeewithe" Live Stream for infor Sri Lanka</h1>
-                  <h2>Event Description</h2>
+                  <h1>Event Description</h1>
+                  <h1>Event Type</h1>
+                  <h1>Event CATEGORY</h1>
                 </div>
               </div>
               <div className="event_column">
+                <Link to={`#`}>
+                  <button>EVENT FEE</button>
+                </Link>
                 <Link to={`/studentdashboard/stmodules/${id}`}>
-                  <button>Join Event</button>
+                  <button>JOIN EVENT</button>
                 </Link>
               </div>
             </div>
@@ -46,6 +52,12 @@ export default function EventDetails() {
               <div className="event_dis_col">
                 <div className="event_dis_section">
                   <div className="event_dis_row">
+                    <h2>BAND</h2>
+                    <h2>
+                      <span>: BAND</span>
+                    </h2>
+                  </div>
+                  <div className="event_dis_row">
                     <h2>EVENT NAME</h2>
                     <h2>
                       <span>: EVENT NAME</span>
@@ -55,6 +67,24 @@ export default function EventDetails() {
                     <h2>EVENT Description</h2>
                     <h2>
                       <span>: EVENT Description</span>
+                    </h2>
+                  </div>
+                  <div className="event_dis_row">
+                    <h2>EVENT LABEL</h2>
+                    <h2>
+                      <span>: EVENT LABEL</span>
+                    </h2>
+                  </div>
+                  <div className="event_dis_row">
+                    <h2>EVENT TYPE</h2>
+                    <h2>
+                      <span>: EVENT TYPE</span>
+                    </h2>
+                  </div>
+                  <div className="event_dis_row">
+                    <h2>EVENT CATEGORY</h2>
+                    <h2>
+                      <span>: EVENT CATEGORY</span>
                     </h2>
                   </div>
                   <div className="event_dis_row">
@@ -75,12 +105,7 @@ export default function EventDetails() {
                       <span>: EVENT END TIME</span>
                     </h2>
                   </div>
-                  <div className="event_dis_row">
-                    <h2>EVENT LABEL</h2>
-                    <h2>
-                      <span>: EVENT LABEL</span>
-                    </h2>
-                  </div>
+
                   <div className="event_dis_row">
                     <h2>EVENT DURATION</h2>
                     <h2>
@@ -88,9 +113,9 @@ export default function EventDetails() {
                     </h2>
                   </div>
                   <div className="event_dis_row">
-                    <h2>EVENT TICKET PRICE</h2>
+                    <h2>EVENT FEE</h2>
                     <h2>
-                      <span>: EVENT TICKET PRICE</span>
+                      <span>: EVENT FEE</span>
                     </h2>
                   </div>
                 </div>
