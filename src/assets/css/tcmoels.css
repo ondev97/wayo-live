@@ -4,11 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  grid-gap: 30px;
   font-family: "Open Sans", sans-seri;
 }
 .models .md_all_models {
-  flex: 0.7;
-  margin-right: 10px;
+  flex: 0.75;
 }
 .models .md_all_models .models_en_nav {
   width: 100%;
@@ -83,8 +83,9 @@
 }
 .models .md_all_models .md_models .al_models .al_on_model {
   margin-bottom: 15px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #7f7f7f;
+  border: 1px solid #7f7f7f;
+  border-radius: 12px;
 }
 .models .md_all_models .md_models .al_models .on_model_head {
   width: 100%;
@@ -93,12 +94,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f4f4;
 }
 .models .md_all_models .md_models .al_models .on_model_head h1 {
   font-size: 17px;
-  font-weight: 500;
-  color: var(--h1Fontcolor);
+  font-weight: 600;
+  color: #000;
 }
 .models .md_all_models .md_models .al_models .on_model_head .heads_buts button {
   background: none;
@@ -141,12 +141,9 @@
 }
 .models .md_all_models .md_models .al_models .on_model_body {
   width: 100%;
-  padding: 10px 10px 5px 10px;
+  padding: 0 25px 25px;
 }
 .models .md_all_models .md_models .al_models .on_model_body .model_body_row {
-  padding: 10px 8px 15px;
-  border-bottom: 1px solid #cfcfcf;
-  margin-bottom: 8px;
   cursor: pointer;
   font-size: 14px;
   transition: 0.2s;
@@ -159,8 +156,19 @@
   .model_body_row
   .re_player {
   position: relative;
-  padding: 23%;
+  padding: 28%;
   margin: 10px 5px 20px;
+}
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  .event_details_dis {
+  background-color: #fff;
+  padding: 20px 12px;
+  border-radius: 8px;
 }
 /*Youtube Player Overlay*/
 .models
@@ -364,24 +372,16 @@
 }
 
 .models .md_course_desc {
-  flex: 0.3;
+  flex: 0.25;
+  max-height: 85vh;
   position: sticky;
-  top: 90px;
+  top: 70px;
   bottom: 0;
-  background-color: #fff;
+  background-color: #7f7f7f;
   overflow: auto;
-  border: 1px solid #ccc;
-}
-.models .md_course_desc::-webkit-scrollbar {
-  width: 5px;
-}
-.models .md_course_desc::-webkit-scrollbar-track {
-  background: transparent;
-}
-.models .md_course_desc::-webkit-scrollbar-thumb {
-  background-color: #afafaf;
-  border-radius: 20px;
-  border: transparent;
+  border: 1px solid #7f7f7f;
+  border-radius: 8px;
+  padding: 12px;
 }
 
 /*mobile links*/
@@ -438,7 +438,7 @@
   color: #000;
 }
 /*////*/
-.models .md_course_desc .colCourseView {
+/* .models .md_course_desc .colCourseView {
   position: relative;
   height: 100%;
 }
@@ -751,7 +751,64 @@
   background-color: #afafaf;
   border-radius: 20px;
   border: transparent;
+} */
+/*live audience section*/
+.live_audience {
+  width: 100%;
 }
+.live_audience .live_audience_head {
+  background-color: #fff;
+  padding: 12px 8px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.live_audience .live_audience_head h1 {
+  font-size: 18px;
+  font-weight: 900;
+}
+.live_audience .live_audience_body {
+  background-color: #2d2d2d;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  border-radius: 10px;
+  margin-top: 12px;
+  padding: 12px;
+}
+.live_audience .live_audience_body::-webkit-scrollbar {
+  width: 10px;
+}
+.live_audience .live_audience_body::-webkit-scrollbar-track {
+  background: #fff;
+}
+.live_audience .live_audience_body::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 2px;
+  border: transparent;
+}
+.live_audience .live_audience_body .audience_row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  grid-column-gap: 10px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 5px;
+  border-radius: 8px;
+}
+.live_audience .live_audience_body .audience_row .audience_pro_pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--h1Fontcolor);
+}
+.live_audience .live_audience_body .audience_row .audience_names {
+  flex: 1;
+}
+.live_audience .live_audience_body .audience_row .audience_names h1 {
+  font-size: 17px;
+}
+
 /*view all students button*/
 #viewst {
   display: none;

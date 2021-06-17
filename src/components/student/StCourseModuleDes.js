@@ -28,38 +28,101 @@ export default function StCourseModuleDes() {
   }, [usDetails]);
 
   return (
-    <div className="colCourseView">
-      <div className="course_desc_head">
-        <div className="course_pic">
-          <LazyLoadImage
-            effect="blur"
-            width="100%"
-            height="100%"
-            style={{ opacity: "1" }}
-            src={`${courseData.course_cover}`}
-            alt=""
-          />
-          {/*<div className="cos_options">*/}
-          {/*    <button><i className="fas fa-exclamation"></i><span>Unenroll Me</span></button>*/}
-          {/*</div>*/}
-        </div>
-        <h2>{courseData.course_name}</h2>
-        <h3>
-          <ReactTimeAgo
-            date={Date.parse(courseData.created_at)}
-            locale="en-US"
-          />
-        </h3>
+    <div className="live_audience">
+      <div className="live_audience_head">
+        <h1>LIVE AUDIENCE</h1>
+        <h1>250</h1>
       </div>
-      <div className="course_desc_body">
-        <div className="course_short_desc st_course_short_desc">
-          <h3>Course Description</h3>
-          <p>
-            {courseData.course_description ||
-            courseData.course_description !== "null"
-              ? courseData.course_description
-              : ""}
-          </p>
+      <div className="live_audience_body">
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME </h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
+        </div>
+        <div className="audience_row">
+          <div className="audience_pro_pic"></div>
+          <div className="audience_names">
+            <h1>USER NAME</h1>
+          </div>
         </div>
       </div>
     </div>

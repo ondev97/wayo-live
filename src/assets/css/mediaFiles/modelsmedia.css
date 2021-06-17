@@ -12,6 +12,12 @@
     margin-bottom: 5px;
     overflow: initial;
   }
+  .models .md_course_desc {
+    width: 100%;
+  }
+  .live_audience .live_audience_body {
+    display: none;
+  }
   .models .md_course_desc .colCourseView {
     display: flex;
     height: auto;
