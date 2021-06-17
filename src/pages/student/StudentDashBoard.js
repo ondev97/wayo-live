@@ -14,6 +14,7 @@ import StMyCourses from "./StMyCourses";
 import { AnimatePresence, motion } from "framer-motion";
 import StSubCourses from "./StSubCourses";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import EventDetails from "./EventDetails";
 
 function StudentDashBoard() {
   const dispatch = useDispatch();
@@ -153,6 +154,9 @@ function StudentDashBoard() {
           </Route>
           <Route path="/studentdashboard/stcourses/:id">
             <StCourses />
+          </Route>
+          <Route path="/studentdashboard/envetdetails/:id">
+            <EventDetails />
           </Route>
           <Route path="/studentdashboard/stmodules/:id">
             <Stmodules />

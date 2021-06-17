@@ -1,21 +1,15 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
-import ReactTimeAgo from "react-time-ago";
 
 export default function MyCourseCard({
-  course_cover,
   course_name,
   enrollkey,
-  duration,
-  created_at,
   courseid,
   is_freeze,
-  no,
   payment,
 }) {
   return (
-    <Link to={is_freeze ? `#` : `/studentdashboard/stmodules/${courseid}/`}>
+    <Link to={is_freeze ? `#` : `/studentdashboard/envetdetails/${courseid}`}>
       <div
         className={
           is_freeze ? `st_grid_card_manage freezeCard` : `st_grid_card_manage`

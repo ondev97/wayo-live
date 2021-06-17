@@ -18,7 +18,6 @@ export default function StSubCourses() {
   const [courseData, setcourseData] = useState([]);
   const [subData, setsubData] = useState({});
   const [nextPage, setnextPage] = useState(null);
-  const [isShowDes, setisShowDes] = useState(false);
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
   const [isRedirect, setisRedirect] = useState(false);
