@@ -90,7 +90,7 @@ export default function Header({ acDetails }) {
     } else {
       return (
         <div className="buttons">
-          <Link to="/stsignup">
+          <Link to="#">
             <button>Register</button>
           </Link>
           {/* <Link to="/stsignup">
