@@ -106,6 +106,15 @@
     width: 100%;
   }
 }
+@media screen and (max-width: 482px) {
+  .uppercover .cover-cont .wrp .cover-col:nth-child(2) {
+    flex: 1;
+    justify-content: center;
+  }
+  .uppercover .cover-cont .wrp .cover-col:nth-child(2) form {
+    width: 95%;
+  }
+}
 @media screen and (max-width: 360px) {
   .maininde .uppercover .cov_text h1 {
     font-size: 50px;

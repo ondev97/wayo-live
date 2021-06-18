@@ -118,12 +118,6 @@ export default function Header({ acDetails }) {
                 <li>
                   <Link to="/">HOME</Link>
                 </li>
-                {/* <li>
-                  <Link to="/about">ABOUT US</Link>
-                </li>
-                <li>
-                  <Link to="/contact">CONTACT US</Link>
-                </li> */}
                 <li>
                   <Link to="#">USER GUIDE</Link>
                 </li>
@@ -131,7 +125,7 @@ export default function Header({ acDetails }) {
                   <Link to="#">CONTACT US</Link>
                 </li>
                 <li>
-                  <Link to="/allteachers">UPCOMING EVENTS</Link>
+                  <Link to="#">UPCOMING EVENTS</Link>
                 </li>
               </ul>
             </div>
@@ -157,27 +151,14 @@ export default function Header({ acDetails }) {
                   <Link to="/">
                     <li>HOME</li>
                   </Link>
-                  {/* <Link to='/about'>
-                                  <li>
-                                      ABOUT US
-                                  </li>
-                              </Link>
-                              <Link to='/contact'>
-                                  <li>
-                                      CONTACT US
-                                  </li>
-                              </Link> */}
                   <Link to="#">
-                    <li>GUIDELINES</li>
+                    <li>USER GUIDE</li>
                   </Link>
                   <Link to="#">
-                    <li>OUR FEATURES</li>
+                    <li>CONTACT US</li>
                   </Link>
-                  <Link to="/allteachers">
-                    <li>TEACHERS</li>
-                  </Link>
-                  <Link to="/allsubjects">
-                    <li>SUBJECTS</li>
+                  <Link to="#">
+                    <li>UPCOMING EVENTS</li>
                   </Link>
                 </ul>
                 <div className="butham">{headerProPic()}</div>
