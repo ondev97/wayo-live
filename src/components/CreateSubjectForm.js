@@ -22,7 +22,7 @@ export default function CreateSubjectForm({
     <form onSubmit={handelSubmit}>
       <p>
         <label htmlFor="st">
-          Subject Title <span>(Max 45 Characters)</span>
+          EVENT NAME <span>(Max 45 Characters)</span>
         </label>
         <input
           type="text"
@@ -40,7 +40,7 @@ export default function CreateSubjectForm({
       </p>
       <p>
         <label htmlFor="ssd">
-          Subject Short Description <span>(Max 50 Characters)</span>
+          EVENT Description <span>(Max 50 Characters)</span>
         </label>
         <input
           type="text"
@@ -56,6 +56,119 @@ export default function CreateSubjectForm({
           </span>
         )}
       </p>
+
+      <div className="sub_sect">
+        <p>
+          <label htmlFor="ssd">
+            EVENT LABEL <span>(Max 50 Characters)</span>
+          </label>
+          <input
+            type="text"
+            name="subject_shdes"
+            id="ssd"
+            value={formValue.subject_shdes}
+            onChange={hadelChabgeFormValues}
+            onFocus={hideError}
+          />
+          {formErrors.subject_shdes && (
+            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+              {formErrors.subject_shdes}
+            </span>
+          )}
+        </p>
+        <p>
+          <label htmlFor="st">FREEZE EVENT</label>
+          <input type="radio" name="freeze" />
+        </p>
+      </div>
+      <div className="sub_sect">
+        <p>
+          <label htmlFor="ssd">EVENT DATE</label>
+          <input
+            type="text"
+            name="subject_shdes"
+            id="ssd"
+            value={formValue.subject_shdes}
+            onChange={hadelChabgeFormValues}
+            onFocus={hideError}
+          />
+          {formErrors.subject_shdes && (
+            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+              {formErrors.subject_shdes}
+            </span>
+          )}
+        </p>
+        <p>
+          <label htmlFor="ssd">EVENT START TIME</label>
+          <input
+            type="text"
+            name="subject_shdes"
+            id="ssd"
+            value={formValue.subject_shdes}
+            onChange={hadelChabgeFormValues}
+            onFocus={hideError}
+          />
+          {formErrors.subject_shdes && (
+            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+              {formErrors.subject_shdes}
+            </span>
+          )}
+        </p>
+        <p>
+          <label htmlFor="ssd">EVENT END TIME</label>
+          <input
+            type="text"
+            name="subject_shdes"
+            id="ssd"
+            value={formValue.subject_shdes}
+            onChange={hadelChabgeFormValues}
+            onFocus={hideError}
+          />
+          {formErrors.subject_shdes && (
+            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+              {formErrors.subject_shdes}
+            </span>
+          )}
+        </p>
+        <p>
+          <label htmlFor="ssd">EVENT DURATION</label>
+          <input
+            type="text"
+            name="subject_shdes"
+            id="ssd"
+            value={formValue.subject_shdes}
+            onChange={hadelChabgeFormValues}
+            onFocus={hideError}
+          />
+          {formErrors.subject_shdes && (
+            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+              {formErrors.subject_shdes}
+            </span>
+          )}
+        </p>
+      </div>
+      <div className="sub_sect">
+        <p>
+          <label htmlFor="ssd">EVENT FEE</label>
+          <input type="radio" name="event_fee" />
+        </p>
+        <p>
+          <label htmlFor="st">PRICE</label>
+          <input
+            type="text"
+            name="subject_shdes"
+            id="ssd"
+            value={formValue.subject_shdes}
+            onChange={hadelChabgeFormValues}
+            onFocus={hideError}
+          />
+          {formErrors.subject_shdes && (
+            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+              {formErrors.subject_shdes}
+            </span>
+          )}
+        </p>
+      </div>
       <p>
         <label htmlFor="sd">Subject Description</label>
         <textarea
@@ -78,7 +191,7 @@ export default function CreateSubjectForm({
             <Cropper
               style={{ height: "100%", width: "100%" }}
               initialAspectRatio={16 / 9}
-              aspectRatio={16 / 9}
+              aspectRatio={1 / 1}
               preview=".img-preview"
               src={image}
               viewMode={1}

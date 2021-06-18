@@ -151,10 +151,20 @@ export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
               <div className="re_player">
                 <ReactPlayer
                   url={wayo}
-                  pip={true}
+                  pip={false}
+                  controls
                   className="player"
                   width="100%"
                   height="100%"
+                  config={{
+                    file: {
+                      attributes: {
+                        controlsList: "nodownload",
+                        disablepictureinpicture: "true",
+                      },
+                    },
+                  }}
+                  onContextMenu={(e) => e.preventDefault()}
                 />
               </div>
               <div className="event_details_dis">

@@ -1,20 +1,26 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import logo1 from "../../img/Logo_1.png";
+import UserStatus from "../../utils/hooks/UserStatus";
 
 export default function StudentDashBoardHeader() {
   const { initialState } = useSelector((state) => state.StudentDetails);
+  const { log, hadelLogOut } = UserStatus(); //custom hook
+
+  if (!log) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div>
-      <div className="logo">
+      {/* <div className="logo">
         <Link to={"/"} style={{ textDecoration: "none" }}>
           {" "}
           <img src={logo1} alt="logo" />{" "}
         </Link>
-      </div>
+      </div> */}
       <div className="profile_menu">
         <div className="pro_pic">
           <LazyLoadImage
@@ -48,9 +54,7 @@ export default function StudentDashBoardHeader() {
             <Link to="/studentdashboard/studentprofile/">
               <li>MY PROFILE</li>
             </Link>
-            <Link to="#">
-              <li>LOGOUT</li>
-            </Link>
+            <li onClick={hadelLogOut}>LOGOUT</li>
           </ul>
         </div>
       </div>

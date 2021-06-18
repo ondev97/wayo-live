@@ -8,7 +8,6 @@ import UserStatus from "../utils/hooks/UserStatus";
 import AcDetails from "../utils/hooks/AcDetails";
 import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
-import CreateCourse from "./CreateCourse";
 import CourseView from "./CourseView";
 import TcModels from "./TcModels";
 import CreateSubject from "./CreateSubject";
@@ -92,7 +91,7 @@ export default function TeacherDashboard() {
         <TeacherDashboardHeader />
       </div>
       <div className="main_column">
-        <div className="head">
+        {/* <div className="head">
           <div className="column">
             <i onClick={togglemenu} className="fas fa-bars"></i>
           </div>
@@ -145,16 +144,13 @@ export default function TeacherDashboard() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="sub_column">
           {/*<Route path='/teacherdashboard/teachermaindashboard'>*/}
           {/*    <TeacherMainDashboard/>*/}
           {/*</Route>*/}
           <Route path="/teacherdashboard/createsubject">
             <CreateSubject />
-          </Route>
-          <Route path="/teacherdashboard/createcourse/:id">
-            <CreateCourse />
           </Route>
           <Route path="/teacherdashboard/createmodels/:id/:ccid">
             <CreateModels />

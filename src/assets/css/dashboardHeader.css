@@ -23,7 +23,7 @@
 }
 .profile_menu {
   width: 90%;
-  margin: 45px auto;
+  margin: 70px auto;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -75,11 +75,14 @@
   padding: 18px 15px;
   font-size: 16px;
   color: #000;
-  border: 1px solid #00bf4d1c;
+  border-bottom: 2px solid #5f5c5c;
   cursor: pointer;
   font-weight: 500;
   white-space: nowrap;
   transition: 0.5s ease-out;
+}
+.main_section .list ul a:last-child li {
+  border-bottom: none;
 }
 .main_section .list ul a {
   width: 100%;

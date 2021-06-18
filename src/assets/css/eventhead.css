@@ -1,0 +1,184 @@
+.event_grid_sec {
+  width: 100%;
+  display: flex;
+  grid-gap: 15px;
+  margin-top: 20px;
+  position: relative;
+}
+/*event model page*/
+.model_outer {
+  width: 78%;
+  margin-top: -30px;
+  min-height: 100vh;
+  position: fixed;
+  background-color: #0a0a0a3b;
+  z-index: 100;
+}
+.model_outer .model_form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 45px 20px;
+  border-radius: 8px;
+}
+.model_outer .model_form p label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.model_outer .model_form p input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #4e4e4e;
+  border-radius: 3px;
+}
+.model_outer .model_form button {
+  padding: 8px 12px;
+  background-color: var(--h1Fontcolor);
+  border-radius: 3px;
+  border: 1px solid transparent;
+  outline: none;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.event_grid_sec .event_column {
+  background-color: #7f7f7f;
+  padding: 12px;
+  flex: 1;
+  border-radius: 10px;
+}
+.event_grid_sec .event_column h1 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.event_grid_sec .event_column .custom_select_box {
+  background-color: #000;
+  width: 100%;
+  position: relative;
+}
+.event_grid_sec .event_column .outer_select_box {
+  width: 100%;
+  display: flex;
+}
+.event_grid_sec .event_column .outer_select_box .img_section {
+  flex-basis: 40px;
+  height: 42px;
+}
+.event_grid_sec .event_column .outer_select_box .img_section img {
+  width: 100%;
+  height: 100%;
+}
+.event_grid_sec .event_column .outer_select_box input {
+  flex: 1;
+  padding: 12px 8px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: none;
+}
+.event_grid_sec .event_column form {
+  width: 100%;
+}
+.event_grid_sec .event_column form p {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  grid-column-gap: 15px;
+}
+.event_grid_sec .event_column form p input[type="radio"] {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  cursor: pointer;
+}
+.event_grid_sec .event_column form p input[type="radio"]:checked {
+  background-color: var(--h1Fontcolor);
+}
+.event_grid_sec .event_column .custom_select_box ul {
+  list-style: none;
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 10;
+}
+.event_grid_sec .event_column .custom_select_box .outer_select_box .chevrons i {
+  font-size: 30px;
+}
+.event_grid_sec .event_column .custom_select_box ul::-webkit-scrollbar {
+  width: 8px;
+  background-color: #383838;
+}
+.event_grid_sec .event_column .custom_select_box ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+.event_grid_sec .event_column .custom_select_box ul::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border: transparent;
+}
+.event_grid_sec .event_column .custom_select_box ul li {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-column-gap: 10px;
+  background-color: #383838;
+  border-bottom: 1px solid #444444;
+  cursor: pointer;
+  color: #fff;
+}
+.event_grid_sec .event_column .custom_select_box ul li:hover {
+  background-color: #4e4e4e;
+}
+.event_grid_sec .event_column .custom_select_box ul li img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  user-select: none;
+}
+.event_grid_sec .event_column .custom_select_box ul li span {
+  user-select: none;
+  pointer-events: none;
+  flex: 0.8;
+}
+.event_grid_sec .event_column .custom_select_box ul li:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4e4e4e;
+}
+.event_grid_sec .event_column .custom_select_box ul li:nth-child(1) span {
+  text-align: center;
+}
+.event_grid_sec .event_column .custom_select_box ul li:nth-child(1) span i {
+  margin-right: 10px;
+}
+.event_grid_sec .event_column .custom_select_box ul li button {
+  flex: 0.1;
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.event_grid_sec .event_column .custom_select_box .chevrons {
+  flex-basis: 40px;
+  height: 43px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.event_grid_sec .event_column .custom_select_box .chevrons i {
+  font-size: 30px;
+}

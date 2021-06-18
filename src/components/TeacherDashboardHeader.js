@@ -26,7 +26,6 @@ export default function TeacherDashboardHeader() {
         </div>
         <div className="details">
           <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
-          <h3>Instructor</h3>
         </div>
       </div>
       <div className="main_section">
@@ -34,24 +33,19 @@ export default function TeacherDashboardHeader() {
           <ul>
             {/*<Link to="/teacherdashboard/teachermaindashboard/"><li><i className="fas fa-home"></i> My Dashboard</li></Link>*/}
             <Link to={"/"}>
-              <li>
-                <i className="fas fa-home"></i>Home
-              </li>
+              <li>HOME</li>
             </Link>
             <Link to="/teacherdashboard/managecourse/">
-              <li>
-                <i className="fas fa-graduation-cap"></i>Manage Subject
-              </li>
+              <li>MY EVENTS</li>
             </Link>
             <Link to="/teacherdashboard/createsubject/">
-              <li>
-                <i className="fas fa-school"></i>Create Subject
-              </li>
+              <li>CREATE EVENT</li>
             </Link>
             <Link to="/teacherdashboard/profilesettings/">
-              <li>
-                <i className="far fa-user-circle"></i>My Profile
-              </li>
+              <li>MY PROFILE</li>
+            </Link>
+            <Link to="#">
+              <li>LOGOUT</li>
             </Link>
           </ul>
         </div>

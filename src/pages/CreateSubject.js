@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import UseCreateSubject from "../utils/hooks/UseCreateSubject";
-import ThreeStepSection from "../components/ThreeStepSection";
 import CreateSubjectForm from "../components/CreateSubjectForm";
 import CropImages from "../utils/hooks/CropImages";
 import Axios from "axios";
@@ -9,6 +8,7 @@ import { store } from "react-notifications-component";
 import { Redirect } from "react-router-dom";
 import "../assets/css/creatsubject.css";
 import "../assets/css/mediaFiles/createsubmedia.css";
+import CreateEventHead from "../components/CreateEventHead";
 
 export default function CreateSubject() {
   const {
@@ -104,7 +104,7 @@ export default function CreateSubject() {
 
   return (
     <div className="subject_form">
-      <ThreeStepSection set="cs" />
+      <CreateEventHead />
       <div className="main_form">
         <h1>Create Subject</h1>
         <CreateSubjectForm

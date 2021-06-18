@@ -6,7 +6,7 @@
 .main .main_column:first-child {
   position: sticky;
   top: 0;
-  width: 350px;
+  width: 300px;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -90,8 +90,8 @@
   transition: 0.5s;
 }
 .main .main_column .sub_column {
-  padding: 10px 25px 90px 25px;
-  min-height: calc(100vh - 60px);
+  padding: 10px 25px 90px 30px;
+  min-height: 100vh;
 }
 .main
   .main_column
