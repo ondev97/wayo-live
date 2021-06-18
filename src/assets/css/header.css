@@ -189,15 +189,16 @@ nav .ham button i {
 /*hamburger menu*/
 .hammenu {
   position: fixed;
-  top: 105px;
-  right: 0;
-  background: linear-gradient(125deg, #fff, #fff, #e9f4ff, #d5e9ff);
-  width: 300px;
-  height: calc(100vh - 94px);
+  top: 93px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f9f9f9eb;
+  width: 89%;
   padding: 10px;
   z-index: 300;
   display: none;
   overflow-y: auto;
+  border-radius: 8px;
 }
 .hammenu::-webkit-scrollbar {
   width: 5px;
