@@ -24,11 +24,14 @@
   }
 }
 @media screen and (max-width: 870px) {
+  .main .main_column .head {
+    display: flex;
+  }
   .main .main_column:first-child {
     position: fixed;
     z-index: 300;
     width: 260px;
-    box-shadow: 0px 0px 18px 4px #d6d1d1;
+    box-shadow: 0px 0px 18px 4px transparent;
   }
   .model_page .on_model_page {
     width: 100%;
@@ -115,7 +118,7 @@
     margin-right: 0;
   }
   .main .main_column .sub_column {
-    padding: 10px 0 0;
+    padding: 10px 15px;
   }
   .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr {
     display: block;
@@ -157,6 +160,11 @@
     .srow_pro_pic
     label::after {
     left: -180px;
+  }
+}
+@media screen and (max-width: 302px) {
+  .all_st_subs .all_sub_body {
+    grid-template-columns: 1fr;
   }
 }
 @media screen and (max-width: 250px) {

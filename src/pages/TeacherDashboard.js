@@ -91,7 +91,7 @@ export default function TeacherDashboard() {
         <TeacherDashboardHeader />
       </div>
       <div className="main_column">
-        {/* <div className="head">
+        <div className="head">
           <div className="column">
             <i onClick={togglemenu} className="fas fa-bars"></i>
           </div>
@@ -144,7 +144,7 @@ export default function TeacherDashboard() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
         <div className="sub_column">
           {/*<Route path='/teacherdashboard/teachermaindashboard'>*/}
           {/*    <TeacherMainDashboard/>*/}

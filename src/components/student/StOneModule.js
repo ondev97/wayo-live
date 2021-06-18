@@ -150,7 +150,7 @@ export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
               {/* {filterTags(ReactHtmlParser(msg))} */}
               <div className="re_player">
                 <ReactPlayer
-                  url={wayo}
+                  url="https://vimeo.com/564564661"
                   pip={false}
                   controls
                   className="player"
