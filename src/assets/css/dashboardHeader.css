@@ -42,12 +42,12 @@
 }
 .profile_menu .details {
   text-align: center;
+  flex: 1;
 }
 .profile_menu .details h2 {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: capitalize;
-  white-space: nowrap;
 }
 .profile_menu .details h3 {
   font-weight: 400;

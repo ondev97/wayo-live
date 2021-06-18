@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/dashboardHeader.css";
 import AcDetails from "../utils/hooks/AcDetails";
-import logo1 from "../img/Logo_1.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function TeacherDashboardHeader() {
-  const [sidebar, setsidebar] = useState(true);
-
   const [teachProfilepic, profileDetails] = AcDetails();
-
-  const showSidebar = () => setsidebar(!sidebar);
 
   return (
     <div>
-      <div className="logo">
-        <Link to={"/"} style={{ textDecoration: "none" }}>
-          {" "}
-          <img src={logo1} alt="image" />{" "}
-        </Link>
-      </div>
       <div className="profile_menu">
         <div className="pro_pic">
           <LazyLoadImage src={`${teachProfilepic}`} alt="" effect="blur" />
