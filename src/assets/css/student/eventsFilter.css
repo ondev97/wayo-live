@@ -72,6 +72,7 @@
   .chevrons
   i {
   font-size: 30px;
+  height: 40px;
 }
 .filter_section .filter_column .custom_select_box ul {
   list-style: none;

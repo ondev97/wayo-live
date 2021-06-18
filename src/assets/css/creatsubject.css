@@ -5,7 +5,7 @@
   width: 100%;
   margin: 15px auto;
   padding: 30px 25px;
-  background-color: #fff;
+  background-color: #7f7f7f;
 }
 .subject_form .uppper_section {
   width: 100%;
@@ -76,10 +76,12 @@
 .subject_form .main_form p {
   position: relative;
   margin-bottom: 15px;
+  display: flex;
+  grid-gap: 15px;
 }
 .subject_form .main_form p label {
-  display: block;
   margin-bottom: 15px;
+  flex: 1;
   font-size: 14px;
   color: #000;
   font-weight: 600;
@@ -89,10 +91,11 @@
 }
 .subject_form .main_form p input,
 p textarea {
+  flex: 1;
   position: relative;
-  width: 100%;
   padding: 9px 5px;
-  border: 1px solid #c1c1c1;
+  border: 1px solid #404040;
+  background-color: #404040;
   outline: none;
   border-radius: 3px;
 }

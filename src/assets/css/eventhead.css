@@ -113,6 +113,7 @@
 }
 .event_grid_sec .event_column .custom_select_box .outer_select_box .chevrons i {
   font-size: 30px;
+  height: 40px;
 }
 .event_grid_sec .event_column .custom_select_box ul::-webkit-scrollbar {
   width: 8px;

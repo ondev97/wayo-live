@@ -90,7 +90,7 @@ function CreateEventHead() {
               <input
                 type="text"
                 id="option_view_button"
-                placeholder="Select A Event"
+                placeholder="Select A Category"
                 ref={eventRef}
                 disabled
               />

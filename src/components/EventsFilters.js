@@ -34,7 +34,7 @@ function EventsFilters() {
     <>
       <div className="filter_section">
         <div className="filter_column">
-          <h2>SELECT BAND</h2>
+          <h2>YOUR BAND</h2>
           <div className="custom_select_box" id="custom_select_box">
             <div
               id="select_button"
@@ -56,7 +56,7 @@ function EventsFilters() {
           </div>
         </div>
         <div className="filter_column">
-          <h2>SELECT BAND</h2>
+          <h2>SELECT EVENT TYPE</h2>
           <form>
             <p>
               <input type="checkbox" id="live" name="record" />
@@ -79,7 +79,7 @@ function EventsFilters() {
               <input
                 type="text"
                 id="option_view_button"
-                placeholder="Select A Event"
+                placeholder="Select A Category"
                 disabled
                 ref={eventRef}
               />

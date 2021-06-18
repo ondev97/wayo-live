@@ -21,9 +21,7 @@ export default function CreateSubjectForm({
   return (
     <form onSubmit={handelSubmit}>
       <p>
-        <label htmlFor="st">
-          EVENT NAME <span>(Max 45 Characters)</span>
-        </label>
+        <label htmlFor="st">EVENT NAME</label>
         <input
           type="text"
           name="subject_title"
@@ -39,9 +37,7 @@ export default function CreateSubjectForm({
         )}
       </p>
       <p>
-        <label htmlFor="ssd">
-          EVENT Description <span>(Max 50 Characters)</span>
-        </label>
+        <label htmlFor="ssd">EVENT Description</label>
         <input
           type="text"
           name="subject_shdes"
@@ -59,9 +55,7 @@ export default function CreateSubjectForm({
 
       <div className="sub_sect">
         <p>
-          <label htmlFor="ssd">
-            EVENT LABEL <span>(Max 50 Characters)</span>
-          </label>
+          <label htmlFor="ssd">EVENT LABEL</label>
           <input
             type="text"
             name="subject_shdes"

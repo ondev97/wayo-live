@@ -12,23 +12,27 @@ export default function AboutUser() {
           <div className="ab_card">
             <h3>Name</h3>
             <h4>
-              {profileDetails.name &&
-                `${profileDetails.name} ${profileDetails.lname}`}
+              {/* {profileDetails.name &&
+                `${profileDetails.name} ${profileDetails.lname}`} */}
+              Wayo Live
             </h4>
           </div>
           <div className="ab_card">
             <h3>User Name</h3>
             <h4 style={{ textTransform: "uppercase" }}>
-              {profileDetails.userName && profileDetails.userName}
+              {/* {profileDetails.userName && profileDetails.userName} */}
+              WAYO
             </h4>
           </div>
           <div className="ab_card">
             <h3>Mobile</h3>
-            <h4>{profileDetails.phoneNumber && profileDetails.phoneNumber}</h4>
+            {/* <h4>{profileDetails.phoneNumber && profileDetails.phoneNumber}</h4> */}
+            <h4>071 2345678</h4>
           </div>
           <div className="ab_card">
             <h3>Email</h3>
-            <h4>{profileDetails.email && profileDetails.email}</h4>
+            {/* <h4>{profileDetails.email && profileDetails.email}</h4> */}
+            <h4>wayolive@gmail.com</h4>
           </div>
         </div>
         <div className="disdis">

@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import UserStatus from "../../utils/hooks/UserStatus";
+import logo1 from "../../img/Logo_1.png";
 
 export default function StudentDashBoardHeader() {
   const { initialState } = useSelector((state) => state.StudentDetails);
@@ -15,12 +16,12 @@ export default function StudentDashBoardHeader() {
 
   return (
     <div>
-      {/* <div className="logo">
-        <Link to={"/"} style={{ textDecoration: "none" }}>
+      <div className="logo">
+        <Link to={"/"} style={{ textDecoration: "none", height: "30px" }}>
           {" "}
           <img src={logo1} alt="logo" />{" "}
         </Link>
-      </div> */}
+      </div>
       <div className="profile_menu">
         <div className="pro_pic">
           <LazyLoadImage
@@ -54,7 +55,9 @@ export default function StudentDashBoardHeader() {
             <Link to="/studentdashboard/studentprofile/">
               <li>MY PROFILE</li>
             </Link>
-            <li onClick={hadelLogOut}>LOGOUT</li>
+            <li onClick={hadelLogOut} style={{ border: "none" }}>
+              LOGOUT
+            </li>
           </ul>
         </div>
       </div>

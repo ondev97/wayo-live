@@ -36,8 +36,8 @@ export default function MySubjectsCard({
           </div> */}
         </div>
         <div className="sub_card_row">
-          <h3>{subject_name}</h3>
-          <p>{short_description}</p>
+          <h3>WAYO</h3>
+          <p>AN EXPERIENCE BEYOND MUSIC</p>
           {/* <div className="sub_type">
             <ul>
               <li>

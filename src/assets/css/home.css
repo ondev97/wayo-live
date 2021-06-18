@@ -23,6 +23,16 @@
   left: 0;
   z-index: -1;
 }
+.uppercover .cov_img:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.4;
+}
 .uppercover .cov_img video {
   width: 100%;
   height: 100%;
@@ -32,7 +42,7 @@
   max-width: 90%;
   margin: 0 auto;
   min-height: 100vh;
-  padding: 110px 0 45px;
+  padding: 110px 0 10px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -366,4 +376,16 @@
   border-radius: 50%;
   margin-right: 8px;
   background-color: var(--h1Fontcolor);
+}
+.uppercover .cover-cont .simple_footer {
+  width: 100%;
+  padding: 25px 0 0;
+  text-align-last: left;
+}
+.uppercover .cover-cont .simple_footer h3 {
+  font-size: 13px;
+}
+.uppercover .cover-cont .simple_footer h3 a {
+  color: var(--h1Fontcolor);
+  text-decoration: none;
 }

@@ -92,7 +92,7 @@ export default function CoverForm() {
 
           <div className="fpw">
             <p>
-              <Link to="/passwordreset">Forgot Password?</Link>
+              <Link to="#">Forgot Password?</Link>
             </p>
           </div>
         </div>

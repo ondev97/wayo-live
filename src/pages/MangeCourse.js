@@ -96,7 +96,7 @@ export default function MangeCourse() {
                 hasMore={true}
                 className="course_body"
               >
-                {subDetails.map((det) => (
+                {/* {subDetails.map((det) => (
                   <TcMaCourses
                     key={det.id}
                     id={det.id}
@@ -109,7 +109,7 @@ export default function MangeCourse() {
                     class_type={det.class_type}
                     subject_type={det.subject_type}
                   />
-                ))}
+                ))} */}
               </InfiniteScroll>
             )
           )}

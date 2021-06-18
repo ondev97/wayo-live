@@ -4,6 +4,8 @@ import "../assets/css/dashboardHeader.css";
 import AcDetails from "../utils/hooks/AcDetails";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import UserStatus from "../utils/hooks/UserStatus";
+import wayo from "../img/wayo.jpg";
+import logo1 from "../img/Logo_1.png";
 
 export default function TeacherDashboardHeader() {
   const [teachProfilepic, profileDetails] = AcDetails();
@@ -15,12 +17,18 @@ export default function TeacherDashboardHeader() {
 
   return (
     <div>
+      <div className="logo">
+        <Link to={"/"} style={{ textDecoration: "none", height: "30px" }}>
+          {" "}
+          <img src={logo1} alt="logo" />{" "}
+        </Link>
+      </div>
       <div className="profile_menu">
         <div className="pro_pic">
-          <LazyLoadImage src={`${teachProfilepic}`} alt="" effect="blur" />
+          <LazyLoadImage src={wayo} alt="" effect="blur" />
         </div>
         <div className="details">
-          <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
+          <h2>WAYO</h2>
         </div>
       </div>
       <div className="main_section">
@@ -39,7 +47,9 @@ export default function TeacherDashboardHeader() {
             <Link to="/teacherdashboard/profilesettings/">
               <li>MY PROFILE</li>
             </Link>
-            <li onClick={hadelLogOut}>LOGOUT</li>
+            <li onClick={hadelLogOut} style={{ border: "none" }}>
+              LOGOUT
+            </li>
           </ul>
         </div>
       </div>

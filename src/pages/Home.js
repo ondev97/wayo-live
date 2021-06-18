@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
 import { loadStDetails } from "../actions/stDetailsAction";
 import CoverForm from "../components/CoverForm";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -49,6 +50,18 @@ export default function Home() {
                 <p>Event Description</p>
               </div>
             </div>
+          </div>
+          <div className="simple_footer">
+            <h3>
+              COPYRIGHT © WAYO LIVE | PROUDLY POWERED BY
+              <span>
+                {
+                  <Link to="//helamid.com" target="_blank">
+                    &nbsp;HELAMID
+                  </Link>
+                }
+              </span>
+            </h3>
           </div>
         </div>
         <div className="cov_img">

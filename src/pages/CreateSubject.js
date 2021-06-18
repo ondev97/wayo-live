@@ -106,8 +106,8 @@ export default function CreateSubject() {
     <div className="subject_form">
       <CreateEventHead />
       <div className="main_form">
-        <h1>Create Subject</h1>
-        <CreateSubjectForm
+        <h1 style={{ color: "#000" }}>AREA UNDER DEVELOPMENT ...</h1>
+        {/* <CreateSubjectForm
           formValue={formValue}
           hadelChabgeFormValues={hadelChabgeFormValues}
           handelSubmit={handelSubmit}
@@ -121,7 +121,7 @@ export default function CreateSubject() {
           cropData={cropData}
           err={err}
           uploading={uploading}
-        />
+        /> */}
       </div>
     </div>
   );

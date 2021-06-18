@@ -5,10 +5,12 @@
 .all_st_subs .pagetop {
   width: 100%;
   padding: 30px 0px 0px;
-  text-align: center;
+  text-align: left;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  grid-gap: 20px;
 }
 .all_st_subs .pagetop h1 {
   font-size: 16px;
@@ -44,7 +46,7 @@
   cursor: pointer;
 }
 .all_st_subs .all_sub_body {
-  padding-top: 25px;
+  padding-top: 75px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);

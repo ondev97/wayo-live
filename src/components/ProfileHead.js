@@ -5,6 +5,7 @@ import AcDetails from "../utils/hooks/AcDetails";
 import { store } from "react-notifications-component";
 import CropImages from "../utils/hooks/CropImages";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import wayo from "../img/wayo.jpg";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function ProfileHead() {
@@ -103,10 +104,9 @@ export default function ProfileHead() {
       />
       <div className="profil_box">
         <div className="srow">
-          <h2>{`${profileDetails.name} ${profileDetails.lname}`}</h2>
-          <p>Instructor</p>
+          <h2>WAYO</h2>
           <div className="srow_pro_pic">
-            <LazyLoadImage src={`${teachProfilepic}`} alt="" effect="blur" />
+            <LazyLoadImage src={wayo} alt="" effect="blur" />
             <label htmlFor="uppic">
               <i className="fas fa-camera"></i>
             </label>
@@ -123,18 +123,12 @@ export default function ProfileHead() {
         </div>
         <div className="brow">
           <div className="brow_info">
-            <p>{profileDetails.address}</p>
+            <p>Wayo, Sri Lanka</p>
             <p>
               <i className="fas fa-phone-alt"></i>
-              {profileDetails.phoneNumber}
+              071 2345678
             </p>
           </div>
-          {/*<div className="tous">*/}
-          {/*  <div className="coscount">*/}
-          {/*    <h3>20</h3>*/}
-          {/*    <p>Subject</p>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
       </div>
     </div>

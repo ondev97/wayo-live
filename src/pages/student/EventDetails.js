@@ -64,9 +64,9 @@ export default function EventDetails() {
                     </h2>
                   </div>
                   <div className="event_dis_row">
-                    <h2>EVENT Description</h2>
+                    <h2>EVENT DESCRIPTION</h2>
                     <h2>
-                      <span>: EVENT Description</span>
+                      <span>: EVENT DESCRIPTION</span>
                     </h2>
                   </div>
                   <div className="event_dis_row">

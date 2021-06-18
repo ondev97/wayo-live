@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ProfileDetails from "../utils/hooks/ProfileDetails";
 import logo from "../img/Logo_1.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import wayo from "../img/wayo.jpg";
 
 export default function Header({ acDetails }) {
   const [isham, setisham] = useState(false);
@@ -52,17 +53,11 @@ export default function Header({ acDetails }) {
         return (
           <div className="pro_pic">
             <div className="ac_details_header">
-              <h3 style={{ textTransform: "uppercase" }}>
-                {profileDetails.userName}
-              </h3>
+              <h3 style={{ textTransform: "uppercase" }}>WAYOLIVE</h3>
             </div>
             <Link to="teacherdashboard/managecourse">
               <div className="img">
-                <LazyLoadImage
-                  src={`${profileDetails.pic}`}
-                  alt=""
-                  effect="blur"
-                />
+                <LazyLoadImage src={wayo} alt="" effect="blur" />
               </div>
             </Link>
           </div>
