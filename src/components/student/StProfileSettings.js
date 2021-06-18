@@ -28,7 +28,7 @@ export default function StProfileSettings({ setsettings }) {
 
     all_data.append("first_name", values.firstName);
     all_data.append("last_name", values.lastName);
-    all_data.append("username", values.userName);
+    all_data.append("username", values.userName.toUpperCase());
     all_data.append("phone_no", values.phoneNumber);
     all_data.append("email", values.email);
     all_data.append("address", values.address);
