@@ -1,11 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../assets/css/dashboardHeader.css";
 import AcDetails from "../utils/hooks/AcDetails";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import UserStatus from "../utils/hooks/UserStatus";
 
 export default function TeacherDashboardHeader() {
   const [teachProfilepic, profileDetails] = AcDetails();
+  const { log, hadelLogOut } = UserStatus(); //custom hook
+
+  if (!log) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div>
@@ -33,9 +39,7 @@ export default function TeacherDashboardHeader() {
             <Link to="/teacherdashboard/profilesettings/">
               <li>MY PROFILE</li>
             </Link>
-            <Link to="#">
-              <li>LOGOUT</li>
-            </Link>
+            <li onClick={hadelLogOut}>LOGOUT</li>
           </ul>
         </div>
       </div>

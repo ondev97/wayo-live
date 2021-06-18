@@ -8,7 +8,7 @@
 }
 nav {
   width: 90%;
-  padding: 20px 100px;
+  padding: 0 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +39,7 @@ nav .column .hlogo h1 span {
   color: #5e17eb;
 }
 nav .column .hlogo img {
-  width: 205px;
+  width: 170px;
 }
 nav .column:nth-child(2) {
   flex: 2;
