@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import wayo from "../../img/wayo.jpg";
+import logo2 from "../../img/Logo_2.jpeg";
 import "../../assets/css/student/evntDetails.css";
 
 export default function EventDetails() {
@@ -46,7 +46,7 @@ export default function EventDetails() {
             <div className="event_description">
               <div className="event_pic_col">
                 <div className="event_pic_sec">
-                  <img src={wayo} alt="band" />
+                  <img src={logo2} alt="band" />
                 </div>
               </div>
               <div className="event_dis_col">
