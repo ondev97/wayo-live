@@ -17,6 +17,15 @@ export default function CreateSubjectForm({
   uploading,
 }) {
   const [showCropper, setshowCropper] = useState(false);
+  const [isFree, setisFree] = useState(true);
+
+  const isChecked = (e) => {
+    if (e.target.checked) {
+      setisFree(false);
+    } else {
+      setisFree(true);
+    }
+  };
 
   return (
     <form onSubmit={handelSubmit}>
@@ -71,8 +80,8 @@ export default function CreateSubjectForm({
           )}
         </p>
         <p>
-          <label htmlFor="st">FREEZE EVENT</label>
-          <input type="radio" name="freeze" />
+          <label htmlFor="fe">FREEZE EVENT</label>
+          <input type="checkbox" id="fe" name="freeze" />
         </p>
       </div>
       <div className="sub_sect">
@@ -143,42 +152,30 @@ export default function CreateSubjectForm({
       </div>
       <div className="sub_sect">
         <p>
-          <label htmlFor="ssd">EVENT FEE</label>
-          <input type="radio" name="event_fee" />
+          <label htmlFor="ef">EVENT FEE</label>
+          <input type="checkbox" id="ef" name="event_fee" onClick={isChecked} />
         </p>
-        <p>
-          <label htmlFor="st">PRICE</label>
-          <input
-            type="text"
-            name="subject_shdes"
-            id="ssd"
-            value={formValue.subject_shdes}
-            onChange={hadelChabgeFormValues}
-            onFocus={hideError}
-          />
-          {formErrors.subject_shdes && (
-            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-              {formErrors.subject_shdes}
-            </span>
-          )}
-        </p>
-      </div>
-      <p>
-        <label htmlFor="sd">Subject Description</label>
-        <textarea
-          name="sub_des"
-          id="sd"
-          rows="10"
-          value={formValue.subject_des}
-          onChange={hadelChabgeFormValues}
-          onFocus={hideError}
-        ></textarea>
-        {formErrors.subject_des && (
-          <span className={`tip ${hide.subject_des ? "hidetip" : ""}`}>
-            {formErrors.subject_des}
-          </span>
+        {!isFree ? (
+          <p>
+            <label htmlFor="st">PRICE</label>
+            <input
+              type="text"
+              name="subject_shdes"
+              id="ssd"
+              value={formValue.subject_shdes}
+              onChange={hadelChabgeFormValues}
+              onFocus={hideError}
+            />
+            {formErrors.subject_shdes && (
+              <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
+                {formErrors.subject_shdes}
+              </span>
+            )}
+          </p>
+        ) : (
+          ""
         )}
-      </p>
+      </div>
       <div className="up_pro_pic">
         {showCropper && cropData === "#" && !err.img && (
           <div className="cropper_be">
@@ -209,9 +206,7 @@ export default function CreateSubjectForm({
         )}
         <p>
           <label htmlFor="file">
-            {cropData === "#"
-              ? "Upload Subject Cover"
-              : "Changed Subject Cover"}
+            {cropData === "#" ? "Upload Band Logo" : "Changed Band Logo"}
           </label>
           <input
             type="file"
@@ -231,52 +226,22 @@ export default function CreateSubjectForm({
           )}
         </p>
       </div>
-      <div className="sub_sect">
-        <p>
-          <label htmlFor="ct">Class Type</label>
-          <select
-            name="class_type"
-            id="ct"
-            value={formValue.class_type}
-            onChange={hadelChabgeFormValues}
-            onFocus={hideError}
-          >
-            <option value="" disabled>
-              Select Class Type
-            </option>
-            <option value="a/l">A/L</option>
-            <option value="o/l">O/L</option>
-            <option value="other">Other</option>
-          </select>
-          {formErrors.class_type && (
-            <span className={`tip ${hide.class_type ? "hidetip" : ""}`}>
-              {formErrors.class_type}
-            </span>
-          )}
-        </p>
-        <p>
-          <label htmlFor="st">Subject Type</label>
-          <select
-            name="subject_type"
-            id="st"
-            value={formValue.subject_type}
-            onChange={hadelChabgeFormValues}
-            onFocus={hideError}
-          >
-            <option value="" disabled>
-              Select Subject Type
-            </option>
-            <option value="revision">Revision</option>
-            <option value="theory">Theory</option>
-            <option value="group">Group</option>
-          </select>
-          {formErrors.subject_type && (
-            <span className={`tip ${hide.subject_type ? "hidetip" : ""}`}>
-              {formErrors.subject_type}
-            </span>
-          )}
-        </p>
-      </div>
+      <p>
+        <label htmlFor="sd">Subject Description</label>
+        <textarea
+          name="sub_des"
+          id="sd"
+          rows="10"
+          value={formValue.subject_des}
+          onChange={hadelChabgeFormValues}
+          onFocus={hideError}
+        ></textarea>
+        {formErrors.subject_des && (
+          <span className={`tip ${hide.subject_des ? "hidetip" : ""}`}>
+            {formErrors.subject_des}
+          </span>
+        )}
+      </p>
       <p>
         <button
           className="sub"

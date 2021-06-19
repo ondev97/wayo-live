@@ -77,14 +77,14 @@
   position: relative;
   margin-bottom: 15px;
   display: flex;
-  grid-gap: 15px;
+  align-items: flex-start;
+  grid-column-gap: 10px;
 }
 .subject_form .main_form p label {
-  margin-bottom: 15px;
-  flex: 1;
-  font-size: 14px;
+  flex-basis: 120px;
+  font-size: 13px;
   color: #000;
-  font-weight: 600;
+  font-weight: 700;
 }
 .subject_form .main_form p label span {
   color: #868686;
@@ -165,12 +165,88 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  grid-column-gap: 10px;
 }
+.subject_form .main_form .sub_sect p input {
+  width: 90%;
+}
+.subject_form .main_form .sub_sect p input[type="checkbox"] {
+  flex: initial;
+  position: relative;
+  -webkit-appearance: none;
+  width: 60px;
+  height: 25px;
+  background-color: #404040;
+  transition: 0.5s;
+  box-shadow: inset 0 0 05px rgba(0, 0, 0, 0.2);
+}
+.subject_form .main_form .sub_sect p input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 22px;
+  top: 0px;
+  left: 0px;
+  background-color: var(--buttonColor1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+.subject_form .main_form .sub_sect p input:checked[type="checkbox"]:before {
+  left: 37px;
+}
+
+.subject_form .main_form .sub_sect p input#ef {
+  padding: 0 5px;
+}
+.subject_form .main_form .sub_sect p input#ef[type="checkbox"] {
+  flex: initial;
+  position: relative;
+  -webkit-appearance: none;
+  width: 100px;
+  height: 36px;
+  background-color: #404040;
+  transition: 0.5s;
+  box-shadow: inset 0 0 05px rgba(0, 0, 0, 0.2);
+}
+.subject_form .main_form .sub_sect p input#ef[type="checkbox"]:after {
+  content: "PAID";
+  height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.subject_form .main_form .sub_sect p input#ef[type="checkbox"]:before {
+  content: "FREE";
+  position: absolute;
+  width: 40px;
+  height: 32px;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 11px;
+  background-color: var(--buttonColor1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+.subject_form .main_form .sub_sect p input#ef:checked[type="checkbox"]:before {
+  left: 55px;
+  content: "PAID";
+}
+.subject_form .main_form .sub_sect p input#ef:checked[type="checkbox"]:after {
+  content: "FREE";
+  justify-content: flex-start;
+}
+
 .subject_form .main_form .sub_sect p {
   flex: 0.5;
-}
-.subject_form .main_form .sub_sect p:nth-child(1) {
-  margin-right: 15px;
 }
 .subject_form .main_form .sub_sect p select {
   width: 100%;
@@ -259,8 +335,10 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 20px;
 }
 .subject_form .main_form .up_pro_pic .finCropImg {
-  width: 100%;
-  height: 310px;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 8px;
   overflow: hidden;
   margin-top: 40px;
   margin-bottom: 20px;
@@ -283,18 +361,18 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .subject_form .main_form .up_pro_pic label,
 button.cp {
-  width: 200px;
+  flex-basis: initial;
+  width: 170px;
   text-align: center;
-  border: 1px solid var(--buttonColor1);
+  background-color: var(--buttonColor1);
   padding: 8px 5px;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
   margin: 0;
-  background: none;
-  transition: 0.5s ease;
+  color: #fff;
 }
 .subject_form .main_form .up_pro_pic label:hover {
-  background-color: var(--buttonColor1);
+  background-color: var(--buttonColorHover1);
   color: #fff;
 }
 .subject_form .main_form .up_pro_pic button.cp {
@@ -302,6 +380,7 @@ button.cp {
   color: #fff;
   font-size: 14px;
   font-weight: 600;
+  border: 1px solid transparent;
 }
 .subject_form .main_form .up_pro_pic button.cp:hover {
   background-color: var(--buttonColorHover1);
@@ -388,36 +467,6 @@ button.cp {
   font-size: 14px;
   color: #000;
   font-weight: 600;
-}
-.subject_form .main_form .costtypefr input[type="checkbox"] {
-  position: relative;
-  -webkit-appearance: none;
-  width: 50px;
-  height: 25px;
-  background-color: #eee;
-  border-radius: 20px;
-  transition: 0.5s;
-  box-shadow: inset 0 0 05px rgba(0, 0, 0, 0.2);
-}
-.subject_form .main_form .costtypefr input:checked[type="checkbox"] {
-  background-color: #75c6f4;
-}
-.subject_form .main_form .costtypefr input[type="checkbox"]:before {
-  content: "";
-  position: absolute;
-  width: 23px;
-  height: 23px;
-  border-radius: 20px;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transform: scale(1.2);
-  transition: 0.5s;
-}
-.subject_form .main_form .costtypefr input:checked[type="checkbox"]:before {
-  left: 30px;
 }
 
 @keyframes blinking {

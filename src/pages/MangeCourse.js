@@ -96,20 +96,23 @@ export default function MangeCourse() {
                 hasMore={true}
                 className="course_body"
               >
-                {/* {subDetails.map((det) => (
-                  <TcMaCourses
-                    key={det.id}
-                    id={det.id}
-                    subject_name={det.subject_name}
-                    subject_cover={det.subject_cover}
-                    author={det.author}
-                    created_at={det.created_at}
-                    description={det.description}
-                    short_description={det.short_description}
-                    class_type={det.class_type}
-                    subject_type={det.subject_type}
-                  />
-                ))} */}
+                <h1>MY ALL EVENTS</h1>
+                <div className="outer">
+                  {subDetails.map((det) => (
+                    <TcMaCourses
+                      key={det.id}
+                      id={det.id}
+                      subject_name={det.subject_name}
+                      subject_cover={det.subject_cover}
+                      author={det.author}
+                      created_at={det.created_at}
+                      description={det.description}
+                      short_description={det.short_description}
+                      class_type={det.class_type}
+                      subject_type={det.subject_type}
+                    />
+                  ))}
+                </div>
               </InfiniteScroll>
             )
           )}

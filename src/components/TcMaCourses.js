@@ -36,58 +36,23 @@ export default function TcMaCourses({
 
   return (
     <div className="course_card">
-      <div className="cscard_head">
-        <Link to={`/teacherdashboard/viewcourse/${id}`}>
-          <LazyLoadImage
-            src={`${subject_cover}`}
-            alt=""
-            effect="blur"
-            height="100%"
-          />
-        </Link>
-        <div className="cos_options">
-          <h3>
-            <i className="fas fa-chevron-circle-up"></i>
-          </h3>
-          <div className="options_body">
-            <ul>
-              <li onClick={clk}>Delete</li>
-              <Link to={`/teacherdashboard/updatesubject/${id}`}>
-                <li>Edit</li>
-              </Link>
-            </ul>
-          </div>
-        </div>
-      </div>
       <Link to={`/teacherdashboard/viewcourse/${id}`}>
+        <div className="cscard_head">
+          <h1>EVENT DATE</h1>
+          <h1>EVENT START TIME</h1>
+          <h2 className="label">EVENT LABEL</h2>
+        </div>
         <div className="cscard_body">
           <div className="cscard_mid">
-            <h2>{subject_name}</h2>
-            <h3>{short_description}</h3>
-            <div className="ty">
-              <h4>
-                <i className="fas fa-graduation-cap"></i>
-                {class_type}
-              </h4>
-              <h5>
-                <i className="fas fa-school"></i>
-                {subject_type}
-              </h5>
-            </div>
+            <h2>EVENT NAME</h2>
+            <h3>EVENT DESCRIPTION</h3>
+            <h4>EVENT TYPE</h4>
+            <h5>EVENT CATEGORY</h5>
           </div>
         </div>
         <div className="cscard_bottom">
-          <h4>
-            By:
-            {author.user.first_name && author.user.last_name
-              ? author.user.first_name + " " + author.user.last_name
-              : ""}
-          </h4>
-          {created_at && (
-            <h4>
-              <ReactTimeAgo date={Date.parse(created_at)} locale="en-US" />
-            </h4>
-          )}
+          <button>EDIT EVENT</button>
+          <button>DELETE EVENT</button>
         </div>
       </Link>
     </div>
