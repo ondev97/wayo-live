@@ -62,6 +62,9 @@
   outline: none;
   cursor: pointer;
 }
+.event_header .event_row .event_column.tcside button {
+  width: 120px;
+}
 .event_details {
   padding: 45px 0;
   width: 100%;

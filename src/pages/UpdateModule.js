@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
+import { CKEditor, CKEditorContext } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import Axios from "axios";
 import checkErrors from "../components/ValidateModule";
@@ -24,11 +24,6 @@ export default function UpdateModule() {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
   const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api`;
-  let history = useHistory();
-
-  const back = () => {
-    history.goBack();
-  };
 
   const getValues = async () => {
     await Axios.get(`${url}/getsinglemodule/${cosid}/`, {
@@ -220,13 +215,28 @@ export default function UpdateModule() {
     );
   }
 
+  const editorConfiguration = {
+    ckfinder: {
+      uploadUrl: `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/uploads/`,
+    },
+    removePlugins: [
+      "Heading",
+      "Link",
+      "Bold",
+      "Italic",
+      "List",
+      "BlockQuote",
+      "Table",
+      "Image",
+      "ImageCaption",
+      "ImageStyle",
+      "ImageToolbar",
+      "ImageUpload",
+    ],
+  };
+
   return (
     <div className="subject_form">
-      <div className="back">
-        <button onClick={back}>
-          <i className="fas fa-chevron-circle-left"></i>Back to Module
-        </button>
-      </div>
       <div className="main_form">
         <h1>Update Module</h1>
         <form onSubmit={hadelSubmit}>
@@ -253,90 +263,21 @@ export default function UpdateModule() {
           </p>
           <p>
             <label htmlFor="msg">Messages/Links</label>
-          </p>
-          <div className="editorck">
-            <CKEditor
-              editor={ClassicEditor}
-              data={formValues.msg}
-              onChange={editorOnChangeHandel}
-              config={{
-                ckfinder: {
-                  uploadUrl: `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/uploads/`,
-                },
-              }}
-            />
-          </div>
-          {mediafiles !== null && newmediafiles !== null ? (
-            <div className="show_files">
-              <ul className="up_list">
-                {Object.values(mediafiles).map(
-                  (value, index) =>
-                    value.type !== "video/mp4" && (
-                      <li key={index} className="row">
-                        <span>
-                          <i class="fas fa-circle"></i>
-                          {value.file_name || value.id}
-                        </span>
-                        {!uploading ? (
-                          <i
-                            className="fas fa-minus-circle moddl"
-                            onClick={() => deleteModuleFile(value.id)}
-                          ></i>
-                        ) : (
-                          ""
-                        )}
-                      </li>
-                    )
-                )}
-                {Object.values(newmediafiles).map(
-                  (value, index) =>
-                    value.type !== "video/mp4" && (
-                      <li key={index} className="row">
-                        <span>
-                          <i class="far fa-circle"></i>
-                          {value.name || value.id}
-                        </span>
-                        <i
-                          className={`fas fa-circle-notch ${
-                            uploading ? "rot" : "dis"
-                          } `}
-                        ></i>
-                      </li>
-                    )
-                )}
-              </ul>
+            <div className="editorck">
+              <CKEditor
+                editor={ClassicEditor}
+                data={formValues.msg}
+                onChange={editorOnChangeHandel}
+                config={editorConfiguration}
+              />
             </div>
-          ) : (
-            ""
-          )}
-          <div className="multi_files">
-            {!uploading ? (
-              <p>
-                <label htmlFor="fl">Upload Module Materials</label>
-                <input
-                  type="file"
-                  name="file"
-                  className="multi"
-                  id="fl"
-                  multiple
-                  onChange={files}
-                />
-              </p>
-            ) : (
-              <div className="progressPath">
-                <div
-                  className="progressBar"
-                  style={{ width: `${progressBarPrecen}%` }}
-                ></div>
-              </div>
-            )}
-          </div>
+          </p>
           <p>
-            <input
+            <button
               type={`${uploading ? "button" : "submit"}`}
               name="submit"
-              value={`${uploading ? "Updating" : "Update Module"}`}
-            />
+              className="uplo"
+            >{`${uploading ? "Updating" : "Update Module"}`}</button>
           </p>
         </form>
       </div>

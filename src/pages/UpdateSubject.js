@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { store } from "react-notifications-component";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import UpdateSujectForm from "../components/UpdateSujectForm";
+import CreateEventHead from "../components/CreateEventHead";
 
 export default function UpdateSubject() {
   const { subid } = useParams();
@@ -108,13 +109,8 @@ export default function UpdateSubject() {
   }
   return (
     <div className="subject_form">
-      <div className="back">
-        <button onClick={back}>
-          <i className="fas fa-chevron-circle-left"></i>Back to Subjects
-        </button>
-      </div>
+      <CreateEventHead />
       <div className="main_form">
-        <h1>Update Subject</h1>
         <UpdateSujectForm
           hadelChabgeFormValues={hadelChabgeFormValues}
           handelSubmit={handelSubmit}

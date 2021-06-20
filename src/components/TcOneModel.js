@@ -175,88 +175,38 @@ export default function TcOneModel({
   };
 
   return (
-    <AnimateSharedLayout>
-      <LazyLoad height={200}>
-        <ModuleBody
-          name={name}
-          id={id}
-          cid={cid}
-          handelDeleteModule={handelDeleteModule}
-        >
-          <div className="on_model_body">
-            {msg && (
-              <div className="model_body_row">
-                {filterTags(ReactHtmlParser(msg))}
+    <LazyLoad height={200}>
+      <ModuleBody name={name}>
+        <div className="on_model_body">
+          {msg && (
+            <div className="model_body_row">
+              {/* {filterTgs(ReactHtmlParser(msg))} */}
+              <div className="re_player">
+                <ReactPlayer
+                  url="https://vimeo.com/564709580"
+                  pip={false}
+                  controls
+                  className="player"
+                  width="100%"
+                  height="100%"
+                  config={{
+                    file: {
+                      attributes: {
+                        controlsList: "nodownload",
+                        disablepictureinpicture: "true",
+                      },
+                    },
+                  }}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
               </div>
-            )}
-            {moduleFiles.length !== 0
-              ? moduleFiles.map(
-                  (files) =>
-                    parseInt(Object.keys(files)) === id &&
-                    Object.values(files)[0].map((fl) => (
-                      <div className="model_body_row" key={fl.id}>
-                        <p>
-                          {fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                            "jpg" ||
-                          fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                            "png" ||
-                          fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                            "jpeg" ? (
-                            <i className="fas fa-file-image"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "pdf" ? (
-                            <i className="fas fa-file-pdf"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "pptx" ||
-                            fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                              "pptm" ||
-                            fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                              "ppt" ? (
-                            <i className="fas fa-file-powerpoint"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "mp4" ||
-                            fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                              "mkv" ? (
-                            <i className="fab fa-youtube"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "mp3" ? (
-                            <i className="far fa-file-audio"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "xlsx" ||
-                            fl.file.substring(fl.file.lastIndexOf(".") + 1) ===
-                              "xlsb" ? (
-                            <i className="far fa-file-excel"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "html" ? (
-                            <i className="fab fa-html5"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "css" ? (
-                            <i className="fab fa-css3-alt"></i>
-                          ) : fl.file.substring(
-                              fl.file.lastIndexOf(".") + 1
-                            ) === "js" ? (
-                            <i className="fab fa-js-square"></i>
-                          ) : (
-                            <i className="far fa-file-alt"></i>
-                          )}
-                          <a href={`${fl.file}`} target="_blank" download>
-                            {fl.file_name || fl.id}
-                          </a>{" "}
-                        </p>
-                      </div>
-                    ))
-                )
-              : ""}
-          </div>
-        </ModuleBody>
-      </LazyLoad>
-    </AnimateSharedLayout>
+              <div className="event_details_dis">
+                <h3>EVENT DETAILS -</h3>
+              </div>
+            </div>
+          )}
+        </div>
+      </ModuleBody>
+    </LazyLoad>
   );
 }

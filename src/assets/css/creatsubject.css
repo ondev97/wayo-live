@@ -6,6 +6,7 @@
   margin: 15px auto;
   padding: 30px 25px;
   background-color: #7f7f7f;
+  border-radius: 8px;
 }
 .subject_form .uppper_section {
   width: 100%;
@@ -67,11 +68,11 @@
 }
 .subject_form .main_form h1 {
   width: 100%;
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
-  font-weight: 500;
-  font-size: 28px;
-  color: var(--h1Fontcolor);
+  font-weight: 600;
+  font-size: 15px;
+  color: #000;
 }
 .subject_form .main_form p {
   position: relative;
@@ -281,6 +282,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .subject_form .main_form p input[type="submit"]:hover {
   background-color: var(--buttonColor1);
 }
+.subject_form .main_form p button.uplo {
+  margin-top: 20px;
+  width: 200px !important;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: var(--buttonColor1);
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 0;
+  transition: 0.3s ease;
+}
+.subject_form .main_form p button.uplo:hover {
+  background-color: var(--buttonColor1);
+}
 .subject_form .main_form p button.sub {
   margin-top: 20px;
   width: 200px;
@@ -411,9 +426,21 @@ button.cp {
 }
 
 .subject_form .main_form .editorck {
-  width: 100%;
+  flex: 1;
   margin: 0 auto;
   overflow-x: hidden;
+}
+.ck.ck-reset_all,
+.ck.ck-reset_all * {
+  background-color: #404040 !important;
+}
+.ck.ck-icon,
+.ck.ck-icon * {
+  color: #fff !important;
+}
+.ck.ck-editor__main > .ck-editor__editable {
+  background-color: #404040 !important;
+  color: #fff !important;
 }
 
 /*multiple file input style*/
@@ -439,7 +466,6 @@ button.cp {
 .subject_form .main_form .show_files {
   margin: 15px 0;
   padding: 5px;
-  background-color: #fff;
 }
 .subject_form .main_form .show_files .up_list {
   list-style: none;

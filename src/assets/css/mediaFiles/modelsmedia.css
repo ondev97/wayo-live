@@ -22,20 +22,21 @@
     display: flex;
     height: auto;
     min-height: 20vh;
+    position: relative;
   }
   .models .md_all_models {
     order: 2;
     width: 100%;
   }
   .models .md_course_desc .course_desc_head {
-    flex: 0.5;
+    flex: 0.3;
     margin-right: 8px;
   }
   .models .md_course_desc .course_desc_head h3 {
     display: none;
   }
   .models .md_course_desc .course_desc_body {
-    flex: 0.5;
+    flex: 0.7;
     height: 100%;
   }
   .models .md_course_desc .colCourseView .mobile_list {
@@ -50,12 +51,17 @@
     border: none;
   }
   .models .md_course_desc .course_desc_body .card_of_course .course_pic {
-    flex: 0.5;
+    width: 200px;
     margin-right: 8px;
-    height: 200px;
+  }
+  .models .md_course_desc .course_desc_body .card_of_course .course_pic img {
+    width: 100%;
+  }
+  .colCourseView .course_desc_body .course_pic .cos_options {
+    flex-direction: column;
   }
   .models .md_course_desc .course_desc_body .card_of_course .course_detail {
-    flex: 0.5;
+    flex-grow: 1;
   }
   .models .md_course_desc .course_desc_head .course_pic {
     height: 150px;
@@ -93,10 +99,13 @@
     .card_of_course
     .cos_options
     button {
-    width: 40px;
+    width: 100%;
     display: flex;
     justify-content: center;
     border-radius: 5px;
+  }
+  .models .md_course_desc .course_desc_body .card_of_course .cos_options a {
+    text-decoration: none;
   }
   .models
     .md_course_desc
@@ -115,17 +124,11 @@
   .models .md_all_models .md_models .cr_models button:first-child {
     margin-bottom: 8px;
   }
-  .models
-    .md_course_desc
-    .course_desc_body
-    .card_of_course
-    .cos_options
-    button
-    span {
-    display: none;
+  .models .md_course_desc .course_desc_body .card_of_course .course_pic {
+    width: 150px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 511px) {
   .models .md_course_desc .course_desc_body .card_of_course {
     flex-direction: column;
   }
@@ -145,5 +148,8 @@
   .models .md_course_desc .colCourseView .mobile_list .hammenulist button {
     background-color: #fff;
     border-radius: 5px;
+  }
+  .models .md_course_desc .course_desc_body .card_of_course {
+    align-items: center;
   }
 }

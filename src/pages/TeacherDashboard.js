@@ -8,7 +8,6 @@ import UserStatus from "../utils/hooks/UserStatus";
 import AcDetails from "../utils/hooks/AcDetails";
 import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
-import CourseView from "./CourseView";
 import TcModels from "./TcModels";
 import CreateSubject from "./CreateSubject";
 import CreateModels from "./CreateModels";
@@ -20,6 +19,7 @@ import AllStList from "./AllStList";
 import { AnimatePresence, motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AddStudents from "./AddStudents";
+import TcEventDetails from "./TcEventDetails";
 
 export default function TeacherDashboard() {
   const [toggle, settoggle] = useState(false);
@@ -146,9 +146,6 @@ export default function TeacherDashboard() {
           </div>
         </div>
         <div className="sub_column">
-          {/*<Route path='/teacherdashboard/teachermaindashboard'>*/}
-          {/*    <TeacherMainDashboard/>*/}
-          {/*</Route>*/}
           <Route path="/teacherdashboard/createsubject">
             <CreateSubject />
           </Route>
@@ -159,7 +156,7 @@ export default function TeacherDashboard() {
             <MangeCourse />
           </Route>
           <Route path="/teacherdashboard/viewcourse/:id">
-            <CourseView />
+            <TcEventDetails />
           </Route>
           <Route path="/teacherdashboard/models/:id/:cid">
             <TcModels />

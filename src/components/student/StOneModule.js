@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player/lazy";
 import StModuleBody from "./StModuleBody";
-import ReactHtmlParser from "react-html-parser";
 import LazyLoad from "react-lazyload";
-import wayo from "../../img/production.mp4";
 
 export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
   const [playing, setplaying] = useState(false);

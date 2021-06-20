@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { store } from "react-notifications-component";
 import { useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
-import ThreeStepSection from "../components/ThreeStepSection";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import checkErrors from "../components/ValidateModule";
@@ -161,10 +160,28 @@ function CreateModels() {
   if (isRedirect) {
     return <Redirect to={`/teacherdashboard/models/${id}/${ccid}`} />;
   }
+  const editorConfiguration = {
+    ckfinder: {
+      uploadUrl: `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/uploads/`,
+    },
+    removePlugins: [
+      "Heading",
+      "Link",
+      "Bold",
+      "Italic",
+      "List",
+      "BlockQuote",
+      "Table",
+      "Image",
+      "ImageCaption",
+      "ImageStyle",
+      "ImageToolbar",
+      "ImageUpload",
+    ],
+  };
 
   return (
     <div className="subject_form">
-      <ThreeStepSection set="acm" />
       <div className="main_form">
         <h1>Create Module</h1>
         <form onSubmit={hadelSubmit}>
@@ -191,71 +208,21 @@ function CreateModels() {
           </p>
           <p>
             <label htmlFor="msg">Messages/Links</label>
-          </p>
-          <div className="editorck">
-            <CKEditor
-              editor={ClassicEditor}
-              data={formValues.msg}
-              onChange={editorOnChangeHandel}
-              config={{
-                ckfinder: {
-                  uploadUrl: `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/uploads/`,
-                },
-              }}
-            />
-          </div>
-          {mediafiles !== null ? (
-            <div className="show_files">
-              <ul className="up_list">
-                {Object.values(mediafiles).map(
-                  (value, index) =>
-                    value.type !== "video/mp4" && (
-                      <li key={index} className="row">
-                        <span>
-                          <i className="far fa-circle"></i>
-                          {value.name}
-                        </span>
-                        <i
-                          className={`fas fa-circle-notch ${
-                            uploading ? "rot" : "dis"
-                          } `}
-                        ></i>
-                      </li>
-                    )
-                )}
-              </ul>
+            <div className="editorck">
+              <CKEditor
+                editor={ClassicEditor}
+                data={formValues.msg}
+                onChange={editorOnChangeHandel}
+                config={editorConfiguration}
+              />
             </div>
-          ) : (
-            ""
-          )}
-          <div className="multi_files">
-            {!uploading ? (
-              <p>
-                <label htmlFor="fl">Upload Module Materials</label>
-                <input
-                  type="file"
-                  name="file"
-                  className="multi"
-                  id="fl"
-                  multiple
-                  onChange={files}
-                />
-              </p>
-            ) : (
-              <div className="progressPath">
-                <div
-                  className="progressBar"
-                  style={{ width: `${progressBarPrecen}%` }}
-                ></div>
-              </div>
-            )}
-          </div>
+          </p>
           <p>
-            <input
+            <button
               type={`${uploading ? "button" : "submit"}`}
               name="submit"
-              value={`${uploading ? "Creating" : "Create Module"}`}
-            />
+              className="uplo"
+            >{`${uploading ? "Updating" : "Update Module"}`}</button>
           </p>
         </form>
       </div>

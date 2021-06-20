@@ -119,18 +119,6 @@ export default function TcModels() {
       <div className="models">
         <div className="md_all_models">
           <div className="md_models">
-            <div className="cr_models">
-              <Link to={`/teacherdashboard/viewcourse/${cid}`}>
-                <button>
-                  <i className="fas fa-chevron-circle-left"></i>Back to Courses
-                </button>
-              </Link>
-              <Link to={`/teacherdashboard/createmodels/${id}/${cid}`}>
-                <button>
-                  <i className="fas fa-plus-circle"></i>Create Module
-                </button>
-              </Link>
-            </div>
             <div className="al_models">
               {moduleData.length !== 0 ? (
                 moduleData.map((data) => (
