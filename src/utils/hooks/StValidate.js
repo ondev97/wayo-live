@@ -51,7 +51,7 @@ function StValidate(ValidateSignUp) {
 
   const hadelSubmit = (e) => {
     e.preventDefault();
-    //hadel errors
+    //handel errors
     //function thar validate these errors
     seterrors(ValidateSignUp(values));
     setisSubmetting(true);
@@ -81,11 +81,11 @@ function StValidate(ValidateSignUp) {
     }
   }, [errors]);
   function submit() {
-    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/register/`, {
+    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/register/ `, {
       username: values.userName.toUpperCase(),
       email: values.email,
       password: values.cpw,
-      is_teacher: false,
+      is_band: false,
       first_name: values.firstName,
       last_name: values.lastName,
       phone_no: values.phonenumber,
@@ -94,15 +94,17 @@ function StValidate(ValidateSignUp) {
         setac(true);
       })
       .catch((err) => {
-        let backErrors = err.response.data;
-        if (backErrors) {
-          Object.entries(backErrors).map(([keys, val]) => {
-            if (keys === "username") {
-              backErrors = { ...backErrors, userName: val };
-              delete backErrors.username;
-            }
-            seterrors({ ...errors, ...backErrors });
-          });
+        if (err.response) {
+          let backErrors = err.response.data;
+          if (backErrors) {
+            Object.entries(backErrors).map(([keys, val]) => {
+              if (keys === "username") {
+                backErrors = { ...backErrors, userName: val };
+                delete backErrors.username;
+              }
+              seterrors({ ...errors, ...backErrors });
+            });
+          }
         }
       });
   }

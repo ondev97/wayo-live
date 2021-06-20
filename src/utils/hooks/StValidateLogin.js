@@ -39,7 +39,7 @@ function StValidateLogin() {
     // })
     //   .then((res) => {
     //     if (!res.data.status) {
-    //       Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/login/`, {
+    //       Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/login/`, {
     //         username: values.un.toUpperCase(),
     //         password: values.pw,
     //       })
@@ -65,10 +65,13 @@ function StValidateLogin() {
     //     // seterrors({...errors,"comerrors":err.response.data});
     //   });
 
-    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/login/`, {
-      username: values.un.toUpperCase(),
-      password: values.pw,
-    })
+    Axios.post(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/login/`,
+      {
+        username: values.un.toUpperCase(),
+        password: values.pw,
+      }
+    )
       .then((res) => {
         setacDetails(res.data);
       })

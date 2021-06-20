@@ -17,13 +17,7 @@ export default [
     components: () => <Home />,
   },
   ,
-  /*{
-    path: "/about",
-    components: () => <About />,
-  } {
-        path:'/contact',
-        components: () =><ContactUs/>
-    },*/ {
+  {
     path: "/features",
     components: () => <Features />,
   },
@@ -40,11 +34,7 @@ export default [
     components: () => <InAllSubjects />,
   },
   {
-    path: "/stlogin",
-    components: () => <StLogin />,
-  },
-  {
-    path: "/stsignup",
+    path: "/signup",
     components: () => <StSignUp />,
   },
   {

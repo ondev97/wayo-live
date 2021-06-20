@@ -3,7 +3,7 @@ import StSignupForm from "../components/StSignupForm";
 import "../assets/css/stsignup.css";
 import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
-import RegisterInfo from "../components/RegisterInfo";
+import logo from "../img/Logo_1.png";
 
 export default function StSignUp() {
   const dispatch = useDispatch();
@@ -17,13 +17,13 @@ export default function StSignUp() {
         <div className="siup_column">
           <div className="siup_form">
             <div className="topSign">
-              <h2>Student Registration Form</h2>
+              <h2>AUDIENCE REGISTER FORM</h2>
             </div>
             <StSignupForm />
           </div>
         </div>
         <div className="siup_column">
-          <RegisterInfo />
+          <img src={logo} alt="logo" />
         </div>
       </div>
     </>

@@ -4,15 +4,8 @@ import StValidate from "../utils/hooks/StValidate";
 import ValidateSignUp from "./ValidateSignUp";
 
 export default function StSignupForm() {
-  const [
-    hadelChanege,
-    hadelSubmit,
-    values,
-    errors,
-    hideError,
-    hide,
-    ac,
-  ] = StValidate(ValidateSignUp); //custom hook
+  const [hadelChanege, hadelSubmit, values, errors, hideError, hide, ac] =
+    StValidate(ValidateSignUp); //custom hook
 
   const passwordRef = useRef();
   const repasswordRef = useRef();
@@ -31,7 +24,7 @@ export default function StSignupForm() {
   };
 
   if (ac) {
-    return <Redirect to="/stlogin" />;
+    return <Redirect to="/" />;
   }
 
   return (

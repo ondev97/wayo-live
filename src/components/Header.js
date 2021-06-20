@@ -30,7 +30,7 @@ export default function Header({ acDetails }) {
     "/allteachers",
     "/allsubjects",
     "/stlogin",
-    "/stsignup",
+    "/signup",
     "/passwordreset",
     "/guidelines",
     "/features",
@@ -85,7 +85,7 @@ export default function Header({ acDetails }) {
     } else {
       return (
         <div className="buttons">
-          <Link to="#">
+          <Link to="/signup">
             <button>Register</button>
           </Link>
           {/* <Link to="/stsignup">
