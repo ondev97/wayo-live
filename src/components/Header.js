@@ -29,7 +29,6 @@ export default function Header({ acDetails }) {
     "/contact",
     "/allteachers",
     "/allsubjects",
-    "/stlogin",
     "/signup",
     "/passwordreset",
     "/guidelines",

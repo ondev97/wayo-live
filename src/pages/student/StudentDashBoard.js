@@ -143,7 +143,7 @@ function StudentDashBoard() {
           </div>
         </div>
         <div className="sub_column">
-          <Route path="/studentdashboard/maindashboard">
+          <Route path="/audiencedashboard/maindashboard">
             <StudentMainDashboard />
           </Route>
           <Route path="/studentdashboard/contact/">

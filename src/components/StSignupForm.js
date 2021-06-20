@@ -176,7 +176,7 @@ export default function StSignupForm() {
           <button>Register</button>
           <div className="in">
             <p>
-              Already Have An Account?<Link to="/stlogin"> Log In Here</Link>
+              Already Have An Account?<Link to="/"> Log In Here</Link>
             </p>
           </div>
         </div>

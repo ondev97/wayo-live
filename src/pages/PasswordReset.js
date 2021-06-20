@@ -72,7 +72,7 @@ export default function PasswordReset() {
       });
   };
   if (redirect) {
-    return <Redirect to={"/stlogin"} />;
+    return <Redirect to={"/"} />;
   }
   return (
     <div className="login_body">

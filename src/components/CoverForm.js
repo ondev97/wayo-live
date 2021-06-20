@@ -27,7 +27,7 @@ export default function CoverForm() {
 
   if (Object.values(acDetails).length !== 0) {
     if (!acDetails.user.is_teacher) {
-      return <Redirect to="/studentdashboard/maindashboard" />;
+      return <Redirect to="/audiencedashboard/maindashboard" />;
     } else if (acDetails.user.is_teacher) {
       return <Redirect to="/teacherdashboard/managecourse" />;
     }

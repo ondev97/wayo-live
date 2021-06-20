@@ -1,7 +1,6 @@
 import Home from "../pages/Home";
 import InAllSubjects from "../pages/InAllSubjects";
 import IndexAllTeachers from "../pages/IndexAllTeachers";
-import StLogin from "../pages/StLogin";
 import StSignUp from "../pages/StSignUp";
 import StudentDashBoard from "../pages/student/StudentDashBoard";
 import TeacherDashboard from "../pages/TeacherDashboard";
