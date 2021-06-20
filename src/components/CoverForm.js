@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
@@ -26,10 +26,10 @@ export default function CoverForm() {
   };
 
   if (Object.values(acDetails).length !== 0) {
-    if (!acDetails.user.is_teacher) {
+    if (!acDetails.user.is_band) {
       return <Redirect to="/audiencedashboard/maindashboard" />;
-    } else if (acDetails.user.is_teacher) {
-      return <Redirect to="/teacherdashboard/managecourse" />;
+    } else if (acDetails.user.is_band) {
+      return <Redirect to="/band/managecourse" />;
     }
   }
   return (

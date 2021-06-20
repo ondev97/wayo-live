@@ -82,6 +82,7 @@ function StValidateLogin() {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
+      console.log(Object.keys(errors).length);
       submit();
     }
   }, [errors]);

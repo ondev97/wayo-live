@@ -146,13 +146,13 @@ export default function TeacherDashboard() {
           </div>
         </div>
         <div className="sub_column">
-          <Route path="/teacherdashboard/createsubject">
+          <Route path="/band/createevent">
             <CreateSubject />
           </Route>
           <Route path="/teacherdashboard/createmodels/:id/:ccid">
             <CreateModels />
           </Route>
-          <Route path="/teacherdashboard/managecourse">
+          <Route path="/band/managecourse">
             <MangeCourse />
           </Route>
           <Route path="/teacherdashboard/viewcourse/:id">

@@ -37,11 +37,11 @@ export default [
     components: () => <StSignUp />,
   },
   {
-    path: "/teacherdashboard",
+    path: "/band",
     components: () => <TeacherDashboard />,
   },
   {
-    path: "/studentdashboard",
+    path: "/audiencedashboard",
     components: () => <StudentDashBoard />,
   },
   {

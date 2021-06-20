@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import wayo from "../img/wayo.jpg";
 import "../assets/css/eventhead.css";
+import EventModel from "./EventModel";
 
 function CreateEventHead() {
   const eventRef = useRef();
@@ -34,17 +35,7 @@ function CreateEventHead() {
     <>
       <div className="event_grid_sec">
         {closeModel ? (
-          <div className="model_outer" onClick={removeOuter}>
-            <div className="model_form">
-              <form>
-                <p>
-                  <label>Enter Event Name</label>
-                  <input type="text" name="event_name" />
-                </p>
-                <button>ADD EVENT</button>
-              </form>
-            </div>
-          </div>
+          <EventModel removeOuter={removeOuter} setcloseModel={setcloseModel} />
         ) : (
           ""
         )}

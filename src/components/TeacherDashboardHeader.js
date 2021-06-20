@@ -38,13 +38,13 @@ export default function TeacherDashboardHeader() {
             <Link to={"/"}>
               <li>HOME</li>
             </Link>
-            <Link to="/teacherdashboard/managecourse/">
+            <Link to="/band/managecourse/">
               <li>MY EVENTS</li>
             </Link>
-            <Link to="/teacherdashboard/createsubject/">
+            <Link to="/band/createevent/">
               <li>CREATE EVENT</li>
             </Link>
-            <Link to="/teacherdashboard/profilesettings/">
+            <Link to="/band/profilesettings/">
               <li>MY PROFILE</li>
             </Link>
             <li onClick={hadelLogOut} style={{ border: "none" }}>

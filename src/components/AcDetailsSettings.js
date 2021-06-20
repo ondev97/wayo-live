@@ -149,57 +149,6 @@ export default function AcDetailsSettings({
             )}
           </p>
         </div>
-        {/* <div className="skills_sec">
-          <div className="adSk">
-            <h3>Educations</h3>
-            <i
-              className="far fa-plus-square"
-              onClick={hadelCreateExFieldED}
-            ></i>
-          </div>
-          {inputFieldED.map((int, index) => (
-            <div className="sk_sec" key={index}>
-              <div className="nirow">
-                <div className="nisec">
-                  <input
-                    type="text"
-                    name="ed"
-                    value={int.ed || ""}
-                    onChange={(e) => hadelInputFieldED(index, e)}
-                  />
-                  <i
-                    className="far fa-minus-square"
-                    onClick={() => hadelRemoveFieldED(index)}
-                  ></i>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
-        {/* <div className="skills_sec">
-          <div className="adSk">
-            <h3>Experiences</h3>
-            <i className="far fa-plus-square" onClick={hadelCreateExField}></i>
-          </div>
-          {inputField.map((int, index) => (
-            <div className="sk_sec" key={index}>
-              <div className="nirow">
-                <div className="nisec">
-                  <input
-                    type="text"
-                    name="ex"
-                    value={int.ex || ""}
-                    onChange={(e) => hadelInputField(index, e)}
-                  />
-                  <i
-                    className="far fa-minus-square"
-                    onClick={() => hadelRemoveField(index)}
-                  ></i>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
         <div className="sectpr">
           <p>
             <label htmlFor="pw" style={{ fontWeight: "bold" }}>

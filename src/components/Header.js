@@ -48,13 +48,13 @@ export default function Header({ acDetails }) {
 
   const headerProPic = () => {
     if (acDetails.key) {
-      if (acDetails.is_teacher) {
+      if (acDetails.band) {
         return (
           <div className="pro_pic">
             <div className="ac_details_header">
               <h3 style={{ textTransform: "uppercase" }}>WAYOLIVE</h3>
             </div>
-            <Link to="teacherdashboard/managecourse">
+            <Link to="band/managecourse">
               <div className="img">
                 <LazyLoadImage src={wayo} alt="" effect="blur" />
               </div>
@@ -69,7 +69,7 @@ export default function Header({ acDetails }) {
                 {profileDetails.userName}
               </h3>
             </div>
-            <Link to="studentdashboard/maindashboard">
+            <Link to="audiencedashboard/maindashboard">
               <div className="img">
                 <LazyLoadImage
                   src={`${profileDetails.pic}`}
