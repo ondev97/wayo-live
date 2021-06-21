@@ -167,7 +167,7 @@ export default function TeacherDashboard() {
           <Route path="/teacherdashboard/addstudents/:cid">
             <AddStudents />
           </Route>
-          <Route path="/teacherdashboard/profilesettings">
+          <Route path="/band/profilesettings">
             <ProfileSettings />
           </Route>
           <Route path="/teacherdashboard/updatesubject/:subid">

@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import Empty from "../components/Empty";
 import ProfileLoader from "../components/ProfileLoader";
 import TcMaCourses from "../components/TcMaCourses";
-import useDebounce from "../utils/hooks/useDebounce";
 import "../assets/css/coursemanage.css";
 import "../assets/css/mediaFiles/managecoursemedia.css";
 import "../assets/css/teachermaindash.css";
@@ -21,15 +20,14 @@ export default function MangeCourse() {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
-  const debounce = useDebounce(); //custom hook
-  const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teachersubject`;
+  const url = `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband`;
 
   useEffect(() => {
     if (search === "") {
-      const fetchurl = `${url}/?page=${page}`;
+      const fetchurl = `${url}/${usDetails.id}/?page=${page}`;
       getSubjectDetails(fetchurl);
     } else {
-      const fetchurl = `${url}/?page=${page}&search=${search}`;
+      const fetchurl = `${url}/${usDetails.id}/?page=${page}&search=${search}`;
       getSubjectDetails(fetchurl);
     }
   }, [usDetails, page, search]);

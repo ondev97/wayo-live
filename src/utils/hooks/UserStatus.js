@@ -24,7 +24,7 @@ function UserStatus() {
       Object.keys(JSON.parse(localStorage.getItem("usValues"))).length !== 0
     ) {
       Axios.delete(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/logout/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/logout/`,
         {
           headers: {
             Authorization:

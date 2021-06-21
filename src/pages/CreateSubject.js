@@ -13,11 +13,14 @@ import CreateEventHead from "../components/CreateEventHead";
 export default function CreateSubject() {
   const {
     formValue,
+    setformValue,
     hadelChabgeFormValues,
     handelSubmit,
     formErrors,
     hide,
     hideError,
+    setisFree,
+    isFree,
   } = UseCreateSubject(submitForm); //custom hook
   const [image, getCropData, setCropper, onChange, cropData, err, file] =
     CropImages(); //custom hook
@@ -53,17 +56,21 @@ export default function CreateSubject() {
     if (cropData !== "#") {
       let input = cropData.split(",")[1];
       const blob = b64toBlob(input, file.type);
-      formData.append("subject_cover", blob, file.name);
+      formData.append("event_cover", blob, file.name);
     }
 
-    formData.append("subject_name", formValue.subject_title);
-    formData.append("short_description", formValue.subject_shdes);
-    formData.append("description", formValue.sub_des);
-    formData.append("class_type", formValue.class_type);
-    formData.append("subject_type", formValue.subject_type);
+    formData.append("event_name", formValue.event_name);
+    formData.append("event_type", formValue.event_type);
+    formData.append("description", formValue.event_short_description);
+    formData.append("event_date", formValue.event_date);
+    formData.append("event_start", formValue.event_start_time);
+    formData.append("event_end", formValue.event_end_time);
+    formData.append("event_label", formValue.event_label);
+    formData.append("event_content", formValue.event_description);
+    formData.append("is_freeze", formValue.is_freeze);
 
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/createsubject/${usDetails.id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/createevent/${usDetails.id}/`,
       formData,
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -104,10 +111,18 @@ export default function CreateSubject() {
 
   return (
     <div className="subject_form">
-      <CreateEventHead />
+      <CreateEventHead
+        formValue={formValue}
+        setformValue={setformValue}
+        hadelChabgeFormValues={hadelChabgeFormValues}
+        formErrors={formErrors}
+        hide={hide}
+        hideError={hideError}
+      />
       <div className="main_form">
         <CreateSubjectForm
           formValue={formValue}
+          setformValue={setformValue}
           hadelChabgeFormValues={hadelChabgeFormValues}
           handelSubmit={handelSubmit}
           formErrors={formErrors}
@@ -120,6 +135,8 @@ export default function CreateSubject() {
           cropData={cropData}
           err={err}
           uploading={uploading}
+          setisFree={setisFree}
+          isFree={isFree}
         />
       </div>
     </div>

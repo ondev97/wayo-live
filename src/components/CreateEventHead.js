@@ -5,7 +5,14 @@ import EventModel from "./EventModel";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 
-function CreateEventHead() {
+function CreateEventHead({
+  formValue,
+  setformValue,
+  hadelChabgeFormValues,
+  hideError,
+  hide,
+  formErrors,
+}) {
   const eventRef = useRef();
   const [closeModel, setcloseModel] = useState(false);
   const [evDropDown, setevDropDown] = useState(false);
@@ -13,6 +20,7 @@ function CreateEventHead() {
   const [isEdit, setisEdit] = useState(false);
   const [editValue, seteditValue] = useState({ id: "", value: "" });
   const [eventValues, seteventValues] = useState([]);
+  const [errorHide, seterrorHide] = useState(false);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
@@ -23,7 +31,7 @@ function CreateEventHead() {
   }, [usDetails, ismodel]);
 
   const getEvent = () => {
-    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventmode/`, {
+    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/`, {
       headers: { Authorization: "Token " + usDetails.key },
     })
       .then((res) => {
@@ -57,6 +65,7 @@ function CreateEventHead() {
       });
       e.target.classList.add("activeSelect");
       eventRef.current.value = e.target.dataset.label;
+      setformValue({ ...formValue, event_category: e.target.dataset.label });
       setevDropDown(false);
     }
   };
@@ -83,6 +92,8 @@ function CreateEventHead() {
     setcloseModel(true);
     seteditValue({ id: id, value: value });
   };
+
+  const setRadioValue = () => {};
 
   return (
     <>
@@ -123,11 +134,24 @@ function CreateEventHead() {
           <h1>SELECT EVENT TYPE</h1>
           <form>
             <p>
-              <input type="radio" id="live" name="record" />
+              <input
+                type="radio"
+                id="live"
+                name="event_type"
+                value="Live Streaming"
+                defaultChecked={true}
+                onClick={hadelChabgeFormValues}
+              />
               <label htmlFor="live">Live Streaming</label>
             </p>
             <p>
-              <input type="radio" id="liveR" name="record" />
+              <input
+                type="radio"
+                id="liveR"
+                name="event_type"
+                value="Live Recorded"
+                onClick={hadelChabgeFormValues}
+              />
               <label htmlFor="liveR">Live Recorded</label>
             </p>
           </form>
@@ -144,13 +168,16 @@ function CreateEventHead() {
                 type="text"
                 id="option_view_button"
                 placeholder="Select A Category"
+                name="event_category"
                 ref={eventRef}
-                disabled
+                readOnly="readonly"
+                onClick={hideError}
               />
-              <div className="chevrons" onClick={activeEventDropDown}>
+              <div className="chevrons" onClick={() => activeEventDropDown}>
                 <i className="fas fa-sort-down"></i>
               </div>
             </div>
+
             {evDropDown ? (
               <ul>
                 <li
@@ -187,6 +214,11 @@ function CreateEventHead() {
               ""
             )}
           </div>
+          {formErrors.event_category && (
+            <span className={`tip ${hide.event_category ? "hidetip" : ""}`}>
+              {formErrors.event_category}
+            </span>
+          )}
         </div>
       </div>
     </>

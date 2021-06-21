@@ -63,6 +63,17 @@
   flex: 1;
   border-radius: 10px;
 }
+.event_grid_sec .event_column .tip {
+  background-color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #dadada;
+  color: red;
+  opacity: 1;
+}
+.event_grid_sec .event_column .hidetip {
+  opacity: 0;
+}
 .event_grid_sec .event_column h1 {
   font-size: 16px;
   margin-bottom: 10px;
@@ -123,7 +134,7 @@
   overflow-y: auto;
   padding: 5px 0;
   position: absolute;
-  z-index: 10;
+  z-index: 110;
 }
 .event_grid_sec .event_column .custom_select_box .outer_select_box .chevrons i {
   font-size: 30px;
