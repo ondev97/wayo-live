@@ -10,19 +10,10 @@ const accountDetailsReducer = (state = "", action) => {
           return state;
         } else {
           let userLocalValues = JSON.parse(localStorage.getItem("usValues"));
-          let expireTime = userLocalValues.expire;
-          let date = new Date();
-          let currentDate = date.getTime();
-          if (currentDate > expireTime) {
-            localStorage.setItem("usValues", JSON.stringify({}));
-            state = "";
-            return state;
-          } else {
-            let user = userLocalValues.user;
-            let key = userLocalValues.key;
-            userLocalValues = { key: key, ...user };
-            return userLocalValues;
-          }
+          let user = userLocalValues.user;
+          let key = userLocalValues.key;
+          userLocalValues = { key: key, ...user };
+          return userLocalValues;
         }
       } else {
         state = "";

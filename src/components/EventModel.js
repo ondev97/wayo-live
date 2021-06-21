@@ -2,7 +2,15 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-function EventModel({ removeOuter, setcloseModel }) {
+function EventModel({
+  removeOuter,
+  setcloseModel,
+  setismodel,
+  ismodel,
+  setisEdit,
+  isEdit,
+  editValue,
+}) {
   const [eventDetails, seteventDetails] = useState({ eventName: "" });
   const [error, seterror] = useState({ eventName: "" });
   const [isSubmitting, setisSubmitting] = useState(false);
@@ -37,26 +45,59 @@ function EventModel({ removeOuter, setcloseModel }) {
     }
   }, [error]);
 
+  useEffect(() => {
+    if (editValue.value) {
+      seteventDetails({ eventName: editValue.value });
+    }
+  }, []);
+
   function submit() {
-    Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/show/createeventmode/`,
-      { event_mode_name: eventDetails.eventName },
-      {
-        headers: { Authorization: "Token " + usDetails.key },
-      }
-    )
-      .then((res) => {
-        setcloseModel(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!isEdit) {
+      Axios.post(
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/createeventmode/`,
+        { event_mode_name: eventDetails.eventName },
+        {
+          headers: { Authorization: "Token " + usDetails.key },
+        }
+      )
+        .then(() => {
+          setcloseModel(false);
+          setismodel(!ismodel);
+          editValue({ id: "", value: "" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      Axios.put(
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/updateeventmode/${editValue.id}/`,
+        { event_mode_name: eventDetails.eventName },
+        {
+          headers: { Authorization: "Token " + usDetails.key },
+        }
+      )
+        .then(() => {
+          setcloseModel(false);
+          setismodel(!ismodel);
+          setisEdit(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 
   return (
     <>
       <div className="model_outer" onClick={removeOuter}>
         <div className="model_form">
+          {error.eventName ? (
+            <div className="error_model">
+              <h1>{error.eventName}</h1>
+            </div>
+          ) : (
+            ""
+          )}
           <form onSubmit={submitEvent}>
             <p>
               <label>Enter Event Name</label>
@@ -67,7 +108,11 @@ function EventModel({ removeOuter, setcloseModel }) {
                 onChange={setValues}
               />
             </p>
-            <button type="submit">ADD EVENT</button>
+            {isEdit ? (
+              <button type="submit">EDIT EVENT</button>
+            ) : (
+              <button type="submit">ADD EVENT</button>
+            )}
           </form>
         </div>
       </div>

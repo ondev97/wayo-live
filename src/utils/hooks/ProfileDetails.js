@@ -13,9 +13,9 @@ function ProfileDetails(usDetails) {
         Object.keys(JSON.parse(localStorage.getItem("usValues"))).length !== 0
       ) {
         const userDetails = JSON.parse(localStorage.getItem("usValues"));
-        if (userDetails.user.is_teacher) {
+        if (userDetails.user.is_band) {
           await Axios.get(
-            `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/profile/${userDetails.user.id}/`,
+            `${process.env.REACT_APP_LMS_MAIN_URL}/auth/viewprofile/`,
             {
               headers: { Authorization: "Token " + userDetails.key },
             }
@@ -38,7 +38,7 @@ function ProfileDetails(usDetails) {
             });
         } else {
           await Axios.get(
-            `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/stuprofile/${userDetails.user.id}/`,
+            `${process.env.REACT_APP_LMS_MAIN_URL}/auth/viewprofile/`,
             {
               headers: { Authorization: "Token " + userDetails.key },
             }

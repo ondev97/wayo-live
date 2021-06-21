@@ -20,6 +20,20 @@
   background-color: #fff;
   padding: 45px 20px;
   border-radius: 8px;
+  position: relative;
+}
+.model_outer .model_form .error_model {
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  left: 0;
+}
+.model_outer .model_form .error_model h1 {
+  font-size: 13px;
+  color: red;
+  background-color: #ffebeb;
+  padding: 5px 21px;
+  font-weight: 500;
 }
 .model_outer .model_form p label {
   display: block;

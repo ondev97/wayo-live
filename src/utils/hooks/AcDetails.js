@@ -14,7 +14,7 @@ function AcDetails() {
       ) {
         const userDetails = JSON.parse(localStorage.getItem("usValues"));
         await Axios.get(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/profile/${userDetails.user.id}/`,
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/viewprofile/`,
           {
             headers: { Authorization: "Token " + userDetails.key },
           }
@@ -39,7 +39,7 @@ function AcDetails() {
           })
           .catch((err) => {
             if (err) {
-              //hadelLogOut();
+              hadelLogOut();
             }
           });
       }

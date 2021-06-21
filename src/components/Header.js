@@ -48,7 +48,7 @@ export default function Header({ acDetails }) {
 
   const headerProPic = () => {
     if (acDetails.key) {
-      if (acDetails.band) {
+      if (acDetails.is_band) {
         return (
           <div className="pro_pic">
             <div className="ac_details_header">

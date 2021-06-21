@@ -17,11 +17,7 @@ export default function MangeCourse() {
   const [allSubDetail, setallSubDetail] = useState(null);
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
-  const [statistics, setstatistics] = useState({
-    students: 0,
-    courses: 0,
-    subjects: 0,
-  });
+
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
@@ -54,16 +50,6 @@ export default function MangeCourse() {
           setallSubDetail(res.data);
         })
         .catch((err) => {});
-      await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/teacherstat/`,
-        {
-          headers: { Authorization: "Token " + usDetails.key },
-        }
-      )
-        .then((res) => {
-          setstatistics(res.data);
-        })
-        .catch((err) => {});
     }
   };
 
@@ -72,12 +58,6 @@ export default function MangeCourse() {
       setpage(page + 1);
     }
   }
-
-  const handelSearchSubject = (e) => {
-    const search = e.target.value;
-    setpage(1);
-    debounce(() => setsearch(search), 500);
-  };
 
   return (
     <>

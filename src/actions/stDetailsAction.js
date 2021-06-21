@@ -9,7 +9,7 @@ export const loadStDetails = () => async (dispatch) => {
     ) {
       const userLocalValues = JSON.parse(localStorage.getItem("usValues"));
       const stDetails = await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/stuprofile/${userLocalValues.user.id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/auth/viewprofile/`,
         {
           headers: { Authorization: "Token " + userLocalValues.key },
         }

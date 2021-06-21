@@ -1,16 +1,44 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import wayo from "../img/wayo.jpg";
 import "../assets/css/eventhead.css";
 import EventModel from "./EventModel";
+import { useSelector } from "react-redux";
+import Axios from "axios";
 
 function CreateEventHead() {
   const eventRef = useRef();
   const [closeModel, setcloseModel] = useState(false);
   const [evDropDown, setevDropDown] = useState(false);
+  const [ismodel, setismodel] = useState(false);
+  const [isEdit, setisEdit] = useState(false);
+  const [editValue, seteditValue] = useState({ id: "", value: "" });
+  const [eventValues, seteventValues] = useState([]);
+  //get acDetails from Redux Store
+  const usDetails = useSelector((state) => state.accountDetails);
+
+  useEffect(() => {
+    if (usDetails.key) {
+      getEvent();
+    }
+  }, [usDetails, ismodel]);
+
+  const getEvent = () => {
+    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventmode/`, {
+      headers: { Authorization: "Token " + usDetails.key },
+    })
+      .then((res) => {
+        seteventValues([...res.data]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const removeOuter = (e) => {
     if (e.target.className.includes("model_outer")) {
       setcloseModel(false);
+      setisEdit(false);
+      seteditValue({ id: "", value: "" });
     }
   };
 
@@ -20,22 +48,56 @@ function CreateEventHead() {
 
   //event drop
   const setEvActive = (e) => {
-    let childNodes = e.target.parentElement.childNodes;
-    Array.from(childNodes).map((child) => {
-      if (child.classList.contains("activeSelect")) {
-        child.classList.remove("activeSelect");
+    if (e.target.className.includes("list_data")) {
+      let childNodes = e.target.parentElement.childNodes;
+      Array.from(childNodes).map((child) => {
+        if (child.classList.contains("activeSelect")) {
+          child.classList.remove("activeSelect");
+        }
+      });
+      e.target.classList.add("activeSelect");
+      eventRef.current.value = e.target.dataset.label;
+      setevDropDown(false);
+    }
+  };
+
+  //delete mode
+  const deleteMod = (data) => {
+    Axios.delete(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/deleteeventmode/${data}/`,
+      {
+        headers: { Authorization: "TOken " + usDetails.key },
       }
-    });
-    e.target.classList.add("activeSelect");
-    eventRef.current.value = e.target.dataset.label;
-    setevDropDown(false);
+    )
+      .then(() => {
+        setismodel(!ismodel);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //edit model
+  const editModel = (id, value) => {
+    setisEdit(true);
+    setcloseModel(true);
+    seteditValue({ id: id, value: value });
   };
 
   return (
     <>
       <div className="event_grid_sec">
         {closeModel ? (
-          <EventModel removeOuter={removeOuter} setcloseModel={setcloseModel} />
+          <EventModel
+            removeOuter={removeOuter}
+            setcloseModel={setcloseModel}
+            setismodel={setismodel}
+            ismodel={ismodel}
+            setisEdit={setisEdit}
+            isEdit={isEdit}
+            editValue={editValue}
+            seteditValue={seteditValue}
+          />
         ) : (
           ""
         )}
@@ -89,53 +151,41 @@ function CreateEventHead() {
                 <i className="fas fa-sort-down"></i>
               </div>
             </div>
-            <ul>
-              {evDropDown ? (
-                <>
+            {evDropDown ? (
+              <ul>
+                <li
+                  className="activeSelect"
+                  onClick={() => setcloseModel(true)}
+                >
+                  <span>
+                    <i className="fas fa-plus-circle"></i>Create Event
+                  </span>
+                </li>
+                {eventValues.map((data, index) => (
                   <li
-                    className="activeSelect"
-                    onClick={() => setcloseModel(true)}
-                  >
-                    <span>
-                      <i className="fas fa-plus-circle"></i>Create Event
-                    </span>
-                  </li>
-                  <li
-                    data-label="Event1"
-                    className="activeSelect"
                     onClick={setEvActive}
+                    data-label={data.event_mode_name}
+                    key={index}
+                    className="list_data"
                   >
-                    <span>Event1</span>
-                    <button>
+                    <span>{data.event_mode_name}</span>
+                    <button
+                      onClick={() => editModel(data.id, data.event_mode_name)}
+                    >
                       <i className="far fa-edit"></i>
                     </button>
-                    <button>
+                    <button
+                      className="delete"
+                      onClick={() => deleteMod(data.id)}
+                    >
                       <i className="far fa-trash-alt"></i>
                     </button>
                   </li>
-                  <li data-label="Event2" onClick={setEvActive}>
-                    <span>Event2</span>
-                    <button>
-                      <i className="far fa-edit"></i>
-                    </button>
-                    <button>
-                      <i className="far fa-trash-alt"></i>
-                    </button>
-                  </li>
-                  <li data-label="Event3" onClick={setEvActive}>
-                    <span>Event3</span>
-                    <button>
-                      <i className="far fa-edit"></i>
-                    </button>
-                    <button>
-                      <i className="far fa-trash-alt"></i>
-                    </button>
-                  </li>
-                </>
-              ) : (
-                ""
-              )}
-            </ul>
+                ))}
+              </ul>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
