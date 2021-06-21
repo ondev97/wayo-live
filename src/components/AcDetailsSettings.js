@@ -7,14 +7,6 @@ export default function AcDetailsSettings({
   errors,
   hide,
   hideError,
-  hadelInputField,
-  hadelCreateExField,
-  hadelRemoveField,
-  inputField,
-  hadelInputFieldED,
-  hadelCreateExFieldED,
-  hadelRemoveFieldED,
-  inputFieldED,
 }) {
   return (
     <div>
@@ -26,8 +18,7 @@ export default function AcDetailsSettings({
               type="text"
               id="fn"
               name="firstName"
-              //   value={values.firstName || ""}
-              value="Wayo"
+              value={values.firstName || ""}
               onChange={hadelChange}
               onFocus={hideError}
             />
@@ -43,8 +34,7 @@ export default function AcDetailsSettings({
               type="text"
               id="ln"
               name="lastName"
-              //   value={values.lastName || ""}
-              value="Live"
+              value={values.lastName || ""}
               onChange={hadelChange}
               onFocus={hideError}
             />
@@ -63,8 +53,7 @@ export default function AcDetailsSettings({
               id="un"
               name="userName"
               style={{ textTransform: "uppercase" }}
-              //   value={values.userName || ""}
-              value="WAYO"
+              value={values.userName || ""}
               onChange={hadelChange}
               onFocus={hideError}
             />
@@ -80,8 +69,7 @@ export default function AcDetailsSettings({
               type="text"
               id="pn"
               name="phoneNumber"
-              //   value={values.phoneNumber || ""}
-              value="071 2345678"
+              value={values.phoneNumber || ""}
               onChange={hadelChange}
               onFocus={hideError}
             />
@@ -99,7 +87,7 @@ export default function AcDetailsSettings({
               type="text"
               id="ad"
               name="email"
-              value="wayolive@gmail.com"
+              value={values.email || ""}
               onChange={hadelChange}
               onFocus={hideError}
             />

@@ -3,7 +3,7 @@ import "../assets/css/usprofile.css";
 import AcDetails from "../utils/hooks/AcDetails";
 
 export default function ProfileBottom() {
-  const [teachProfilepic, profileDetails] = AcDetails();
+  const { profileDetails } = AcDetails();
 
   return (
     <div>
@@ -11,11 +11,11 @@ export default function ProfileBottom() {
         <div className="teach_details">
           <div>
             <p>Email Address</p>
-            <h3>wayolive@gmail.com</h3>
+            <h3>{profileDetails.email || ""}</h3>
           </div>
           <div>
             <p>Phone:</p>
-            <h3>071 2345678</h3>
+            <h3>{profileDetails.phoneNumber || ""}</h3>
           </div>
         </div>
       </div>

@@ -14,14 +14,7 @@ function TcProfileSettings({ setsettings }) {
     seterrors,
     hide,
     hideError,
-    hadelInputField,
-    hadelCreateExField,
-    hadelRemoveField,
     inputField,
-    hadelInputFieldED,
-    hadelCreateExFieldED,
-    hadelRemoveFieldED,
-    inputFieldED,
   ] = ProfileUpdate(submit); //custom hook
 
   //get acDetails from Redux Store
@@ -30,34 +23,6 @@ function TcProfileSettings({ setsettings }) {
   function submit() {
     let all_data = new FormData();
 
-    //getting education fields value
-    if (inputFieldED.length !== 0) {
-      for (let i = 0; i < 3; i++) {
-        if (inputFieldED[i]) {
-          all_data.append(`education${i + 1}`, inputFieldED[i].ed);
-        } else {
-          all_data.append(`education${i + 1}`, "");
-        }
-      }
-    } else {
-      all_data.append(`education1`, "");
-      all_data.append(`education2`, "");
-      all_data.append(`education3`, "");
-    }
-    //getting experience fields value
-    if (inputField.length !== 0) {
-      for (let i = 0; i < 3; i++) {
-        if (inputField[i]) {
-          all_data.append(`experience${i + 1}`, inputField[i].ex);
-        } else {
-          all_data.append(`experience${i + 1}`, "");
-        }
-      }
-    } else {
-      all_data.append(`experience1`, "");
-      all_data.append(`experience2`, "");
-      all_data.append(`experience3`, "");
-    }
     all_data.append("first_name", values.firstName);
     all_data.append("last_name", values.lastName);
     all_data.append("username", values.userName.toUpperCase());
@@ -111,14 +76,7 @@ function TcProfileSettings({ setsettings }) {
             errors={errors}
             hide={hide}
             hideError={hideError}
-            hadelInputField={hadelInputField}
-            hadelCreateExField={hadelCreateExField}
-            hadelRemoveField={hadelRemoveField}
             inputField={inputField}
-            hadelInputFieldED={hadelInputFieldED}
-            hadelCreateExFieldED={hadelCreateExFieldED}
-            hadelRemoveFieldED={hadelRemoveFieldED}
-            inputFieldED={inputFieldED}
           />
         </div>
         <div className="set_password">

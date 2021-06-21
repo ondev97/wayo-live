@@ -43,7 +43,7 @@ export default function ProfileHead() {
           setfilePath(e.target.files[0]);
           openModel();
         } else {
-          //setshowModel(!showModel);
+          setshowModel(false);
           store.addNotification({
             title: "File Should Be Less Than 2mb!",
             message: process.env.REACT_APP_LMS_ALERT_NAME,
@@ -62,7 +62,7 @@ export default function ProfileHead() {
           });
         }
       } else {
-        setshowModel(!showModel);
+        setshowModel(false);
         store.addNotification({
           title: "Invalid File Type!",
           message: process.env.REACT_APP_LMS_ALERT_NAME,
@@ -83,7 +83,7 @@ export default function ProfileHead() {
     }
   };
 
-  const [teachProfilepic, profileDetails] = AcDetails();
+  const { teachProfilepic, profileDetails } = AcDetails();
 
   return (
     <div>
@@ -104,7 +104,9 @@ export default function ProfileHead() {
       />
       <div className="profil_box">
         <div className="srow">
-          <h2>WAYO</h2>
+          <h2>{`${profileDetails.name || ""} ${
+            profileDetails.lname || ""
+          }`}</h2>
           <div className="srow_pro_pic">
             <LazyLoadImage src={wayo} alt="" effect="blur" />
             <label htmlFor="uppic">
@@ -123,10 +125,10 @@ export default function ProfileHead() {
         </div>
         <div className="brow">
           <div className="brow_info">
-            <p>Wayo, Sri Lanka</p>
+            <p>{profileDetails.userName || ""}</p>
             <p>
               <i className="fas fa-phone-alt"></i>
-              071 2345678
+              {profileDetails.phoneNumber || ""}
             </p>
           </div>
         </div>

@@ -8,7 +8,7 @@ import wayo from "../img/wayo.jpg";
 import logo1 from "../img/Logo_1.png";
 
 export default function TeacherDashboardHeader() {
-  const [teachProfilepic, profileDetails] = AcDetails();
+  const { teachProfilepic, profileDetails } = AcDetails();
   const { log, hadelLogOut } = UserStatus(); //custom hook
 
   if (!log) {

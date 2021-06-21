@@ -26,7 +26,7 @@ export default function TeacherDashboard() {
   const [toggelProfile, settoggelProfile] = useState(false);
 
   const { log, hadelLogOut } = UserStatus(); //custom hook
-  const [teachProfilepic] = AcDetails();
+  const { teachProfilepic } = AcDetails();
   const dispatch = useDispatch();
   const location = useLocation();
 
