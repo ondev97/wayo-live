@@ -25,7 +25,7 @@ export default function StudentDashBoardHeader() {
       <div className="profile_menu">
         <div className="pro_pic">
           <LazyLoadImage
-            src={`${initialState && `${initialState.profile_pic}`}`}
+            src={`${initialState && `${initialState.user_image}`}`}
             alt=""
             effect="blur"
           />
@@ -43,16 +43,16 @@ export default function StudentDashBoardHeader() {
             <Link to={"/"}>
               <li>HOME</li>
             </Link>
-            <Link to="/studentdashboard/maindashboard/">
+            <Link to="/audiencedashboard/maindashboard/">
               <li>ALL EVENTS</li>
             </Link>
             <Link to="#">
               <li>USER GUIDE</li>
             </Link>
-            <Link to="/studentdashboard/contact/">
+            <Link to="/audiencedashboard/contact/">
               <li>CONTACT US</li>
             </Link>
-            <Link to="/studentdashboard/studentprofile/">
+            <Link to="/audiencedashboard/studentprofile/">
               <li>MY PROFILE</li>
             </Link>
             <li onClick={hadelLogOut} style={{ border: "none" }}>

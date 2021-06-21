@@ -161,7 +161,7 @@ function StudentDashBoard() {
           <Route path="/studentdashboard/stmodules/:id">
             <Stmodules />
           </Route>
-          <Route path="/studentdashboard/studentprofile/">
+          <Route path="/audiencedashboard/studentprofile/">
             <StProfile />
           </Route>
           <Route path="/studentdashboard/mycoursesforsubject/:id">

@@ -108,7 +108,7 @@ export default function StProfileHead() {
           <div className="srow_pro_pic">
             <LazyLoadImage
               effect="blur"
-              src={`${initialState && `${initialState.profile_pic}`}`}
+              src={`${initialState && `${initialState.user_image}`}`}
               alt=""
             />
             <label htmlFor="uppic">
@@ -137,12 +137,6 @@ export default function StProfileHead() {
               {initialState && initialState.user.phone_no}
             </p>
           </div>
-          {/*<div className="tous">*/}
-          {/*  <div className="coscount">*/}
-          {/*    <h3>20</h3>*/}
-          {/*    <p>Subject</p>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
       </div>
     </div>
