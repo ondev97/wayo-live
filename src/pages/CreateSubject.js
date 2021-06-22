@@ -67,7 +67,7 @@ export default function CreateSubject() {
     formData.append("event_end", formValue.event_end_time);
     formData.append("event_label", formValue.event_label);
     formData.append("event_content", formValue.event_description);
-    formData.append("event_price", formValue.price);
+    formData.append("event_price", formValue.event_price);
     formData.append("is_freeze", formValue.is_freeze);
 
     Axios.post(

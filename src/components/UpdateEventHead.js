@@ -1,5 +1,7 @@
+import Axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import AcDetails from "../utils/hooks/AcDetails";
 
 function UpdateEventHead({
   formValue,
@@ -10,19 +12,49 @@ function UpdateEventHead({
   formErrors,
 }) {
   const eventRef = useRef();
+  const eventType1 = useRef();
+  const eventType2 = useRef();
   const [evDropDown, setevDropDown] = useState(false);
   const [ismodel, setismodel] = useState(false);
   const [isEdit, setisEdit] = useState(false);
   const [eventValues, seteventValues] = useState([]);
+  const { teachProfilepic, profileDetails } = AcDetails();
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
+  useEffect(() => {
+    if (usDetails.key) {
+      getEvent();
+    }
+  }, [usDetails]);
+
+  useEffect(() => {
+    if (formValue.event_category_name.event_mode_name) {
+      eventRef.current.value = formValue.event_category_name.event_mode_name;
+    }
+    if (formValue.event_type === "Live Streaming") {
+      eventType1.current.checked = "true";
+    } else if (formValue.event_type === "Live Recorded") {
+      eventType2.current.checked = "true";
+    }
+  }, [formValue.event_category_name]);
+
+  const getEvent = () => {
+    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/`, {
+      headers: { Authorization: "Token " + usDetails.key },
+    })
+      .then((res) => {
+        seteventValues([...res.data]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const activeEventDropDown = () => {
     setevDropDown(!evDropDown);
   };
-
-  useEffect(() => {}, [formValue]);
 
   //event drop
   const setEvActive = (e) => {
@@ -47,14 +79,14 @@ function UpdateEventHead({
           <div className="custom_select_box" id="custom_select_box">
             <div id="select_button" className="outer_select_box">
               <div className="img_section">
-                <img src="" alt="band" />
+                <img src={teachProfilepic} alt="band" />
               </div>
               <input
                 type="text"
                 id="option_view_button"
                 placeholder="Select A Band"
                 disabled
-                value="WAYO"
+                value={profileDetails.userName || ""}
               />
             </div>
           </div>
@@ -68,7 +100,7 @@ function UpdateEventHead({
                 id="live"
                 name="event_type"
                 value="Live Streaming"
-                defaultChecked={true}
+                ref={eventType1}
                 onClick={hadelChabgeFormValues}
               />
               <label htmlFor="live">Live Streaming</label>
@@ -79,7 +111,8 @@ function UpdateEventHead({
                 id="liveR"
                 name="event_type"
                 value="Live Recorded"
-                // onClick={hadelChabgeFormValues}
+                ref={eventType2}
+                onClick={hadelChabgeFormValues}
               />
               <label htmlFor="liveR">Live Recorded</label>
             </p>

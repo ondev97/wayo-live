@@ -6,19 +6,19 @@ import ValidateSubjectCreateForm from "../../components/ValidateCreateSubject";
 export default function UpdateSubjectFunc(submitForm, subid) {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
-  const [isFree, setisFree] = useState(true);
   const [formValue, setformValue] = useState({
+    event_category_name: "",
     event_type: "",
     event_category: "",
     event_name: "",
     event_short_description: "",
     event_label: "",
     event_date: "",
-    event_start_time: "",
+    event_start: "",
     event_end_time: "",
     event_duration: "",
     event_price: 0,
-    event_description: "",
+    event_content: "",
     is_freeze: false,
     event_cover: "",
   });
@@ -28,10 +28,10 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     event_short_description: "",
     event_label: "",
     event_date: "",
-    event_start_time: "",
+    event_start: "",
     event_end_time: "",
     event_price: "",
-    event_description: "",
+    event_content: "",
   });
   const [hide, sethide] = useState({
     event_name: false,
@@ -42,9 +42,10 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     event_start_time: false,
     event_end_time: false,
     event_price: false,
-    event_description: false,
+    event_content: false,
   });
   const [isSubmitting, setisSubmitting] = useState(false);
+  const [isFree, setisFree] = useState(true);
 
   /*Getting subject details*/
   useEffect(async () => {
@@ -57,16 +58,18 @@ export default function UpdateSubjectFunc(submitForm, subid) {
       ).then((res) => {
         setformValue({
           ...formValue,
-          event_category: res.data.event_mode,
+          event_category_name: res.data.event_mode,
+          event_category: res.data.event_mode.id,
           event_type: res.data.event_type,
           event_name: res.data.event_name,
-          event_description: res.data.description,
+          event_short_description: res.data.description,
           event_content: res.data.event_content,
           event_cover: res.data.event_cover,
           event_date: res.data.event_date,
           event_end: res.data.event_end,
           event_label: res.data.event_label,
           event_start: res.data.event_start,
+          event_price: res.data.event_price,
           is_freeze: res.data.is_freeze,
         });
       });
@@ -84,14 +87,17 @@ export default function UpdateSubjectFunc(submitForm, subid) {
   const handelSubmit = (e) => {
     e.preventDefault();
     //handling Errors
-    setformErrors(ValidateSubjectCreateForm(formValue));
+    setformErrors(ValidateSubjectCreateForm(formValue, isFree));
     sethide({
-      subject_title: false,
-      subject_shdes: false,
-      sub_des: false,
-      class_type: false,
-      subject_type: false,
-      hr: false,
+      event_name: false,
+      event_category: false,
+      event_short_description: false,
+      event_label: false,
+      event_date: false,
+      event_start_time: false,
+      event_end_time: false,
+      event_price: false,
+      event_conten: false,
     });
     setisSubmitting(true);
   };
@@ -116,5 +122,8 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     hideError,
     hide,
     formErrors,
+    setformValue,
+    setisFree,
+    isFree,
   };
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Cropper } from "react-cropper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -18,16 +18,30 @@ export default function UpdateSujectForm({
   setshowCropper,
   isUploading,
   formValue,
+  setformValue,
   cropData,
+  setisFree,
+  isFree,
 }) {
-  const [isFree, setisFree] = useState(true);
+  const isFreeze = useRef();
+  const isFreee = useRef();
 
   useEffect(() => {
-    console.log(formValue.event_price);
-    if (formValue.event_price > 0) {
-      setisFree(false);
+    if (formValue.is_freeze) {
+      isFreeze.current.checked = true;
     } else {
-      setisFree(true);
+      isFreeze.current.checked = false;
+    }
+  }, [formValue.is_freeze]);
+  useEffect(() => {
+    if (formValue.event_price) {
+      if (formValue.event_price > 0) {
+        isFreee.current.checked = "true";
+        setisFree(false);
+      } else {
+        isFreee.current.checked = "false";
+        setisFree(true);
+      }
     }
   }, [formValue]);
 
@@ -36,6 +50,15 @@ export default function UpdateSujectForm({
       setisFree(false);
     } else {
       setisFree(true);
+      setformValue({ ...formValue, event_price: 0 });
+    }
+  };
+
+  const isFreezeChecked = (e) => {
+    if (e.target.checked) {
+      setformValue({ ...formValue, is_freeze: true });
+    } else {
+      setformValue({ ...formValue, is_freeze: false });
     }
   };
   return (
@@ -60,15 +83,17 @@ export default function UpdateSujectForm({
         <label htmlFor="ssd">EVENT SHORT DESCRIPTION</label>
         <input
           type="text"
-          name="event_description"
+          name="event_short_description"
           id="ssd"
-          value={formValue.event_description}
+          value={formValue.event_short_description}
           onChange={hadelChabgeFormValues}
           onFocus={hideError}
         />
-        {formErrors.event_description && (
-          <span className={`tip ${hide.event_description ? "hidetip" : ""}`}>
-            {formErrors.event_description}
+        {formErrors.event_short_description && (
+          <span
+            className={`tip ${hide.event_short_description ? "hidetip" : ""}`}
+          >
+            {formErrors.event_short_description}
           </span>
         )}
       </p>
@@ -95,7 +120,8 @@ export default function UpdateSujectForm({
             type="checkbox"
             id="fe"
             name="freeze"
-            checked={formValue.is_freeze ? "true" : "false"}
+            ref={isFreeze}
+            onClick={isFreezeChecked}
           />
         </p>
       </div>
@@ -106,7 +132,7 @@ export default function UpdateSujectForm({
             type="date"
             name="event_date"
             id="ssd"
-            value={formValue.event_date}
+            value={formValue.event_date || ""}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
@@ -122,7 +148,7 @@ export default function UpdateSujectForm({
             type="time"
             name="event_start"
             id="ssd"
-            value={formValue.event_start}
+            value={formValue.event_start || ""}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
@@ -138,7 +164,7 @@ export default function UpdateSujectForm({
             type="time"
             name="event_end"
             id="ssd"
-            value={formValue.event_end}
+            value={formValue.event_end || ""}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
@@ -154,13 +180,13 @@ export default function UpdateSujectForm({
             type="text"
             name="subject_shdes"
             id="ssd"
-            value={formValue.subject_shdes}
+            value={formValue.event_duration || ""}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
-          {formErrors.subject_shdes && (
-            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-              {formErrors.subject_shdes}
+          {formErrors.event_duration && (
+            <span className={`tip ${hide.event_duration ? "hidetip" : ""}`}>
+              {formErrors.event_duration}
             </span>
           )}
         </p>
@@ -168,7 +194,13 @@ export default function UpdateSujectForm({
       <div className="sub_sect">
         <p>
           <label htmlFor="ef">EVENT FEE</label>
-          <input type="checkbox" id="ef" name="event_fee" onClick={isChecked} />
+          <input
+            type="checkbox"
+            id="ef"
+            name="event_fee"
+            onClick={isChecked}
+            ref={isFreee}
+          />
         </p>
         {!isFree ? (
           <p>
@@ -255,16 +287,16 @@ export default function UpdateSujectForm({
       <p>
         <label htmlFor="sd">EVENT DESCRIPTION</label>
         <textarea
-          name="event_description"
+          name="event_content"
           id="sd"
           rows="10"
-          value={formValue.event_description}
+          value={formValue.event_content}
           onChange={hadelChabgeFormValues}
           onFocus={hideError}
         ></textarea>
-        {formErrors.event_description && (
-          <span className={`tip ${hide.event_description ? "hidetip" : ""}`}>
-            {formErrors.event_description}
+        {formErrors.event_content && (
+          <span className={`tip ${hide.event_content ? "hidetip" : ""}`}>
+            {formErrors.event_content}
           </span>
         )}
       </p>

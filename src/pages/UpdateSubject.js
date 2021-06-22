@@ -4,7 +4,7 @@ import UpdateSubjectFunc from "../utils/hooks/SubjectUpdateValidation";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import { store } from "react-notifications-component";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import UpdateSujectForm from "../components/UpdateSujectForm";
 import UpdateEveHead from "../components/UpdateEventHead";
 
@@ -17,6 +17,9 @@ export default function UpdateSubject() {
     hideError,
     hide,
     formErrors,
+    setformValue,
+    setisFree,
+    isFree,
   } = UpdateSubjectFunc(submitForm, subid);
   const [image, getCropData, setCropper, onChange, cropData, err, file] =
     CropImages(); //custom hook
@@ -26,11 +29,6 @@ export default function UpdateSubject() {
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
-  let history = useHistory();
-
-  const back = () => {
-    history.goBack();
-  };
 
   //function for base64 to blob
   const b64toBlob = (b64Data, contentType = "", sliceSize = 512) => {
@@ -59,17 +57,22 @@ export default function UpdateSubject() {
     if (cropData !== "#") {
       let input = cropData.split(",")[1];
       const blob = b64toBlob(input, file.type);
-      form_data.append("subject_cover", blob, file.name);
+      form_data.append("event_cover", blob, file.name);
     }
 
-    form_data.append("subject_name", formValue.subject_title);
-    form_data.append("short_description", formValue.subject_shdes);
-    form_data.append("description", formValue.sub_des);
-    form_data.append("class_type", formValue.class_type);
-    form_data.append("subject_type", formValue.subject_type);
+    form_data.append("event_name", formValue.event_name);
+    form_data.append("description", formValue.event_short_description);
+    form_data.append("event_content", formValue.event_content);
+    form_data.append("event_date", formValue.event_date);
+    form_data.append("event_end", formValue.event_end);
+    form_data.append("event_start", formValue.event_start);
+    form_data.append("event_label", formValue.event_label);
+    form_data.append("event_price", formValue.event_price);
+    form_data.append("event_type", formValue.event_type);
+    form_data.append("is_freeze", formValue.is_freeze);
 
-    Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/updatesubject/${subid}/`,
+    Axios.put(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/updateevent/${subid}/${formValue.event_category}/`,
       form_data,
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -105,7 +108,7 @@ export default function UpdateSubject() {
   }
 
   if (isredirect) {
-    return <Redirect to="/teacherdashboard/managecourse" />;
+    return <Redirect to="/band/managecourse" />;
   }
   return (
     <div className="subject_form">
@@ -116,6 +119,7 @@ export default function UpdateSubject() {
         hideError={hideError}
         hide={hide}
         formErrors={formErrors}
+        setformValue={setformValue}
       />
       <div className="main_form">
         <UpdateSujectForm
@@ -134,6 +138,9 @@ export default function UpdateSubject() {
           isUploading={isUploading}
           formValue={formValue}
           cropData={cropData}
+          setformValue={setformValue}
+          setisFree={setisFree}
+          isFree={isFree}
         />
       </div>
     </div>
