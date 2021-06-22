@@ -9,13 +9,10 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 export default function TcMaCourses({
   id,
   event_name,
-  event_cover,
   event_date,
-  event_end,
   event_label,
   event_mode,
   event_content,
-  short_description,
   event_start,
   event_type,
   is_freeze,
@@ -58,9 +55,7 @@ export default function TcMaCourses({
         </div>
       </Link>
       <div className="cscard_bottom">
-        <Link
-          to={`${process.env.REACT_APP_LMS_MAIN_URL}/band/updateevent/${id}`}
-        >
+        <Link to={`/band/updateevent/${id}`}>
           <button>EDIT EVENT</button>
         </Link>
         <button onClick={clk}>DELETE EVENT</button>

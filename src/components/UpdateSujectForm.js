@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Cropper } from "react-cropper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -22,6 +22,15 @@ export default function UpdateSujectForm({
 }) {
   const [isFree, setisFree] = useState(true);
 
+  useEffect(() => {
+    console.log(formValue.event_price);
+    if (formValue.event_price > 0) {
+      setisFree(false);
+    } else {
+      setisFree(true);
+    }
+  }, [formValue]);
+
   const isChecked = (e) => {
     if (e.target.checked) {
       setisFree(false);
@@ -32,34 +41,34 @@ export default function UpdateSujectForm({
   return (
     <form onSubmit={handelSubmit}>
       <p>
-        <label htmlFor="st">Subject Title</label>
+        <label htmlFor="st">EVENT NAME</label>
         <input
           type="text"
-          name="subject_title"
+          name="event_name"
           id="st"
-          value={formValue.subject_title}
+          value={formValue.event_name}
           onChange={hadelChabgeFormValues}
           onFocus={hideError}
         />
-        {formErrors.subject_title && (
-          <span className={`tip ${hide.subject_title ? "hidetip" : ""}`}>
-            {formErrors.subject_title}
+        {formErrors.event_name && (
+          <span className={`tip ${hide.event_name ? "hidetip" : ""}`}>
+            {formErrors.event_name}
           </span>
         )}
       </p>
       <p>
-        <label htmlFor="ssd">Subject Short Description</label>
+        <label htmlFor="ssd">EVENT SHORT DESCRIPTION</label>
         <input
           type="text"
-          name="subject_shdes"
+          name="event_description"
           id="ssd"
-          value={formValue.subject_shdes}
+          value={formValue.event_description}
           onChange={hadelChabgeFormValues}
           onFocus={hideError}
         />
-        {formErrors.subject_shdes && (
-          <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-            {formErrors.subject_shdes}
+        {formErrors.event_description && (
+          <span className={`tip ${hide.event_description ? "hidetip" : ""}`}>
+            {formErrors.event_description}
           </span>
         )}
       </p>
@@ -68,69 +77,74 @@ export default function UpdateSujectForm({
           <label htmlFor="ssd">EVENT LABEL</label>
           <input
             type="text"
-            name="subject_shdes"
+            name="event_label"
             id="ssd"
-            value={formValue.subject_shdes}
+            value={formValue.event_label}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
-          {formErrors.subject_shdes && (
-            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-              {formErrors.subject_shdes}
+          {formErrors.event_label && (
+            <span className={`tip ${hide.event_label ? "hidetip" : ""}`}>
+              {formErrors.event_label}
             </span>
           )}
         </p>
         <p>
           <label htmlFor="fe">FREEZE EVENT</label>
-          <input type="checkbox" id="fe" name="freeze" />
+          <input
+            type="checkbox"
+            id="fe"
+            name="freeze"
+            checked={formValue.is_freeze ? "true" : "false"}
+          />
         </p>
       </div>
       <div className="sub_sect">
         <p>
           <label htmlFor="ssd">EVENT DATE</label>
           <input
-            type="text"
-            name="subject_shdes"
+            type="date"
+            name="event_date"
             id="ssd"
-            value={formValue.subject_shdes}
+            value={formValue.event_date}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
-          {formErrors.subject_shdes && (
-            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-              {formErrors.subject_shdes}
+          {formErrors.event_date && (
+            <span className={`tip ${hide.event_date ? "hidetip" : ""}`}>
+              {formErrors.event_date}
             </span>
           )}
         </p>
         <p>
           <label htmlFor="ssd">EVENT START TIME</label>
           <input
-            type="text"
-            name="subject_shdes"
+            type="time"
+            name="event_start"
             id="ssd"
-            value={formValue.subject_shdes}
+            value={formValue.event_start}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
-          {formErrors.subject_shdes && (
-            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-              {formErrors.subject_shdes}
+          {formErrors.event_start && (
+            <span className={`tip ${hide.event_start ? "hidetip" : ""}`}>
+              {formErrors.event_start}
             </span>
           )}
         </p>
         <p>
           <label htmlFor="ssd">EVENT END TIME</label>
           <input
-            type="text"
-            name="subject_shdes"
+            type="time"
+            name="event_end"
             id="ssd"
-            value={formValue.subject_shdes}
+            value={formValue.event_end}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />
-          {formErrors.subject_shdes && (
-            <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-              {formErrors.subject_shdes}
+          {formErrors.event_end && (
+            <span className={`tip ${hide.event_end ? "hidetip" : ""}`}>
+              {formErrors.event_end}
             </span>
           )}
         </p>
@@ -161,15 +175,15 @@ export default function UpdateSujectForm({
             <label htmlFor="st">PRICE</label>
             <input
               type="text"
-              name="subject_shdes"
+              name="event_price"
               id="ssd"
-              value={formValue.subject_shdes}
+              value={formValue.event_price}
               onChange={hadelChabgeFormValues}
               onFocus={hideError}
             />
-            {formErrors.subject_shdes && (
-              <span className={`tip ${hide.subject_shdes ? "hidetip" : ""}`}>
-                {formErrors.subject_shdes}
+            {formErrors.event_price && (
+              <span className={`tip ${hide.event_price ? "hidetip" : ""}`}>
+                {formErrors.event_price}
               </span>
             )}
           </p>
@@ -182,8 +196,8 @@ export default function UpdateSujectForm({
           <div className="cropper_be">
             <Cropper
               style={{ height: "100%", width: "100%" }}
-              initialAspectRatio={16 / 9}
-              aspectRatio={16 / 9}
+              initialAspectRatio={4 / 3}
+              aspectRatio={4 / 3}
               preview=".img-preview"
               src={image}
               viewMode={1}
@@ -204,7 +218,7 @@ export default function UpdateSujectForm({
           <div className="finCropImg">
             <LazyLoadImage
               style={{ width: "100%" }}
-              src={cropData === "#" ? formValue.subject_cover : cropData}
+              src={cropData === "#" ? formValue.event_cover : cropData}
               alt="cropped"
               effect="blur"
               width="100%"
@@ -213,7 +227,7 @@ export default function UpdateSujectForm({
           </div>
         )}
         <p>
-          <label htmlFor="file">Change Subject Cover</label>
+          <label htmlFor="file">Change Event Cover</label>
           <input
             type="file"
             name="file"
@@ -239,18 +253,18 @@ export default function UpdateSujectForm({
         </p>
       </div>
       <p>
-        <label htmlFor="sd">Subject Description</label>
+        <label htmlFor="sd">EVENT DESCRIPTION</label>
         <textarea
-          name="sub_des"
+          name="event_description"
           id="sd"
           rows="10"
-          value={formValue.sub_des}
+          value={formValue.event_description}
           onChange={hadelChabgeFormValues}
           onFocus={hideError}
         ></textarea>
-        {formErrors.subject_des && (
-          <span className={`tip ${hide.subject_des ? "hidetip" : ""}`}>
-            {formErrors.subject_des}
+        {formErrors.event_description && (
+          <span className={`tip ${hide.event_description ? "hidetip" : ""}`}>
+            {formErrors.event_description}
           </span>
         )}
       </p>

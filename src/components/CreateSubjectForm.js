@@ -216,8 +216,8 @@ export default function CreateSubjectForm({
           <div className="cropper_be">
             <Cropper
               style={{ height: "100%", width: "100%" }}
-              initialAspectRatio={16 / 9}
-              aspectRatio={1 / 1}
+              initialAspectRatio={4 / 3}
+              aspectRatio={4 / 3}
               preview=".img-preview"
               src={image}
               viewMode={1}
