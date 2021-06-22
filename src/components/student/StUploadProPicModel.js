@@ -75,7 +75,7 @@ export default function StUploadProPicModel({
     let form_data = new FormData();
     form_data.append("profile_pic", blob, filePath.name);
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updatestudent/${usDetails.id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuserprofile/${usDetails.id}/`,
       form_data,
       {
         headers: {

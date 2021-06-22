@@ -21,8 +21,8 @@ export default function ValidateSubjectCreateForm(values, isFree) {
   if (!values.event_label.trim()) {
     errors.event_label = "Event Label Is Required";
   }
-  if (values.event_label.length > 45) {
-    errors.event_label = "Event Label Is Must Be Less Than 45 Characters";
+  if (values.event_label.length > 14) {
+    errors.event_label = "Event Label Is Must Be Less Than 14 Characters";
   }
   if (!isFree) {
     if (values.event_price === 0) {

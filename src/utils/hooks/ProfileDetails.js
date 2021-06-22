@@ -29,7 +29,7 @@ function ProfileDetails(usDetails) {
                 email: res.data.user.email,
                 userName: res.data.user.username,
                 address: res.data.user.address,
-                pic: res.data.profile_pic,
+                pic: res.data.user_image,
               });
             })
             .catch((err) => {
@@ -52,7 +52,7 @@ function ProfileDetails(usDetails) {
                 email: res.data.user.email,
                 userName: res.data.user.username,
                 address: res.data.user.address,
-                pic: res.data.profile_pic,
+                pic: res.data.user_image,
               });
             })
             .catch((err) => {

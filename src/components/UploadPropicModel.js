@@ -84,6 +84,7 @@ export default function UploadPropicModel({
       {
         headers: {
           Authorization: "Token " + usDetails.key,
+          "content-type": "multipart/form-data",
         },
         onUploadProgress: (progressEvent) => {
           setuploadPresentage(

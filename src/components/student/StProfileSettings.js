@@ -33,11 +33,12 @@ export default function StProfileSettings({ setsettings }) {
     all_data.append("email", values.email);
     all_data.append("address", values.address);
     all_data.append("password", values.pw);
+    all_data.append("is_band", false);
 
-    all_data.append("description", values.des);
+    all_data.append("user_description", values.des);
 
     Axios.put(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateuser/${usDetails.id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuser/${usDetails.id}/`,
       all_data,
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -45,7 +46,7 @@ export default function StProfileSettings({ setsettings }) {
     )
       .then(() => {
         Axios.post(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updatestudent/${usDetails.id}/`,
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuserprofile/${usDetails.id}/`,
           all_data,
           {
             headers: { Authorization: "Token " + usDetails.key },
