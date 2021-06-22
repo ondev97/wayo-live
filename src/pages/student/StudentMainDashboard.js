@@ -19,11 +19,11 @@ export default function StudentMainDashboard() {
   const usDetails = useSelector((state) => state.accountDetails);
 
   const debounce = useDebounce(); //custom hook
-  const url = `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/mysubjects_stu`;
+  const url = `${process.env.REACT_APP_LMS_MAIN_URL}/auth/listbands`;
 
   useEffect(() => {
     if (search === "") {
-      const fetchurl = `${url}/?page=${page}`;
+      const fetchurl = `${url}/`;
       getSubjectDetails(fetchurl);
     } else {
       const fetchurl = `${url}/`;
@@ -90,7 +90,7 @@ export default function StudentMainDashboard() {
                   key={det.id}
                   id={det.id}
                   subject_name={det.subject_name}
-                  subject_cover={det.subject_cover}
+                  band_image={det.band_image}
                   author={det.author}
                   created_at={det.created_at}
                   description={det.description}

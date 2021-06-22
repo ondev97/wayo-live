@@ -8,7 +8,7 @@ import wayo from "../../img/wayo.jpg";
 export default function MySubjectsCard({
   id,
   subject_name,
-  subject_cover,
+  band_image,
   author,
   created_at,
   short_description,
@@ -20,10 +20,10 @@ export default function MySubjectsCard({
 
   return (
     <div className="al_sub_card">
-      <Link to={`/studentdashboard/mycoursesforsubject/${id}`}>
+      <Link to={`/band/mycoursesforsubject/${id}`}>
         <div className="sub_card_row">
           <div className="image_sub">
-            <LazyLoadImage effect="blur" src={wayo} alt="band" />
+            <LazyLoadImage effect="blur" src={band_image} alt="band" />
           </div>
           {/* <div className="sub_ins_pro">
             <div className="ins_outer">

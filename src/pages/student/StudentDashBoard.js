@@ -164,7 +164,7 @@ function StudentDashBoard() {
           <Route path="/audiencedashboard/studentprofile/">
             <StProfile />
           </Route>
-          <Route path="/studentdashboard/mycoursesforsubject/:id">
+          <Route path="/band/mycoursesforsubject/:id">
             <StSubCourses />
           </Route>
         </div>

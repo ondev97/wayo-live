@@ -32,7 +32,6 @@ function StValidateLogin() {
   };
 
   function submit() {
-    //         console.log();
     // Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/account-api/testlogin/`, {
     //   username: values.un.toUpperCase(),
     //   password: values.pw,
@@ -82,7 +81,6 @@ function StValidateLogin() {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      console.log(Object.keys(errors).length);
       submit();
     }
   }, [errors]);
@@ -90,6 +88,7 @@ function StValidateLogin() {
   //save data in Local Storage
   useEffect(() => {
     if (Object.keys(acDetails).length !== 0) {
+      localStorage.setItem("usValues", JSON.stringify({})); //remove values in local storage
       if (localStorage.getItem("usValues") === null) {
         localStorage.setItem("usValues", JSON.stringify(acDetails)); //for save to local storage
       } else if (

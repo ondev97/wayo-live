@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import ProfileDetails from "../utils/hooks/ProfileDetails";
 import logo from "../img/Logo_1.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import wayo from "../img/wayo.jpg";
 
 export default function Header({ acDetails }) {
   const [isham, setisham] = useState(false);
@@ -52,11 +51,17 @@ export default function Header({ acDetails }) {
         return (
           <div className="pro_pic">
             <div className="ac_details_header">
-              <h3 style={{ textTransform: "uppercase" }}>WAYOLIVE</h3>
+              <h3 style={{ textTransform: "uppercase" }}>
+                {profileDetails.userName}
+              </h3>
             </div>
             <Link to="band/managecourse">
               <div className="img">
-                <LazyLoadImage src={wayo} alt="" effect="blur" />
+                <LazyLoadImage
+                  src={`${profileDetails.pic}`}
+                  alt="badn_profile"
+                  effect="blur"
+                />
               </div>
             </Link>
           </div>
@@ -73,7 +78,7 @@ export default function Header({ acDetails }) {
               <div className="img">
                 <LazyLoadImage
                   src={`${profileDetails.pic}`}
-                  alt=""
+                  alt="audience_profile"
                   effect="blur"
                 />
               </div>
@@ -87,9 +92,6 @@ export default function Header({ acDetails }) {
           <Link to="/signup">
             <button>Register</button>
           </Link>
-          {/* <Link to="/stsignup">
-                        <button>REGISTER</button>
-                    </Link> */}
         </div>
       );
     }

@@ -5,6 +5,7 @@ import UserStatus from "./UserStatus";
 function ProfileDetails(usDetails) {
   const [profileDetails, setprofileDetails] = useState({});
   const { hadelLogOut } = UserStatus(); //custom hook
+  let location = window.location.pathname;
   //const usDetails = useSelector(state => state.accountDetails);
 
   useEffect(async () => {
@@ -62,7 +63,7 @@ function ProfileDetails(usDetails) {
         }
       }
     }
-  }, []);
+  }, [location]);
   return profileDetails;
 }
 
