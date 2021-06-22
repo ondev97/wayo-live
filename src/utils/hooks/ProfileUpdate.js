@@ -13,7 +13,6 @@ function ProfileUpdate(submit) {
     email: "",
     address: "",
     des: "",
-    pw: "",
   });
   const [errors, seterrors] = useState({
     firstName: "",
@@ -34,13 +33,9 @@ function ProfileUpdate(submit) {
     phonenumber: false,
     address: false,
     des: false,
-    pw: false,
+    pw: "",
   });
   const [isSibmitting, setisSibmitting] = useState(false);
-  const [inputField, setinputField] = useState([]);
-  const [inputFieldED, setinputFieldED] = useState([]);
-  const [fini, setfini] = useState(false);
-  const [fidi, setfidi] = useState(false);
 
   //set database values to fields
   useEffect(() => {
@@ -84,7 +79,6 @@ function ProfileUpdate(submit) {
       email: false,
       phoneNumber: false,
       phonenumber: false,
-      address: false,
       des: false,
       pw: false,
     });
@@ -112,8 +106,6 @@ function ProfileUpdate(submit) {
     seterrors,
     hide,
     hideError,
-    inputField,
-    inputFieldED,
   ];
 }
 

@@ -9,6 +9,7 @@ import "../assets/css/coursemanage.css";
 import "../assets/css/mediaFiles/managecoursemedia.css";
 import "../assets/css/teachermaindash.css";
 import EventsFilters from "../components/EventsFilters";
+import AcDetails from "../utils/hooks/AcDetails";
 
 export default function MangeCourse() {
   const [subDetails, setsubDetails] = useState([]);
@@ -16,6 +17,7 @@ export default function MangeCourse() {
   const [allSubDetail, setallSubDetail] = useState(null);
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
+  const { profileDetails } = AcDetails();
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
@@ -24,13 +26,13 @@ export default function MangeCourse() {
 
   useEffect(() => {
     if (search === "") {
-      const fetchurl = `${url}/${usDetails.id}/?page=${page}`;
+      const fetchurl = `${url}/1/`;
       getSubjectDetails(fetchurl);
     } else {
-      const fetchurl = `${url}/${usDetails.id}/?page=${page}&search=${search}`;
+      const fetchurl = `${url}/${usDetails.id}/`;
       getSubjectDetails(fetchurl);
     }
-  }, [usDetails, page, search]);
+  }, [usDetails, page, search, profileDetails]);
 
   const getSubjectDetails = async (fetchurl) => {
     setisLoading(true);
@@ -65,34 +67,33 @@ export default function MangeCourse() {
         <div>
           {allSubDetail !== null && allSubDetail.count === 0 && !isLoading ? (
             <Empty />
+          ) : subDetails && allSubDetail !== null ? (
+            <InfiniteScroll
+              dataLength={subDetails.length}
+              next={next}
+              hasMore={true}
+              className="course_body"
+            >
+              <h1>MY ALL EVENTS</h1>
+              <div className="outer">
+                {subDetails.map((det) => (
+                  <TcMaCourses
+                    key={det.id}
+                    id={det.id}
+                    subject_name={det.subject_name}
+                    subject_cover={det.subject_cover}
+                    author={det.author}
+                    created_at={det.created_at}
+                    description={det.description}
+                    short_description={det.short_description}
+                    class_type={det.class_type}
+                    subject_type={det.subject_type}
+                  />
+                ))}
+              </div>
+            </InfiniteScroll>
           ) : (
-            subDetails &&
-            allSubDetail !== null && (
-              <InfiniteScroll
-                dataLength={subDetails.length}
-                next={next}
-                hasMore={true}
-                className="course_body"
-              >
-                <h1>MY ALL EVENTS</h1>
-                <div className="outer">
-                  {subDetails.map((det) => (
-                    <TcMaCourses
-                      key={det.id}
-                      id={det.id}
-                      subject_name={det.subject_name}
-                      subject_cover={det.subject_cover}
-                      author={det.author}
-                      created_at={det.created_at}
-                      description={det.description}
-                      short_description={det.short_description}
-                      class_type={det.class_type}
-                      subject_type={det.subject_type}
-                    />
-                  ))}
-                </div>
-              </InfiniteScroll>
-            )
+            <Empty />
           )}
         </div>
         {isLoading && <ProfileLoader />}

@@ -100,25 +100,6 @@ export default function AcDetailsSettings({
         </div>
         <div className="sectpr">
           <p>
-            <label htmlFor="ad">Address</label>
-            <input
-              type="text"
-              id="ad"
-              name="address"
-              //   value={values.address || ""}
-              value="Wayo, Sri Lanka"
-              onChange={hadelChange}
-              onFocus={hideError}
-            />
-            {errors.address && (
-              <span className={`tip ${hide.address ? "hidetip" : ""}`}>
-                {errors.address}
-              </span>
-            )}
-          </p>
-        </div>
-        <div className="sectpr">
-          <p>
             <label htmlFor="ad">Descriptions</label>
             <textarea
               cols="30"

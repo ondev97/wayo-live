@@ -22,6 +22,7 @@ function AcDetails() {
           .then((res) => {
             setteachProfilepic(res.data.user_image);
             setprofileDetails({
+              id: res.data.id,
               name: res.data.user.first_name,
               lname: res.data.user.last_name,
               phoneNumber: res.data.user.phone_no,

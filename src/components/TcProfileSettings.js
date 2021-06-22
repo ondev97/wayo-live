@@ -28,13 +28,13 @@ function TcProfileSettings({ setsettings }) {
     all_data.append("username", values.userName.toUpperCase());
     all_data.append("phone_no", values.phoneNumber);
     all_data.append("email", values.email);
-    all_data.append("address", values.address);
     all_data.append("password", values.pw);
+    all_data.append("is_band", true);
 
-    all_data.append("description", values.des);
+    all_data.append("user_description", values.des);
 
     Axios.put(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateuser/${usDetails.id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuser/${usDetails.id}/`,
       all_data,
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -42,13 +42,13 @@ function TcProfileSettings({ setsettings }) {
     )
       .then(() => {
         Axios.post(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/updateteacher/${usDetails.id}/`,
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updatebandprofile/${usDetails.id}/`,
           all_data,
           {
             headers: { Authorization: "Token " + usDetails.key },
           }
         ).then(() => {
-          window.location.reload(false);
+          //window.location.reload(false);
         });
       })
       .catch((err) => {
