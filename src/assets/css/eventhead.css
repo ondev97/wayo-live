@@ -134,7 +134,7 @@
   overflow-y: auto;
   padding: 5px 0;
   position: absolute;
-  z-index: 110;
+  z-index: 99;
 }
 .event_grid_sec .event_column .custom_select_box .outer_select_box .chevrons i {
   font-size: 30px;

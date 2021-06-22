@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import EventModel from "./EventModel";
 import AcDetails from "../utils/hooks/AcDetails";
 
 function UpdateEventHead({
@@ -18,7 +19,9 @@ function UpdateEventHead({
   const [ismodel, setismodel] = useState(false);
   const [isEdit, setisEdit] = useState(false);
   const [eventValues, seteventValues] = useState([]);
+  const [editValue, seteditValue] = useState({ id: "", value: "" });
   const { teachProfilepic, profileDetails } = AcDetails();
+  const [closeModel, setcloseModel] = useState(false);
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
@@ -27,7 +30,15 @@ function UpdateEventHead({
     if (usDetails.key) {
       getEvent();
     }
-  }, [usDetails]);
+  }, [usDetails, ismodel]);
+
+  const removeOuter = (e) => {
+    if (e.target.className.includes("model_outer")) {
+      setcloseModel(false);
+      setisEdit(false);
+      seteditValue({ id: "", value: "" });
+    }
+  };
 
   useEffect(() => {
     if (formValue.event_category_name.event_mode_name) {
@@ -71,9 +82,47 @@ function UpdateEventHead({
       setevDropDown(false);
     }
   };
+
+  //delete mode
+  const deleteMod = (data) => {
+    Axios.delete(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/deleteeventmode/${data}/`,
+      {
+        headers: { Authorization: "TOken " + usDetails.key },
+      }
+    )
+      .then(() => {
+        setismodel(!ismodel);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //edit model
+  const editModel = (id, value) => {
+    setisEdit(true);
+    setcloseModel(true);
+    seteditValue({ id: id, value: value });
+  };
+
   return (
     <>
       <div className="event_grid_sec">
+        {closeModel ? (
+          <EventModel
+            removeOuter={removeOuter}
+            setcloseModel={setcloseModel}
+            setismodel={setismodel}
+            ismodel={ismodel}
+            setisEdit={setisEdit}
+            isEdit={isEdit}
+            editValue={editValue}
+            seteditValue={seteditValue}
+          />
+        ) : (
+          ""
+        )}
         <div className="event_column">
           <h1>YOUR BAND</h1>
           <div className="custom_select_box" id="custom_select_box">
@@ -142,6 +191,14 @@ function UpdateEventHead({
 
             {evDropDown ? (
               <ul>
+                <li
+                  className="activeSelect"
+                  onClick={() => setcloseModel(true)}
+                >
+                  <span>
+                    <i className="fas fa-plus-circle"></i>Create Event
+                  </span>
+                </li>
                 {eventValues.map((data) => (
                   <li
                     onClick={setEvActive}
@@ -151,6 +208,17 @@ function UpdateEventHead({
                     className="list_data"
                   >
                     <span>{data.event_mode_name}</span>
+                    <button
+                      onClick={() => editModel(data.id, data.event_mode_name)}
+                    >
+                      <i className="far fa-edit"></i>
+                    </button>
+                    <button
+                      className="delete"
+                      onClick={() => deleteMod(data.id)}
+                    >
+                      <i className="far fa-trash-alt"></i>
+                    </button>
                   </li>
                 ))}
               </ul>
