@@ -20,7 +20,6 @@ function CreateEventHead({
   const [isEdit, setisEdit] = useState(false);
   const [editValue, seteditValue] = useState({ id: "", value: "" });
   const [eventValues, seteventValues] = useState([]);
-  const [errorHide, seterrorHide] = useState(false);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
@@ -65,7 +64,7 @@ function CreateEventHead({
       });
       e.target.classList.add("activeSelect");
       eventRef.current.value = e.target.dataset.label;
-      setformValue({ ...formValue, event_category: e.target.dataset.label });
+      setformValue({ ...formValue, event_category: e.target.dataset.id });
       setevDropDown(false);
     }
   };
@@ -188,11 +187,12 @@ function CreateEventHead({
                     <i className="fas fa-plus-circle"></i>Create Event
                   </span>
                 </li>
-                {eventValues.map((data, index) => (
+                {eventValues.map((data) => (
                   <li
                     onClick={setEvActive}
                     data-label={data.event_mode_name}
-                    key={index}
+                    data-id={data.id}
+                    key={data.id}
                     className="list_data"
                   >
                     <span>{data.event_mode_name}</span>

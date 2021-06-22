@@ -25,10 +25,10 @@ export default function TeacherDashboardHeader() {
       </div>
       <div className="profile_menu">
         <div className="pro_pic">
-          <LazyLoadImage src={wayo} alt="" effect="blur" />
+          <LazyLoadImage src={teachProfilepic} alt="band" effect="blur" />
         </div>
         <div className="details">
-          <h2>WAYO</h2>
+          <h2>{profileDetails.name}</h2>
         </div>
       </div>
       <div className="main_section">

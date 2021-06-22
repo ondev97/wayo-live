@@ -149,7 +149,7 @@ export default function TeacherDashboard() {
           <Route path="/band/createevent">
             <CreateSubject />
           </Route>
-          <Route path="/teacherdashboard/createmodels/:id/:ccid">
+          <Route path="/band/createshow">
             <CreateModels />
           </Route>
           <Route path="/band/managecourse">

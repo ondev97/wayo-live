@@ -70,7 +70,7 @@ export default function CreateSubject() {
     formData.append("is_freeze", formValue.is_freeze);
 
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/show/createevent/${usDetails.id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/createevent/${formValue.event_category}/`,
       formData,
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -106,7 +106,7 @@ export default function CreateSubject() {
   }
 
   if (redirec) {
-    return <Redirect to={`/teacherdashboard/createcourse/${redirec.id}`} />;
+    return <Redirect to={`/band/createshow`} />;
   }
 
   return (
