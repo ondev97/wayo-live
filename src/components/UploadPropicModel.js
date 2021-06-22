@@ -23,7 +23,7 @@ export default function UploadPropicModel({
   const [uploadPresentage, setuploadPresentage] = useState(0);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
-
+  console.log(filePath);
   const modelBGclick = (e) => {
     if (modelBGref.current === e.target) {
       setshowModel(false);
@@ -75,7 +75,7 @@ export default function UploadPropicModel({
     let contentType = filePath.type;
     let input = cropData.split(",")[1];
     const blob = b64toBlob(input, contentType);
-
+    console.log(blob);
     let form_data = new FormData();
     form_data.append("band_image", blob, filePath.name);
     Axios.post(

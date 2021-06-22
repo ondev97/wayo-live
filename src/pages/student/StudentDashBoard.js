@@ -19,6 +19,7 @@ import EventDetails from "./EventDetails";
 function StudentDashBoard() {
   const dispatch = useDispatch();
   const [toggelProfile, settoggelProfile] = useState(false);
+  const [redirect, setredirect] = useState(false);
   const [toggle, settoggle] = useState(false);
   const location = useLocation();
 
@@ -30,6 +31,12 @@ function StudentDashBoard() {
     dispatch(loadStDetails());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (initialState && initialState.user.is_band) {
+      setredirect(true);
+    }
+  }, [initialState]);
+
   useLayoutEffect(() => {
     if (window.innerWidth < 867) {
       settoggle(true);
@@ -40,6 +47,10 @@ function StudentDashBoard() {
   };
 
   if (!log) {
+    return <Redirect to="/" />;
+  }
+
+  if (redirect) {
     return <Redirect to="/" />;
   }
 

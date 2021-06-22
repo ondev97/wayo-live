@@ -6,7 +6,7 @@ import ProfileSettings from "./ProfileSettings";
 import MangeCourse from "./MangeCourse";
 import UserStatus from "../utils/hooks/UserStatus";
 import AcDetails from "../utils/hooks/AcDetails";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { activeAccount } from "../actions";
 import TcModels from "./TcModels";
 import CreateSubject from "./CreateSubject";
@@ -24,9 +24,11 @@ import TcEventDetails from "./TcEventDetails";
 export default function TeacherDashboard() {
   const [toggle, settoggle] = useState(false);
   const [toggelProfile, settoggelProfile] = useState(false);
+  const [redirect, setredirect] = useState(false);
 
   const { log, hadelLogOut } = UserStatus(); //custom hook
   const { teachProfilepic } = AcDetails();
+  const usDetails = useSelector((state) => state.accountDetails);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -47,7 +49,17 @@ export default function TeacherDashboard() {
     dispatch(activeAccount());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (usDetails && !usDetails.is_band) {
+      setredirect(true);
+    }
+  }, [usDetails]);
+
   if (!log) {
+    return <Redirect to="/" />;
+  }
+
+  if (redirect) {
     return <Redirect to="/" />;
   }
 
