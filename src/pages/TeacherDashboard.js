@@ -182,7 +182,7 @@ export default function TeacherDashboard() {
           <Route path="/band/profilesettings">
             <ProfileSettings />
           </Route>
-          <Route path="/teacherdashboard/updatesubject/:subid">
+          <Route path="/band/updateevent/:subid">
             <UpdateSubject />
           </Route>
           <Route path="/teacherdashboard/updatecourse/:subid">

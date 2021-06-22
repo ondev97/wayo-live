@@ -20,7 +20,7 @@ function AcDetails() {
           }
         )
           .then((res) => {
-            setteachProfilepic(res.data.user_image);
+            setteachProfilepic(res.data.band_image);
             setprofileDetails({
               id: res.data.id,
               name: res.data.user.first_name,
@@ -28,7 +28,7 @@ function AcDetails() {
               phoneNumber: res.data.user.phone_no,
               email: res.data.user.email,
               userName: res.data.user.username,
-              des: res.data.description,
+              des: res.data.band_description,
             });
           })
           .catch((err) => {

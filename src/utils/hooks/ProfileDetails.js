@@ -29,7 +29,7 @@ function ProfileDetails(usDetails) {
                 email: res.data.user.email,
                 userName: res.data.user.username,
                 address: res.data.user.address,
-                pic: res.data.user_image,
+                pic: res.data.band_image,
               });
             })
             .catch((err) => {

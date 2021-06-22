@@ -43,9 +43,9 @@ export default function MangeCourse() {
         .then((res) => {
           setisLoading(false);
           if (page > 1) {
-            setsubDetails([...subDetails, ...res.data.results]);
+            setsubDetails([...subDetails, ...res.data]);
           } else {
-            setsubDetails([...res.data.results]);
+            setsubDetails([...res.data]);
           }
           setallSubDetail(res.data);
         })
@@ -80,14 +80,17 @@ export default function MangeCourse() {
                   <TcMaCourses
                     key={det.id}
                     id={det.id}
-                    subject_name={det.subject_name}
-                    subject_cover={det.subject_cover}
-                    author={det.author}
-                    created_at={det.created_at}
-                    description={det.description}
-                    short_description={det.short_description}
-                    class_type={det.class_type}
-                    subject_type={det.subject_type}
+                    event_name={det.event_name}
+                    event_cover={det.event_cover}
+                    event_date={det.event_date}
+                    event_end={det.event_end}
+                    event_label={det.event_label}
+                    event_mode={det.event_mode}
+                    event_content={det.event_content}
+                    short_description={det.description}
+                    event_start={det.event_start}
+                    event_type={det.event_type}
+                    is_freeze={det.is_freeze}
                   />
                 ))}
               </div>
