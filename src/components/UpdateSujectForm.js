@@ -61,6 +61,30 @@ export default function UpdateSujectForm({
       setformValue({ ...formValue, is_freeze: false });
     }
   };
+
+  useEffect(() => {
+    console.log(formValue);
+    let start_time = formValue.event_start;
+    let end_time = formValue.event_end;
+    if (start_time && end_time) {
+      let start = start_time.split(":");
+      let end = end_time.split(":");
+      var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+      var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+      var diff = endDate.getTime() - startDate.getTime();
+      var hours = Math.floor(diff / 1000 / 60 / 60);
+      diff -= hours * 1000 * 60 * 60;
+      var minutes = Math.floor(diff / 1000 / 60);
+      let difference =
+        (hours <= 9 ? "0" : "") +
+        hours +
+        ":" +
+        (minutes <= 9 ? "0" : "") +
+        minutes;
+      setformValue({ ...formValue, event_duration: difference || "" });
+    }
+  }, [formValue.event_start_time, formValue.event_end_time]);
+
   return (
     <form onSubmit={handelSubmit}>
       <p>

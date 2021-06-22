@@ -3,7 +3,6 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import ReactTimeAgo from "react-time-ago";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function TcMaCourses({
@@ -25,7 +24,7 @@ export default function TcMaCourses({
 
     if (choose) {
       Axios.delete(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletesubject/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/deleteevent/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -37,14 +36,14 @@ export default function TcMaCourses({
 
   return (
     <div className="course_card">
-      <Link to={`/teacherdashboard/viewcourse/${id}`}>
+      <Link to={`/band/viewevent/${id}`}>
         <div className="cscard_head">
           <h1>{event_date || ""}</h1>
           <h1>{event_start || ""}</h1>
           <h2 className="label">{event_label || ""}</h2>
         </div>
       </Link>
-      <Link to={`/teacherdashboard/viewcourse/${id}`}>
+      <Link to={`/band/viewevent/${id}`}>
         <div className="cscard_body">
           <div className="cscard_mid">
             <h2>{event_name || ""}</h2>

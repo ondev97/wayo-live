@@ -167,10 +167,10 @@ export default function TeacherDashboard() {
           <Route path="/band/managecourse">
             <MangeCourse />
           </Route>
-          <Route path="/teacherdashboard/viewcourse/:id">
+          <Route path="/band/viewevent/:id">
             <TcEventDetails />
           </Route>
-          <Route path="/teacherdashboard/models/:id/:cid">
+          <Route path="/band/models/:id/">
             <TcModels />
           </Route>
           <Route path="/teacherdashboard/viewallst/:cid">
