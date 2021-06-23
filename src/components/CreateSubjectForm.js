@@ -293,7 +293,7 @@ export default function CreateSubjectForm({
         </p>
       </div>
       <p>
-        <label htmlFor="sd">EVENT DESCRIPTION</label>
+        <label htmlFor="sd">EVENT LINK</label>
         <div className="editor">
           <CKEditor
             editor={ClassicEditor}
