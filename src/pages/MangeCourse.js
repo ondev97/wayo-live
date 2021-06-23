@@ -18,19 +18,21 @@ export default function MangeCourse() {
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
   const { profileDetails } = AcDetails();
-  console.log(profileDetails);
+
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
   const url = `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband`;
 
   useEffect(() => {
-    if (search === "") {
-      const fetchurl = `${url}/${profileDetails.id}/`;
-      getSubjectDetails(fetchurl);
-    } else {
-      const fetchurl = `${url}/${profileDetails.id}/`;
-      getSubjectDetails(fetchurl);
+    if (profileDetails.id) {
+      if (search === "") {
+        const fetchurl = `${url}/${profileDetails.id}/`;
+        getSubjectDetails(fetchurl);
+      } else {
+        const fetchurl = `${url}/${profileDetails.id}/`;
+        getSubjectDetails(fetchurl);
+      }
     }
   }, [usDetails, page, search, profileDetails]);
 
@@ -96,7 +98,7 @@ export default function MangeCourse() {
               </div>
             </InfiniteScroll>
           ) : (
-            <Empty />
+            ""
           )}
         </div>
         {isLoading && <ProfileLoader />}
