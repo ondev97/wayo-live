@@ -73,9 +73,7 @@ export default function TcEventDetails() {
                       {eventDetail.event_name ? eventDetail.event_name : ""}
                     </h1>
                     <h1>
-                      {eventDetail.event_content
-                        ? eventDetail.event_content
-                        : ""}
+                      {eventDetail.description ? eventDetail.description : ""}
                     </h1>
                     <h1>
                       {eventDetail.event_type ? eventDetail.event_type : ""}

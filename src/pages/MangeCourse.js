@@ -88,7 +88,6 @@ export default function MangeCourse() {
                     event_end={det.event_end}
                     event_label={det.event_label}
                     event_mode={det.event_mode}
-                    event_content={det.event_content}
                     short_description={det.description}
                     event_start={det.event_start}
                     event_type={det.event_type}
