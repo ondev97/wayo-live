@@ -1,5 +1,4 @@
 import Axios from "axios";
-import { AnimateSharedLayout } from "framer-motion";
 import React, { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import LazyLoad from "react-lazyload";
@@ -10,12 +9,10 @@ import ModuleBody from "./ModuleBody";
 export default function TcOneModel({
   name,
   msg,
-  moduleFiles,
-  id,
-  cid,
   setisRemoveModule,
   setvideoLink,
   setsetVideo,
+  moduleData,
 }) {
   const [playing, setplaying] = useState(false);
   //get acDetails from Redux Store
@@ -102,52 +99,7 @@ export default function TcOneModel({
             media = [...media, nodes[i]];
           }
         } else {
-          if (nodes[i].props.children) {
-            for (let p = 0; p < nodes[i].props.children.length; p++) {
-              if (nodes[i].props.children[p].type === "a") {
-                if (
-                  youtubeRegular.test(nodes[i].props.children[p].props.href)
-                ) {
-                  media.push(
-                    <div className="button-row" key={i}>
-                      <button className="youtube">
-                        <a
-                          href={nodes[i].props.children[p].props.href}
-                          target="__block"
-                        >
-                          <i className="fab fa-youtube"></i>
-                          Join YouTube Live Class
-                        </a>
-                      </button>
-                    </div>
-                  );
-                } else if (
-                  nodes[i].props.children[p].props.href.includes("zoom.us")
-                ) {
-                  media.push(
-                    <div className="button-row" key={i}>
-                      <button className="zoom">
-                        <a
-                          href={nodes[i].props.children[p].props.href}
-                          target="__block"
-                        >
-                          <i className="fas fa-graduation-cap"></i>
-                          Join Zoom Live Class
-                        </a>
-                      </button>
-                    </div>
-                  );
-                } else {
-                  media = [...media, nodes[i]];
-                }
-              } else {
-                media = [...media, nodes[i]];
-                break;
-              }
-            }
-          } else {
-            media = [...media, nodes[i]];
-          }
+          media = [...media, nodes[i]];
         }
       }
       return media;
@@ -176,32 +128,16 @@ export default function TcOneModel({
 
   return (
     <LazyLoad height={200}>
-      <ModuleBody name={name}>
+      <ModuleBody name={moduleData.event_name}>
         <div className="on_model_body">
           {msg && (
             <div className="model_body_row">
-              {/* {filterTgs(ReactHtmlParser(msg))} */}
-              <div className="re_player">
-                <ReactPlayer
-                  url="https://vimeo.com/564709580"
-                  pip={false}
-                  controls
-                  className="player"
-                  width="100%"
-                  height="100%"
-                  config={{
-                    file: {
-                      attributes: {
-                        controlsList: "nodownload",
-                        disablepictureinpicture: "true",
-                      },
-                    },
-                  }}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </div>
+              {filterTags(ReactHtmlParser(msg))}
               <div className="event_details_dis">
-                <h3>EVENT DETAILS -</h3>
+                <h3>EVENT DETAILS </h3>
+                <p>Event Start Time - {moduleData.event_start || ""}</p>
+                <p>Event End Time - {moduleData.event_end || ""}</p>
+                <p>Event Type - {moduleData.event_type || ""}</p>
               </div>
             </div>
           )}

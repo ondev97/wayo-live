@@ -1,51 +1,10 @@
-import Axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import wayo from ".././img/wayo.jpg";
 
-export default function ModelsCourseDescri({ id }) {
-  //get acDetails from Redux Store
-  const usDetails = useSelector((state) => state.accountDetails);
-  const [courseDetails, setcourseDetails] = useState({});
-  // const [redirect, setredirect] = useState(false);
-  const [subid, setsubid] = useState("");
-  const { cid } = useParams();
-
-  useEffect(async () => {
-    if (usDetails.key) {
-      await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/list/${id}/`,
-        {
-          headers: { Authorization: "Token " + usDetails.key },
-        }
-      ).then((res) => {
-        setcourseDetails({ ...courseDetails, ...res.data });
-        setsubid(res.data.subject);
-      });
-    }
-  }, [usDetails]);
-
-  // const deleteCourse = async () => {
-  //   let confirms = window.confirm("Are You Sure?");
-  //   if (confirms) {
-  //     await Axios.delete(
-  //       `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletecourse/${id}/`,
-  //       {
-  //         headers: { Authorization: "Token " + usDetails.key },
-  //       }
-  //     ).then(() => {
-  //       setredirect(true);
-  //     });
-  //   }
-  // };
-
-  // if (redirect) {
-  //   return <Redirect to={`/teacherdashboard/viewcourse/${subid}`} />;
-  // }
-
+export default function ModelsCourseDescri({ id, moduleData }) {
   return (
     <div className="colCourseView">
       {/*mobile lists */}
@@ -56,12 +15,12 @@ export default function ModelsCourseDescri({ id }) {
           </button>
           <div className="listmob">
             <ul>
-              <Link to={`/band/ticket/genticket/${id}/`}>
+              <Link to={`/band/ticket/genticket/${id}`}>
                 <li>
                   <i className="fas fa-caret-right"></i> Generate Tickets
                 </li>
               </Link>
-              <Link to={`/band/ticket/viewticket/${id}/${cid}/`}>
+              <Link to={`/band/ticket/viewticket/${id}`}>
                 <li>
                   <i className="fas fa-caret-right"></i> View Tickets
                 </li>
@@ -109,21 +68,14 @@ export default function ModelsCourseDescri({ id }) {
       <div className="course_desc_body tc_course_desc_body">
         <div className="card_of_course">
           <div className="course_pic">
-            <LazyLoadImage src={wayo} alt="band logo" effect="blur" />
-            <div className="cos_options">
-              {/* <Link to={`/teacherdashboard/updatecourse/${id}/`}>
-                <button title="Edit This Course">
-                  <i className="fas fa-pencil-alt"></i>
-                  <span>Edit Course</span>
-                </button>
-              </Link>
-              <button title="Delete This Course" onClick={deleteCourse}>
-                <i className="fas fa-trash-alt"></i>
-                <span>Delete Course</span>
-              </button> */}
-            </div>
+            <LazyLoadImage
+              src={moduleData.event_cover}
+              alt="band logo"
+              effect="blur"
+            />
+            <div className="cos_options"></div>
           </div>
-          <div className="course_detail">
+          {/* <div className="course_detail">
             <h2>{courseDetails.course_name}</h2>
             {courseDetails.course_description !== "null" ? (
               <div className="course_short_desc">
@@ -133,7 +85,7 @@ export default function ModelsCourseDescri({ id }) {
             ) : (
               ""
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

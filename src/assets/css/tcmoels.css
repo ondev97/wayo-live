@@ -181,6 +181,16 @@
   padding: 20px 12px;
   border-radius: 8px;
 }
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  .event_details_dis
+  p {
+  color: #000;
+}
 /*Youtube Player Overlay*/
 .models
   .md_all_models
@@ -229,7 +239,7 @@
 }
 .models .md_all_models .md_models .al_models .on_model_body .model_body_row p {
   font-size: 15px;
-  color: #717171;
+  color: #eee;
   font-weight: 400;
 }
 .models
@@ -542,7 +552,7 @@
   text-align: center;
 }
 .colCourseView .course_desc_body .course_pic img {
-  width: 80%;
+  width: 100%;
   max-height: 250px;
   object-fit: cover;
 }

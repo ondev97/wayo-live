@@ -11,8 +11,7 @@ import PlayerController from "./PlayerController";
 
 export default function TcModels() {
   const { id } = useParams();
-  const [moduleData, setmoduleData] = useState([]);
-  const [moduleFiles, setmoduleFiles] = useState([]);
+  const [moduleData, setmoduleData] = useState("");
   const [isRemoveModule, setisRemoveModule] = useState(false);
   const [videoLink, setvideoLink] = useState("");
   const [setVideo, setsetVideo] = useState(false);
@@ -26,7 +25,7 @@ export default function TcModels() {
   useEffect(async () => {
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodules/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/viewevent/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -37,25 +36,6 @@ export default function TcModels() {
         .catch((err) => {});
     }
   }, [usDetails, isRemoveModule]);
-
-  useEffect(() => {
-    if (moduleData.length !== 0) {
-      let arr = [];
-      moduleData.map((data) =>
-        Axios.get(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodulefiles/${data.id}/`,
-          {
-            headers: { Authorization: "Token " + usDetails.key },
-          }
-        )
-          .then((res) => {
-            arr.push({ [data.id]: res.data });
-            setmoduleFiles([...arr]);
-          })
-          .catch((err) => {})
-      );
-    }
-  }, [moduleData]);
 
   const videoBackground = (e) => {
     if (e.target.className.includes("full_screen_video")) {
@@ -120,20 +100,14 @@ export default function TcModels() {
         <div className="md_all_models">
           <div className="md_models">
             <div className="al_models">
-              {moduleData.length !== 0 ? (
-                moduleData.map((data) => (
-                  <TcOneModel
-                    key={data.id}
-                    msg={data.module_content}
-                    name={data.module_name}
-                    id={data.id}
-                    cid={cid}
-                    moduleFiles={moduleFiles}
-                    setisRemoveModule={setisRemoveModule}
-                    setvideoLink={setvideoLink}
-                    setsetVideo={setsetVideo}
-                  />
-                ))
+              {moduleData !== "" ? (
+                <TcOneModel
+                  msg={moduleData.event_content}
+                  moduleData={moduleData}
+                  setisRemoveModule={setisRemoveModule}
+                  setvideoLink={setvideoLink}
+                  setsetVideo={setsetVideo}
+                />
               ) : (
                 <div className="empy">
                   <h3>No Course Modules Available..</h3>
@@ -143,7 +117,7 @@ export default function TcModels() {
           </div>
         </div>
         <div className="md_course_desc">
-          <ModelsCourseDescri id={id} />
+          <ModelsCourseDescri id={id} moduleData={moduleData} />
         </div>
       </div>
     </div>
