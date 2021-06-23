@@ -39,7 +39,7 @@ export default function TcEventDetails() {
       });
     }
   };
-
+  console.log(eventDetail);
   return (
     <>
       <div className="ful_manage_course">
@@ -52,7 +52,7 @@ export default function TcEventDetails() {
           <div className="event_header">
             <div className="event_row">
               <div className="event_column">
-                <Link to={`/band/models/${id}`}>
+                <Link to={`/band/event/${id}`}>
                   <div className="event_head">
                     <h2>
                       {eventDetail.event_date ? eventDetail.event_date : ""}
@@ -67,7 +67,7 @@ export default function TcEventDetails() {
                 </Link>
               </div>
               <div className="event_column">
-                <Link to={`/band/models/${id}/`}>
+                <Link to={`/band/event/${id}/`}>
                   <div className="event_dis_col">
                     <h1>
                       {eventDetail.event_name ? eventDetail.event_name : ""}

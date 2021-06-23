@@ -7,7 +7,7 @@
 }
 .genkeysform .main_gen_form {
   width: 100%;
-  padding: 15px;
+  padding: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@
 .genkeysform .main_gen_form form {
   padding: 35px 25px;
   width: 100%;
-  background-color: #fff;
+  background-color: #7f7f7f;
 }
 .genkeysform .main_gen_form form p {
   margin: 15px 0;
@@ -26,15 +26,16 @@
   display: block;
   margin-bottom: 15px;
   font-size: 17px;
-  color: var(--h1Fontcolor);
+  color: #000;
   font-weight: 600;
 }
 .genkeysform .main_gen_form form p input {
   width: 100%;
   padding: 8px 5px;
-  color: var(--buttonColor1);
+  color: #d6d6d6;
   outline: none;
-  border: 1px solid #c1c0c0;
+  border: 1px solid #404040;
+  background-color: #404040;
   border-radius: 3px;
   font-weight: 600;
 }
@@ -122,7 +123,7 @@
 .genkeysform .main_gen_form .disp_gen_keys table {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: #7f7f7f;
   border-collapse: collapse;
   border: 1px solid #eee;
 }
@@ -135,10 +136,10 @@
   padding: 15px 12px;
   z-index: 100;
   color: #000;
-  background-color: #eeee;
+  background-color: #b1afaf;
 }
 .genkeysform .main_gen_form .disp_gen_keys table thead tr:first-child {
-  background-color: #fffdfa;
+  background-color: #b1afaf;
   color: var(--h1Fontcolor);
 }
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(1) {
@@ -146,7 +147,7 @@
 }
 
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(2) {
-  color: var(--h1Fontcolor);
+  color: #fff;
 }
 .genkeysform .main_gen_form .disp_gen_keys table tr td {
   padding: 15px 12px;
@@ -176,8 +177,7 @@
   left: 0;
   height: 100%;
   width: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px #eee;
+  background-color: #000;
   border-radius: 50%;
   transition: transform 0.2s;
 }
@@ -229,7 +229,7 @@
   bottom: -25px;
   right: 0;
   padding: 5px 8px;
-  background-color: #fb01010d;
+  background-color: #fff;
   color: red;
   border-radius: 2px;
   z-index: 100;

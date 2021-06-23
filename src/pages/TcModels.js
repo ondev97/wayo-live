@@ -1,7 +1,7 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ModelsCourseDescri from "../components/ModelsCourseDescri";
 import TcOneModel from "../components/TcOneModel";
 import "../assets/css/tcmoels.css";

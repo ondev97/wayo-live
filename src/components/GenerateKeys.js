@@ -75,7 +75,7 @@ function GenerateKeys() {
     setresMessage(false);
     setisLoading(true);
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/coupon/${value.hw}/${id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/createticket/${id}/${value.hw}/`,
       {},
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -108,7 +108,7 @@ function GenerateKeys() {
   useEffect(async () => {
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/availablecoupon/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/listticket/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -141,9 +141,9 @@ function GenerateKeys() {
       //set issued coupon
       setTimeout(function () {
         Axios.post(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/issuecoupon/`,
+          `${process.env.REACT_APP_LMS_MAIN_URL}/show/issueticket/`,
           {
-            issued_coupons: selectKeys,
+            issued_tickets: selectKeys,
           },
           {
             headers: { Authorization: "Token " + usDetails.key },
@@ -176,7 +176,7 @@ function GenerateKeys() {
   }, [selectKeys]);
 
   if (redirect) {
-    return <Redirect to="/teacherdashboard/managecourse" />;
+    return <Redirect to="/band/managecourse" />;
   }
 
   return (

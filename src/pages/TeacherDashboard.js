@@ -170,7 +170,7 @@ export default function TeacherDashboard() {
           <Route path="/band/viewevent/:id">
             <TcEventDetails />
           </Route>
-          <Route path="/band/models/:id/">
+          <Route path="/band/event/:id/">
             <TcModels />
           </Route>
           <Route path="/teacherdashboard/viewallst/:cid">
@@ -191,7 +191,7 @@ export default function TeacherDashboard() {
           <Route path="/teacherdashboard/updatemodule/:cosid/:ccid">
             <UpdateModule />
           </Route>
-          <Route path="/teacherdashboard/keys">
+          <Route path="/band/ticket">
             <GeneEnrollmentkeys />
           </Route>
         </div>
