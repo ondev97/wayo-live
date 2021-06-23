@@ -91,7 +91,7 @@
   grid-column-gap: 25px;
 }
 .event_details .event_description .event_pic_col {
-  flex-basis: 350px;
+  flex-basis: 450px;
 }
 .event_details .event_description .event_pic_col .event_pic_sec {
   width: 100%;
