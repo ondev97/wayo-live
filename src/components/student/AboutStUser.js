@@ -31,10 +31,6 @@ export default function AboutStUser() {
             <h3>Email</h3>
             <h4>{initialState && initialState.user.email}</h4>
           </div>
-          <div className="ab_card">
-            <h3>Address</h3>
-            <h4>{initialState && initialState.user.address}</h4>
-          </div>
         </div>
         <div className="disdis">
           <p>
