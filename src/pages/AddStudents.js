@@ -30,12 +30,9 @@ export default function AddStudents() {
   const debounce = useDebounce(); //custom hook
 
   const getStudents = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/getstudents/${id}/?page=${page}&search=${search}`,
-      {
-        headers: { Authorization: "Token " + usDetails.key },
-      }
-    )
+    await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/listusers/`, {
+      headers: { Authorization: "Token " + usDetails.key },
+    })
       .then((res) => {
         if (page > 1) {
           settotStud(res.data);
@@ -203,7 +200,7 @@ export default function AddStudents() {
                 <th>Id</th>
                 <th>Profile Picture</th>
                 <th>Name</th>
-                <th>Class Number</th>
+                <th>User Name</th>
                 <th>Email</th>
                 <th>Select</th>
               </tr>

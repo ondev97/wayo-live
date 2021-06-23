@@ -73,12 +73,12 @@
 }
 .sttable table {
   width: 100%;
-  background-color: #fff;
+  background-color: #bfbfbf;
   border-collapse: collapse;
-  border: 2px solid #dcdcdc;
+  border: 2px solid #bfbfbf;
 }
 .sttable table th {
-  background-color: #f6f6f6;
+  background-color: #7f7f7f;
 }
 .sttable table tr a {
   text-decoration: none;

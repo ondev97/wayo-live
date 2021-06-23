@@ -20,24 +20,24 @@ export default function AllStList() {
   const [page, setpage] = useState(1);
   const history = useHistory();
   const [search, setsearch] = useState("");
-  const { cid } = useParams();
+  const { id } = useParams();
 
   const debounce = useDebounce(); //custom hook
 
   const getallStude = async () => {
     if (usDetails) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/students/${cid}/?page=${page}&search=${search}`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/audienceintheevent/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
       ).then((res) => {
         if (page > 1) {
           setallDetailSt(res.data);
-          setallstudent([...allstudent, ...res.data.results]);
+          setallstudent([...allstudent, ...res.data]);
         } else {
           setallDetailSt(res.data);
-          setallstudent([...res.data.results]);
+          setallstudent([...res.data]);
         }
       });
     }
@@ -47,9 +47,7 @@ export default function AllStList() {
     getallStude();
   }, [usDetails, unEnrol, page, search]);
   /*model page*/
-  const back = () => {
-    history.goBack();
-  };
+
   /*model page*/
   const viewPr = (id) => {
     if (!modelOp) {
@@ -74,7 +72,7 @@ export default function AllStList() {
   const unEnrolSt = async (id) => {
     if (window.confirm("Are You Sure?")) {
       await Axios.delete(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/unenroll/${cid}/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/unenroll/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -114,7 +112,7 @@ export default function AllStList() {
     setpage(1);
     debounce(() => setsearch(search), 500);
   };
-
+  console.log(allstudent);
   return (
     <div className="stlist">
       <ViewStuTc
@@ -125,17 +123,6 @@ export default function AllStList() {
       />
       <div className="pageTop">
         <h1>Enrolled Students</h1>
-      </div>
-      <div className="search_st">
-        <button onClick={back}>
-          <i className="fas fa-arrow-circle-left"></i> Back to Course
-        </button>
-        <div className="search" onChange={handelSearchSubject}>
-          <input type="text" />
-          <button>
-            <i className="fas fa-search"></i>
-          </button>
-        </div>
       </div>
       {allDetailSt !== null ? (
         <div className="sttable">
@@ -148,9 +135,9 @@ export default function AllStList() {
                     <th>Id</th>
                     <th>Profile Picture</th>
                     <th>Name</th>
-                    <th>Class Number</th>
+                    <th>User Name</th>
                     <th>Email</th>
-                    <th>Unenroll</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -158,7 +145,7 @@ export default function AllStList() {
                     <tr key={data.id}>
                       <td onClick={() => viewPr(data.user.id)}>{data.id}</td>
                       <td onClick={() => viewPr(data.user.id)}>
-                        <LazyLoadImage src={data.profile_pic} effect="blur" />
+                        <LazyLoadImage src={data.user_image} effect="blur" />
                       </td>
                       <td onClick={() => viewPr(data.user.id)}>
                         {data.user.first_name + " " + data.user.last_name}

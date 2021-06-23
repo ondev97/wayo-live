@@ -1,14 +1,25 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import wayo from "../img/wayo.jpg";
-import line from "../img/line.jpg";
 import "../assets/css/student/eventsFilter.css";
+import Axios from "axios";
+import { useSelector } from "react-redux";
+import AcDetails from "../utils/hooks/AcDetails";
 
 function EventsFilters() {
   const inputRef = useRef();
   const eventRef = useRef();
   const [acDropDown, setacDropDown] = useState(false);
   const [evDropDown, setevDropDown] = useState(false);
-  const [image, setimage] = useState(wayo);
+  const { teachProfilepic } = AcDetails();
+  const [eventValues, seteventValues] = useState([]);
+  //get acDetails from Redux Store
+  const usDetails = useSelector((state) => state.accountDetails);
+
+  useEffect(() => {
+    if (usDetails.key) {
+      getEvent();
+    }
+  }, [usDetails]);
 
   const activeDropDown = () => {
     setacDropDown(!acDropDown);
@@ -30,6 +41,19 @@ function EventsFilters() {
     eventRef.current.value = e.target.dataset.label;
     setevDropDown(false);
   };
+
+  const getEvent = () => {
+    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/`, {
+      headers: { Authorization: "Token " + usDetails.key },
+    })
+      .then((res) => {
+        seteventValues([...res.data]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="filter_section">
@@ -42,7 +66,9 @@ function EventsFilters() {
               onClick={activeDropDown}
             >
               <div className="img_section">
-                {image !== "#" && <img src={image} alt="" />}
+                {teachProfilepic !== "#" && (
+                  <img src={teachProfilepic} alt="band" />
+                )}
               </div>
               <input
                 type="text"
@@ -87,27 +113,23 @@ function EventsFilters() {
                 <i className="fas fa-sort-down"></i>
               </div>
             </div>
-            <ul>
-              {evDropDown ? (
-                <>
+            {evDropDown ? (
+              <ul>
+                {eventValues.map((data) => (
                   <li
-                    data-label="Event1"
-                    className="activeSelect"
                     onClick={setEvActive}
+                    data-label={data.event_mode_name}
+                    data-id={data.id}
+                    key={data.id}
+                    className="list_data"
                   >
-                    <span>Event1</span>
+                    <span>{data.event_mode_name}</span>
                   </li>
-                  <li data-label="Event2" onClick={setEvActive}>
-                    <span>Event2</span>
-                  </li>
-                  <li data-label="Event3" onClick={setEvActive}>
-                    <span>Event3</span>
-                  </li>
-                </>
-              ) : (
-                ""
-              )}
-            </ul>
+                ))}
+              </ul>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
