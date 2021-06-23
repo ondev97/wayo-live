@@ -50,7 +50,7 @@ export default function Stmodules() {
             },
             width: 600,
           });
-          setredirect(true);
+          // setredirect(true);
         });
     }
   }, [usDetails]);

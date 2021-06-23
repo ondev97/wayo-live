@@ -134,7 +134,7 @@ function StudentDashBoard() {
                         }
                       >
                         <ul>
-                          <Link to="/studentdashboard/studentprofile/">
+                          <Link to="/audiencedashboard/myprofile/">
                             <li>
                               <i className="far fa-user-circle"></i>Profile
                             </li>
@@ -166,16 +166,16 @@ function StudentDashBoard() {
           <Route path="/studentdashboard/stcourses/:id">
             <StCourses />
           </Route>
-          <Route path="/studentdashboard/envetdetails/:id">
+          <Route path="/audiencedashboard/envetdetails/:id">
             <EventDetails />
           </Route>
-          <Route path="/studentdashboard/stmodules/:id">
+          <Route path="/audiencedashboard/envet/:id">
             <Stmodules />
           </Route>
-          <Route path="/audiencedashboard/studentprofile/">
+          <Route path="/audiencedashboard/myprofile/">
             <StProfile />
           </Route>
-          <Route path="/band/mycoursesforsubject/:id">
+          <Route path="/audiencedashboard/eventsinband/:id">
             <StSubCourses />
           </Route>
         </div>

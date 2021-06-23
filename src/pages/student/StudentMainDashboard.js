@@ -89,14 +89,14 @@ export default function StudentMainDashboard() {
                 <MySubjectsCard
                   key={det.id}
                   id={det.id}
-                  subject_name={det.subject_name}
+                  subject_name={det.user.username}
                   band_image={det.band_image}
-                  author={det.author}
-                  created_at={det.created_at}
-                  description={det.description}
-                  short_description={det.short_description}
-                  class_type={det.class_type}
-                  subject_type={det.subject_type}
+                  author={det.user}
+                  // created_at={det.created_at}
+                  description={det.band_description}
+                  // short_description={det.short_description}
+                  // class_type={det.class_type}
+                  // subject_type={det.subject_type}
                 />
               ))}
             </InfiniteScroll>

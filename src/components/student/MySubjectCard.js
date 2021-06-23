@@ -14,13 +14,14 @@ export default function MySubjectsCard({
   short_description,
   class_type,
   subject_type,
+  description
 }) {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
   return (
     <div className="al_sub_card">
-      <Link to={`/band/mycoursesforsubject/${id}`}>
+      <Link to={`/audiencedashboard/eventsinband/${id}`}>
         <div className="sub_card_row">
           <div className="image_sub">
             <LazyLoadImage effect="blur" src={band_image} alt="band" />
@@ -36,8 +37,8 @@ export default function MySubjectsCard({
           </div> */}
         </div>
         <div className="sub_card_row">
-          <h3>WAYO</h3>
-          <p>AN EXPERIENCE BEYOND MUSIC</p>
+          <h3>{subject_name}</h3>
+          <p>{description}</p>
           {/* <div className="sub_type">
             <ul>
               <li>

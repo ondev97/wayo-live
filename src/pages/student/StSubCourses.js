@@ -17,75 +17,96 @@ export default function StSubCourses() {
   const usDetails = useSelector((state) => state.accountDetails);
   const [courseData, setcourseData] = useState([]);
   const [subData, setsubData] = useState({});
+  const [eventData, setEventData] = useState([]);
   const [nextPage, setnextPage] = useState(null);
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
   const [isRedirect, setisRedirect] = useState(false);
   const [isLoading, setisLoading] = useState(true);
   const debounce = useDebounce(); //custom hook
-  let history = useHistory();
-
-  const back = () => {
-    history.goBack();
-  };
+  const [ bands, setBands] = useState([]);
 
   useEffect(async () => {
     setisLoading(true);
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/subject_stu/${id}/`,
-        {
-          headers: { Authorization: "Token " + usDetails.key },
-        }
-      )
-        .then((res) => {
-          if (res.data) {
-            setsubData({
-              ...subData,
-              sub_name: res.data.subject_name,
-              sub_cover: res.data.subject_cover,
-              sub_sdes: res.data.short_description,
-              description: res.data.description,
-            });
-          }
-        })
-        .catch((err) => {
-          if (err.response.data.message) {
-            setisRedirect(true);
-          }
-        });
-
-      await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrolledcoursesinsubject/${id}/?page=${page}&search=${search}`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
       )
         .then((res) => {
           setisLoading(false);
-          if (page > 1) {
-            setcourseData([...courseData, ...res.data.results]);
-          } else {
-            setcourseData([...res.data.results]);
+          if (res.data) {
+            setEventData(res.data)
+            // setsubData({
+            //   ...subData,
+            //   sub_name: res.data.subject_name,
+            //   sub_cover: res.data.subject_cover,
+            //   sub_sdes: res.data.short_description,
+            //   description: res.data.description,
+            // });
           }
-          setnextPage(res.data.next);
         })
         .catch((err) => {
-          console.log(err);
+          // if (err.response.data.message) {
+          //   setisRedirect(true);
+          // }
         });
-    }
-  }, [usDetails, search, page]);
 
-  const handelSearchSubject = (e) => {
-    const search = e.target.value;
-    setpage(1);
-    debounce(() => setsearch(search), 1000);
-  };
-  function next() {
-    if (nextPage) {
-      setpage(page + 1);
+      // await Axios.get(
+      //   `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrolledcoursesinsubject/${id}/?page=${page}&search=${search}`,
+      //   {
+      //     headers: { Authorization: "Token " + usDetails.key },
+      //   }
+      // )
+      //   .then((res) => {
+      //     setisLoading(false);
+      //     if (page > 1) {
+      //       setcourseData([...courseData, ...res.data.results]);
+      //     } else {
+      //       setcourseData([...res.data.results]);
+      //     }
+      //     setnextPage(res.data.next);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     }
-  }
+  }, [usDetails]);
+
+  // const handelSearchSubject = (e) => {
+  //   const search = e.target.value;
+  //   setpage(1);
+  //   debounce(() => setsearch(search), 1000);
+  // };
+  // function next() {
+  //   if (nextPage) {
+  //     setpage(page + 1);
+  //   }
+  // }
+
+  useEffect(async () => {
+    if (usDetails.key) {
+      await Axios.get(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/listbands/`,
+          {
+            headers: { Authorization: "Token " + usDetails.key },
+          }
+      )
+          .then((res) => {
+            if (res.data) {
+              setBands(res.data);
+            }
+          })
+          .catch((err) => {
+
+          });
+    }
+  }, [usDetails]);
+
+
+
 
   return (
     <>
@@ -95,29 +116,29 @@ export default function StSubCourses() {
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>
-            <EventsFilter />
+            <EventsFilter bands={bands} id={id}/>
             <div className="outer_section">
               <h2>ALL EVENTS</h2>
               <div className="inner_section">
                 <InfiniteScroll
-                  dataLength={courseData.length}
-                  next={next}
-                  hasMore={true}
+                  dataLength={eventData.length}
+                  // hasMore={true}
                   className="st_manage_course_grid"
                 >
-                  {courseData.length !== 0
-                    ? courseData.map((cdata, index) => (
+                  {eventData.length !== 0
+                    ? eventData.map((edata, index) => (
                         <MyCourseCard
-                          key={index}
-                          course_cover={cdata.course.course_cover}
-                          enrollkey={cdata.enroll_key}
-                          course_name={cdata.course.course_name}
-                          price={cdata.course.price}
-                          duration={cdata.course.duration}
-                          created_at={cdata.course.created_at}
-                          courseid={cdata.course.id}
-                          is_freeze={cdata.course.is_freeze}
-                          no={index}
+                          key={edata.id}
+                          event = {edata}
+                          // course_cover={cdata.course.event_cover}
+                          // enrollkey={cdata.enroll_key}
+                          // course_name={cdata.course.course_name}
+                          // price={cdata.course.price}
+                          // duration={cdata.course.duration}
+                          // created_at={cdata.course.created_at}
+                          // courseid={cdata.course.id}
+                          // is_freeze={cdata.course.is_freeze}
+                          // no={index}
                         />
                       ))
                     : isLoading && <ProfileLoader />}

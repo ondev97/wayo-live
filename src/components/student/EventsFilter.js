@@ -1,14 +1,61 @@
-import React, { useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import wayo from "../../img/wayo.jpg";
 import line from "../../img/line.jpg";
 import "../../assets/css/student/eventsFilter.css";
+import Axios from "axios";
+import {useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
+import MyCourseCard from "./MyCourseCard";
+import ProfileLoader from "../ProfileLoader";
 
-function EventsFilter() {
+const bandsList = (band, setActive) => {
+  return (
+      <>
+        <li data-label={band.user.username} data-img={band.band_image} onClick={setActive}>
+          <img src={band.band_image} alt="wayo" /> <span>{band.user.username}</span>
+        </li>
+      </>
+  );
+}
+const eventModsList = (eventMode, setEvActive) => {
+  return (
+      <>
+        <li data-label={eventMode.event_mode_name} onClick={setEvActive}>
+          <span>{eventMode.event_mode_name}</span>
+        </li>
+      </>
+  );
+}
+
+function EventsFilter({ id, bands }) {
   const inputRef = useRef();
   const eventRef = useRef();
+  const usDetails = useSelector((state) => state.accountDetails);
   const [acDropDown, setacDropDown] = useState(false);
   const [evDropDown, setevDropDown] = useState(false);
   const [image, setimage] = useState("#");
+  const [ eventModes, setEventModes] = useState([]);
+  const [ idOfBand, setIdOfBand] = useState(id);
+
+  useEffect(async () => {
+    if (usDetails.key) {
+      await Axios.get(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${idOfBand}`,
+          {
+            headers: { Authorization: "Token " + usDetails.key },
+          }
+      )
+          .then((res) => {
+            if (res.data) {
+              console.log(res.data);
+              setEventModes(res.data);
+            }
+          })
+          .catch((err) => {
+
+          });
+    }
+  }, [usDetails]);
 
   const activeDropDown = () => {
     setacDropDown(!acDropDown);
@@ -72,20 +119,20 @@ function EventsFilter() {
             <ul>
               {acDropDown ? (
                 <>
-                  <li
-                    data-label="Wayo1"
-                    data-img={wayo}
-                    className="activeSelect"
-                    onClick={setActive}
-                  >
-                    <img src={wayo} alt="wayo" /> <span>Wayo1</span>
-                  </li>
-                  <li data-label="Wayo2" data-img={line} onClick={setActive}>
-                    <img src={line} alt="wayo" /> <span>Wayo2</span>
-                  </li>
-                  <li data-label="Wayo3" data-img={wayo} onClick={setActive}>
-                    <img src={wayo} alt="wayo" /> <span>Wayo2</span>
-                  </li>
+                  {
+                    bands.length !== 0
+                      ? bands.map((band, index) => bandsList(band, setActive))
+                      : ''
+                  }
+                  {/*<li data-label="Wayo1" data-img={wayo} onClick={setActive}>*/}
+                  {/*  <img src={wayo} alt="wayo" /> <span>Wayo1</span>*/}
+                  {/*</li>*/}
+                  {/*<li data-label="Wayo2" data-img={line} onClick={setActive}>*/}
+                  {/*  <img src={line} alt="wayo" /> <span>Wayo2</span>*/}
+                  {/*</li>*/}
+                  {/*<li data-label="Wayo3" data-img={wayo} onClick={setActive}>*/}
+                  {/*  <img src={wayo} alt="wayo" /> <span>Wayo2</span>*/}
+                  {/*</li>*/}
                 </>
               ) : (
                 ""
@@ -128,11 +175,12 @@ function EventsFilter() {
             <ul>
               {evDropDown ? (
                 <>
-                  <li
-                    data-label="Event1"
-                    className="activeSelect"
-                    onClick={setEvActive}
-                  >
+                  {
+                    eventModes.length !== 0
+                        ? eventModes.map((eMode, index) => bandsList(eMode, setEvActive))
+                        : ''
+                  }
+                  <li data-label="Event1" className="activeSelect" onClick={setEvActive}>
                     <span>Event1</span>
                   </li>
                   <li data-label="Event2" onClick={setEvActive}>

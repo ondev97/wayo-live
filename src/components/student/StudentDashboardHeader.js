@@ -52,7 +52,7 @@ export default function StudentDashBoardHeader() {
             <Link to="/audiencedashboard/contact/">
               <li>CONTACT US</li>
             </Link>
-            <Link to="/audiencedashboard/studentprofile/">
+            <Link to="/audiencedashboard/myprofile/">
               <li>MY PROFILE</li>
             </Link>
             <li onClick={hadelLogOut} style={{ border: "none" }}>
