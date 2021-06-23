@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 export default function TcEventDetails() {
   const { id } = useParams();
   const [eventDetail, seteventDetail] = useState({});
+  const [difference, setdifference] = useState("");
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
@@ -39,7 +40,29 @@ export default function TcEventDetails() {
       });
     }
   };
-  console.log(eventDetail);
+
+  useEffect(() => {
+    let start_time = eventDetail.event_start;
+    let end_time = eventDetail.event_end;
+    if (start_time && end_time) {
+      let start = start_time.split(":");
+      let end = end_time.split(":");
+      var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+      var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+      var diff = endDate.getTime() - startDate.getTime();
+      var hours = Math.floor(diff / 1000 / 60 / 60);
+      diff -= hours * 1000 * 60 * 60;
+      var minutes = Math.floor(diff / 1000 / 60);
+      let difference =
+        (hours <= 9 ? "0" : "") +
+        hours +
+        ":" +
+        (minutes <= 9 ? "0" : "") +
+        minutes;
+      setdifference(difference);
+    }
+  }, [eventDetail]);
+
   return (
     <>
       <div className="ful_manage_course">
@@ -187,7 +210,7 @@ export default function TcEventDetails() {
                   <div className="event_dis_row">
                     <h2>EVENT DURATION</h2>
                     <h2>
-                      <span>: EVENT DURATION</span>
+                      <span>: {difference ? difference : ""}</span>
                     </h2>
                   </div>
                   <div className="event_dis_row">
