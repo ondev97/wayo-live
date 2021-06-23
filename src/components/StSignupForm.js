@@ -68,7 +68,7 @@ export default function StSignupForm() {
         </div>
         <div className="sect">
           <p>
-            <label htmlFor="un">Username (Class Number)</label>
+            <label htmlFor="un">Username</label>
             <input
               type="text"
               name="userName"
