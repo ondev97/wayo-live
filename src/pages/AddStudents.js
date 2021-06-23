@@ -15,7 +15,6 @@ import donwloadFile from "../img/Template.xlsx";
 export default function AddStudents() {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
-  const history = useHistory();
   const [allStudents, setallStudents] = useState([]);
   const [addedProfile, setaddedProfile] = useState([]);
   const [selectst, setselectst] = useState([]);
@@ -26,17 +25,13 @@ export default function AddStudents() {
   const [search, setsearch] = useState("");
   const [modelOp, setmodelOp] = useState(false);
   const [stPrDetail, setstPrDetail] = useState([]);
-  const { cid } = useParams();
+  const { id } = useParams();
 
   const debounce = useDebounce(); //custom hook
 
-  const back = () => {
-    history.goBack();
-  };
-
   const getStudents = async () => {
     await Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/getstudents/${cid}/?page=${page}&search=${search}`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/getstudents/${id}/?page=${page}&search=${search}`,
       {
         headers: { Authorization: "Token " + usDetails.key },
       }
@@ -87,7 +82,7 @@ export default function AddStudents() {
   /*Added Students*/
   const addStudemts = async () => {
     await Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollcoursebyteacher/${cid}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollcoursebyteacher/${id}/`,
       {
         students: selectst,
       },
@@ -164,25 +159,22 @@ export default function AddStudents() {
         setstPrDetail={setstPrDetail}
       />
       <div className="pageTop">
-        <h1>Add Students</h1>
+        <h1>Add Audience</h1>
       </div>
-      <div className="search_st">
-        <button onClick={back}>
-          <i className="fas fa-arrow-circle-left"></i> Back to Course
-        </button>
+      {/* <div className="search_st">
         <div className="search" onChange={handelSearchSubject}>
           <input type="text" />
           <button>
             <i className="fas fa-search"></i>
           </button>
         </div>
-      </div>
+      </div> */}
       <div className="ins_area">
         <h4>Special Instructions</h4>
         <p>
           First, click on "Download Template" to download the empty template for
           add bulk student list. Then, add student details in that template and
-          click on the "Upload Students List" button.
+          click on the "Upload Audience List" button.
         </p>
       </div>
       <div className="filerow">
@@ -190,7 +182,7 @@ export default function AddStudents() {
           <button>Download Template</button>
         </Link>
         <button onClick={() => setIsfoleModel(true)}>
-          Upload Students List
+          Upload Audience List
         </button>
       </div>
 
@@ -261,7 +253,7 @@ export default function AddStudents() {
           )}
         </div>
       ) : (
-        <Empty target="No Students" />
+        <Empty target="No Audience" />
       )}
     </div>
   );

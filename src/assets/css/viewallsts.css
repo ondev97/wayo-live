@@ -8,9 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6f6f6;
+  background-color: #7f7f7f;
   font-family: "Open Sans", sans-seri;
-  color: var(--h1Fontcolor);
+  color: #fff;
 }
 .search_st {
   width: 100%;

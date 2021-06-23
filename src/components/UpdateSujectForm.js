@@ -2,12 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { Cropper } from "react-cropper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default function UpdateSujectForm({
   hadelChabgeFormValues,
   handelSubmit,
   hideError,
   hide,
+  sethide,
   formErrors,
   image,
   getCropData,
@@ -84,6 +87,34 @@ export default function UpdateSujectForm({
       setformValue({ ...formValue, event_duration: difference || "" });
     }
   }, [formValue.event_start_time, formValue.event_end_time]);
+
+  const editorOnChangeHandel = (e, editor) => {
+    let data = editor.getData();
+    setformValue({ ...formValue, ["event_content"]: data });
+  };
+
+  const hideErrors = () => {
+    if (!hide.event_content) {
+      sethide({ ...hide, event_content: true });
+    }
+  };
+
+  const editorConfiguration = {
+    removePlugins: [
+      "Heading",
+      "Link",
+      "Bold",
+      "Italic",
+      "List",
+      "BlockQuote",
+      "Table",
+      "Image",
+      "ImageCaption",
+      "ImageStyle",
+      "ImageToolbar",
+      "ImageUpload",
+    ],
+  };
 
   return (
     <form onSubmit={handelSubmit}>
@@ -310,14 +341,15 @@ export default function UpdateSujectForm({
       </div>
       <p>
         <label htmlFor="sd">EVENT DESCRIPTION</label>
-        <textarea
-          name="event_content"
-          id="sd"
-          rows="10"
-          value={formValue.event_content}
-          onChange={hadelChabgeFormValues}
-          onFocus={hideError}
-        ></textarea>
+        <div className="editor">
+          <CKEditor
+            editor={ClassicEditor}
+            data={formValue.event_content}
+            onChange={editorOnChangeHandel}
+            config={editorConfiguration}
+            onFocus={hideErrors}
+          />
+        </div>
         {formErrors.event_content && (
           <span className={`tip ${hide.event_content ? "hidetip" : ""}`}>
             {formErrors.event_content}

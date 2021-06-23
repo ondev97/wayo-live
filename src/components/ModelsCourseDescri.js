@@ -66,12 +66,12 @@ export default function ModelsCourseDescri({ id }) {
                   <i className="fas fa-caret-right"></i> View Tickets
                 </li>
               </Link>
-              <Link to={`/teacherdashboard/addstudents/${id}`}>
+              <Link to={`/band/addaudience/${id}`}>
                 <li>
                   <i className="fas fa-caret-right"></i> Add Audience
                 </li>
               </Link>
-              <Link to={`/teacherdashboard/viewallst/${id}`}>
+              <Link to={`/band/viewaudience/${id}`}>
                 <li>
                   <i className="fas fa-caret-right"></i> View Audience
                 </li>
@@ -93,12 +93,12 @@ export default function ModelsCourseDescri({ id }) {
                 <i className="fas fa-caret-right"></i> View Tickets
               </li>
             </Link>
-            <Link to={`/teacherdashboard/addstudents/${id}`}>
+            <Link to={`/band/addaudience/${id}`}>
               <li>
                 <i className="fas fa-caret-right"></i> Add Audience
               </li>
             </Link>
-            <Link to={`/teacherdashboard/viewallst/${id}`}>
+            <Link to={`/band/viewaudience/${id}`}>
               <li>
                 <i className="fas fa-caret-right"></i> View Audience
               </li>

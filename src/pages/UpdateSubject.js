@@ -16,6 +16,7 @@ export default function UpdateSubject() {
     handelSubmit,
     hideError,
     hide,
+    sethide,
     formErrors,
     setformValue,
     setisFree,
@@ -127,6 +128,7 @@ export default function UpdateSubject() {
           handelSubmit={handelSubmit}
           hideError={hideError}
           hide={hide}
+          sethide={sethide}
           formErrors={formErrors}
           image={image}
           getCropData={getCropData}

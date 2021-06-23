@@ -29,7 +29,7 @@ export default function ViewIssuedKeys() {
   useEffect(async () => {
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/issuedcoupon/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/issuedtickets/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -103,7 +103,7 @@ export default function ViewIssuedKeys() {
                   allKeys.map((keys, index) => (
                     <tr key={keys.id}>
                       <td>{index + 1}</td>
-                      <td>{keys.coupon_key}</td>
+                      <td>{keys.ticket_number}</td>
                     </tr>
                   ))}
               </tbody>

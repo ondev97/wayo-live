@@ -56,6 +56,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
           headers: { Authorization: "Token " + usDetails.key },
         }
       ).then((res) => {
+        console.log(res.data.event_mode);
         setformValue({
           ...formValue,
           event_category_name: res.data.event_mode,
@@ -63,7 +64,6 @@ export default function UpdateSubjectFunc(submitForm, subid) {
           event_type: res.data.event_type,
           event_name: res.data.event_name,
           event_short_description: res.data.description,
-          event_content: res.data.event_content,
           event_cover: res.data.event_cover,
           event_date: res.data.event_date,
           event_end: res.data.event_end,
@@ -72,6 +72,9 @@ export default function UpdateSubjectFunc(submitForm, subid) {
           event_price: res.data.event_price,
           is_freeze: res.data.is_freeze,
         });
+        if (res.data.event_content) {
+          setformValue({ ...formValue, event_content: res.data.event_content });
+        }
       });
     }
   }, [usDetails]);
@@ -121,6 +124,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     handelSubmit,
     hideError,
     hide,
+    sethide,
     formErrors,
     setformValue,
     setisFree,

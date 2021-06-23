@@ -83,16 +83,17 @@
   margin-top: 25px;
   width: 100%;
   padding: 15px 10px;
-  background-color: #fff;
+  background-color: #7f7f7f;
 }
 .ins_area h4 {
   color: var(--h1Fontcolor);
   margin-bottom: 8px;
-  font-size: 13px;
+  font-size: 16px;
 }
 .ins_area p {
   font-size: 13px;
   word-wrap: break-word;
+  color: #eee;
 }
 .filerow {
   width: 100%;
@@ -101,10 +102,10 @@
 .filerow button {
   width: 200px;
   padding: 8px 5px;
-  border: 1px solid var(--buttonColor1);
-  border-radius: 20px;
-  background-color: #fff;
-  color: var(--buttonColor1);
+  border: 1px solid var(--h1Fontcolor);
+  border-radius: 2px;
+  background-color: var(--h1Fontcolor);
+  color: #fff;
   transition: 0.5s ease;
   cursor: pointer;
   outline: none;

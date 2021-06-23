@@ -17,6 +17,7 @@ export default function CreateSubject() {
     hadelChabgeFormValues,
     handelSubmit,
     formErrors,
+    sethide,
     hide,
     hideError,
     setisFree,
@@ -127,6 +128,7 @@ export default function CreateSubject() {
           hadelChabgeFormValues={hadelChabgeFormValues}
           handelSubmit={handelSubmit}
           formErrors={formErrors}
+          sethide={sethide}
           hide={hide}
           hideError={hideError}
           image={image}

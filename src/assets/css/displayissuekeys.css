@@ -8,7 +8,7 @@
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd {
   position: relative;
-  background-color: #fff;
+  background-color: #7f7f7f;
   height: 100%;
   max-height: calc(100vh - 140px);
   overflow-y: auto;
@@ -55,10 +55,10 @@
   border-collapse: collapse;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table tr {
-  border: 1px solid #eee;
+  border: 1px solid #7f7f7f;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table tr th {
-  background-color: #edf6ff;
+  background-color: #b1afaf;
   color: #000;
   position: sticky;
   top: 0;
@@ -67,6 +67,7 @@
 th {
   padding: 13px 0;
   text-align: center;
+  color: #fff;
 }
 .disp_all_issu_keys .disp_issu_keys .no_keys {
   width: 100%;

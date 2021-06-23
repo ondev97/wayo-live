@@ -1,6 +1,6 @@
 export default function ValidateSubjectCreateForm(values, isFree) {
   let errors = {};
-  console.log(values);
+  console.log(values.event_content.length);
   if (!values.event_category) {
     errors.event_category = "Event Category Is Required";
   }
@@ -30,10 +30,9 @@ export default function ValidateSubjectCreateForm(values, isFree) {
     if (values.event_price.length > 11) {
       errors.event_price = "Event Pice Is Must Be Less Than 11 Characters";
     }
-    if (values.event_content.length > 500) {
-      errors.event_content =
-        "Event Description Must Be Less Than 500 Characters";
-    }
+  }
+  if (values.event_content.length > 500) {
+    errors.event_content = "Event Description Must Be Less Than 500 Characters";
   }
 
   return errors;

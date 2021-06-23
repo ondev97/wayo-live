@@ -85,6 +85,7 @@ const UseCreateSubject = (submitForm) => {
     hadelChabgeFormValues,
     handelSubmit,
     formErrors,
+    sethide,
     hide,
     hideError,
     isFree,

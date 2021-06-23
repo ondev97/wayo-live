@@ -81,6 +81,9 @@
   align-items: flex-start;
   grid-column-gap: 10px;
 }
+.subject_form .main_form p .editor {
+  width: 100%;
+}
 .subject_form .main_form p label {
   flex-basis: 120px;
   font-size: 13px;

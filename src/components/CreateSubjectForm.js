@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cropper from "react-cropper";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default function CreateSubjectForm({
   formValue,
@@ -8,6 +10,7 @@ export default function CreateSubjectForm({
   formErrors,
   hide,
   hideError,
+  sethide,
   image,
   getCropData,
   setCropper,
@@ -59,6 +62,34 @@ export default function CreateSubjectForm({
       setformValue({ ...formValue, event_duration: difference || "" });
     }
   }, [formValue.event_start_time, formValue.event_end_time]);
+
+  const editorOnChangeHandel = (e, editor) => {
+    let data = editor.getData();
+    setformValue({ ...formValue, ["event_content"]: data });
+  };
+
+  const hideErrors = () => {
+    if (!hide.event_content) {
+      sethide({ ...hide, event_content: true });
+    }
+  };
+
+  const editorConfiguration = {
+    removePlugins: [
+      "Heading",
+      "Link",
+      "Bold",
+      "Italic",
+      "List",
+      "BlockQuote",
+      "Table",
+      "Image",
+      "ImageCaption",
+      "ImageStyle",
+      "ImageToolbar",
+      "ImageUpload",
+    ],
+  };
 
   return (
     <form onSubmit={handelSubmit}>
@@ -241,7 +272,7 @@ export default function CreateSubjectForm({
         )}
         <p>
           <label htmlFor="file">
-            {cropData === "#" ? "Upload Band Logo" : "Changed Band Logo"}
+            {cropData === "#" ? "Upload Event Cover" : "Changed Event Cover"}
           </label>
           <input
             type="file"
@@ -263,14 +294,16 @@ export default function CreateSubjectForm({
       </div>
       <p>
         <label htmlFor="sd">EVENT DESCRIPTION</label>
-        <textarea
-          name="event_content"
-          id="sd"
-          rows="10"
-          value={formValue.event_content}
-          onChange={hadelChabgeFormValues}
-          onFocus={hideError}
-        ></textarea>
+        <div className="editor">
+          <CKEditor
+            editor={ClassicEditor}
+            data={formValue.event_content}
+            onChange={editorOnChangeHandel}
+            config={editorConfiguration}
+            onFocus={hideErrors}
+            name="event_content"
+          />
+        </div>
         {formErrors.event_content && (
           <span className={`tip ${hide.event_content ? "hidetip" : ""}`}>
             {formErrors.event_content}
