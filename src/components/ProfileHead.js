@@ -5,13 +5,13 @@ import AcDetails from "../utils/hooks/AcDetails";
 import { store } from "react-notifications-component";
 import CropImages from "../utils/hooks/CropImages";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import wayo from "../img/wayo.jpg";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function ProfileHead() {
   const [showModel, setshowModel] = useState(false);
   const [filePath, setfilePath] = useState("");
   const [imgObjectURL, setimgObjectURL] = useState("");
+
   const [
     image,
     getCropData,
@@ -108,7 +108,7 @@ export default function ProfileHead() {
             profileDetails.lname || ""
           }`}</h2>
           <div className="srow_pro_pic">
-            <LazyLoadImage src={wayo} alt="" effect="blur" />
+            <LazyLoadImage src={teachProfilepic} alt="band" effect="blur" />
             <label htmlFor="uppic">
               <i className="fas fa-camera"></i>
             </label>
