@@ -30,16 +30,16 @@ export default function AddStudents() {
   const debounce = useDebounce(); //custom hook
 
   const getStudents = async () => {
-    await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/listusers/`, {
+    await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/listusers/`, {
       headers: { Authorization: "Token " + usDetails.key },
     })
       .then((res) => {
         if (page > 1) {
           settotStud(res.data);
-          setallStudents([...allStudents, ...res.data.results]);
+          setallStudents([...allStudents, ...res.data]);
         } else {
           settotStud(res.data);
-          setallStudents([...res.data.results]);
+          setallStudents([...res.data]);
         }
       })
       .catch((err) => {
@@ -79,9 +79,9 @@ export default function AddStudents() {
   /*Added Students*/
   const addStudemts = async () => {
     await Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollcoursebyteacher/${id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/addtoeventbyband/${id}/`,
       {
-        students: selectst,
+        users: selectst,
       },
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -210,7 +210,7 @@ export default function AddStudents() {
                 <tr key={data.id}>
                   <td onClick={() => viewPr(data.user.id)}>{data.id}</td>
                   <td onClick={() => viewPr(data.user.id)}>
-                    <LazyLoadImage src={data.profile_pic} effect="blur" />
+                    <LazyLoadImage src={data.user_image} effect="blur" />
                   </td>
                   <td onClick={() => viewPr(data.user.id)}>
                     {data.user.first_name + " " + data.user.last_name}
@@ -230,7 +230,7 @@ export default function AddStudents() {
                         "," +
                         data.user.id +
                         "," +
-                        data.profile_pic
+                        data.user_image
                       }
                       onClick={addToSelect}
                     >

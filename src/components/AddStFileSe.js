@@ -21,7 +21,7 @@ export default function AddStFileSe({
   const [data, setData] = useState([]);
   const [fileName, setfileName] = useState("");
   const [stData, setstData] = useState([]);
-  const { cid } = useParams();
+  const { id } = useParams();
 
   const bgClick = (e) => {
     if (e.target.classList.contains("modeladdstfile")) {
@@ -104,9 +104,9 @@ export default function AddStFileSe({
   const addStToCos = async () => {
     if (stData.length !== 0) {
       await Axios.post(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollcoursebyteacher/${cid}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/addtoeventbyband/${id}/`,
         {
-          students: stData,
+          users: stData,
         },
         {
           headers: { Authorization: "Token " + usDetails.key },
