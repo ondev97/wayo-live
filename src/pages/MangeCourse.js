@@ -18,7 +18,7 @@ export default function MangeCourse() {
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
   const { profileDetails } = AcDetails();
-
+  console.log(profileDetails);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
@@ -26,10 +26,10 @@ export default function MangeCourse() {
 
   useEffect(() => {
     if (search === "") {
-      const fetchurl = `${url}/1/`;
+      const fetchurl = `${url}/${profileDetails.id}/`;
       getSubjectDetails(fetchurl);
     } else {
-      const fetchurl = `${url}/${usDetails.id}/`;
+      const fetchurl = `${url}/${profileDetails.id}/`;
       getSubjectDetails(fetchurl);
     }
   }, [usDetails, page, search, profileDetails]);

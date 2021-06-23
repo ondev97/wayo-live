@@ -14,7 +14,7 @@ const UseCreateSubject = (submitForm) => {
     event_end_time: "",
     event_duration: "",
     event_price: 0,
-    event_description: "",
+    event_content: "",
     is_freeze: false,
   });
   const [formErrors, setformErrors] = useState({
@@ -26,7 +26,7 @@ const UseCreateSubject = (submitForm) => {
     event_start_time: "",
     event_end_time: "",
     event_price: "",
-    event_description: "",
+    event_content: "",
   });
   const [hide, sethide] = useState({
     event_name: false,
@@ -37,12 +37,11 @@ const UseCreateSubject = (submitForm) => {
     event_start_time: false,
     event_end_time: false,
     event_price: false,
-    event_description: false,
+    event_content: false,
   });
   const [isSubmitting, setisSubmitting] = useState(false);
 
   const hadelChabgeFormValues = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setformValue({
       ...formValue,
@@ -56,13 +55,13 @@ const UseCreateSubject = (submitForm) => {
     setformErrors(ValidateSubjectCreateForm(formValue, isFree));
     sethide({
       event_name: false,
-      event_description: false,
+      event_short_description: false,
       event_label: false,
       event_date: false,
       event_start_time: false,
       event_end_time: false,
       event_price: false,
-      event_description: false,
+      event_content: false,
     });
     setisSubmitting(true);
   };

@@ -264,16 +264,16 @@ export default function CreateSubjectForm({
       <p>
         <label htmlFor="sd">EVENT DESCRIPTION</label>
         <textarea
-          name="event_description"
+          name="event_content"
           id="sd"
           rows="10"
-          value={formValue.event_description}
+          value={formValue.event_content}
           onChange={hadelChabgeFormValues}
           onFocus={hideError}
         ></textarea>
-        {formErrors.event_description && (
-          <span className={`tip ${hide.event_description ? "hidetip" : ""}`}>
-            {formErrors.event_description}
+        {formErrors.event_content && (
+          <span className={`tip ${hide.event_content ? "hidetip" : ""}`}>
+            {formErrors.event_content}
           </span>
         )}
       </p>
