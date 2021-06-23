@@ -120,26 +120,6 @@ export default function AddStudents() {
     debounce(() => setsearch(search), 500);
   };
 
-  /*model page*/
-  const viewPr = (id) => {
-    if (!modelOp) {
-      setmodelOp(true);
-      /*get studet details */
-      Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/stuprofile/${id}/`,
-        {
-          headers: { Authorization: "Token " + usDetails.key },
-        }
-      )
-        .then((res) => {
-          setstPrDetail(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  };
-
   return (
     <div className="stlist">
       <AddStFileSe
@@ -211,19 +191,13 @@ export default function AddStudents() {
             <tbody>
               {allStudents.map((data) => (
                 <tr key={data.id}>
-                  <td onClick={() => viewPr(data.user.id)}>{data.id}</td>
-                  <td onClick={() => viewPr(data.user.id)}>
+                  <td>{data.id}</td>
+                  <td>
                     <LazyLoadImage src={data.user_image} effect="blur" />
                   </td>
-                  <td onClick={() => viewPr(data.user.id)}>
-                    {data.user.first_name + " " + data.user.last_name}
-                  </td>
-                  <td onClick={() => viewPr(data.user.id)}>
-                    {data.user.username}
-                  </td>
-                  <td onClick={() => viewPr(data.user.id)}>
-                    {data.user.email}
-                  </td>
+                  <td>{data.user.first_name + " " + data.user.last_name}</td>
+                  <td>{data.user.username}</td>
+                  <td>{data.user.email}</td>
                   <td>
                     {/* <input type="checkbox" value={data.user.username+','+data.user.id+','+data.profile_pic} onChange={addToSelect} /> */}
                     <button

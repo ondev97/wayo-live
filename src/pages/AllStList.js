@@ -18,7 +18,6 @@ export default function AllStList() {
   const [unEnrol, setunEnrol] = useState(false);
   const [stPrDetail, setstPrDetail] = useState([]);
   const [page, setpage] = useState(1);
-  const history = useHistory();
   const [search, setsearch] = useState("");
   const { id } = useParams();
 
@@ -47,26 +46,6 @@ export default function AllStList() {
     getallStude();
   }, [usDetails, unEnrol, page, search]);
   /*model page*/
-
-  /*model page*/
-  const viewPr = (id) => {
-    if (!modelOp) {
-      setmodelOp(true);
-      /*get studet details */
-      Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/account-api/stuprofile/${id}/`,
-        {
-          headers: { Authorization: "Token " + usDetails.key },
-        }
-      )
-        .then((res) => {
-          setstPrDetail(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  };
 
   /*Student Unenrolled*/
   const unEnrolSt = async (id) => {
@@ -112,7 +91,7 @@ export default function AllStList() {
     setpage(1);
     debounce(() => setsearch(search), 500);
   };
-  console.log(allstudent);
+
   return (
     <div className="stlist">
       <ViewStuTc
@@ -122,7 +101,7 @@ export default function AllStList() {
         setstPrDetail={setstPrDetail}
       />
       <div className="pageTop">
-        <h1>Enrolled Students</h1>
+        <h1>Audience In The Event</h1>
       </div>
       {allDetailSt !== null ? (
         <div className="sttable">
@@ -143,19 +122,15 @@ export default function AllStList() {
                 <tbody>
                   {allstudent.map((data) => (
                     <tr key={data.id}>
-                      <td onClick={() => viewPr(data.user.id)}>{data.id}</td>
-                      <td onClick={() => viewPr(data.user.id)}>
+                      <td>{data.id}</td>
+                      <td>
                         <LazyLoadImage src={data.user_image} effect="blur" />
                       </td>
-                      <td onClick={() => viewPr(data.user.id)}>
+                      <td>
                         {data.user.first_name + " " + data.user.last_name}
                       </td>
-                      <td onClick={() => viewPr(data.user.id)}>
-                        {data.user.username}
-                      </td>
-                      <td onClick={() => viewPr(data.user.id)}>
-                        {data.user.email}
-                      </td>
+                      <td>{data.user.username}</td>
+                      <td>{data.user.email}</td>
                       <td>
                         <button onClick={() => unEnrolSt(data.id)}>
                           <i className="far fa-times-circle"></i>

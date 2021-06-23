@@ -23,15 +23,12 @@ function UserStatus() {
     if (
       Object.keys(JSON.parse(localStorage.getItem("usValues"))).length !== 0
     ) {
-      Axios.delete(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/logout/`,
-        {
-          headers: {
-            Authorization:
-              "Token " + JSON.parse(localStorage.getItem("usValues")).key,
-          },
-        }
-      );
+      Axios.delete(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/logout/`, {
+        headers: {
+          Authorization:
+            "Token " + JSON.parse(localStorage.getItem("usValues")).key,
+        },
+      });
 
       localStorage.setItem("usValues", JSON.stringify({}));
     }
