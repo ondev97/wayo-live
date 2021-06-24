@@ -82,7 +82,7 @@ export default function Stmodules() {
   // }, [setVideo]);
 
   if (redirect) {
-    return <Redirect to={`/studentdashboard/mycourses/`} />;
+    return <Redirect to={`/audiencedashboard/eventsinband/${id}/`} />;
   }
 
   const videoBackground = (e) => {
