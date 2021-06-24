@@ -10,16 +10,18 @@ function EventsFilters() {
   const eventRef = useRef();
   const [acDropDown, setacDropDown] = useState(false);
   const [evDropDown, setevDropDown] = useState(false);
-  const { teachProfilepic } = AcDetails();
+  const { profileDetails, teachProfilepic } = AcDetails();
   const [eventValues, seteventValues] = useState([]);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
   useEffect(() => {
     if (usDetails.key) {
-      getEvent();
+      if (profileDetails.id) {
+        getEvent(profileDetails.id);
+      }
     }
-  }, [usDetails]);
+  }, [usDetails, profileDetails]);
 
   const activeDropDown = () => {
     setacDropDown(!acDropDown);
@@ -42,10 +44,13 @@ function EventsFilters() {
     setevDropDown(false);
   };
 
-  const getEvent = () => {
-    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/`, {
-      headers: { Authorization: "Token " + usDetails.key },
-    })
+  const getEvent = (id) => {
+    Axios.get(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${id}/`,
+      {
+        headers: { Authorization: "Token " + usDetails.key },
+      }
+    )
       .then((res) => {
         seteventValues([...res.data]);
       })

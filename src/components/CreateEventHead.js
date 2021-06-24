@@ -4,6 +4,7 @@ import "../assets/css/eventhead.css";
 import EventModel from "./EventModel";
 import { useSelector } from "react-redux";
 import Axios from "axios";
+import AcDetails from "../utils/hooks/AcDetails";
 
 function CreateEventHead({
   formValue,
@@ -12,6 +13,7 @@ function CreateEventHead({
   hideError,
   hide,
   formErrors,
+  profileDetails,
 }) {
   const eventRef = useRef();
   const [closeModel, setcloseModel] = useState(false);
@@ -23,22 +25,30 @@ function CreateEventHead({
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (usDetails.key) {
-      getEvent();
+      if (profileDetails) {
+        await getEvent(profileDetails);
+      }
     }
-  }, [usDetails, ismodel]);
+  }, [usDetails, ismodel, profileDetails.id]);
 
-  const getEvent = () => {
-    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/`, {
-      headers: { Authorization: "Token " + usDetails.key },
-    })
-      .then((res) => {
-        seteventValues([...res.data]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const getEvent = ({ id }) => {
+    if (id) {
+      console.log(id);
+      Axios.get(
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${id}/`,
+        {
+          headers: { Authorization: "Token " + usDetails.key },
+        }
+      )
+        .then((res) => {
+          seteventValues([...res.data]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const removeOuter = (e) => {

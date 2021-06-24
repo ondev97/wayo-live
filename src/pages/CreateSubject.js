@@ -10,7 +10,7 @@ import "../assets/css/creatsubject.css";
 import "../assets/css/mediaFiles/createsubmedia.css";
 import CreateEventHead from "../components/CreateEventHead";
 
-export default function CreateSubject() {
+export default function CreateSubject({ profileDetails }) {
   const {
     formValue,
     setformValue,
@@ -120,6 +120,7 @@ export default function CreateSubject() {
         formErrors={formErrors}
         hide={hide}
         hideError={hideError}
+        profileDetails={profileDetails}
       />
       <div className="main_form">
         <CreateSubjectForm

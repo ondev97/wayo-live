@@ -28,9 +28,11 @@ function UpdateEventHead({
 
   useEffect(() => {
     if (usDetails.key) {
-      getEvent();
+      if (profileDetails.id) {
+        getEvent(profileDetails.id);
+      }
     }
-  }, [usDetails, ismodel]);
+  }, [usDetails, ismodel, profileDetails]);
 
   const removeOuter = (e) => {
     if (e.target.className.includes("model_outer")) {
@@ -51,16 +53,21 @@ function UpdateEventHead({
     }
   }, [formValue.event_category_name]);
 
-  const getEvent = () => {
-    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/`, {
-      headers: { Authorization: "Token " + usDetails.key },
-    })
-      .then((res) => {
-        seteventValues([...res.data]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const getEvent = (id) => {
+    if (id) {
+      Axios.get(
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${id}/`,
+        {
+          headers: { Authorization: "Token " + usDetails.key },
+        }
+      )
+        .then((res) => {
+          seteventValues([...res.data]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const activeEventDropDown = () => {

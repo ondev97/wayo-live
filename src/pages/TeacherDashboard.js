@@ -27,7 +27,7 @@ export default function TeacherDashboard() {
   const [redirect, setredirect] = useState(false);
 
   const { log, hadelLogOut } = UserStatus(); //custom hook
-  const { teachProfilepic } = AcDetails();
+  const { profileDetails, teachProfilepic } = AcDetails();
   const usDetails = useSelector((state) => state.accountDetails);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -159,7 +159,7 @@ export default function TeacherDashboard() {
         </div>
         <div className="sub_column">
           <Route path="/band/createevent">
-            <CreateSubject />
+            <CreateSubject profileDetails={profileDetails} />
           </Route>
           <Route path="/band/createshow">
             <CreateModels />
