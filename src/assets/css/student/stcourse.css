@@ -771,3 +771,48 @@ i.cl {
   border-radius: 20px;
   border: transparent;
 }
+
+@media screen and (max-width: 700px) {
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage {
+    flex-direction: column;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_head {
+    width: 100%;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_body {
+    width: 100%;
+  }
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_tail {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 390px) {
+  .st_top_manage_body
+    .st_mange_cos_body
+    .st_manage_course_grid
+    .st_grid_card_manage
+    .st_grid_card_mg_tail {
+    justify-content: center;
+  }
+  .key_model_outer .key_model_page {
+    width: 90%;
+  }
+}

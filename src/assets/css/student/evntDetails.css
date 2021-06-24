@@ -113,6 +113,7 @@
   display: flex;
   grid-column-gap: 12px;
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 .event_details
   .event_description
@@ -148,6 +149,30 @@
     grid-row-gap: 25px;
   }
   .event_header .event_row .event_column:nth-child(1) {
+    width: 100%;
+  }
+  .event_header .event_row .event_column:nth-child(2) {
+    width: 100%;
+  }
+  .event_header .event_row .event_column:nth-child(3) {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 356px) {
+  .filter_section {
+    flex-direction: column;
+  }
+  .filter_section
+    .filter_column
+    .custom_select_box
+    .outer_select_box
+    .img_section {
+    display: none;
+  }
+  .filter_section .filter_column .custom_select_box .outer_select_box input {
     width: 100%;
   }
 }

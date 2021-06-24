@@ -3,6 +3,7 @@
     justify-content: center;
   }
 }
+
 @media screen and (max-width: 440px) {
   .top_manage_body .mange_cos_body .manage_course_nav button {
     width: 145px;

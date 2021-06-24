@@ -20,6 +20,7 @@
 @media screen and (max-width: 390px) {
   .main_ar_course .course_body {
     grid-template-columns: 1fr;
+    padding: 25px 10px;
   }
   .main_ar_course .course_body .course_card .cscard_head img {
     object-fit: cover;

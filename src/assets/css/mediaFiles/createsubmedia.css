@@ -6,7 +6,15 @@
     width: 100%;
   }
   .subject_form .main_form {
-    width: 90%;
+    width: 100%;
+    padding: 10px;
+  }
+  .subject_form .main_form .sub_sect {
+    flex-wrap: wrap;
+  }
+  .subject_form .main_form .sub_sect p {
+    flex: initial;
+    width: 100%;
   }
 }
 @media screen and (max-width: 550px) {
@@ -29,11 +37,18 @@
   .subject_form .main_form .up_pro_pic {
     width: 95%;
   }
+  .subject_form .main_form .up_pro_pic .finCropImg {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 450px) {
   .subject_form .main_form {
     width: 99%;
     padding: 20px 5px;
+  }
+  .subject_form .main_form form {
+    overflow: hidden;
+    width: 100%;
   }
   .subject_form .uppper_section .main_upper {
     flex-wrap: wrap;

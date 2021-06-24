@@ -685,3 +685,9 @@
 .full_screen_video .video_player .player_overlay:hover .volume {
   visibility: visible;
 }
+
+@media screen and (max-width: 259px) {
+  .models .md_all_models .md_models .al_models .on_model_body {
+    padding: 0 10px 25px;
+  }
+}

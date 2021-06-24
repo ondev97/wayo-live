@@ -189,7 +189,7 @@ nav .ham button i {
 /*hamburger menu*/
 .hammenu {
   position: fixed;
-  top: 93px;
+  top: 75px;
   left: 50%;
   transform: translateX(-50%);
   background: #f9f9f9eb;

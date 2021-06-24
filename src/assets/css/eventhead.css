@@ -208,3 +208,47 @@
 .event_grid_sec .event_column .custom_select_box .chevrons i {
   font-size: 30px;
 }
+@media screen and (max-width: 900px) {
+  .model_outer {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .model_outer .model_form {
+    max-width: 85%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .event_grid_sec {
+    flex-wrap: wrap;
+  }
+  .subject_form .main_form p {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .subject_form .main_form p label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  .subject_form .main_form p input,
+  p textarea {
+    flex: initial;
+    width: 100%;
+  }
+  .subject_form .main_form .sub_sect p input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 270px) {
+  .event_grid_sec .event_column .outer_select_box .img_section {
+    display: none;
+  }
+  .event_grid_sec .event_column .outer_select_box input {
+    flex: initial;
+    width: 100%;
+  }
+  .event_grid_sec {
+    flex-direction: column;
+  }
+}

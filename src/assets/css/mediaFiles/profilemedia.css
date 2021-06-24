@@ -21,6 +21,7 @@
   }
   .main_profile .tcprofilecolumn {
     margin-bottom: 10px;
+    margin-right: 0px;
   }
 }
 @media screen and (max-width: 870px) {
@@ -118,7 +119,7 @@
     margin-right: 0;
   }
   .main .main_column .sub_column {
-    padding: 10px 15px;
+    padding: 10px 0px;
   }
   .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr {
     display: block;

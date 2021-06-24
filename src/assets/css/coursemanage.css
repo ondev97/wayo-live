@@ -247,3 +247,33 @@
   border: 1px solid transparent;
   cursor: pointer;
 }
+
+@media screen and (max-width: 750px) {
+  .main_ar_course .course_body .course_card {
+    flex-direction: column;
+  }
+  .main_ar_course .course_body .course_card a {
+    width: 100%;
+  }
+  .main_ar_course .course_body .course_card .cscard_head {
+    width: 100%;
+  }
+  .main_ar_course .course_body .course_card .cscard_bottom {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+  .main_ar_course .course_body .course_card .cscard_bottom a {
+    width: auto;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 445px) {
+  .main_ar_course .course_body .course_card .cscard_bottom a {
+    width: 100%;
+  }
+  .main_ar_course .course_body .course_card .cscard_bottom button {
+    width: 100%;
+  }
+}
