@@ -1,9 +1,10 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import LazyLoad from "react-lazyload";
 import ReactPlayer from "react-player/lazy";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import ModuleBody from "./ModuleBody";
 
 export default function TcOneModel({
@@ -15,8 +16,13 @@ export default function TcOneModel({
   moduleData,
 }) {
   const [playing, setplaying] = useState(false);
+  const [iValue, setiValue] = useState("");
+  const [src, setsrc] = useState("");
+  const valueRef = useRef();
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
+
+  let history = useHistory();
 
   const playPush = (e) => {
     if (e.target.className.includes("player_overlay")) {
@@ -38,9 +44,6 @@ export default function TcOneModel({
   //filtering message and embed react player
   function filterTags(nodes) {
     let media = [];
-    let youtubeRegular = new RegExp(
-      /(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/
-    );
     if (nodes.length > 0) {
       for (let i = 0; i < nodes.length; i++) {
         if (
@@ -99,7 +102,18 @@ export default function TcOneModel({
             media = [...media, nodes[i]];
           }
         } else {
-          media = [...media, nodes[i]];
+          //media = [...media, nodes[i]];
+        }
+        if (nodes[i].type === "p") {
+          if (nodes[i].props.children) {
+            for (let z = 0; nodes[i].props.children.length > z; z++) {
+              console.log(nodes[i].props.children[z].includes("<iframe"));
+              if (nodes[i].props.children[z].includes("<iframe")) {
+                valueRef.current = nodes[i].props.children[z];
+                break;
+              }
+            }
+          }
         }
       }
       return media;
@@ -119,11 +133,31 @@ export default function TcOneModel({
       .catch((err) => {});
   };
 
-  const handelDeleteModule = async (id) => {
-    if (window.confirm("Are You Sure?")) {
-      setisRemoveModule(false);
-      await functionRemoveModule(id);
+  useEffect(() => {
+    setiValue(valueRef.current);
+  }, []);
+  useEffect(() => {
+    if (iValue) {
+      document.getElementById("setValue").innerHTML = iValue;
+      getI();
     }
+  }, [iValue]);
+
+  function getI() {
+    let ifra = document.querySelector("#setValue iframe");
+    setsrc(ifra.getAttribute("src"));
+  }
+
+  //play Iframe
+  const playIframe = () => {
+    setplaying(true);
+    setplaying(false);
+    history.push({
+      pathname: "/band/playevent",
+      state: {
+        value: iValue,
+      },
+    });
   };
 
   return (
@@ -133,6 +167,30 @@ export default function TcOneModel({
           {msg && (
             <div className="model_body_row">
               {filterTags(ReactHtmlParser(msg))}
+              <div ref={valueRef} style={{ display: "none" }}></div>
+              {iValue ? (
+                <>
+                  <div id="setValue" style={{ display: "none" }}></div>
+                  {src ? (
+                    <div className="re_player" id="re_player">
+                      <ReactPlayer
+                        url={src}
+                        controls={true}
+                        pip={true}
+                        className="player"
+                        width="100%"
+                        height="100%"
+                        playing={playing}
+                        onPlay={playIframe}
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ) : (
+                ""
+              )}
               <div className="event_details_dis">
                 <h3>EVENT DETAILS </h3>
                 <p>Event Start Time - {moduleData.event_start || ""}</p>

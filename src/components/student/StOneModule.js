@@ -3,6 +3,7 @@ import ReactPlayer from "react-player/lazy";
 import StModuleBody from "./StModuleBody";
 import LazyLoad from "react-lazyload";
 import ReactHtmlParser from "react-html-parser";
+import { useHistory } from "react-router";
 
 export default function StOneModule({
   moduleData,
@@ -13,7 +14,10 @@ export default function StOneModule({
 }) {
   const [playing, setplaying] = useState(false);
   const [iValue, setiValue] = useState("");
+  const [src, setsrc] = useState("");
   const valueRef = useRef();
+
+  let history = useHistory();
 
   const play = (link) => {
     setplaying(true);
@@ -93,13 +97,14 @@ export default function StOneModule({
             media = [...media, nodes[i]];
           }
         } else {
-          media = [...media, nodes[i]];
+          //media = [...media, nodes[i]];
         }
         if (nodes[i].type === "p") {
           if (nodes[i].props.children) {
             for (let z = 0; nodes[i].props.children.length > z; z++) {
               if (nodes[i].props.children[z].includes("<iframe")) {
                 valueRef.current = nodes[i].props.children[z];
+                break;
               }
             }
           }
@@ -115,8 +120,26 @@ export default function StOneModule({
   useEffect(() => {
     if (iValue) {
       document.getElementById("setValue").innerHTML = iValue;
+      getI();
     }
   }, [iValue]);
+
+  function getI() {
+    let ifra = document.querySelector("#setValue iframe");
+    setsrc(ifra.getAttribute("src"));
+  }
+
+  //play Iframe
+  const playIframe = () => {
+    setplaying(true);
+    setplaying(false);
+    history.push({
+      pathname: "/audiencedashboard/playevent",
+      state: {
+        value: iValue,
+      },
+    });
+  };
 
   return (
     <LazyLoad height={200}>
@@ -126,7 +149,29 @@ export default function StOneModule({
             <div className="model_body_row">
               {filterTags(ReactHtmlParser(msg))}
               <div ref={valueRef} style={{ display: "none" }}></div>
-              {iValue ? <div id="setValue"></div> : ""}
+              {iValue ? (
+                <>
+                  <div id="setValue" style={{ display: "none" }}></div>
+                  {src ? (
+                    <div className="re_player" id="re_player">
+                      <ReactPlayer
+                        url={src}
+                        controls={true}
+                        pip={true}
+                        className="player"
+                        width="100%"
+                        height="100%"
+                        playing={playing}
+                        onPlay={playIframe}
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ) : (
+                ""
+              )}
               <div className="event_details_dis">
                 <h3>EVENT DETAILS </h3>
                 <p>EVENT START TIME : {moduleData.event_start || ""}</p>

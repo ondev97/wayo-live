@@ -44,7 +44,7 @@ export default function StudentDashBoardHeader() {
               <li>HOME</li>
             </Link>
             <Link to="/audiencedashboard/maindashboard/">
-              <li>ALL EVENTS</li>
+              <li>ALL BANDS</li>
             </Link>
             <Link to="#">
               <li>USER GUIDE</li>

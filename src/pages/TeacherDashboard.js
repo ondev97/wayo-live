@@ -20,6 +20,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AddStudents from "./AddStudents";
 import TcEventDetails from "./TcEventDetails";
+import PlayEvent from "./PlayEvent";
 
 export default function TeacherDashboard() {
   const [toggle, settoggle] = useState(false);
@@ -193,6 +194,9 @@ export default function TeacherDashboard() {
           </Route>
           <Route path="/band/ticket">
             <GeneEnrollmentkeys />
+          </Route>
+          <Route path="/band/playevent">
+            <PlayEvent />
           </Route>
         </div>
       </div>

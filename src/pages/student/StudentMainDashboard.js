@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import useDebounce from "../../utils/hooks/useDebounce";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import SubjectsCard from "../../components/student/SubjectsCard";
+import PageBreadcrumbs from "../../components/student/PageBreadcrumbs";
 import MySubjectsCard from "../../components/student/MySubjectCard";
 import ProfileLoader from "../../components/ProfileLoader";
 import Empty from "../../components/Empty";
@@ -64,19 +64,8 @@ export default function StudentMainDashboard() {
     <>
       <div className="all_st_subs">
         <div className="pagetop">
-          <h1>ALL BANDS</h1>
+          <PageBreadcrumbs />
           <h1>SELECT YOUR fAVORITE BAND</h1>
-          {/* <div className="search_row">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search Subject"
-              onChange={handelSearchSubject}
-            />
-            <button>
-              <i className="fas fa-search"></i>
-            </button>
-          </div> */}
         </div>
         {subDetails.length !== 0 ? (
           <div className="">
