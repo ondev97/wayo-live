@@ -45,7 +45,6 @@ function EventsFilter({ id, bands }) {
         }
       )
         .then((res) => {
-          console.log(res);
           if (res.data) {
             setEventModes(res.data);
           }
@@ -127,7 +126,7 @@ function EventsFilter({ id, bands }) {
           </div>
         </div>
         <div className="filter_column">
-          <h2>SELECT BAND</h2>
+          <h2>SELECT CATEGORY</h2>
           <form>
             <p>
               <input type="checkbox" id="live" name="record" />
@@ -162,7 +161,9 @@ function EventsFilter({ id, bands }) {
               {evDropDown ? (
                 <>
                   {eventModes.length !== 0
-                    ? eventModes.map((eMode) => bandsList(eMode, setEvActive))
+                    ? eventModes.map((eMode) =>
+                        eventModsList(eMode, setEvActive)
+                      )
                     : ""}
                 </>
               ) : (
