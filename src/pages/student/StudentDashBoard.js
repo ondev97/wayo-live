@@ -112,7 +112,7 @@ function StudentDashBoard() {
                 }}
               >
                 <LazyLoadImage
-                  src={`${initialState && `${initialState.profile_pic}`}`}
+                  src={`${initialState && `${initialState.user_image}`}`}
                   alt=""
                   effect="blur"
                 />
