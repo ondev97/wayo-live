@@ -7,15 +7,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function StCourseModuleDes() {
   const usDetails = useSelector((state) => state.accountDetails);
-  const [courseData, setcourseData] = useState({
-    created_at: "2020-12-29T22:59:02.384639+05:30",
-  });
+  const [courseData, setcourseData] = useState({});
   const { id } = useParams();
 
   useEffect(async () => {
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/viewcourse/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/audienceintheevent/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -27,103 +25,27 @@ export default function StCourseModuleDes() {
     }
   }, [usDetails]);
 
+  console.log(courseData);
+
   return (
     <div className="live_audience">
       <div className="live_audience_head">
         <h1>LIVE AUDIENCE</h1>
-        <h1>250</h1>
+        <h1>{courseData ? courseData.length : ""}</h1>
       </div>
       <div className="live_audience_body">
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME </h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
-        <div className="audience_row">
-          <div className="audience_pro_pic"></div>
-          <div className="audience_names">
-            <h1>USER NAME</h1>
-          </div>
-        </div>
+        {courseData.length > 0
+          ? courseData.map((data) => (
+              <div className="audience_row" key={data.id}>
+                <div className="audience_pro_pic">
+                  <img src={data.user_image} />
+                </div>
+                <div className="audience_names">
+                  <h1>{data.user.first_name}</h1>
+                </div>
+              </div>
+            ))
+          : ""}
       </div>
     </div>
   );

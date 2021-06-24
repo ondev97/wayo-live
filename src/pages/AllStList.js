@@ -48,10 +48,11 @@ export default function AllStList() {
   /*model page*/
 
   /*Student Unenrolled*/
-  const unEnrolSt = async (id) => {
+  const unEnrolSt = async (uid) => {
+    console.log(id);
     if (window.confirm("Are You Sure?")) {
       await Axios.delete(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/unenroll/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/remove/${id}/${uid}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }

@@ -473,8 +473,9 @@
 .ac_det .sectpr p textarea {
   width: 100%;
   padding: 9px 5px;
-  border: 1px solid #e2e7ef;
-  background-color: #e2e7ef;
+  border: 1px solid #404040;
+  background-color: #404040;
+  color: #eee;
   outline: none;
   border-radius: 3px;
   margin-bottom: 20px;
@@ -754,7 +755,9 @@ i {
   width: 100%;
   padding: 9px 5px;
   margin-bottom: 15px;
-  border: 1px solid #d6d5d5;
+  border: 1px solid #404040;
+  background-color: #404040;
+  color: #eee;
   border-radius: 3px;
   transition: 0.3s;
   outline: none;
@@ -807,8 +810,8 @@ i {
   bottom: -13px;
   right: 0;
   padding: 5px 8px;
-  background-color: #fd4a4a;
-  color: #fff;
+  background-color: #fff;
+  color: red !important;
   border-radius: 2px;
   z-index: 100;
   transition: opacity 0.9s;

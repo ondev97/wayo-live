@@ -27,7 +27,6 @@ export default function EventDetails() {
       )
         .then((res) => {
           if (res.data) {
-            console.log(res.data);
             setEventDetails(res.data);
             setEventMode(res.data.event_mode);
             setBand(res.data.band);
@@ -35,7 +34,7 @@ export default function EventDetails() {
         })
         .catch((err) => {});
     }
-  }, [usDetails]);
+  }, [usDetails, redirect]);
 
   const openModel = () => {
     if (!ismodel) {
@@ -47,9 +46,6 @@ export default function EventDetails() {
     }
   };
 
-  if (redirect) {
-    return <Redirect to={`/audiencedashboard/event/${id}`} />;
-  }
   return (
     <div>
       <AnimatePresence exitBeforeEnter>

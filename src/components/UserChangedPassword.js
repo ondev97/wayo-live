@@ -42,7 +42,7 @@ function UserChangedPassword({ setsettings }) {
 
   const submit = () => {
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/password/change/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/password/change/`,
       {
         old_password: values.cpw,
         new_password1: values.npw,

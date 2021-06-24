@@ -507,7 +507,11 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--h1Fontcolor);
+  overflow: hidden;
+}
+.live_audience .live_audience_body .audience_row .audience_pro_pic img {
+  width: 100%;
+  height: 100%;
 }
 .live_audience .live_audience_body .audience_row .audience_names {
   flex: 1;
