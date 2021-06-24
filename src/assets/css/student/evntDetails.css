@@ -58,7 +58,7 @@
   grid-gap: 12px;
 }
 .event_header .event_row .event_column button {
-  width: 100px;
+  width: 140px;
   padding: 8px;
   border: 1px solid transparent;
   background-color: var(--h1Fontcolor);

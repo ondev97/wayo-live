@@ -212,6 +212,13 @@
 .st_top_manage_body
   .st_mange_cos_body
   .st_manage_course_grid
+  .st_grid_card_manage.freezeCard {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.st_top_manage_body
+  .st_mange_cos_body
+  .st_manage_course_grid
   .st_grid_card_manage::-webkit-scrollbar {
   width: 1px;
   display: none;
@@ -268,6 +275,8 @@
   .st_grid_card_mg_head
   .label {
   background-color: var(--h1Fontcolor);
+  min-width: 80px;
+  text-align: center;
   padding: 4px;
   margin-top: 8px;
   border-radius: 3px;
@@ -346,7 +355,7 @@
   button {
   background-color: var(--h1Fontcolor);
   padding: 8px;
-  width: 100px;
+  width: 120px;
   color: #fff;
   border: 1px solid transparent;
   cursor: pointer;

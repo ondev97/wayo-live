@@ -15,16 +15,10 @@ export default function StSubCourses() {
   const { id } = useParams();
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
-  const [courseData, setcourseData] = useState([]);
-  const [subData, setsubData] = useState({});
   const [eventData, setEventData] = useState([]);
-  const [nextPage, setnextPage] = useState(null);
-  const [search, setsearch] = useState("");
-  const [page, setpage] = useState(1);
-  const [isRedirect, setisRedirect] = useState(false);
+  const [redirect, setredirect] = useState(false);
   const [isLoading, setisLoading] = useState(true);
-  const debounce = useDebounce(); //custom hook
-  const [ bands, setBands] = useState([]);
+  const [bands, setBands] = useState([]);
 
   useEffect(async () => {
     setisLoading(true);
@@ -38,20 +32,13 @@ export default function StSubCourses() {
         .then((res) => {
           setisLoading(false);
           if (res.data) {
-            setEventData(res.data)
-            // setsubData({
-            //   ...subData,
-            //   sub_name: res.data.subject_name,
-            //   sub_cover: res.data.subject_cover,
-            //   sub_sdes: res.data.short_description,
-            //   description: res.data.description,
-            // });
+            setEventData(res.data);
           }
         })
         .catch((err) => {
-          // if (err.response.data.message) {
-          //   setisRedirect(true);
-          // }
+          if (err.response.data.message) {
+            setredirect(true);
+          }
         });
 
       // await Axios.get(
@@ -88,25 +75,17 @@ export default function StSubCourses() {
 
   useEffect(async () => {
     if (usDetails.key) {
-      await Axios.get(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/listbands/`,
-          {
-            headers: { Authorization: "Token " + usDetails.key },
+      await Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/listbands/`, {
+        headers: { Authorization: "Token " + usDetails.key },
+      })
+        .then((res) => {
+          if (res.data) {
+            setBands(res.data);
           }
-      )
-          .then((res) => {
-            if (res.data) {
-              setBands(res.data);
-            }
-          })
-          .catch((err) => {
-
-          });
+        })
+        .catch((err) => {});
     }
   }, [usDetails]);
-
-
-
 
   return (
     <>
@@ -116,7 +95,7 @@ export default function StSubCourses() {
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>
-            <EventsFilter bands={bands} id={id}/>
+            <EventsFilter bands={bands} id={id} />
             <div className="outer_section">
               <h2>ALL EVENTS</h2>
               <div className="inner_section">
@@ -126,20 +105,8 @@ export default function StSubCourses() {
                   className="st_manage_course_grid"
                 >
                   {eventData.length !== 0
-                    ? eventData.map((edata, index) => (
-                        <MyCourseCard
-                          key={edata.id}
-                          event = {edata}
-                          // course_cover={cdata.course.event_cover}
-                          // enrollkey={cdata.enroll_key}
-                          // course_name={cdata.course.course_name}
-                          // price={cdata.course.price}
-                          // duration={cdata.course.duration}
-                          // created_at={cdata.course.created_at}
-                          // courseid={cdata.course.id}
-                          // is_freeze={cdata.course.is_freeze}
-                          // no={index}
-                        />
+                    ? eventData.map((edata) => (
+                        <MyCourseCard key={edata.id} event={edata} />
                       ))
                     : isLoading && <ProfileLoader />}
                 </InfiniteScroll>

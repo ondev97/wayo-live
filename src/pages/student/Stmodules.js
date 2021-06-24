@@ -24,7 +24,7 @@ export default function Stmodules() {
   useEffect(async () => {
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodules/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/viewevent/${id}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -33,7 +33,6 @@ export default function Stmodules() {
           setmoduleData(res.data);
         })
         .catch((err) => {
-          console.log(err);
           store.addNotification({
             title: err.response.data.message,
             message: process.env.REACT_APP_LMS_ALERT_NAME,
@@ -50,29 +49,10 @@ export default function Stmodules() {
             },
             width: 600,
           });
-          // setredirect(true);
+          setredirect(true);
         });
     }
   }, [usDetails]);
-
-  useEffect(() => {
-    if (moduleData.length !== 0) {
-      let arr = [];
-      moduleData.map((data) =>
-        Axios.get(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/getmodulefiles/${data.id}/`,
-          {
-            headers: { Authorization: "Token " + usDetails.key },
-          }
-        )
-          .then((res) => {
-            arr.push({ [data.id]: res.data });
-            setmoduleFiles([...arr]);
-          })
-          .catch((err) => {})
-      );
-    }
-  }, [moduleData]);
 
   //add external script tag for model page and disable context menu
   // useEffect(() => {
@@ -162,17 +142,14 @@ export default function Stmodules() {
           <div className="md_models">
             <div className="al_models">
               {moduleData.length !== 0 ? (
-                moduleData.map((data) => (
-                  <StOneModule
-                    key={data.id}
-                    msg={data.module_content}
-                    name={data.module_name}
-                    id={data.id}
-                    moduleFiles={moduleFiles}
-                    setvideoLink={setvideoLink}
-                    setsetVideo={setsetVideo}
-                  />
-                ))
+                <StOneModule
+                  moduleData={moduleData}
+                  msg={moduleData.event_content}
+                  name={moduleData.event_name}
+                  id={moduleData.id}
+                  setvideoLink={setvideoLink}
+                  setsetVideo={setsetVideo}
+                />
               ) : (
                 <div className="empy">
                   <h3>No Course Module Available..</h3>

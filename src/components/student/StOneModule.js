@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player/lazy";
 import StModuleBody from "./StModuleBody";
 import LazyLoad from "react-lazyload";
+import ReactHtmlParser from "react-html-parser";
 
-export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
+export default function StOneModule({
+  moduleData,
+  name,
+  msg,
+  setvideoLink,
+  setsetVideo,
+}) {
   const [playing, setplaying] = useState(false);
+  const [iValue, setiValue] = useState("");
+  const valueRef = useRef();
 
   const play = (link) => {
     setplaying(true);
@@ -26,9 +35,6 @@ export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
   //filtering message and embed react player
   function filterTags(nodes) {
     let media = [];
-    let youtubeRegular = new RegExp(
-      /(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/
-    );
     if (nodes.length > 0) {
       for (let i = 0; i < nodes.length; i++) {
         if (
@@ -87,51 +93,15 @@ export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
             media = [...media, nodes[i]];
           }
         } else {
+          media = [...media, nodes[i]];
+        }
+        if (nodes[i].type === "p") {
           if (nodes[i].props.children) {
-            for (let p = 0; p < nodes[i].props.children.length; p++) {
-              if (nodes[i].props.children[p].type === "a") {
-                if (
-                  youtubeRegular.test(nodes[i].props.children[p].props.href)
-                ) {
-                  media.push(
-                    <div className="button-row" key={i}>
-                      <button className="youtube">
-                        <a
-                          href={nodes[i].props.children[p].props.href}
-                          target="__block"
-                        >
-                          <i className="fab fa-youtube"></i>
-                          Join YouTube Live Class
-                        </a>
-                      </button>
-                    </div>
-                  );
-                } else if (
-                  nodes[i].props.children[p].props.href.includes("zoom.us")
-                ) {
-                  media.push(
-                    <div className="button-row" key={i}>
-                      <button className="zoom">
-                        <a
-                          href={nodes[i].props.children[p].props.href}
-                          target="__block"
-                        >
-                          <i className="fas fa-graduation-cap"></i>
-                          Join Zoom Live Class
-                        </a>
-                      </button>
-                    </div>
-                  );
-                } else {
-                  media = [...media, nodes[i]];
-                }
-              } else {
-                media = [...media, nodes[i]];
-                break;
+            for (let z = 0; nodes[i].props.children.length > z; z++) {
+              if (nodes[i].props.children[z].includes("<iframe")) {
+                valueRef.current = nodes[i].props.children[z];
               }
             }
-          } else {
-            media = [...media, nodes[i]];
           }
         }
       }
@@ -139,34 +109,29 @@ export default function StOneModule({ name, msg, setvideoLink, setsetVideo }) {
     }
   }
 
+  useEffect(() => {
+    setiValue(valueRef.current);
+  }, []);
+  useEffect(() => {
+    if (iValue) {
+      document.getElementById("setValue").innerHTML = iValue;
+    }
+  }, [iValue]);
+
   return (
     <LazyLoad height={200}>
-      <StModuleBody name={name}>
+      <StModuleBody name={moduleData.event_name}>
         <div className="on_model_body">
           {msg && (
             <div className="model_body_row">
-              {/* {filterTags(ReactHtmlParser(msg))} */}
-              <div className="re_player">
-                <ReactPlayer
-                  url="https://vimeo.com/564709580"
-                  pip={false}
-                  controls
-                  className="player"
-                  width="100%"
-                  height="100%"
-                  config={{
-                    file: {
-                      attributes: {
-                        controlsList: "nodownload",
-                        disablepictureinpicture: "true",
-                      },
-                    },
-                  }}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </div>
+              {filterTags(ReactHtmlParser(msg))}
+              <div ref={valueRef} style={{ display: "none" }}></div>
+              {iValue ? <div id="setValue"></div> : ""}
               <div className="event_details_dis">
-                <h3>EVENT DETAILS -</h3>
+                <h3>EVENT DETAILS </h3>
+                <p>EVENT START TIME : {moduleData.event_start || ""}</p>
+                <p>EVENT END TIME : {moduleData.event_end || ""}</p>
+                <p>EVENT TYPE : {moduleData.event_type || ""}</p>
               </div>
             </div>
           )}
