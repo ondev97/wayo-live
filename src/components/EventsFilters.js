@@ -4,6 +4,7 @@ import "../assets/css/student/eventsFilter.css";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import AcDetails from "../utils/hooks/AcDetails";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function EventsFilters() {
   const inputRef = useRef();
@@ -72,7 +73,11 @@ function EventsFilters() {
             >
               <div className="img_section">
                 {teachProfilepic !== "#" && (
-                  <img src={teachProfilepic} alt="band" />
+                  <LazyLoadImage
+                    src={teachProfilepic}
+                    alt="band"
+                    effect="blur"
+                  />
                 )}
               </div>
               <input

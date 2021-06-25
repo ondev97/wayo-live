@@ -81,11 +81,7 @@ export default function StudentMainDashboard() {
                   subject_name={det.user.username}
                   band_image={det.band_image}
                   author={det.user}
-                  // created_at={det.created_at}
                   description={det.band_description}
-                  // short_description={det.short_description}
-                  // class_type={det.class_type}
-                  // subject_type={det.subject_type}
                 />
               ))}
             </InfiniteScroll>

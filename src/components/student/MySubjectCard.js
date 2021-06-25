@@ -14,7 +14,7 @@ export default function MySubjectsCard({
   short_description,
   class_type,
   subject_type,
-  description
+  description,
 }) {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);

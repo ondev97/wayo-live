@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import logo2 from "../img/Logo_2.jpeg";
 import "../assets/css/student/evntDetails.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -122,9 +122,12 @@ export default function TcEventDetails() {
             <div className="event_description">
               <div className="event_pic_col">
                 <div className="event_pic_sec">
-                  <img
+                  <LazyLoadImage
                     src={eventDetail.event_cover ? eventDetail.event_cover : ""}
                     alt="band"
+                    effect="blur"
+                    width="100%"
+                    height="100%"
                   />
                 </div>
               </div>

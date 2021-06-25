@@ -28,6 +28,7 @@ export default function UpdateSujectForm({
 }) {
   const isFreeze = useRef();
   const isFreee = useRef();
+  const duration = useRef();
 
   useEffect(() => {
     if (formValue.is_freeze) {
@@ -66,10 +67,10 @@ export default function UpdateSujectForm({
   };
 
   useEffect(() => {
-    console.log(formValue);
     let start_time = formValue.event_start;
     let end_time = formValue.event_end;
     if (start_time && end_time) {
+      console.log(duration.current);
       let start = start_time.split(":");
       let end = end_time.split(":");
       var startDate = new Date(0, 0, 0, start[0], start[1], 0);
@@ -84,9 +85,9 @@ export default function UpdateSujectForm({
         ":" +
         (minutes <= 9 ? "0" : "") +
         minutes;
-      setformValue({ ...formValue, event_duration: difference || "" });
+      duration.current.value = difference;
     }
-  }, [formValue.event_start_time, formValue.event_end_time]);
+  }, [formValue]);
 
   const editorOnChangeHandel = (e, editor) => {
     let data = editor.getData();
@@ -235,7 +236,8 @@ export default function UpdateSujectForm({
             type="text"
             name="subject_shdes"
             id="ssd"
-            value={formValue.event_duration || ""}
+            ref={duration}
+            value={duration.current ? duration.current.value : ""}
             onChange={hadelChabgeFormValues}
             onFocus={hideError}
           />

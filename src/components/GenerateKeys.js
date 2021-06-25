@@ -229,7 +229,7 @@ function GenerateKeys() {
           </div>
         ) : (
           <div className="no_keys">
-            <h1>No Enrollment Keys Available...</h1>
+            <h1>No Tickets Available...</h1>
             <div className="svg">
               <img src={empty} alt="" />
             </div>

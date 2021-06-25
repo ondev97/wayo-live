@@ -111,7 +111,7 @@ export default function ViewIssuedKeys() {
           </div>
         ) : (
           <div className="no_keys">
-            <h1>No Issued Enrollment Keys Available...</h1>
+            <h1>No Issued Tickets Available...</h1>
             <div className="svg">
               <img src={empty} alt="" />
             </div>

@@ -104,7 +104,6 @@ export default function StProfileHead() {
           <h2>{`${initialState && initialState.user.first_name} ${
             initialState && initialState.user.last_name
           }`}</h2>
-          <p>Student</p>
           <div className="srow_pro_pic">
             <LazyLoadImage
               effect="blur"

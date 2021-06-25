@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams, Redirect } from "react-router-dom";
 import "../../assets/css/student/evntDetails.css";
 import { useSelector } from "react-redux";
@@ -45,6 +45,28 @@ export default function EventDetails() {
       setismodel(false);
     }
   };
+
+  useEffect(() => {
+    let start_time = eventDetails.event_start;
+    let end_time = eventDetails.event_end;
+    if (start_time && end_time) {
+      let start = start_time.split(":");
+      let end = end_time.split(":");
+      var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+      var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+      var diff = endDate.getTime() - startDate.getTime();
+      var hours = Math.floor(diff / 1000 / 60 / 60);
+      diff -= hours * 1000 * 60 * 60;
+      var minutes = Math.floor(diff / 1000 / 60);
+      let difference =
+        (hours <= 9 ? "0" : "") +
+        hours +
+        ":" +
+        (minutes <= 9 ? "0" : "") +
+        minutes;
+      document.getElementById("duration").innerText = ": " + difference;
+    }
+  }, [eventDetails]);
 
   return (
     <div>
@@ -96,9 +118,13 @@ export default function EventDetails() {
                 </div>
               </div>
               <div className="event_column">
-                <Link to={`#`}>
-                  <button>RS: {eventDetails.event_price}</button>
-                </Link>
+                {!eventDetails.is_enrolled ? (
+                  <Link to={`#`}>
+                    <button>RS: {eventDetails.event_price}</button>
+                  </Link>
+                ) : (
+                  ""
+                )}
                 {eventDetails.is_enrolled ? (
                   <Link to={`/audiencedashboard/envet/${id}`}>
                     <button>JOIN EVENT</button>
@@ -184,7 +210,7 @@ export default function EventDetails() {
                   <div className="event_dis_row">
                     <h2>EVENT DURATION</h2>
                     <h2>
-                      <span>: EVENT DURATION</span>
+                      <span id="duration">: </span>
                     </h2>
                   </div>
                   <div className="event_dis_row">
