@@ -20,7 +20,7 @@ export default function StSubCourses() {
   const [isLoading, setisLoading] = useState(true);
   const [bands, setBands] = useState([]);
   const [filter, setfilter] = useState({
-    band: "",
+    band: id,
     eventType: "",
     category: "",
   });
@@ -29,7 +29,7 @@ export default function StSubCourses() {
     setisLoading(true);
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband/${id}/?category=${filter.category}&type=${filter.eventType}`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband/${filter.band}/?category=${filter.category}&type=${filter.eventType}`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -45,38 +45,8 @@ export default function StSubCourses() {
             setredirect(true);
           }
         });
-
-      // await Axios.get(
-      //   `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrolledcoursesinsubject/${id}/?page=${page}&search=${search}`,
-      //   {
-      //     headers: { Authorization: "Token " + usDetails.key },
-      //   }
-      // )
-      //   .then((res) => {
-      //     setisLoading(false);
-      //     if (page > 1) {
-      //       setcourseData([...courseData, ...res.data.results]);
-      //     } else {
-      //       setcourseData([...res.data.results]);
-      //     }
-      //     setnextPage(res.data.next);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
     }
   }, [usDetails, filter]);
-
-  // const handelSearchSubject = (e) => {
-  //   const search = e.target.value;
-  //   setpage(1);
-  //   debounce(() => setsearch(search), 1000);
-  // };
-  // function next() {
-  //   if (nextPage) {
-  //     setpage(page + 1);
-  //   }
-  // }
 
   useEffect(async () => {
     if (usDetails.key) {

@@ -3,14 +3,14 @@ import "../../assets/css/student/eventsFilter.css";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
-const bandsList = (band, setActive) => {
+const BandsList = ({ band, setActive }) => {
   return (
     <>
       <li
         data-label={band.user.username}
         data-img={band.band_image}
+        data-id={band.id}
         onClick={setActive}
-        key={band.key}
       >
         <img src={band.band_image} alt="wayo" />{" "}
         <span>{band.user.username}</span>
@@ -18,7 +18,7 @@ const bandsList = (band, setActive) => {
     </>
   );
 };
-const eventModsList = (eventMode, setEvActive) => {
+const EventModsList = ({ eventMode, setEvActive }) => {
   return (
     <>
       <li data-label={eventMode.event_mode_name} onClick={setEvActive}>
@@ -40,9 +40,10 @@ function EventsFilter({ id, bands, filter, setfilter }) {
   const inValue2 = useRef();
 
   useEffect(async () => {
+    eventRef.current.value = "All Events";
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${filter.band}/`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -54,7 +55,7 @@ function EventsFilter({ id, bands, filter, setfilter }) {
         })
         .catch((err) => {});
     }
-  }, [usDetails]);
+  }, [usDetails, filter]);
 
   const activeDropDown = () => {
     setacDropDown(!acDropDown);
@@ -73,6 +74,7 @@ function EventsFilter({ id, bands, filter, setfilter }) {
     });
     e.target.classList.add("activeSelect");
     inputRef.current.value = e.target.dataset.label;
+    setfilter({ ...filter, band: e.target.dataset.id });
     setimage(e.target.dataset.img);
     setacDropDown(false);
   };
@@ -87,7 +89,12 @@ function EventsFilter({ id, bands, filter, setfilter }) {
     });
     e.target.classList.add("activeSelect");
     eventRef.current.value = e.target.dataset.label;
-    setfilter({ ...filter, category: e.target.dataset.label });
+    console.log(e.target.dataset.label);
+    if (e.target.dataset.label === "All") {
+      setfilter({ ...filter, category: "" });
+    } else {
+      setfilter({ ...filter, category: e.target.dataset.label });
+    }
     setevDropDown(false);
   };
 
@@ -137,7 +144,13 @@ function EventsFilter({ id, bands, filter, setfilter }) {
               {acDropDown ? (
                 <>
                   {bands.length !== 0
-                    ? bands.map((band) => bandsList(band, setActive))
+                    ? bands.map((band, index) => (
+                        <BandsList
+                          key={index}
+                          band={band}
+                          setActive={setActive}
+                        />
+                      ))
                     : ""}
                 </>
               ) : (
@@ -196,10 +209,17 @@ function EventsFilter({ id, bands, filter, setfilter }) {
               {evDropDown ? (
                 <>
                   {eventModes.length !== 0
-                    ? eventModes.map((eMode) =>
-                        eventModsList(eMode, setEvActive)
-                      )
+                    ? eventModes.map((eMode, index) => (
+                        <EventModsList
+                          key={index}
+                          eventMode={eMode}
+                          setEvActive={setEvActive}
+                        />
+                      ))
                     : ""}
+                  <li data-label="All" onClick={setEvActive}>
+                    <span>All Events</span>
+                  </li>
                 </>
               ) : (
                 ""
