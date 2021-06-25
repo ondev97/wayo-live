@@ -216,7 +216,7 @@ export default function EventDetails() {
                   <div className="event_dis_row">
                     <h2>EVENT FEE</h2>
                     <h2>
-                      <span>: RS: {eventDetails.event_price}</span>
+                      <span>: LKR: {eventDetails.event_price}</span>
                     </h2>
                   </div>
                 </div>
