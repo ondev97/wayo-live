@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
-import Footer from "./components/Footer";
 
 const App = () => {
   const accountDetails = useSelector((state) => state.accountDetails);

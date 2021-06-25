@@ -4,7 +4,6 @@ import "../assets/css/eventhead.css";
 import EventModel from "./EventModel";
 import { useSelector } from "react-redux";
 import Axios from "axios";
-import AcDetails from "../utils/hooks/AcDetails";
 
 function CreateEventHead({
   formValue,
