@@ -18,6 +18,10 @@ export default function MangeCourse() {
   const [search, setsearch] = useState("");
   const [page, setpage] = useState(1);
   const { profileDetails } = AcDetails();
+  const [filterEvent, setfilterEvent] = useState({
+    eventType: "",
+    category: "",
+  });
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
@@ -27,14 +31,14 @@ export default function MangeCourse() {
   useEffect(() => {
     if (profileDetails.id) {
       if (search === "") {
-        const fetchurl = `${url}/${profileDetails.id}/`;
+        const fetchurl = `${url}/${profileDetails.id}/?category=${filterEvent.category}&type=${filterEvent.eventType}`;
         getSubjectDetails(fetchurl);
       } else {
         const fetchurl = `${url}/${profileDetails.id}/`;
         getSubjectDetails(fetchurl);
       }
     }
-  }, [usDetails, page, search, profileDetails]);
+  }, [usDetails, page, filterEvent, profileDetails]);
 
   const getSubjectDetails = async (fetchurl) => {
     setisLoading(true);
@@ -65,7 +69,10 @@ export default function MangeCourse() {
     <>
       <div className="main_ar_course">
         <br />
-        <EventsFilters />
+        <EventsFilters
+          filterEvent={filterEvent}
+          setfilterEvent={setfilterEvent}
+        />
         <div>
           {allSubDetail !== null && allSubDetail.count === 0 && !isLoading ? (
             <Empty />

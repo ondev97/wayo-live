@@ -89,7 +89,6 @@ function EventsFilter({ id, bands, filter, setfilter }) {
     });
     e.target.classList.add("activeSelect");
     eventRef.current.value = e.target.dataset.label;
-    console.log(e.target.dataset.label);
     if (e.target.dataset.label === "All") {
       setfilter({ ...filter, category: "" });
     } else {

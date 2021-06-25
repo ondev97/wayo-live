@@ -6,17 +6,21 @@ import { useSelector } from "react-redux";
 import AcDetails from "../utils/hooks/AcDetails";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function EventsFilters() {
+function EventsFilters({ filterEvent, setfilterEvent }) {
   const inputRef = useRef();
   const eventRef = useRef();
   const [acDropDown, setacDropDown] = useState(false);
   const [evDropDown, setevDropDown] = useState(false);
   const { profileDetails, teachProfilepic } = AcDetails();
   const [eventValues, seteventValues] = useState([]);
+  const inValue1 = useRef();
+  const inValue2 = useRef();
+
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
   useEffect(() => {
+    eventRef.current.value = "All Events";
     if (usDetails.key) {
       if (profileDetails.id) {
         getEvent(profileDetails.id);
@@ -42,7 +46,29 @@ function EventsFilters() {
     });
     e.target.classList.add("activeSelect");
     eventRef.current.value = e.target.dataset.label;
+    if (e.target.dataset.label === "All") {
+      setfilterEvent({ ...filterEvent, category: "" });
+    } else {
+      setfilterEvent({ ...filterEvent, category: e.target.dataset.label });
+    }
     setevDropDown(false);
+  };
+
+  /*event type*/
+  const eventType = () => {
+    if (inValue1.current.checked && inValue2.current.checked) {
+      setfilterEvent({ ...filterEvent, eventType: "" });
+    } else {
+      if (inValue1.current.checked) {
+        setfilterEvent({ ...filterEvent, eventType: "Live Streaming" });
+      }
+      if (inValue2.current.checked) {
+        setfilterEvent({ ...filterEvent, eventType: "Live Recorded" });
+      }
+      if (!inValue1.current.checked && !inValue2.current.checked) {
+        setfilterEvent({ ...filterEvent, eventType: "" });
+      }
+    }
   };
 
   const getEvent = (id) => {
@@ -95,11 +121,23 @@ function EventsFilters() {
           <h2>SELECT EVENT TYPE</h2>
           <form>
             <p>
-              <input type="checkbox" id="live" name="record" />
+              <input
+                type="checkbox"
+                id="live"
+                name="record"
+                onChange={eventType}
+                ref={inValue1}
+              />
               <label htmlFor="live">Live Streaming</label>
             </p>
             <p>
-              <input type="checkbox" id="liveR" name="record" />
+              <input
+                type="checkbox"
+                id="liveR"
+                name="record"
+                onChange={eventType}
+                ref={inValue2}
+              />
               <label htmlFor="liveR">Live Recorded</label>
             </p>
           </form>
@@ -136,6 +174,9 @@ function EventsFilters() {
                     <span>{data.event_mode_name}</span>
                   </li>
                 ))}
+                <li data-label="All" onClick={setEvActive}>
+                  <span>All Events</span>
+                </li>
               </ul>
             ) : (
               ""
