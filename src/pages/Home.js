@@ -47,7 +47,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="col">
-                <p>Event Description</p>
+                <p>Event Name</p>
               </div>
             </div>
           </div>

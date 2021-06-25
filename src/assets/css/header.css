@@ -7,16 +7,16 @@
   z-index: 1;
 }
 nav {
-  width: 90%;
+  width: 100%;
   padding: 18px 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Open Sans", sans-serif;
   top: 0;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  background-color: #f9f9f9bf;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #262626;
   z-index: 2000;
   position: relative;
 }
@@ -28,7 +28,7 @@ nav .column .hlogo {
 }
 nav .column .hlogo a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 nav .column .hlogo h1 {
   font-weight: 300;
@@ -40,6 +40,7 @@ nav .column .hlogo h1 span {
 }
 nav .column .hlogo img {
   width: 170px;
+  filter: grayscale(1) invert(100%);
 }
 nav .column:nth-child(2) {
   flex: 2;
@@ -64,7 +65,7 @@ nav .column:nth-child(2) .navigation ul li {
 nav .column:nth-child(2) .navigation ul li a {
   text-decoration: none;
   font-weight: 900;
-  color: #000;
+  color: #fff;
   transition: 0.5s ease-in 0s;
 }
 nav .column:nth-child(2) .navigation ul li:before {
@@ -152,7 +153,7 @@ nav .column .pro_pic .img {
   overflow: hidden;
   cursor: pointer;
   overflow: hidden;
-  border: 2px solid #000;
+  border: 2px solid #fff;
 }
 nav .column .pro_pic .img img {
   width: 100%;
@@ -167,7 +168,7 @@ nav .column .ac_details_header h3 {
   word-wrap: break-word;
   text-align: right;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 }
 nav .column .ac_details_header p {
   font-size: 13px;

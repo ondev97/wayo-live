@@ -47,7 +47,7 @@ export default function StAcDetailsSettingsFrm({
         </div>
         <div className="sectpr">
           <p>
-            <label htmlFor="un">Username (Class Number)</label>
+            <label htmlFor="un">Username</label>
             <input
               type="text"
               id="un"

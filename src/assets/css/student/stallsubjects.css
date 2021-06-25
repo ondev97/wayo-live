@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 .all_st_subs .all_sub_body {
-  padding-top: 75px;
+  padding-top: 60px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
@@ -56,7 +56,7 @@
 .all_st_subs .all_sub_body .al_sub_card {
   padding: 25px;
   width: 100%;
-  background-color: #7f7f7f;
+  background-color: #262626;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
@@ -70,6 +70,7 @@
   max-width: 200px;
   margin: 0 auto;
   overflow: hidden;
+  border-radius: 8px;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row .image_sub img {
   width: 100%;
@@ -134,15 +135,15 @@
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #000;
+  color: #fff;
   margin-top: 12px;
   text-align: left;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) p {
   font-size: 13px;
   font-weight: normal;
-  text-align: left;
-  color: #000;
+  text-align: center;
+  color: #fff;
 }
 .all_st_subs .all_sub_body .al_sub_card .sub_card_row:nth-child(2) .sub_type {
   margin-top: 8px;

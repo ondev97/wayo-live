@@ -22,9 +22,6 @@ export default function StProfile() {
           <div className="profile_sub_column">
             <StProfileHead />
           </div>
-          <div className="profile_sub_column">
-            <StProfileBottom />
-          </div>
         </div>
         <div className="tcdisoncolumn">
           <div className="about_header">

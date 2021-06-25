@@ -6,9 +6,9 @@
 }
 .filter_section .filter_column {
   flex: 1;
-  color: #000;
-  padding: 10px 10px;
-  background-color: var(--background1);
+  color: #fff;
+  padding: 10px 15px;
+  background-color: #262626;
   border-radius: 8px;
 }
 .filter_section .filter_column h2 {
@@ -24,7 +24,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #232121;
+  background-color: #000;
 }
 .filter_section
   .filter_column
@@ -137,6 +137,7 @@
   height: 20px;
   background-color: #000;
   cursor: pointer;
+  border-radius: 3px;
 }
 .filter_section .filter_column form input[type="checkbox"]:checked {
   background-color: var(--h1Fontcolor);

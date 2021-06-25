@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   font-family: "Open Sans", sans-serif;
+  margin-top: 10px;
 }
 .main_profile .tcprofilecolumn {
   flex: 0.35;
@@ -16,9 +17,9 @@
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box {
   width: 100%;
-  background-color: #7f7f7f;
+  background-color: #262626;
   margin-bottom: 20px;
-  box-shadow: 0px 0px 15px 2px #7f7f7f;
+  box-shadow: 0px 0px 15px 2px #262626;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .profil_box .srow {
   width: 100%;
@@ -53,7 +54,7 @@
   padding: 3px;
   background-color: transparent;
   border-radius: 5px;
-  box-shadow: 0px 0px 14px 1px #dbdbdb;
+  box-shadow: 0px 0px 14px 1px #262626;
   margin-top: 20px;
   margin-bottom: -50px;
 }
@@ -211,9 +212,9 @@
   font-size: 13px;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .bottom_box {
-  background-color: #7f7f7f;
+  background-color: #262626;
   padding: 25px;
-  box-shadow: 0px 0px 13px 2px #7f7f7f;
+  box-shadow: 0px 0px 13px 2px #262626;
 }
 .main_profile
   .tcprofilecolumn
@@ -223,7 +224,7 @@
   p {
   font-size: 14px;
   margin-bottom: 3px;
-  color: #000;
+  color: #fff;
   font-weight: 600;
 }
 .main_profile
@@ -238,7 +239,7 @@
   font-weight: 400;
   word-wrap: break-word;
   display: inline-block;
-  color: #fff;
+  color: #b5b5b5;
 }
 .main_profile .tcprofilecolumn .profile_sub_column .bottom_box .teachskills {
   width: 100%;
@@ -322,8 +323,8 @@
 .main_profile .tcdisoncolumn .about_header {
   width: 100%;
   padding: 8px 3px;
-  background-color: #7f7f7f;
-  border-bottom: 2px solid #eee;
+  background-color: #262626;
+  border-bottom: 2px solid #fff;
 }
 .main_profile .tcdisoncolumn .about_header ul {
   width: 100%;
@@ -337,15 +338,15 @@
   text-align: center;
   font-size: 15px;
   cursor: pointer;
-  color: #000;
+  color: #fff;
 }
 .main_profile .tcdisoncolumn .about_header ul li i {
   margin-right: 10px;
-  color: #000;
+  color: #fff;
 }
 .main_profile .tcdisoncolumn .about_body {
   padding: 25px;
-  background-color: #7f7f7f;
+  background-color: #262626;
 }
 .main_profile .tcdisoncolumn .about_body h3 {
   font-size: 16px;
@@ -382,14 +383,14 @@
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h3 {
   font-size: 13px;
-  color: #000;
+  color: #fff;
   margin-right: 10px;
 }
 .main_profile .tcdisoncolumn .about_body .ab_main_card .ab_card h4 {
   font-size: 13.5px;
   font-weight: 400;
   word-wrap: break-word;
-  color: #fff;
+  color: #b5b5b5;
 }
 .main_profile .tcdisoncolumn .about_body .disdis {
   margin-bottom: 25px;
@@ -415,7 +416,7 @@
 .main_profile .tcdisoncolumn .tc_profile_settings {
   width: 100%;
   padding: 25px;
-  background-color: #7f7f7f;
+  background-color: #262626;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det h2 {
   font-size: 17px;
@@ -466,16 +467,16 @@
   display: block;
   font-size: 14px;
   margin-bottom: 13px;
-  color: #000;
+  color: #fff;
   font-weight: 600;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr p input,
 .ac_det .sectpr p textarea {
   width: 100%;
   padding: 9px 5px;
-  border: 1px solid #404040;
-  background-color: #404040;
-  color: #eee;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #b5b5b5;
   outline: none;
   border-radius: 3px;
   margin-bottom: 20px;
@@ -726,11 +727,12 @@ i {
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password p span {
   font-size: 12px;
-  color: #000;
+  color: #b5b5b5;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password h2 {
   font-size: 17px;
   margin-bottom: 15px;
+  color: #fff;
 }
 .main_profile .tcdisoncolumn .tc_profile_settings .set_password .reset_pw {
   width: 100%;
@@ -745,6 +747,7 @@ i {
   font-size: 14px;
   margin-bottom: 8px;
   font-weight: 600;
+  color: #fff;
 }
 .main_profile
   .tcdisoncolumn
@@ -755,9 +758,9 @@ i {
   width: 100%;
   padding: 9px 5px;
   margin-bottom: 15px;
-  border: 1px solid #404040;
-  background-color: #404040;
-  color: #eee;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #b5b5b5;
   border-radius: 3px;
   transition: 0.3s;
   outline: none;

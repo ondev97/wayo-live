@@ -87,25 +87,6 @@ export default function StSignupForm() {
             )}
           </p>
           <p>
-            <label htmlFor="em">Email</label>
-            <input
-              type="text"
-              name="email"
-              id="em"
-              value={values.email}
-              onChange={hadelChanege}
-              className={errors.email ? "error" : ""}
-              onFocus={hideError}
-            />
-            {errors.email && (
-              <span className={`tip ${hide.email ? "hidetip" : ""}`}>
-                {errors.email}
-              </span>
-            )}
-          </p>
-        </div>
-        <div className="sect">
-          <p>
             <label htmlFor="em">Phone Number</label>
             <input
               type="text"
@@ -119,6 +100,25 @@ export default function StSignupForm() {
             {errors.phonenumber && (
               <span className={`tip ${hide.phonenumber ? "hidetip" : ""}`}>
                 {errors.phonenumber}
+              </span>
+            )}
+          </p>
+        </div>
+        <div className="sect">
+          <p>
+            <label htmlFor="em">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="em"
+              value={values.email}
+              onChange={hadelChanege}
+              className={errors.email ? "error" : ""}
+              onFocus={hideError}
+            />
+            {errors.email && (
+              <span className={`tip ${hide.email ? "hidetip" : ""}`}>
+                {errors.email}
               </span>
             )}
           </p>

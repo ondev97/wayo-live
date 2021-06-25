@@ -176,7 +176,6 @@ export default function StOneModule({
                 <h3>EVENT DETAILS </h3>
                 <p>EVENT START TIME : {moduleData.event_start || ""}</p>
                 <p>EVENT END TIME : {moduleData.event_end || ""}</p>
-                <p>EVENT TYPE : {moduleData.event_type || ""}</p>
               </div>
             </div>
           )}

@@ -9,7 +9,7 @@
   padding-top: 25px;
 }
 .models .md_all_models {
-  flex: 0.75;
+  flex: 0.77;
 }
 .models .md_all_models .models_en_nav {
   width: 100%;
@@ -84,8 +84,8 @@
 }
 .models .md_all_models .md_models .al_models .al_on_model {
   margin-bottom: 15px;
-  background-color: #7f7f7f;
-  border: 1px solid #7f7f7f;
+  background-color: #262626;
+  border: 1px solid #262626;
   border-radius: 12px;
 }
 .models .md_all_models .md_models .al_models .on_model_head {
@@ -99,7 +99,7 @@
 .models .md_all_models .md_models .al_models .on_model_head h1 {
   font-size: 17px;
   font-weight: 600;
-  color: #000;
+  color: #fff;
 }
 .models .md_all_models .md_models .al_models .on_model_head .heads_buts button {
   background: none;
@@ -177,7 +177,7 @@
   .on_model_body
   .model_body_row
   .event_details_dis {
-  background-color: #fff;
+  background-color: #000;
   padding: 20px 12px;
   border-radius: 8px;
 }
@@ -188,9 +188,23 @@
   .on_model_body
   .model_body_row
   .event_details_dis
-  p {
-  color: #000;
+  h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #fff;
 }
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  .event_details_dis
+  p {
+  font-size: 13px;
+  color: #eee;
+}
+
 /*Youtube Player Overlay*/
 .models
   .md_all_models
@@ -393,14 +407,14 @@
 }
 
 .models .md_course_desc {
-  flex: 0.25;
+  flex: 0.23;
   max-height: 95vh;
   position: sticky;
   top: 0px;
   bottom: 0;
-  background-color: #7f7f7f;
+  background-color: #262626;
   overflow: auto;
-  border: 1px solid #7f7f7f;
+  border: 1px solid #262626;
   border-radius: 8px;
   padding: 12px;
 }
@@ -464,15 +478,16 @@
   width: 100%;
 }
 .live_audience .live_audience_head {
-  background-color: #fff;
-  padding: 12px 8px;
+  background-color: #000;
+  padding: 12px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
 }
 .live_audience .live_audience_head h1 {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 900;
+  color: #fff;
 }
 .live_audience .live_audience_body {
   background-color: #2d2d2d;
@@ -486,7 +501,7 @@
   width: 10px;
 }
 .live_audience .live_audience_body::-webkit-scrollbar-track {
-  background: #fff;
+  background: #777;
 }
 .live_audience .live_audience_body::-webkit-scrollbar-thumb {
   background-color: #000;
@@ -498,14 +513,14 @@
   display: flex;
   align-items: center;
   grid-column-gap: 10px;
-  margin-bottom: 12px;
-  background-color: #fff;
-  padding: 8px 5px;
+  margin-bottom: 8px;
+  background-color: #000;
+  padding: 12px 8px;
   border-radius: 8px;
 }
 .live_audience .live_audience_body .audience_row .audience_pro_pic {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -517,7 +532,9 @@
   flex: 1;
 }
 .live_audience .live_audience_body .audience_row .audience_names h1 {
-  font-size: 17px;
+  font-size: 15px;
+  color: #fff;
+  white-space: nowrap;
 }
 /*band section*/
 .colCourseView {
