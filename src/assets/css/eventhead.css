@@ -7,10 +7,14 @@
 }
 /*event model page*/
 .model_outer {
-  width: 78%;
+  width: 100%;
   margin-top: -30px;
   min-height: 100vh;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #0a0a0a3b;
   z-index: 100;
 }
@@ -210,15 +214,10 @@
 }
 @media screen and (max-width: 900px) {
   .model_outer {
-    width: 100vw;
+    z-index: 1000;
   }
 }
-@media screen and (max-width: 700px) {
-  .model_outer .model_form {
-    max-width: 85%;
-    margin: 0;
-  }
-}
+
 @media screen and (max-width: 700px) {
   .event_grid_sec {
     flex-wrap: wrap;
