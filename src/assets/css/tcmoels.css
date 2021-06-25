@@ -554,6 +554,7 @@
   width: 100%;
   background-color: #2d2d2d;
   border-radius: 8px;
+  padding: 8px 0;
 }
 .colCourseView .course_desc_head .menulist ul a {
   text-decoration: none;
@@ -563,12 +564,15 @@
   padding: 10px 8px;
   font-size: 13px;
 }
+.colCourseView .course_desc_head .menulist ul a li i {
+  padding-right: 5px;
+}
 .colCourseView .course_desc_body {
   padding: 8px 0;
 }
 .colCourseView .course_desc_body .course_pic {
   width: 100%;
-  max-height: 310px;
+  max-height: 180px;
   overflow: hidden;
   text-align: center;
 }

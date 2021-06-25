@@ -316,7 +316,7 @@ export default function CreateSubjectForm({
           type={`${uploading ? "button" : "submit"}`}
           name="create"
         >
-          <span>Create Subject</span>{" "}
+          <span>Create Event</span>{" "}
           <i
             className={`fas fa-circle-notch notch ${!uploading ? "dis" : ""}`}
           ></i>

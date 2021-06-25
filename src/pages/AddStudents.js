@@ -153,8 +153,8 @@ export default function AddStudents() {
         <h4>Special Instructions</h4>
         <p>
           First, click on "Download Template" to download the empty template for
-          add bulk student list. Then, add student details in that template and
-          click on the "Upload Audience List" button.
+          add bulk audience list. Then, add audience details in that template
+          and click on the "Upload Audience List" button.
         </p>
       </div>
       <div className="filerow">
