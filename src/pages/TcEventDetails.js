@@ -134,12 +134,6 @@ export default function TcEventDetails() {
               <div className="event_dis_col">
                 <div className="event_dis_section">
                   <div className="event_dis_row">
-                    <h2>BAND</h2>
-                    <h2>
-                      <span>: Band</span>
-                    </h2>
-                  </div>
-                  <div className="event_dis_row">
                     <h2>EVENT NAME</h2>
                     <h2>
                       <span>
@@ -223,7 +217,7 @@ export default function TcEventDetails() {
                         :{" "}
                         {eventDetail.event_price
                           ? eventDetail.event_price > 0
-                            ? eventDetail.event_price
+                            ? "LKR " + eventDetail.event_price
                             : "Free"
                           : "Free"}
                       </span>
