@@ -10,6 +10,7 @@ const bandsList = (band, setActive) => {
         data-label={band.user.username}
         data-img={band.band_image}
         onClick={setActive}
+        key={band.key}
       >
         <img src={band.band_image} alt="wayo" />{" "}
         <span>{band.user.username}</span>
@@ -27,7 +28,7 @@ const eventModsList = (eventMode, setEvActive) => {
   );
 };
 
-function EventsFilter({ id, bands }) {
+function EventsFilter({ id, bands, filter, setfilter }) {
   const inputRef = useRef();
   const eventRef = useRef();
   const usDetails = useSelector((state) => state.accountDetails);
@@ -35,6 +36,8 @@ function EventsFilter({ id, bands }) {
   const [evDropDown, setevDropDown] = useState(false);
   const [image, setimage] = useState("#");
   const [eventModes, setEventModes] = useState([]);
+  const inValue1 = useRef();
+  const inValue2 = useRef();
 
   useEffect(async () => {
     if (usDetails.key) {
@@ -84,7 +87,25 @@ function EventsFilter({ id, bands }) {
     });
     e.target.classList.add("activeSelect");
     eventRef.current.value = e.target.dataset.label;
+    setfilter({ ...filter, category: e.target.dataset.label });
     setevDropDown(false);
+  };
+
+  /*event type*/
+  const eventType = (e) => {
+    if (inValue1.current.checked && inValue2.current.checked) {
+      setfilter({ ...filter, eventType: "" });
+    } else {
+      if (inValue1.current.checked) {
+        setfilter({ ...filter, eventType: "Live Streaming" });
+      }
+      if (inValue2.current.checked) {
+        setfilter({ ...filter, eventType: "Live Recorded" });
+      }
+      if (!inValue1.current.checked && !inValue2.current.checked) {
+        setfilter({ ...filter, eventType: "" });
+      }
+    }
   };
 
   return (
@@ -126,14 +147,28 @@ function EventsFilter({ id, bands }) {
           </div>
         </div>
         <div className="filter_column">
-          <h2>SELECT CATEGORY</h2>
+          <h2>SELECT EVENT TYPE</h2>
           <form>
             <p>
-              <input type="checkbox" id="live" name="record" />
+              <input
+                type="checkbox"
+                id="live"
+                name="record"
+                value="Live Streaming"
+                onChange={eventType}
+                ref={inValue1}
+              />
               <label htmlFor="live">Live Streaming</label>
             </p>
             <p>
-              <input type="checkbox" id="liveR" name="record" />
+              <input
+                type="checkbox"
+                id="liveR"
+                name="record"
+                value="Live Recorded"
+                onChange={eventType}
+                ref={inValue2}
+              />
               <label htmlFor="liveR">Live Recorded</label>
             </p>
           </form>

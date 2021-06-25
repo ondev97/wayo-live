@@ -182,6 +182,7 @@ export default function TcOneModel({
                         height="100%"
                         playing={playing}
                         onPlay={playIframe}
+                        onContextMenu={(e) => e.preventDefault()}
                       />
                     </div>
                   ) : (

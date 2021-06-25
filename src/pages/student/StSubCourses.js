@@ -19,12 +19,17 @@ export default function StSubCourses() {
   const [redirect, setredirect] = useState(false);
   const [isLoading, setisLoading] = useState(true);
   const [bands, setBands] = useState([]);
+  const [filter, setfilter] = useState({
+    band: "",
+    eventType: "",
+    category: "",
+  });
 
   useEffect(async () => {
     setisLoading(true);
     if (usDetails.key) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/listeventsinband/${id}/?category=${filter.category}&type=${filter.eventType}`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
@@ -60,7 +65,7 @@ export default function StSubCourses() {
       //     console.log(err);
       //   });
     }
-  }, [usDetails]);
+  }, [usDetails, filter]);
 
   // const handelSearchSubject = (e) => {
   //   const search = e.target.value;
@@ -95,7 +100,12 @@ export default function StSubCourses() {
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>
-            <EventsFilter bands={bands} id={id} />
+            <EventsFilter
+              bands={bands}
+              id={id}
+              setfilter={setfilter}
+              filter={filter}
+            />
             <div className="outer_section">
               <h2>ALL EVENTS</h2>
               <div className="inner_section">

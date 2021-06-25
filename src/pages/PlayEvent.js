@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 function PlayEvent() {
   let history = useHistory();
   const playIframe = useRef();
+
   useEffect(() => {
     if (history.location.state.value) {
       document.getElementById("outer").innerHTML = history.location.state.value;
