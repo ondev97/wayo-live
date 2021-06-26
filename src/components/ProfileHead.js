@@ -123,15 +123,7 @@ export default function ProfileHead() {
             />
           </div>
         </div>
-        <div className="brow">
-          <div className="brow_info">
-            <p>{profileDetails.userName || ""}</p>
-            <p>
-              <i className="fas fa-phone-alt"></i>
-              {profileDetails.phoneNumber || ""}
-            </p>
-          </div>
-        </div>
+        <div className="brow"></div>
       </div>
     </div>
   );

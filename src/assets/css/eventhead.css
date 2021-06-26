@@ -21,28 +21,25 @@
 .model_outer .model_form {
   max-width: 600px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #262626;
   padding: 45px 20px;
   border-radius: 8px;
   position: relative;
 }
 .model_outer .model_form .error_model {
   width: 100%;
-  position: absolute;
-  top: 5%;
-  left: 0;
 }
 .model_outer .model_form .error_model h1 {
   font-size: 13px;
   color: red;
-  background-color: #ffebeb;
-  padding: 5px 21px;
+  padding: 5px 0px;
   font-weight: 500;
 }
 .model_outer .model_form p label {
   display: block;
   font-weight: 600;
   margin-bottom: 15px;
+  color: #fff;
 }
 .model_outer .model_form p input {
   width: 100%;
@@ -62,7 +59,7 @@
   cursor: pointer;
 }
 .event_grid_sec .event_column {
-  background-color: #7f7f7f;
+  background-color: #262626;
   padding: 12px;
   flex: 1;
   border-radius: 10px;
@@ -81,6 +78,7 @@
 .event_grid_sec .event_column h1 {
   font-size: 16px;
   margin-bottom: 10px;
+  color: #fff;
 }
 .event_grid_sec .event_column .custom_select_box {
   background-color: #000;
@@ -120,6 +118,7 @@
   display: flex;
   align-items: center;
   grid-column-gap: 15px;
+  color: #fff;
 }
 .event_grid_sec .event_column form p input[type="radio"] {
   -webkit-appearance: none;

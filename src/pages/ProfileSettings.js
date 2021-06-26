@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AboutUser from "../components/AboutUser";
-import ProfileBottom from "../components/ProfileBottom";
 import ProfileHead from "../components/ProfileHead";
 import TcProfileSettings from "../components/TcProfileSettings";
 import "../assets/css/usprofile.css";
@@ -24,9 +23,7 @@ function ProfileSettings() {
           <div className="profile_sub_column">
             <ProfileHead />
           </div>
-          <div className="profile_sub_column">
-            <ProfileBottom />
-          </div>
+          <div className="profile_sub_column"></div>
         </div>
         <div className="tcdisoncolumn">
           <div className="about_header">

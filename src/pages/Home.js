@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import videoCover from "../img/production.mp4";
 import "../assets/css/home.css";
 import "../assets/css/mediaFiles/homemedia.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { activeAccount } from "../actions";
 import { loadStDetails } from "../actions/stDetailsAction";
 import CoverForm from "../components/CoverForm";
@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const accountDetails = useSelector((state) => state.accountDetails);
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -31,7 +32,7 @@ export default function Home() {
               </div>
             </div>
             <div className="cover-col">
-              <CoverForm />
+              {!accountDetails.key ? <CoverForm /> : ""}
             </div>
           </div>
           <div className="upcoming-event">

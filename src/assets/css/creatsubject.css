@@ -5,7 +5,7 @@
   width: 100%;
   margin: 15px auto;
   padding: 30px 25px;
-  background-color: #7f7f7f;
+  background-color: #262626;
   border-radius: 8px;
 }
 .subject_form .uppper_section {
@@ -87,7 +87,7 @@
 .subject_form .main_form p label {
   flex-basis: 120px;
   font-size: 13px;
-  color: #000;
+  color: #fff;
   font-weight: 700;
 }
 .subject_form .main_form p label span {
@@ -98,9 +98,9 @@ p textarea {
   flex: 1;
   position: relative;
   padding: 9px 5px;
-  border: 1px solid #404040;
-  background-color: #404040;
-  color: #d6d6d6;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #eee;
   outline: none;
   border-radius: 3px;
 }
@@ -181,7 +181,7 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   width: 60px;
   height: 25px;
-  background-color: #404040;
+  background-color: #000;
   transition: 0.5s;
   box-shadow: inset 0 0 05px rgba(0, 0, 0, 0.2);
 }
@@ -436,14 +436,14 @@ button.cp {
 }
 .ck.ck-reset_all,
 .ck.ck-reset_all * {
-  background-color: #404040 !important;
+  background-color: #262626 !important;
 }
 .ck.ck-icon,
 .ck.ck-icon * {
   color: #fff !important;
 }
 .ck.ck-editor__main > .ck-editor__editable {
-  background-color: #404040 !important;
+  background-color: #262626 !important;
   color: #fff !important;
 }
 
