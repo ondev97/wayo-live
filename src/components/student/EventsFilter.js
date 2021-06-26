@@ -39,8 +39,11 @@ function EventsFilter({ id, bands, filter, setfilter }) {
   const inValue1 = useRef();
   const inValue2 = useRef();
 
-  useEffect(async () => {
+  useEffect(() => {
     eventRef.current.value = "All Events";
+  }, []);
+
+  useEffect(async () => {
     if (usDetails.key) {
       await Axios.get(
         `${process.env.REACT_APP_LMS_MAIN_URL}/show/myeventmodes/${filter.band}/`,
@@ -216,7 +219,7 @@ function EventsFilter({ id, bands, filter, setfilter }) {
                         />
                       ))
                     : ""}
-                  <li data-label="All" onClick={setEvActive}>
+                  <li data-label="All Events" onClick={setEvActive}>
                     <span>All Events</span>
                   </li>
                 </>

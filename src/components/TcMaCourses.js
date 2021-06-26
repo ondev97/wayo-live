@@ -49,7 +49,7 @@ export default function TcMaCourses({
             <h2>{event_name || ""}</h2>
             <h3>{short_description || ""}</h3>
             <h4>{event_type || ""}</h4>
-            <h5>{event_mode.event_mode_name || ""}</h5>
+            <h5>{event_mode ? event_mode.event_mode_name : ""}</h5>
           </div>
         </div>
       </Link>
