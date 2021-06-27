@@ -63,7 +63,7 @@ export default function ViewIssuedKeys() {
       width: 600,
     });
 
-    return <Redirect to="/band/managecourse/" />;
+    return <Redirect to="/band/allevents/" />;
   }
 
   const csvFile = () => {

@@ -33,8 +33,8 @@ export default function TeacherDashboardHeader() {
       <div className="main_section">
         <div className="list">
           <ul>
-            <Link to="/band/managecourse/">
-              <li>HOME</li>
+            <Link to="/band/allevents/">
+              <li>ALL EVENTS</li>
             </Link>
             <Link to="/band/createevent/">
               <li>CREATE EVENT</li>

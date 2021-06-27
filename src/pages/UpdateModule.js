@@ -207,7 +207,7 @@ export default function UpdateModule() {
   }
 
   if (isRedirect.pr) {
-    return <Redirect to="/teacherdashboard/managecourse/" />;
+    return <Redirect to="/teacherdashboard/allevents/" />;
   }
   if (isRedirect.ne) {
     return (

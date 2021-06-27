@@ -45,7 +45,7 @@ function EventsFilters({ filterEvent, setfilterEvent }) {
     });
     e.target.classList.add("activeSelect");
     eventRef.current.value = e.target.dataset.label;
-    if (e.target.dataset.label === "All") {
+    if (e.target.dataset.label === "All Events") {
       setfilterEvent({ ...filterEvent, category: "" });
     } else {
       setfilterEvent({ ...filterEvent, category: e.target.dataset.label });
@@ -173,7 +173,7 @@ function EventsFilters({ filterEvent, setfilterEvent }) {
                     <span>{data.event_mode_name}</span>
                   </li>
                 ))}
-                <li data-label="All" onClick={setEvActive}>
+                <li data-label="All Events" onClick={setEvActive}>
                   <span>All Events</span>
                 </li>
               </ul>

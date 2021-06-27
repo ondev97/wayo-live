@@ -55,7 +55,7 @@ export default function Header({ acDetails }) {
                 {profileDetails.userName}
               </h3>
             </div>
-            <Link to="band/managecourse">
+            <Link to="band/allevents">
               <div className="img">
                 <LazyLoadImage
                   src={`${profileDetails.pic}`}

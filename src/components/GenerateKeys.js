@@ -176,7 +176,7 @@ function GenerateKeys() {
   }, [selectKeys]);
 
   if (redirect) {
-    return <Redirect to="/band/managecourse" />;
+    return <Redirect to="/band/allevents" />;
   }
 
   return (

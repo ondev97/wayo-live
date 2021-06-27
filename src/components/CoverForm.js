@@ -30,7 +30,7 @@ export default function CoverForm({ setisModel }) {
     if (!acDetails.user.is_band) {
       return <Redirect to="/audiencedashboard/maindashboard" />;
     } else if (acDetails.user.is_band) {
-      return <Redirect to="/band/managecourse" />;
+      return <Redirect to="/band/allevents" />;
     }
   }
   return (

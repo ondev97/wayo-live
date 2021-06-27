@@ -109,7 +109,7 @@ export default function UpdateSubject() {
   }
 
   if (isredirect) {
-    return <Redirect to="/band/managecourse" />;
+    return <Redirect to="/band/allevents" />;
   }
   return (
     <div className="subject_form">
