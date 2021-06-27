@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
-export default function CoverForm() {
+export default function CoverForm({ setisModel }) {
   const [
     values,
     hadelOnChange,
@@ -91,9 +91,10 @@ export default function CoverForm() {
           <button type="submit">LogIn</button>
 
           <div className="fpw">
-            <p>
+            {/* <p>
               <Link to="#">Forgot Password?</Link>
-            </p>
+            </p> */}
+            <p onClick={() => setisModel(true)}>Clear Login Session</p>
           </div>
         </div>
       </form>

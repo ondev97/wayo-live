@@ -50,6 +50,17 @@
   }
   .uppercover .cover-cont .upcoming-event h2 {
     margin-bottom: 10px;
+    flex: 1;
+  }
+  .uppercover .cover-cont .upcoming-event {
+    align-items: flex-start;
+  }
+  .uppercover .cover-cont .upcoming-event h2 {
+    text-align: left;
+  }
+  .uppercover .cover-cont .upcoming-event .upcoming-row {
+    flex: 1;
+    width: 100%;
   }
   .uppercover .cover-cont .upcoming-event .upcoming-row .col:nth-child(1) {
     flex: 0.3;

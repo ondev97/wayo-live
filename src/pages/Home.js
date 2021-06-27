@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import videoCover from "../img/production.mp4";
 import "../assets/css/home.css";
 import "../assets/css/mediaFiles/homemedia.css";
@@ -7,10 +7,13 @@ import { activeAccount } from "../actions";
 import { loadStDetails } from "../actions/stDetailsAction";
 import CoverForm from "../components/CoverForm";
 import { Link } from "react-router-dom";
+import SessionModel from "../components/SessionModel";
 
 export default function Home() {
   const dispatch = useDispatch();
   const accountDetails = useSelector((state) => state.accountDetails);
+
+  const [isModel, setisModel] = useState(false);
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -18,9 +21,21 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, [dispatch]);
 
+  const closeModel = (e) => {
+    if (e.target.className.includes("loginmodel_outer")) {
+      setisModel(false);
+    }
+  };
+
   return (
     <>
       <div className="uppercover">
+        {isModel ? (
+          //model login session
+          <SessionModel closeModel={closeModel} setisModel={setisModel} />
+        ) : (
+          ""
+        )}
         <div className="cover-cont">
           <div className="wrp">
             <div className="cover-col">
@@ -32,7 +47,7 @@ export default function Home() {
               </div>
             </div>
             <div className="cover-col">
-              {!accountDetails.key ? <CoverForm /> : ""}
+              {!accountDetails.key ? <CoverForm setisModel={setisModel} /> : ""}
             </div>
           </div>
           <div className="upcoming-event">
