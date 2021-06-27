@@ -8,6 +8,7 @@ export default function CoverForm({ setisModel }) {
     hadelOnChange,
     hadelSubmit,
     errors,
+    seterrors,
     hideError,
     hide,
     acDetails,
@@ -94,7 +95,14 @@ export default function CoverForm({ setisModel }) {
             {/* <p>
               <Link to="#">Forgot Password?</Link>
             </p> */}
-            <p onClick={() => setisModel(true)}>Clear Login Session</p>
+            <p
+              onClick={() => {
+                seterrors({ ...errors, comerrors: "" });
+                setisModel(true);
+              }}
+            >
+              Clear Login Session
+            </p>
           </div>
         </div>
       </form>

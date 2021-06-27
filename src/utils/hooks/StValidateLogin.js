@@ -108,6 +108,7 @@ function StValidateLogin() {
     hadelOnChange,
     hadelSubmit,
     errors,
+    seterrors,
     hideError,
     hide,
     acDetails,
