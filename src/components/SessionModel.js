@@ -76,10 +76,8 @@ function SessionModel({ closeModel, setisModel }) {
         <div className="loginmodel">
           <h1>Clear Login Session</h1>
           <h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure
+            Enter the username that you've used in your registration to unlock
+            the user account
           </h3>
           <p>
             <label>Username</label>
