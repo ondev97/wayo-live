@@ -17,7 +17,7 @@ export default function TeacherDashboardHeader() {
   return (
     <div>
       <div className="logo">
-        <Link to={"/"} style={{ textDecoration: "none", height: "30px" }}>
+        <Link to={"#"} style={{ textDecoration: "none", height: "30px" }}>
           {" "}
           <img src={logo1} alt="logo" />{" "}
         </Link>
