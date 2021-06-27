@@ -67,6 +67,9 @@ function SessionModel({ closeModel, setisModel }) {
         if (err.response.status === 500) {
           seterror({ ...error, userName: "Username Is Invalid" });
         }
+        if (err.response.status === 404) {
+          seterror({ ...error, userName: err.response.data.msg });
+        }
       });
   }
 
