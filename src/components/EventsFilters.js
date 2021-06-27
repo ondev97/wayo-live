@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import wayo from "../img/wayo.jpg";
 import "../assets/css/student/eventsFilter.css";
 import Axios from "axios";
 import { useSelector } from "react-redux";

@@ -47,7 +47,7 @@ export default function ViewIssuedKeys() {
   if (isRedirect) {
     //showing alert
     store.addNotification({
-      title: "Invalid Module!",
+      title: "Invalid Event!",
       message: process.env.REACT_APP_LMS_ALERT_NAME,
       type: "danger",
       insert: "top",
@@ -63,7 +63,7 @@ export default function ViewIssuedKeys() {
       width: 600,
     });
 
-    return <Redirect to="/teacherdashboard/managecourse/" />;
+    return <Redirect to="/band/managecourse/" />;
   }
 
   const csvFile = () => {

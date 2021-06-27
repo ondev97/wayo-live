@@ -3,7 +3,7 @@ import "../assets/css/viewallsts.css";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Empty from "../components/Empty";
 import ViewStuTc from "../components/ViewStuTc";
 import { store } from "react-notifications-component";

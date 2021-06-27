@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Axios from "axios";
-import ReactTimeAgo from "react-time-ago";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function StCourseModuleDes() {
   const usDetails = useSelector((state) => state.accountDetails);

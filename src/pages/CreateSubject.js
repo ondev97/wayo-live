@@ -87,7 +87,7 @@ export default function CreateSubject({ profileDetails }) {
         setuploading(false);
         //showing alert
         store.addNotification({
-          title: "Subject Created!",
+          title: "Event Created!",
           message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",

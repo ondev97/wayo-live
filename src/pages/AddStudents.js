@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector } from "react-redux";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Empty from "../components/Empty";
 import "../assets/css/addStudents.css";
 import AddStFileSe from "../components/AddStFileSe";
@@ -91,7 +91,7 @@ export default function AddStudents() {
       }
     ).then(() => {
       store.addNotification({
-        title: `Enrollement Successfully`,
+        title: `Enrollment Successfully`,
         message: process.env.REACT_APP_LMS_ALERT_NAME,
         type: "success",
         insert: "top",

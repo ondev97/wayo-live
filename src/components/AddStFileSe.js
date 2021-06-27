@@ -121,7 +121,7 @@ export default function AddStFileSe({
 
           if (pass > 0) {
             store.addNotification({
-              title: `${pass} Enrollement Successfully`,
+              title: `${pass} Users Added To The Even`,
               message: process.env.REACT_APP_LMS_ALERT_NAME,
               type: "success",
               insert: "top",
@@ -139,7 +139,7 @@ export default function AddStFileSe({
           }
           if (fail > 0) {
             store.addNotification({
-              title: `${fail} Enrollement Unsuccessfully`,
+              title: `${fail} Users Can Not Add To The Event`,
               message: process.env.REACT_APP_LMS_ALERT_NAME,
               type: "danger",
               insert: "top",

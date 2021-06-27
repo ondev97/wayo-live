@@ -1,5 +1,6 @@
 import Axios from "axios";
 import { useEffect, useState } from "react";
+import { store } from "react-notifications-component";
 
 function StValidate(ValidateSignUp) {
   const [values, setvalues] = useState({
@@ -92,6 +93,23 @@ function StValidate(ValidateSignUp) {
     })
       .then((res) => {
         setac(true);
+        //showing alert
+        store.addNotification({
+          title: "Successfully Registered",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon: true,
+          },
+          width: 600,
+        });
       })
       .catch((err) => {
         if (err.response) {

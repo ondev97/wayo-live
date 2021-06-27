@@ -4,7 +4,6 @@ import "../assets/css/dashboardHeader.css";
 import AcDetails from "../utils/hooks/AcDetails";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import UserStatus from "../utils/hooks/UserStatus";
-import wayo from "../img/wayo.jpg";
 import logo1 from "../img/Logo_1.png";
 
 export default function TeacherDashboardHeader() {

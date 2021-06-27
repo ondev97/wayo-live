@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import StProfileBottom from "../../components/student/StProfileBottom";
 import AboutStUser from "../../components/student/AboutStUser";
 import StProfileHead from "../../components/student/StProfileHead";
 import StProfileSettings from "../../components/student/StProfileSettings";

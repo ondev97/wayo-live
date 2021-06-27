@@ -86,7 +86,7 @@ function GenerateKeys() {
         setvalue({ hw: "" });
 
         store.addNotification({
-          title: `${value.hw} Keys Created`,
+          title: `${value.hw} Tickets Created`,
           message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
@@ -154,7 +154,7 @@ function GenerateKeys() {
           setselectKeys([]);
 
           store.addNotification({
-            title: "Keys Issued",
+            title: "Ticket Issued",
             message: process.env.REACT_APP_LMS_ALERT_NAME,
             type: "info",
             insert: "top",

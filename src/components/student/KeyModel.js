@@ -64,7 +64,7 @@ function KeyModel({
       .then(() => {
         closemodel();
         store.addNotification({
-          title: "Sucessfully Enrolled",
+          title: "Successfully Enrolled",
           message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
