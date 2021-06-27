@@ -40,11 +40,8 @@ export default function StudentDashBoardHeader() {
       <div className="main_section">
         <div className="list">
           <ul>
-            <Link to={"/"}>
-              <li>HOME</li>
-            </Link>
             <Link to="/audiencedashboard/maindashboard/">
-              <li>ALL BANDS</li>
+              <li>HOME</li>
             </Link>
             <Link to="#">
               <li>USER GUIDE</li>
