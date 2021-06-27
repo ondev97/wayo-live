@@ -193,13 +193,12 @@ nav .ham button i {
   top: 75px;
   left: 50%;
   transform: translateX(-50%);
-  background: #f9f9f9eb;
-  width: 89%;
+  background: #262626;
+  width: 100%;
   padding: 10px;
   z-index: 300;
   display: none;
   overflow-y: auto;
-  border-radius: 8px;
 }
 .hammenu::-webkit-scrollbar {
   width: 5px;
@@ -223,12 +222,9 @@ nav .ham button i {
   cursor: pointer;
   transition: 0.3s ease;
 }
-.hammenu ul li:hover {
-  background-color: #efffef;
-}
 .hammenu ul a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   font-size: 14px;
   font-weight: 500;
 }
@@ -240,17 +236,17 @@ nav .ham button i {
 }
 .hammenu .buttons button {
   width: 120px;
-  margin: 0 8px 8px;
   padding: 9px;
   font-size: 13px;
   border: none;
-  background-color: #fff;
+  background-color: #f37019;
   font-weight: 600;
-  border: 2px solid #f3a82f;
+  border: 2px solid #f37019;
   border-radius: 5px;
   transition: 0.4s ease-in;
   cursor: pointer;
   outline: none;
+  color: #fff;
   display: inline-block;
 }
 .hammenu .buttons button a {
@@ -258,14 +254,12 @@ nav .ham button i {
   color: #000;
 }
 .hammenu .buttons a:nth-child(2) button {
-  background-color: #008231;
   color: #fff;
 }
 .hammenu .buttons button:nth-child(2) a {
   color: #fff;
 }
 .hammenu .buttons button:nth-child(1):hover {
-  background-color: #008231;
   color: #fff;
 }
 .hammenu .buttons button:nth-child(2):hover {
