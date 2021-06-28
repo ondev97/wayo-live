@@ -108,7 +108,7 @@ export default function CreateSubject({ profileDetails }) {
   }
 
   if (redirec) {
-    return <Redirect to={`/band/createshow`} />;
+    return <Redirect to={`/band/allevents`} />;
   }
 
   return (
