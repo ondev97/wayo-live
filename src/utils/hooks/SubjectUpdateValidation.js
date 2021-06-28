@@ -56,11 +56,10 @@ export default function UpdateSubjectFunc(submitForm, subid) {
           headers: { Authorization: "Token " + usDetails.key },
         }
       ).then((res) => {
-        console.log(res.data.event_mode);
         setformValue({
           ...formValue,
           event_category_name: res.data.event_mode,
-          event_category: res.data.event_mode.id,
+          event_category: res.data.event_mode ? res.data.event_mode.id : "",
           event_type: res.data.event_type,
           event_name: res.data.event_name,
           event_short_description: res.data.description,

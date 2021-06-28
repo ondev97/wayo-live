@@ -1,6 +1,8 @@
 export default function ValidateSubjectCreateForm(values, isFree) {
   let errors = {};
-  console.log(values.event_content.length);
+  if (values.event_category === null) {
+    errors.event_category = "Event Category Is Required";
+  }
   if (!values.event_category) {
     errors.event_category = "Event Category Is Required";
   }

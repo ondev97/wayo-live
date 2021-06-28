@@ -70,7 +70,6 @@ export default function UpdateSujectForm({
     let start_time = formValue.event_start;
     let end_time = formValue.event_end;
     if (start_time && end_time) {
-      console.log(duration.current);
       let start = start_time.split(":");
       let end = end_time.split(":");
       var startDate = new Date(0, 0, 0, start[0], start[1], 0);

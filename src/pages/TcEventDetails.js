@@ -4,11 +4,13 @@ import "../assets/css/student/evntDetails.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Axios from "axios";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 export default function TcEventDetails() {
   const { id } = useParams();
   const [eventDetail, seteventDetail] = useState({});
   const [difference, setdifference] = useState("");
+  const history = useHistory();
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
 
@@ -36,7 +38,7 @@ export default function TcEventDetails() {
           headers: { Authorization: "Token " + usDetails.key },
         }
       ).then(() => {
-        window.location.reload(false);
+        history.push("/band/allevents");
       });
     }
   };

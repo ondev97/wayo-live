@@ -35,7 +35,7 @@ export default function TcMaCourses({
   };
 
   return (
-    <div className="course_card">
+    <div className={is_freeze ? "freeze course_card" : "course_card"}>
       <Link to={`/band/viewevent/${id}`}>
         <div className="cscard_head">
           <h1>{event_date || ""}</h1>

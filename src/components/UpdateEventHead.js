@@ -43,7 +43,7 @@ function UpdateEventHead({
   };
 
   useEffect(() => {
-    if (formValue.event_category_name.event_mode_name) {
+    if (formValue.event_category_name) {
       eventRef.current.value = formValue.event_category_name.event_mode_name;
     }
     if (formValue.event_type === "Live Streaming") {
@@ -91,7 +91,11 @@ function UpdateEventHead({
   };
 
   //delete mode
-  const deleteMod = (data) => {
+  const deleteMod = (data, value) => {
+    if (eventRef.current.value === value) {
+      eventRef.current.value = "";
+      setformValue({ ...formValue, event_category: "" });
+    }
     Axios.delete(
       `${process.env.REACT_APP_LMS_MAIN_URL}/show/deleteeventmode/${data}/`,
       {
@@ -222,7 +226,7 @@ function UpdateEventHead({
                     </button>
                     <button
                       className="delete"
-                      onClick={() => deleteMod(data.id)}
+                      onClick={() => deleteMod(data.id, data.event_mode_name)}
                     >
                       <i className="far fa-trash-alt"></i>
                     </button>

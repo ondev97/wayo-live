@@ -412,7 +412,7 @@ button.cp {
   bottom: -25px;
   right: 0;
   padding: 5px 8px;
-  background-color: #dadada;
+  background-color: transparent;
   color: red;
   border-radius: 2px;
   z-index: 100;
@@ -573,4 +573,8 @@ button.cp {
 }
 .subject_form .back button:hover i {
   color: #fff;
+}
+/*/////////*/
+.ck.ck-labeled-field-view .ck-labeled-field-view__status {
+  color: #fff !important;
 }

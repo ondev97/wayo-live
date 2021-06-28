@@ -10,6 +10,7 @@ function EventModel({
   setisEdit,
   isEdit,
   editValue,
+  seteditValue,
 }) {
   const [eventDetails, seteventDetails] = useState({ eventName: "" });
   const [error, seterror] = useState({ eventName: "" });
@@ -63,7 +64,7 @@ function EventModel({
         .then(() => {
           setcloseModel(false);
           setismodel(!ismodel);
-          editValue({ id: "", value: "" });
+          seteditValue({ id: "", value: "" });
         })
         .catch((err) => {
           console.log(err);
