@@ -195,9 +195,9 @@ export default function TeacherDashboard() {
           <Route path="/band/ticket">
             <GeneEnrollmentkeys />
           </Route>
-          <Route path="/band/playevent">
+          {/* <Route path="/band/playevent">
             <PlayEvent />
-          </Route>
+          </Route> */}
         </div>
       </div>
     </div>

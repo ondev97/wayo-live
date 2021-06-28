@@ -179,9 +179,9 @@ function StudentDashBoard() {
           <Route path="/audiencedashboard/eventsinband/:id">
             <StSubCourses />
           </Route>
-          <Route path="/audiencedashboard/playevent">
+          {/* <Route path="/audiencedashboard/playevent">
             <PlayEvent />
-          </Route>
+          </Route> */}
         </div>
       </div>
     </div>

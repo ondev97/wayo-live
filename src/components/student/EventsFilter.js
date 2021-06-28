@@ -41,7 +41,12 @@ function EventsFilter({ id, bands, filter, setfilter }) {
 
   useEffect(() => {
     eventRef.current.value = "All Events";
-  }, []);
+    //set initial band
+    if (checkBand(bands, id)) {
+      inputRef.current.value = checkBand(bands, id)[0].user.username;
+      setimage(checkBand(bands, id)[0].band_image);
+    }
+  }, [bands]);
 
   useEffect(async () => {
     if (usDetails.key) {
@@ -114,6 +119,14 @@ function EventsFilter({ id, bands, filter, setfilter }) {
       if (!inValue1.current.checked && !inValue2.current.checked) {
         setfilter({ ...filter, eventType: "" });
       }
+    }
+  };
+
+  /* check band by id*/
+  const checkBand = (bands, id) => {
+    if (bands.length > 0) {
+      const result = bands.filter((band) => band.id == parseInt(id));
+      return result;
     }
   };
 
