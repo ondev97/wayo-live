@@ -107,7 +107,7 @@ export default function TcEventDetails() {
               </div>
               <div className="event_column tcside">
                 <Link to={`/band/event/${id}`}>
-                  <button>MANGE EVENT</button>
+                  <button>MANAGE EVENT</button>
                 </Link>
                 <Link to={`/band/updateevent/${id}`}>
                   <button>EDIT EVENT</button>

@@ -8,16 +8,14 @@ import { useHistory } from "react-router-dom";
 import ModuleBody from "./ModuleBody";
 
 export default function TcOneModel({
-  name,
   msg,
-  setisRemoveModule,
   setvideoLink,
   setsetVideo,
   moduleData,
 }) {
   const [playing, setplaying] = useState(false);
   const [iValue, setiValue] = useState("");
-  const [src, setsrc] = useState("");
+  // const [src, setsrc] = useState("");
   const valueRef = useRef();
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
@@ -120,45 +118,32 @@ export default function TcOneModel({
     }
   }
 
-  const functionRemoveModule = (id) => {
-    Axios.delete(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/deletemodule/${id}/`,
-      {
-        headers: { Authorization: "Token " + usDetails.key },
-      }
-    )
-      .then(() => {
-        setisRemoveModule(true);
-      })
-      .catch((err) => {});
-  };
-
   useEffect(() => {
     setiValue(valueRef.current);
   }, []);
   useEffect(() => {
     if (iValue) {
       document.getElementById("setValue").innerHTML = iValue;
-      getI();
+      //  getI();
     }
   }, [iValue]);
 
-  function getI() {
-    let ifra = document.querySelector("#setValue iframe");
-    setsrc(ifra.getAttribute("src"));
-  }
+  // function getI() {
+  //   let ifra = document.querySelector("#setValue iframe");
+  //   // setsrc(ifra.getAttribute("src"));
+  // }
 
-  //play Iframe
-  const playIframe = () => {
-    setplaying(true);
-    setplaying(false);
-    history.push({
-      pathname: "/band/playevent",
-      state: {
-        value: iValue,
-      },
-    });
-  };
+  // //play Iframe
+  // const playIframe = () => {
+  //   setplaying(true);
+  //   setplaying(false);
+  //   history.push({
+  //     pathname: "/band/playevent",
+  //     state: {
+  //       value: iValue,
+  //     },
+  //   });
+  // };
 
   return (
     <LazyLoad height={200}>
@@ -170,24 +155,7 @@ export default function TcOneModel({
               <div ref={valueRef} style={{ display: "none" }}></div>
               {iValue ? (
                 <>
-                  <div id="setValue" style={{ display: "none" }}></div>
-                  {src ? (
-                    <div className="re_player" id="re_player">
-                      <ReactPlayer
-                        url={src}
-                        controls={true}
-                        pip={true}
-                        className="player"
-                        width="100%"
-                        height="100%"
-                        playing={playing}
-                        onPlay={playIframe}
-                        onContextMenu={(e) => e.preventDefault()}
-                      />
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                  <div id="setValue"></div>
                 </>
               ) : (
                 ""

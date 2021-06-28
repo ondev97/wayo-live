@@ -124,7 +124,7 @@
 .genkeysform .main_gen_form .disp_gen_keys table {
   position: relative;
   width: 100%;
-  background-color: #7f7f7f;
+  background-color: #262626;
   border-collapse: collapse;
   border: 1px solid #eee;
 }
@@ -136,15 +136,15 @@
   top: 0;
   padding: 15px 12px;
   z-index: 100;
-  color: #000;
-  background-color: #b1afaf;
+  color: #fff;
+  background-color: #444444;
 }
 .genkeysform .main_gen_form .disp_gen_keys table thead tr:first-child {
-  background-color: #b1afaf;
+  background-color: #262626;
   color: var(--h1Fontcolor);
 }
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(1) {
-  background-color: #eee3;
+  color: #fff;
 }
 
 .genkeysform .main_gen_form .disp_gen_keys table tbody tr td:nth-child(2) {

@@ -158,6 +158,28 @@
   font-size: 14px;
   transition: 0.2s;
 }
+/*Iframe*/
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  #setValue {
+  width: 100%;
+}
+.models
+  .md_all_models
+  .md_models
+  .al_models
+  .on_model_body
+  .model_body_row
+  #setValue
+  iframe {
+  width: 100% !important;
+  min-height: 450px;
+  max-height: 500px;
+}
 .models
   .md_all_models
   .md_models

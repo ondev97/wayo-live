@@ -63,7 +63,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="col">
-                <p>WAYO jeewithe Concert</p>
+                <p>WAYO Jeewithe Concert</p>
                 <p>Jeewithe Private Screening for INFOR</p>
               </div>
             </div>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams, Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import "../../assets/css/student/evntDetails.css";
 import { useSelector } from "react-redux";
 import Axios from "axios";
