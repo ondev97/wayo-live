@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import "../../assets/css/student/evntDetails.css";
 import { useSelector } from "react-redux";
 import Axios from "axios";
@@ -15,6 +15,7 @@ export default function EventDetails() {
   const [redirect, setredirect] = useState(false);
   const [style, setstyle] = useState({ color: "red", visibility: "hidden" });
   const [content, setcontent] = useState("");
+  const history = useHistory();
   const [band, setBand] = useState({});
 
   useEffect(async () => {
@@ -89,6 +90,9 @@ export default function EventDetails() {
       </AnimatePresence>
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
+          <button onClick={() => history.goBack()}>
+            <i className="fas fa-chevron-circle-left"></i>Back To All Events
+          </button>
           <div className="st_mange_cos_body">
             <div className="pagetop">
               <h1

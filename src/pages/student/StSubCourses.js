@@ -1,4 +1,3 @@
-import { AnimateSharedLayout, motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import "../../assets/css/student/stcourse.css";
@@ -17,6 +16,7 @@ export default function StSubCourses() {
   const [redirect, setredirect] = useState(false);
   const [isLoading, setisLoading] = useState(true);
   const [bands, setBands] = useState([]);
+  const history = useHistory();
   const [filter, setfilter] = useState({
     band: id,
     eventType: "",
@@ -65,6 +65,9 @@ export default function StSubCourses() {
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
           <div className="st_mange_cos_body">
+            <button onClick={() => history.goBack()}>
+              <i className="fas fa-chevron-circle-left"></i>Back To All Bands
+            </button>
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>
