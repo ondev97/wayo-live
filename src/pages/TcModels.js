@@ -1,7 +1,7 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ModelsCourseDescri from "../components/ModelsCourseDescri";
 import TcOneModel from "../components/TcOneModel";
 import "../assets/css/tcmoels.css";
@@ -99,6 +99,14 @@ export default function TcModels() {
       <div className="models">
         <div className="md_all_models">
           <div className="md_models">
+            <div className="cr_models">
+              <Link to={`/band/viewevent/${id}`}>
+                <button>
+                  <i className="fas fa-chevron-circle-left"></i>Back to View
+                  Details
+                </button>
+              </Link>
+            </div>
             <div className="al_models">
               {moduleData !== "" ? (
                 <TcOneModel

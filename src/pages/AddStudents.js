@@ -1,20 +1,19 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Empty from "../components/Empty";
 import "../assets/css/addStudents.css";
 import AddStFileSe from "../components/AddStFileSe";
 import SelectStudentsTopRow from "../components/SelectStudentsTopRow";
 import { store } from "react-notifications-component";
-import useDebounce from "../utils/hooks/useDebounce";
 import ViewStuTc from "../components/ViewStuTc";
 import donwloadFile from "../img/Template.xlsx";
 
 export default function AddStudents() {
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
+  const history = useHistory();
   const [allStudents, setallStudents] = useState([]);
   const [addedProfile, setaddedProfile] = useState([]);
   const [selectst, setselectst] = useState([]);
@@ -27,7 +26,11 @@ export default function AddStudents() {
   const [stPrDetail, setstPrDetail] = useState([]);
   const { id } = useParams();
 
-  const debounce = useDebounce(); //custom hook
+  //const debounce = useDebounce(); //custom hook
+
+  const back = () => {
+    history.goBack();
+  };
 
   const getStudents = async () => {
     await Axios.get(
@@ -113,12 +116,12 @@ export default function AddStudents() {
       setsuncess(!suncess);
     });
   };
-  /*Search */
-  const handelSearchSubject = (e) => {
-    const search = e.target.value;
-    setpage(1);
-    debounce(() => setsearch(search), 500);
-  };
+  // /*Search */
+  // const handelSearchSubject = (e) => {
+  //   const search = e.target.value;
+  //   setpage(1);
+  //   debounce(() => setsearch(search), 500);
+  // };
 
   return (
     <div className="stlist">
@@ -141,14 +144,11 @@ export default function AddStudents() {
       <div className="pageTop">
         <h1>Add Audience</h1>
       </div>
-      {/* <div className="search_st">
-        <div className="search" onChange={handelSearchSubject}>
-          <input type="text" />
-          <button>
-            <i className="fas fa-search"></i>
-          </button>
-        </div>
-      </div> */}
+      <div className="search_st">
+        <button onClick={back}>
+          <i className="fas fa-arrow-circle-left"></i> Back to Event
+        </button>
+      </div>
       <div className="ins_area">
         <h4>Special Instructions</h4>
         <p>

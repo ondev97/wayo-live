@@ -23,6 +23,13 @@ function GeneEnrollmentkeys() {
         </Link>
       </div>
       <div className="show">
+        <div className="back">
+          <Link to={`/band/event/${location.params.id}/`}>
+            <button>
+              <i className="fas fa-chevron-circle-left"></i>Back to Event
+            </button>
+          </Link>
+        </div>
         <Route path="/band/ticket/genticket/:id">
           <GenerateKeys />
         </Route>

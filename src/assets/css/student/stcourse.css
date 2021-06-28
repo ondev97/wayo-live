@@ -67,6 +67,26 @@
   letter-spacing: 1px;
   cursor: pointer;
 }
+/*back button*/
+.st_top_manage_body a button {
+  padding: 8px;
+  background-color: #000;
+  border: 1px solid #ffffff52;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.st_top_manage_body a button i {
+  margin-right: 5px;
+  line-height: 15px;
+}
+.st_top_manage_body a button:hover {
+  background-color: var(--h1Fontcolor);
+}
+.st_top_manage_body a button:hover i {
+  color: #fff;
+}
 
 /*!!Using teacher side styles*/
 .st_top_manage_body .st_mange_cos_body {

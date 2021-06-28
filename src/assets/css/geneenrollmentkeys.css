@@ -43,12 +43,13 @@
 }
 .main_sub .show .back button {
   padding: 8px 10px;
-  background-color: #fff;
-  border: 1px solid var(--buttonColor1);
-  border-radius: 20px;
+  background-color: #000;
+  border: 1px solid #ffffff52;
+  border-radius: 2px;
   outline: none;
   cursor: pointer;
   transition: 0.3s ease;
+  color: #fff;
 }
 .main_sub .show .back button i {
   margin-right: 5px;

@@ -69,6 +69,11 @@ export default function TcEventDetails() {
     <>
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
+          <Link to="/band/allevents">
+            <button>
+              <i className="fas fa-chevron-circle-left"></i>Back To All Events
+            </button>
+          </Link>
           <div className="st_mange_cos_body">
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS > EVENT NAME"}</h1>

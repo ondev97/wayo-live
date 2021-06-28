@@ -3,11 +3,10 @@ import "../assets/css/viewallsts.css";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Empty from "../components/Empty";
 import ViewStuTc from "../components/ViewStuTc";
 import { store } from "react-notifications-component";
-import useDebounce from "../utils/hooks/useDebounce";
 
 export default function AllStList() {
   //get acDetails from Redux Store
@@ -20,8 +19,14 @@ export default function AllStList() {
   const [page, setpage] = useState(1);
   const [search, setsearch] = useState("");
   const { id } = useParams();
+  const history = useHistory();
 
-  const debounce = useDebounce(); //custom hook
+  // const debounce = useDebounce(); //custom hook
+
+  /*model page*/
+  const back = () => {
+    history.goBack();
+  };
 
   const getallStude = async () => {
     if (usDetails) {
@@ -87,11 +92,11 @@ export default function AllStList() {
   }
 
   /*Search */
-  const handelSearchSubject = (e) => {
-    const search = e.target.value;
-    setpage(1);
-    debounce(() => setsearch(search), 500);
-  };
+  // const handelSearchSubject = (e) => {
+  //   const search = e.target.value;
+  //   setpage(1);
+  //   debounce(() => setsearch(search), 500);
+  // };
 
   return (
     <div className="stlist">
@@ -103,6 +108,11 @@ export default function AllStList() {
       />
       <div className="pageTop">
         <h1>Audience In The Event</h1>
+      </div>
+      <div className="search_st">
+        <button onClick={back}>
+          <i className="fas fa-arrow-circle-left"></i> Back to Event
+        </button>
       </div>
       {allDetailSt !== null ? (
         <div className="sttable">

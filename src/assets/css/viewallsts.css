@@ -17,7 +17,6 @@
 }
 .search_st {
   width: 100%;
-  padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,10 +24,10 @@
 .search_st button {
   width: 140px;
   padding: 8px;
-  border-radius: 20px;
+  border-radius: 3px;
   border: 1px solid var(--buttonColor1);
-  background-color: #fff;
-  color: var(--buttonColor1);
+  background-color: #000;
+  color: #fff;
   cursor: pointer;
   outline: none;
   transition: 0.3s ease;
@@ -87,12 +86,14 @@
   text-decoration: none;
   color: #000;
 }
+.sttable table tr {
+  border-bottom: 1px solid #6f6f6f4f;
+}
 .sttable table th,
 td {
   padding: 15px 5px;
   text-align: center;
   border-bottom: none;
-  border-bottom: 1px solid #dcdcdc;
 }
 .sttable table th:nth-child(1),
 .sttable table td:nth-child(1) {
