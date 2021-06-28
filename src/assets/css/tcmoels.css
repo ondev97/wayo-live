@@ -178,7 +178,6 @@
   #setValue
   iframe {
   width: 100% !important;
-  min-height: 450px;
   max-height: 500px;
 }
 .models

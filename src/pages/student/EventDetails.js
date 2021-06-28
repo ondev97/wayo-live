@@ -124,7 +124,7 @@ export default function EventDetails() {
               <div className="event_column">
                 {!eventDetails.is_enrolled ? (
                   <Link to={`#`}>
-                    <button>RS: {eventDetails.event_price}</button>
+                    <button>LKR: {eventDetails.event_price}</button>
                   </Link>
                 ) : (
                   ""

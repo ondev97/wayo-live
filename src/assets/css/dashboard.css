@@ -34,7 +34,7 @@
   width: 98%;
   margin: 0 auto;
   padding: 5px 8px;
-  background-color: #7f7f7f;
+  background-color: #262626;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -47,7 +47,7 @@
 .main .main_column .head .column:first-child i {
   cursor: pointer;
   font-size: 23px;
-  color: #000;
+  color: #fff;
 }
 .main .main_column .head .column:last-child {
   display: flex;
@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 .main .main_column .head .column .sec span i {
-  color: #000;
+  color: #fff;
 }
 .main .main_column .head .column .sec .profile {
   position: relative;
