@@ -7,6 +7,7 @@ function StValidateLogin() {
   const [errors, seterrors] = useState({ un: "", pw: "", comerrors: "" });
   const [isSubmitting, setisSubmitting] = useState(false);
   const [hide, sethide] = useState({ un: false, pw: false });
+  const [loading, setloading] = useState(false);
 
   const [acDetails, setacDetails] = useState({});
 
@@ -32,6 +33,7 @@ function StValidateLogin() {
   };
 
   function submit() {
+    setloading(true);
     Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/checkuser/`, {
       username: values.un.toUpperCase(),
       password: values.pw,
@@ -47,18 +49,21 @@ function StValidateLogin() {
           )
             .then((res) => {
               setacDetails(res.data);
+              setloading(false);
             })
             .catch((err) => {
               seterrors({
                 ...errors,
                 comerrors: err.response.data.non_field_errors,
               });
+              setloading(false);
             });
         } else {
           seterrors({
             ...errors,
             comerrors: "Someone is already logged into this account",
           });
+          setloading(false);
         }
       })
       .catch((err) => {
@@ -76,6 +81,7 @@ function StValidateLogin() {
     // )
     //   .then((res) => {
     //     setacDetails(res.data);
+    //setloading(false)
     //   })
     //   .catch((err) => {
     //     seterrors({ ...errors, comerrors: err.response.data.non_field_errors });
@@ -112,6 +118,7 @@ function StValidateLogin() {
     hideError,
     hide,
     acDetails,
+    loading,
   ];
 }
 

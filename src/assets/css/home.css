@@ -166,6 +166,18 @@
   text-align: center;
   cursor: pointer;
 }
+.uppercover .cover-cont .wrp .cover-col:nth-child(2) form .but button .rotate {
+  color: #fff;
+  animation: rotate 0.5s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
 .uppercover .cover-cont .wrp .cover-col:nth-child(2) form .but-sec {
   width: 100%;
   display: flex;

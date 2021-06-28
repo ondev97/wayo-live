@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
@@ -12,6 +12,7 @@ export default function CoverForm({ setisModel }) {
     hideError,
     hide,
     acDetails,
+    loading,
   ] = StValidateLogin();
   const passwordRef = useRef();
 
@@ -89,7 +90,9 @@ export default function CoverForm({ setisModel }) {
           </p>
         </div>
         <div className="but">
-          <button type="submit">LogIn</button>
+          <button type="submit">
+            {loading ? <i className="fas fa-circle-notch rotate"></i> : "LogIn"}
+          </button>
 
           <div className="fpw">
             {/* <p>

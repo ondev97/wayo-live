@@ -90,7 +90,6 @@
 .models .md_all_models .md_models .al_models .on_model_head {
   width: 100%;
   padding: 15px 20px 15px;
-  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -167,6 +166,7 @@
   .model_body_row
   #setValue {
   width: 100%;
+  margin-bottom: 25px;
 }
 .models
   .md_all_models
