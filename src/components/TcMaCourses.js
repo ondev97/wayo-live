@@ -54,10 +54,9 @@ export default function TcMaCourses({
         </div>
       </Link>
       <div className="cscard_bottom">
-        <Link to={`/band/updateevent/${id}`}>
-          <button>EDIT EVENT</button>
+        <Link to={`/band/viewevent/${id}`}>
+          <button>VIEW EVENT</button>
         </Link>
-        <button onClick={clk}>DELETE EVENT</button>
       </div>
     </div>
   );

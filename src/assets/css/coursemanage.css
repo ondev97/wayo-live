@@ -1,5 +1,4 @@
 .main_ar_course {
-  padding: 12px;
   width: 100%;
   height: 100%;
   font-family: "Open Sans", sans-seri;
@@ -98,7 +97,7 @@
   border: 1px solid #262626;
   border-radius: 3px;
   overflow: hidden;
-  padding: 5px 3px;
+  padding: 5px 8px;
   transition: 0.5s ease;
 }
 .main_ar_course .course_body .course_card .cscard_head {

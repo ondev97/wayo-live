@@ -8,7 +8,7 @@
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd {
   position: relative;
-  background-color: #7f7f7f;
+  background-color: #262626;
   height: 100%;
   max-height: calc(100vh - 140px);
   overflow-y: auto;
@@ -58,8 +58,8 @@
   border: 1px solid #7f7f7f;
 }
 .disp_all_issu_keys .disp_issu_keys .table_issu_hd table tr th {
-  background-color: #b1afaf;
-  color: #000;
+  background-color: #464646;
+  color: #fff;
   position: sticky;
   top: 0;
 }

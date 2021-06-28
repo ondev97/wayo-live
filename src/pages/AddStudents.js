@@ -193,7 +193,7 @@ export default function AddStudents() {
                 <tr key={data.id}>
                   <td>{data.id}</td>
                   <td>
-                    <LazyLoadImage src={data.user_image} effect="blur" />
+                    <img src={data.user_image} alt="user" />
                   </td>
                   <td>{data.user.first_name + " " + data.user.last_name}</td>
                   <td>{data.user.username}</td>

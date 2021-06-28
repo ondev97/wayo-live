@@ -16,7 +16,8 @@
 .genkeysform .main_gen_form form {
   padding: 35px 25px;
   width: 100%;
-  background-color: #7f7f7f;
+  background-color: #262626;
+  border-radius: 5px;
 }
 .genkeysform .main_gen_form form p {
   margin: 15px 0;
@@ -26,16 +27,16 @@
   display: block;
   margin-bottom: 15px;
   font-size: 17px;
-  color: #000;
+  color: #fff;
   font-weight: 600;
 }
 .genkeysform .main_gen_form form p input {
   width: 100%;
   padding: 8px 5px;
-  color: #d6d6d6;
+  color: #eee;
   outline: none;
-  border: 1px solid #404040;
-  background-color: #404040;
+  border: 1px solid #000;
+  background-color: #000;
   border-radius: 3px;
   font-weight: 600;
 }

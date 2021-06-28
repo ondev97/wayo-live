@@ -75,41 +75,40 @@ export default function TcEventDetails() {
           <div className="event_header">
             <div className="event_row">
               <div className="event_column">
-                <Link to={`/band/event/${id}`}>
-                  <div className="event_head">
-                    <h2>
-                      {eventDetail.event_date ? eventDetail.event_date : ""}
-                    </h2>
-                    <h2>
-                      {eventDetail.event_start ? eventDetail.event_start : ""}
-                    </h2>
-                    <h3 className="label">
-                      {eventDetail.event_label ? eventDetail.event_label : ""}
-                    </h3>
-                  </div>
-                </Link>
+                <div className="event_head">
+                  <h2>
+                    {eventDetail.event_date ? eventDetail.event_date : ""}
+                  </h2>
+                  <h2>
+                    {eventDetail.event_start ? eventDetail.event_start : ""}
+                  </h2>
+                  <h3 className="label">
+                    {eventDetail.event_label ? eventDetail.event_label : ""}
+                  </h3>
+                </div>
               </div>
               <div className="event_column">
-                <Link to={`/band/event/${id}/`}>
-                  <div className="event_dis_col">
-                    <h1>
-                      {eventDetail.event_name ? eventDetail.event_name : ""}
-                    </h1>
-                    <h1>
-                      {eventDetail.description ? eventDetail.description : ""}
-                    </h1>
-                    <h1>
-                      {eventDetail.event_type ? eventDetail.event_type : ""}
-                    </h1>
-                    <h1>
-                      {eventDetail.event_mode
-                        ? eventDetail.event_mode.event_mode_name
-                        : ""}
-                    </h1>
-                  </div>
-                </Link>
+                <div className="event_dis_col">
+                  <h1>
+                    {eventDetail.event_name ? eventDetail.event_name : ""}
+                  </h1>
+                  <h1>
+                    {eventDetail.description ? eventDetail.description : ""}
+                  </h1>
+                  <h1>
+                    {eventDetail.event_type ? eventDetail.event_type : ""}
+                  </h1>
+                  <h1>
+                    {eventDetail.event_mode
+                      ? eventDetail.event_mode.event_mode_name
+                      : ""}
+                  </h1>
+                </div>
               </div>
               <div className="event_column tcside">
+                <Link to={`/band/event/${id}`}>
+                  <button>MANGE EVENT</button>
+                </Link>
                 <Link to={`/band/updateevent/${id}`}>
                   <button>EDIT EVENT</button>
                 </Link>

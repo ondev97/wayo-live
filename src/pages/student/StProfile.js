@@ -42,7 +42,7 @@ export default function StProfile() {
             <div
               className={`settings_us ${!settings ? "inactivate" : "activate"}`}
             >
-              <StProfileSettings setsettings={setsettings} />
+              {/* <StProfileSettings setsettings={setsettings} /> */}
             </div>
           </div>
         </div>

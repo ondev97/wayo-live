@@ -58,12 +58,13 @@ export default function Home() {
             <div className="upcoming-row">
               <div className="col">
                 <p>
-                  JUNE 25 <br />
-                  2021 06.30 PM
+                  2021-07-01 <br />
+                  16.00
                 </p>
               </div>
               <div className="col">
-                <p>Event Name</p>
+                <p>WAYO jeewithe Concert</p>
+                <p>Jeewithe Private Screening for INFOR</p>
               </div>
             </div>
           </div>

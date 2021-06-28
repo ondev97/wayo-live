@@ -3,7 +3,7 @@ import React from "react";
 function PageBreadcrumbs() {
   return (
     <>
-      <h1>ALL BANDS</h1>
+      <h1>ALL EVENTS</h1>
     </>
   );
 }

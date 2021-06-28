@@ -3,7 +3,7 @@
 }
 .pageTop {
   width: 100%;
-  padding: 45px 0;
+  padding: 25px 0;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
@@ -11,6 +11,9 @@
   background-color: #262626;
   font-family: "Open Sans", sans-seri;
   color: #fff;
+}
+.pageTop h1 {
+  font-size: 24px;
 }
 .search_st {
   width: 100%;
@@ -73,12 +76,12 @@
 }
 .sttable table {
   width: 100%;
-  background-color: #bfbfbf;
+  background-color: #262626;
   border-collapse: collapse;
-  border: 2px solid #bfbfbf;
+  border: 2px solid #262626;
 }
 .sttable table th {
-  background-color: #7f7f7f;
+  background-color: #464646;
 }
 .sttable table tr a {
   text-decoration: none;
@@ -89,18 +92,21 @@ td {
   padding: 15px 5px;
   text-align: center;
   border-bottom: none;
-  border-bottom: 2px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
 }
 .sttable table th:nth-child(1),
 .sttable table td:nth-child(1) {
   display: none;
 }
 .sttable table td {
-  padding: 5px;
+  padding: 7px 5px 5px 5px;
+  color: #fff;
 }
+
 .sttable table td img {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
+  vertical-align: bottom;
 }
 .sttable table td button {
   cursor: pointer;
