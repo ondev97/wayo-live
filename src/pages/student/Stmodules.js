@@ -62,7 +62,7 @@ export default function Stmodules() {
   }, [usDetails]);
   let intervale;
   useEffect(() => {
-    intervale = setInterval(checkUser, 6000);
+    intervale = setInterval(checkUser, 600000);
   }, [usDetails]);
 
   //check whether user token valid
