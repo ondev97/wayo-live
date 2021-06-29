@@ -62,7 +62,7 @@ export default function Stmodules() {
   }, [usDetails]);
   let intervale;
   useEffect(() => {
-    intervale = setInterval(checkUser, 600000);
+    intervale = setInterval(checkUser, 60000);
   }, [usDetails]);
 
   //check whether user token valid
@@ -81,6 +81,23 @@ export default function Stmodules() {
               hadelLogOut();
               history.push("/");
               clearInterval(intervale);
+              /*showing alert*/
+              store.addNotification({
+                title: "Concurrent Logins Are Prohibited ",
+                message: process.env.REACT_APP_LMS_ALERT_NAME,
+                type: "warning",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon: true,
+                },
+                width: 600,
+              });
             }
           }
         });

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AboutStUser from "../../components/student/AboutStUser";
 import StProfileHead from "../../components/student/StProfileHead";
-import StProfileSettings from "../../components/student/StProfileSettings";
 
 export default function StProfile() {
   const [settings, setsettings] = useState(false);
