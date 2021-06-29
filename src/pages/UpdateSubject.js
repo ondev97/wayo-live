@@ -4,7 +4,7 @@ import UpdateSubjectFunc from "../utils/hooks/SubjectUpdateValidation";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import { store } from "react-notifications-component";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import UpdateSujectForm from "../components/UpdateSujectForm";
 import UpdateEveHead from "../components/UpdateEventHead";
 
@@ -27,6 +27,7 @@ export default function UpdateSubject() {
   const [showCropper, setshowCropper] = useState(false);
   const [isUploading, setisUploading] = useState(false);
   const [isredirect, setisredirect] = useState(false);
+  const history = useHistory();
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
@@ -113,6 +114,9 @@ export default function UpdateSubject() {
   }
   return (
     <div className="subject_form">
+      <button onClick={() => history.goBack()}>
+        <i className="fas fa-chevron-circle-left"></i>Back to Events
+      </button>
       <UpdateEveHead
         hadelChabgeFormValues={hadelChabgeFormValues}
         formValue={formValue}

@@ -1,6 +1,25 @@
 .subject_form {
   width: 100%;
 }
+.subject_form button {
+  padding: 8px;
+  background-color: #000;
+  border: 1px solid #ffffff52;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-bottom: 8px;
+}
+.subject_form button i {
+  margin-right: 14px;
+}
+.subject_form button:hover {
+  background-color: var(--h1Fontcolor);
+}
+.subject_form button:hover i {
+  color: #fff;
+}
 .subject_form .main_form {
   width: 100%;
   margin: 15px auto;
