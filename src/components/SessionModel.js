@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { store } from "react-notifications-component";
 
 function SessionModel({ closeModel, setisModel }) {
-  const [valueForm, setvalueForm] = useState({ userName: "" });
-  const [error, seterror] = useState({ userName: "" });
-  const [hide, sethide] = useState({ userName: false });
+  const [valueForm, setvalueForm] = useState({ userName: "", password: "" });
+  const [error, seterror] = useState({ userName: "", password: "" });
+  const [hide, sethide] = useState({ userName: false, password: false });
   const [submitting, setsubmitting] = useState(false);
 
   const setValue = (e) => {
@@ -16,12 +16,16 @@ function SessionModel({ closeModel, setisModel }) {
 
   const submitSession = (e) => {
     e.preventDefault();
+    let err = {};
     //validate username
     if (!valueForm.userName.trim()) {
-      seterror({ ...error, userName: "Please Enter UserName" });
-    } else {
-      seterror({});
+      err.userName = "Please Enter UserName";
     }
+    if (!valueForm.password.trim()) {
+      err.password = "Please Enter Password";
+    }
+    seterror(err);
+
     setsubmitting(true);
     sethide({ userName: false });
   };
@@ -41,9 +45,10 @@ function SessionModel({ closeModel, setisModel }) {
   };
 
   function submit() {
-    Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/deletetoken/${valueForm.userName}/`
-    )
+    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/deletetoken/`, {
+      username: valueForm.userName,
+      password: valueForm.password,
+    })
       .then(() => {
         setisModel(false);
         store.addNotification({
@@ -94,6 +99,21 @@ function SessionModel({ closeModel, setisModel }) {
             {error.userName && (
               <span className={`tip ${hide.userName ? "hidetip" : ""}`}>
                 {error.userName}
+              </span>
+            )}
+          </p>
+          <p>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              onChange={setValue}
+              value={valueForm.password}
+              onFocus={hideError}
+            />
+            {error.password && (
+              <span className={`tip ${hide.password ? "hidetip" : ""}`}>
+                {error.password}
               </span>
             )}
           </p>
