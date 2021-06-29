@@ -7,11 +7,11 @@ import StCourseModuleDes from "../../components/student/StCourseModuleDes";
 import { store } from "react-notifications-component";
 import PlayerController from "../PlayerController";
 import ReactPlayer from "react-player/lazy";
+import UserStatus from "../../utils/hooks/UserStatus";
 
 export default function Stmodules() {
   const { id } = useParams();
   const [moduleData, setmoduleData] = useState([]);
-  const [moduleFiles, setmoduleFiles] = useState([]);
   const [redirect, setredirect] = useState(false);
   const [videoLink, setvideoLink] = useState("");
   const [setVideo, setsetVideo] = useState(false);
@@ -20,6 +20,7 @@ export default function Stmodules() {
   const [mute, setmute] = useState(false);
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
+  const { hadelLogOut } = UserStatus(); //custom hook
 
   let history = useHistory();
 
@@ -59,33 +60,30 @@ export default function Stmodules() {
         });
     }
   }, [usDetails]);
+  let intervale;
+  useEffect(() => {
+    intervale = setInterval(checkUser, 600000);
+  }, [usDetails]);
 
-  //add external script tag for model page and disable context menu
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   if (setVideo) {
-  //     //disable right click
-  //     document.addEventListener("contextmenu", (e) => {
-  //       if (e.target.className === "player_overlay") {
-  //         e.preventDefault();
-  //       }
-  //     });
-  //     script.setAttribute("id", "tidio");
-  //     script.src = "//code.tidio.co/vordp7zskjhjmejdgqprrjv2lnhubhk4.js";
-  //     script.async = true;
-
-  //     document.body.appendChild(script);
-  //   } else {
-  //     const tidioId = document.getElementById("tidio");
-  //     const tidioChat = document.getElementById("tidio-chat");
-  //     const tidioChatCode = document.getElementById("tidio-chat-code");
-  //     if (tidioId) {
-  //       tidioId.remove();
-  //       tidioChatCode.remove();
-  //       tidioChat.remove();
-  //     }
-  //   }
-  // }, [setVideo]);
+  //check whether user token valid
+  async function checkUser() {
+    if (usDetails.key) {
+      await Axios.get(
+        `${process.env.REACT_APP_LMS_MAIN_URL}/auth/viewprofile/`,
+        {
+          headers: { Authorization: "Token " + usDetails.key },
+        }
+      )
+        .then(() => {})
+        .catch((err) => {
+          if (err) {
+            hadelLogOut();
+            history.push("/");
+            clearInterval(intervale);
+          }
+        });
+    }
+  }
 
   if (redirect) {
     return <Redirect to={`/audiencedashboard/eventsinband/${id}/`} />;

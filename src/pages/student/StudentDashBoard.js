@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState } from "react";
 import Contact from "./Contact";
 import EventDetails from "./EventDetails";
-import PlayEvent from "../PlayEvent";
 
 function StudentDashBoard() {
   const dispatch = useDispatch();

@@ -58,13 +58,13 @@ export default function Home() {
             <div className="upcoming-row">
               <div className="col">
                 <p>
-                  2021-07-01 <br />
+                  2021-07-02 <br />
                   16.00
                 </p>
               </div>
               <div className="col">
                 <p>WAYO Jeewithe Concert</p>
-                <p>Jeewithe Private Screening for INFOR</p>
+                <p>Jeewithe Private Screening</p>
               </div>
             </div>
           </div>
