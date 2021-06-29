@@ -3,9 +3,14 @@ import React, { useEffect, useState } from "react";
 import { store } from "react-notifications-component";
 
 function SessionModel({ closeModel, setisModel }) {
+  const [loading, setloading] = useState(false);
   const [valueForm, setvalueForm] = useState({ userName: "", password: "" });
-  const [error, seterror] = useState({ userName: "", password: "" });
-  const [hide, sethide] = useState({ userName: false, password: false });
+  const [error, seterror] = useState({ userName: "", password: "", com: "" });
+  const [hide, sethide] = useState({
+    userName: false,
+    password: false,
+    com: false,
+  });
   const [submitting, setsubmitting] = useState(false);
 
   const setValue = (e) => {
@@ -26,7 +31,7 @@ function SessionModel({ closeModel, setisModel }) {
     seterror(err);
 
     setsubmitting(true);
-    sethide({ userName: false });
+    sethide({ userName: false, password: false, com: false });
   };
 
   useEffect(() => {
@@ -44,11 +49,13 @@ function SessionModel({ closeModel, setisModel }) {
   };
 
   function submit() {
+    setloading(true);
     Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/deletetoken/`, {
       username: valueForm.userName.toUpperCase(),
       password: valueForm.password,
     })
       .then(() => {
+        setloading(false);
         setisModel(false);
         store.addNotification({
           title: "Login Session Deleted",
@@ -68,11 +75,10 @@ function SessionModel({ closeModel, setisModel }) {
         });
       })
       .catch((err) => {
-        if (err.response.status === 500) {
-          seterror({ ...error, userName: "Username Is Invalid" });
-        }
-        if (err.response.status === 404) {
-          seterror({ ...error, userName: err.response.data.msg });
+        setloading(false);
+        setvalueForm({ ...valueForm, password: "" });
+        if (err.response) {
+          seterror({ ...error, com: err.response.data.msg });
         }
       });
   }
@@ -83,9 +89,16 @@ function SessionModel({ closeModel, setisModel }) {
         <div className="loginmodel">
           <h1>Clear Login Session</h1>
           <h3>
-            Enter the username that you've used in your registration to unlock
-            the user account
+            Enter the username and password that you've used in your
+            registration to unlock the user account
           </h3>
+          {error.com ? (
+            <p style={{ color: "red", fontSize: "13px", marginBottom: "5px" }}>
+              {error.com}
+            </p>
+          ) : (
+            ""
+          )}
           <p>
             <label>Username</label>
             <input
@@ -116,7 +129,13 @@ function SessionModel({ closeModel, setisModel }) {
               </span>
             )}
           </p>
-          <button onClick={submitSession}>Clear Login Session</button>
+          <button onClick={submitSession}>
+            {loading ? (
+              <i className="fas fa-circle-notch rotate"></i>
+            ) : (
+              "Clear Login Session"
+            )}
+          </button>
         </div>
       </div>
     </div>

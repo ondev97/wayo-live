@@ -178,7 +178,7 @@
   #setValue
   iframe {
   width: 100% !important;
-  max-height: 500px;
+  /* max-height: 500px; */
 }
 .models
   .md_all_models
