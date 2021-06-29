@@ -1,8 +1,9 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { store } from "react-notifications-component";
 
 function SessionModel({ closeModel, setisModel }) {
+  const passwordRef = useRef();
   const [loading, setloading] = useState(false);
   const [valueForm, setvalueForm] = useState({ userName: "", password: "" });
   const [error, seterror] = useState({ userName: "", password: "", com: "" });
@@ -83,10 +84,26 @@ function SessionModel({ closeModel, setisModel }) {
       });
   }
 
+  //function for trigger show password field
+  const showPassword = (e) => {
+    let checked = e.target.checked;
+
+    if (checked) {
+      passwordRef.current.type = "text";
+    } else {
+      passwordRef.current.type = "password";
+    }
+  };
+
   return (
     <div>
       <div className="loginmodel_outer" onClick={closeModel}>
         <div className="loginmodel">
+          <div className="close">
+            <button className="close_model" onClick={closeModel}>
+              <i className="fas fa-times-circle"></i>
+            </button>
+          </div>
           <h1>Clear Login Session</h1>
           <h3>
             Enter the username and password that you've used in your
@@ -122,6 +139,7 @@ function SessionModel({ closeModel, setisModel }) {
               onChange={setValue}
               value={valueForm.password}
               onFocus={hideError}
+              ref={passwordRef}
             />
             {error.password && (
               <span className={`tip ${hide.password ? "hidetip" : ""}`}>
@@ -129,7 +147,18 @@ function SessionModel({ closeModel, setisModel }) {
               </span>
             )}
           </p>
-          <button onClick={submitSession}>
+          <div className="showpw">
+            <p>
+              <input
+                type="checkbox"
+                name="showPw"
+                id="showpw"
+                onChange={(e) => showPassword(e)}
+              />
+              <label htmlFor="showpw">Show Password</label>
+            </p>
+          </div>
+          <button type="submit" onClick={submitSession}>
             {loading ? (
               <i className="fas fa-circle-notch rotate"></i>
             ) : (

@@ -25,6 +25,9 @@ export default function Home() {
     if (e.target.className.includes("loginmodel_outer")) {
       setisModel(false);
     }
+    if (e.target.className.includes("close_model")) {
+      setisModel(false);
+    }
   };
 
   return (

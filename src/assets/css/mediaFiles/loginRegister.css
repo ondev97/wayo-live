@@ -16,7 +16,7 @@
     margin-bottom: 12px;
   }
   .siup_body .siup_column:nth-child(2) {
-    width: 100%;
+    display: none;
   }
   .siup_body .siup_column:nth-child(1) {
     width: 100%;

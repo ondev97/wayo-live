@@ -220,7 +220,14 @@ export default function EventDetails() {
                   <div className="event_dis_row">
                     <h2>EVENT FEE</h2>
                     <h2>
-                      <span>: LKR: {eventDetails.event_price}</span>
+                      <span>
+                        :{" "}
+                        {eventDetails.event_price
+                          ? eventDetails.event_price > 0
+                            ? "LKR " + eventDetails.event_price
+                            : "Free"
+                          : "Free"}
+                      </span>
                     </h2>
                   </div>
                 </div>

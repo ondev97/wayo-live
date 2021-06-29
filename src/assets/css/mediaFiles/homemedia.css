@@ -61,6 +61,7 @@
   .uppercover .cover-cont .upcoming-event .upcoming-row {
     flex: 1;
     width: 100%;
+    flex-wrap: wrap;
   }
   .uppercover .cover-cont .upcoming-event .upcoming-row .col:nth-child(1) {
     flex: 0.3;
@@ -72,6 +73,10 @@
   }
   .uppercover .cover-cont .upcoming-event .upcoming-row:before {
     display: none;
+  }
+  .uppercover .cover-cont .simple_footer {
+    text-align-last: center;
+    width: 100%;
   }
 }
 @media screen and (max-width: 820px) {
