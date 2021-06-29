@@ -76,10 +76,12 @@ export default function Stmodules() {
       )
         .then(() => {})
         .catch((err) => {
-          if (err) {
-            hadelLogOut();
-            history.push("/");
-            clearInterval(intervale);
+          if (err.response) {
+            if (err.response.data.detail.includes("Invalid token")) {
+              hadelLogOut();
+              history.push("/");
+              clearInterval(intervale);
+            }
           }
         });
     }
