@@ -9,8 +9,7 @@ function SessionModel({ closeModel, setisModel }) {
   const [submitting, setsubmitting] = useState(false);
 
   const setValue = (e) => {
-    const { name } = e.target;
-    let value = e.target.value.toUpperCase();
+    const { name, value } = e.target;
     setvalueForm({ ...valueForm, [name]: value });
   };
 
@@ -46,7 +45,7 @@ function SessionModel({ closeModel, setisModel }) {
 
   function submit() {
     Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/deletetoken/`, {
-      username: valueForm.userName,
+      username: valueForm.userName.toUpperCase(),
       password: valueForm.password,
     })
       .then(() => {
