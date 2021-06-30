@@ -507,7 +507,7 @@
   border-radius: 3px;
   text-transform: uppercase;
 }
-.uppercover .loginmodel p input[type="password"] {
+.uppercover .loginmodel p input.pw {
   text-transform: initial;
 }
 .uppercover .loginmodel button {

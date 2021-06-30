@@ -136,6 +136,7 @@ function SessionModel({ closeModel, setisModel }) {
             <input
               type="password"
               name="password"
+              className="pw"
               onChange={setValue}
               value={valueForm.password}
               onFocus={hideError}
