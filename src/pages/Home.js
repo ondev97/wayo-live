@@ -62,7 +62,7 @@ export default function Home() {
               <div className="col">
                 <p>
                   2021-07-02 <br />
-                  16.00
+                  16:00
                 </p>
               </div>
               <div className="col">
