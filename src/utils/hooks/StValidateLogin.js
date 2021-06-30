@@ -12,8 +12,16 @@ function StValidateLogin() {
   const [acDetails, setacDetails] = useState({});
 
   const hadelOnChange = (e) => {
+    console.log(e.target.id);
     const { name, value } = e.target;
-    setvalues({ ...values, [name]: value });
+    if (e.target.id === "em") {
+      setvalues({
+        ...values,
+        [name]: value.trim(),
+      });
+    } else {
+      setvalues({ ...values, [name]: value });
+    }
   };
 
   const hadelSubmit = (e) => {

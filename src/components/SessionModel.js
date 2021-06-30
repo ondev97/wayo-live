@@ -16,7 +16,11 @@ function SessionModel({ closeModel, setisModel }) {
 
   const setValue = (e) => {
     const { name, value } = e.target;
-    setvalueForm({ ...valueForm, [name]: value });
+    if (e.target.id === "un") {
+      setvalueForm({ ...valueForm, [name]: value.trim() });
+    } else {
+      setvalueForm({ ...valueForm, [name]: value });
+    }
   };
 
   const submitSession = (e) => {
@@ -25,6 +29,10 @@ function SessionModel({ closeModel, setisModel }) {
     //validate username
     if (!valueForm.userName.trim()) {
       err.userName = "Please Enter UserName";
+    } else if (
+      valueForm.userName.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)
+    ) {
+      err.userName = "User Name Must Not Be Contain Special Characters";
     }
     if (!valueForm.password.trim()) {
       err.password = "Please Enter Password";
@@ -121,6 +129,7 @@ function SessionModel({ closeModel, setisModel }) {
             <input
               type="text"
               name="userName"
+              id="un"
               onChange={setValue}
               value={valueForm.userName}
               onFocus={hideError}
