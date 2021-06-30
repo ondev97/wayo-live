@@ -1,0 +1,86 @@
+.detail-outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0000002e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail-outer .details-model {
+  position: relative;
+  min-width: 600px;
+  padding: 40px 25px;
+  background-color: #262626;
+  border-radius: 3px;
+}
+.detail-outer .details-model .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.detail-outer .details-model .close button {
+  width: auto;
+  padding: 0;
+  background-color: transparent;
+}
+.detail-outer .details-model .close button i {
+  color: red;
+  user-select: none;
+  pointer-events: none;
+}
+.detail-outer .details-model .sec {
+  display: flex;
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+.detail-outer .details-model p {
+  width: 100%;
+  position: relative;
+}
+.detail-outer .details-model p label {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+}
+.detail-outer .details-model p input {
+  width: 100%;
+  padding: 8px 5px;
+  background-color: #000;
+  border: 1px solid transparent;
+  outline: tomato;
+  color: #eee;
+  border-radius: 3px;
+}
+.detail-outer .details-model button {
+  width: 120px;
+  padding: 5px;
+  background-color: var(--h1Fontcolor);
+  margin-top: 5px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+.detail-outer .details-model p .tip {
+  font-size: 11px;
+  position: absolute;
+  bottom: -25px;
+  right: 0;
+  padding: 5px 8px;
+  background-color: transparent;
+  color: red;
+  border-radius: 2px;
+  z-index: 100;
+  transition: opacity 0.9s;
+  text-transform: capitalize;
+}
+.detail-outer .details-model p .hidetip {
+  opacity: 0;
+  user-select: none;
+}

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import KeyModel from "../../components/student/KeyModel";
+import DetailsModel from "../../components/DetailsModel";
 
 export default function EventDetails() {
   const { id } = useParams();
@@ -88,6 +89,9 @@ export default function EventDetails() {
           ""
         )}
       </AnimatePresence>
+      {/* user details model */}
+      <DetailsModel />
+
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
           <button onClick={() => history.goBack()}>
