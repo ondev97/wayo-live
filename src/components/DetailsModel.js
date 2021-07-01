@@ -108,6 +108,23 @@ function DetailsModel() {
       .then(() => {
         localStorage.setItem("popStatus", true);
         setvisible(false);
+        //showing alert
+        store.addNotification({
+          title: "Successfully Submitted",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon: true,
+          },
+          width: 600,
+        });
       })
       .catch((err) => {
         console.log(err);
