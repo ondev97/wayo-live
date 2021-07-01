@@ -91,7 +91,6 @@ function DetailsModel() {
   }, [errors]);
 
   function submitForm() {
-    console.log(usDetails);
     Axios.post(
       `${process.env.REACT_APP_LMS_MAIN_URL}/show/collectdata/`,
       {
