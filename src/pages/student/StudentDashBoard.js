@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState } from "react";
 import Contact from "./Contact";
 import EventDetails from "./EventDetails";
+import UserGuide from "../UserGuide";
 
 function StudentDashBoard() {
   const dispatch = useDispatch();
@@ -177,6 +178,9 @@ function StudentDashBoard() {
           </Route>
           <Route path="/audiencedashboard/eventsinband/:id">
             <StSubCourses />
+          </Route>
+          <Route path="/audiencedashboard/userguide/">
+            <UserGuide />
           </Route>
           {/* <Route path="/audiencedashboard/playevent">
             <PlayEvent />

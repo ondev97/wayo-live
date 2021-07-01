@@ -43,7 +43,7 @@ export default function StudentDashBoardHeader() {
             <Link to="/audiencedashboard/maindashboard/">
               <li>ALL EVENTS</li>
             </Link>
-            <Link to="#">
+            <Link to="/audiencedashboard/userguide/">
               <li>USER GUIDE</li>
             </Link>
             <Link to="/audiencedashboard/contact/">
