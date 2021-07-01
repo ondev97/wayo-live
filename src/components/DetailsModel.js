@@ -1,9 +1,13 @@
+import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "../assets/css/detailsModel.css";
 
 function DetailsModel() {
   const [visible, setvisible] = useState(false);
   const [isSubmitting, setisSubmitting] = useState(false);
+  //get acDetails from Redux Store
+  const usDetails = useSelector((state) => state.accountDetails);
   const [values, setvalues] = useState({
     firstName: "",
     lastName: "",
@@ -58,8 +62,8 @@ function DetailsModel() {
     if (!values.phoneNumber.trim()) {
       error.phoneNumber = "Phone Number Is Required";
     }
-    if (values.phoneNumber.length > 13) {
-      error.phoneNumber = "Phone Number Must Be Less Than 13 Characters";
+    if (values.phoneNumber.length > 15) {
+      error.phoneNumber = "Phone Number Must Be Less Than 15 Characters";
     }
     seterrors(error);
     setisSubmitting(true);
@@ -87,7 +91,27 @@ function DetailsModel() {
   }, [errors]);
 
   function submitForm() {
-    console.log("osada");
+    console.log(usDetails);
+    Axios.post(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/collectdata/`,
+      {
+        username: usDetails.id,
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        phone_number: values.phoneNumber,
+      },
+      {
+        headers: { Authorization: "Token " + usDetails.key },
+      }
+    )
+      .then(() => {
+        localStorage.setItem("popStatus", true);
+        setvisible(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   /*model disable */
