@@ -5,9 +5,9 @@ import StSignUp from "../pages/StSignUp";
 import StudentDashBoard from "../pages/student/StudentDashBoard";
 import TeacherDashboard from "../pages/TeacherDashboard";
 import PasswordReset from "../pages/PasswordReset";
-import Features from "../pages/Features";
 import Guidelines from "../pages/Guidelines";
 import NotFound from "../pages/NotFound";
+import Contactus from "../pages/ContactUs";
 
 export default [
   {
@@ -17,8 +17,8 @@ export default [
   },
   ,
   {
-    path: "/features",
-    components: () => <Features />,
+    path: "/contact",
+    components: () => <Contactus />,
   },
   {
     path: "/guidelines",

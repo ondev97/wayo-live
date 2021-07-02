@@ -1,5 +1,4 @@
 import React from "react";
-import wayo from "../../img/Logo_1.png";
 import location from "../../img/contact/placeholder.png";
 import phone from "../../img/contact/phone-call.png";
 import youtube from "../../img/contact/youtube.png";
