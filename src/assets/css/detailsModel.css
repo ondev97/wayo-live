@@ -6,32 +6,30 @@
   bottom: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #0000002e;
+  background-color: #000000cc;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .detail-outer .details-model {
   position: relative;
-  min-width: 600px;
+  min-width: 650px;
   padding: 40px 25px;
   background-color: #262626;
-  border-radius: 3px;
+  border-radius: 5px;
 }
-.detail-outer .details-model .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.detail-outer .details-model h1 {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  padding-bottom: 40px;
 }
-.detail-outer .details-model .close button {
-  width: auto;
-  padding: 0;
-  background-color: transparent;
-}
-.detail-outer .details-model .close button i {
-  color: red;
-  user-select: none;
-  pointer-events: none;
+.detail-outer .details-model h3 {
+  color: #fff;
+  margin: 30px 0;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 500;
 }
 .detail-outer .details-model .sec {
   display: flex;
@@ -56,9 +54,20 @@
   color: #eee;
   border-radius: 3px;
 }
+.detail-outer .details-model p input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.detail-outer .details-model .but-sec {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-column-gap: 40px;
+}
 .detail-outer .details-model button {
-  width: 120px;
-  padding: 5px;
+  width: 140px;
+  padding: 8px;
   background-color: var(--h1Fontcolor);
   margin-top: 5px;
   color: #fff;
@@ -83,4 +92,37 @@
 .detail-outer .details-model p .hidetip {
   opacity: 0;
   user-select: none;
+}
+
+@media screen and (max-width: 790px) {
+  .detail-outer .details-model {
+    min-width: 90%;
+  }
+}
+@media screen and (max-width: 430px) {
+  .detail-outer .details-model {
+    min-width: 85%;
+  }
+  .detail-outer .details-model .sec {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 430px) {
+  .detail-outer .details-model h1 {
+    padding-bottom: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .detail-outer {
+    align-items: flex-end;
+  }
+  .detail-outer .details-model h1 {
+    font-size: 18px;
+  }
+  .detail-outer .details-model .sec {
+    margin-bottom: 10px;
+  }
+  .detail-outer .details-model h3 {
+    margin: 15px 0;
+  }
 }

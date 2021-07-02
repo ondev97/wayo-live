@@ -74,7 +74,7 @@ function UserGuide() {
       </section>
       <section>
         <div className="content">
-          <h1>Special Note:</h1>
+          <h1 style={{ color: "red" }}>Special Note:</h1>
           <h1>
             If you try to login from the different devices with same login you
             need to clear the existing session using below screen.

@@ -46,7 +46,7 @@ nav .column:nth-child(2) {
   flex: 2;
 }
 nav .column:nth-child(2) .navigation ul {
-  width: 100%;
+  width: 80%;
   list-style: none;
   display: flex;
   justify-content: space-evenly;
@@ -54,7 +54,7 @@ nav .column:nth-child(2) .navigation ul {
 }
 nav .column:nth-child(2) .navigation ul li {
   position: relative;
-  flex: 0.3;
+  flex: 0.1;
   margin: 0 10px;
   font-size: 14px;
   cursor: pointer;
@@ -296,7 +296,7 @@ nav .ham button i {
   font-size: 15px;
   word-wrap: break-word;
   text-align: right;
-  color: #ff0052;
+  color: #fff;
 }
 .hammenu .ac_details_header p {
   font-size: 13px;

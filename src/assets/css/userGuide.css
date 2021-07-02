@@ -1,5 +1,6 @@
 .user-main-container {
   width: 100%;
+  padding: 40px;
 }
 .user-main-container section {
   width: 100%;
@@ -12,7 +13,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .user-main-container section .image .one,
@@ -32,29 +33,29 @@
   align-items: center;
 }
 .user-main-container section .image .one {
-  left: 63.4%;
+  left: 54.4%;
 }
 .user-main-container section .image .two {
-  left: 62.2%;
+  left: 53%;
 }
 .user-main-container section .image .three {
-  left: 60.5%;
+  left: 51%;
 }
 .user-main-container section .image img {
-  width: 60%;
+  width: 75%;
   border: 1px solid #eeeeee73;
 }
 .user-main-container section .content {
   margin: 25px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 .user-main-container section .content h1 {
   color: #b9b9b9;
   font-size: 18px;
-  width: 60%;
+  width: 75%;
   margin-bottom: 10px;
   font-weight: 500;
   counter-increment: h1;
@@ -79,6 +80,11 @@
   }
   .user-main-container section .image .three {
     left: 68%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .user-main-container {
+    padding: 0;
   }
 }
 @media screen and (max-width: 500px) {

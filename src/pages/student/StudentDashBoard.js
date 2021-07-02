@@ -158,7 +158,7 @@ function StudentDashBoard() {
           <Route path="/audiencedashboard/maindashboard">
             <StudentMainDashboard />
           </Route>
-          <Route path="/studentdashboard/contact/">
+          <Route path="/audiencedashboard/contact/">
             <Contact />
           </Route>
           <Route path="/studentdashboard/mycourses/">

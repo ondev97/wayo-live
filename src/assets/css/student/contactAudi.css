@@ -1,0 +1,147 @@
+.main_container {
+  width: 100%;
+}
+.main_container h1 {
+  color: #fff;
+  font-size: 16px;
+}
+.main_container .contact_row {
+  margin: 25px 0;
+  padding: 25px;
+  background-color: #262626;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  grid-column-gap: 40px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+.main_container .contact_row .contact_column {
+  flex: 1;
+}
+.main_container .contact_row .contact_column .innerContact {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 15px;
+  border-radius: 8px;
+}
+.main_container .contact_row .contact_column .innerContact .icon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
+.main_container .contact_row .contact_column .innerContact .icon img {
+  width: 100%;
+  height: 100%;
+}
+.main_container .contact_row .contact_column .innerContact .content {
+  flex: 1;
+}
+.main_container .contact_row .contact_column .innerContact .content p {
+  color: #fff;
+  font-size: 13px;
+}
+.main_container .contact_row .contact_column:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_container .contact_row .contact_column:nth-child(1) .image {
+  width: 90%;
+}
+.main_container .contact_row .contact_column:nth-child(1) .image img {
+  width: 100%;
+  filter: grayscale(1) invert(100%);
+}
+.main_container .contact_second_row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  grid-column-gap: 50px;
+  grid-row-gap: 25px;
+}
+.main_container .contact_second_row .second_cont_column {
+  min-width: 30%;
+  max-width: 100%;
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 10px;
+  border-radius: 8px;
+}
+.main_container .contact_second_row .second_cont_column h1 {
+  margin-bottom: 20px;
+}
+.main_container .contact_second_row .second_cont_column img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.main_container .contact_second_row .second_cont_column button {
+  width: 100px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+}
+.main_container .contact_second_row .second_cont_column:nth-child(1) button {
+  background-color: #ff0000;
+}
+.main_container .contact_second_row .second_cont_column:nth-child(2) button {
+  background-color: #3b5998;
+}
+.main_container .contact_second_row .second_cont_column:nth-child(3) button {
+  background-color: #fa5244;
+}
+.main_container .contact_second_row .second_cont_column:nth-child(4) button {
+  background-color: #f35859;
+}
+.main_container .contact_second_row .second_cont_column:nth-child(5) button {
+  background-color: #00d95f;
+}
+
+@media screen and (max-width: 1300px) {
+  .main_container .contact_second_row .second_cont_column {
+    width: 46%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .main_container .contact_row .contact_column {
+    flex: initial;
+    width: 100%;
+  }
+  .main_container .contact_row {
+    grid-gap: 25px;
+  }
+  .main_container .contact_row .contact_column:nth-child(1) .image {
+    width: 30%;
+  }
+  .main_container .contact_second_row .second_cont_column {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main_container .contact_row .contact_column:nth-child(1) .image {
+    width: 80%;
+  }
+  .main_container .contact_row {
+    grid-gap: 15px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .main_container .contact_row .contact_column .innerContact {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+}

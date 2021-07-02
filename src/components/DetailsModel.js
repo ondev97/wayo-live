@@ -1,5 +1,6 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import { store } from "react-notifications-component";
 import { useSelector } from "react-redux";
 import "../assets/css/detailsModel.css";
 
@@ -132,12 +133,7 @@ function DetailsModel() {
 
   /*model disable */
   const disable = (e) => {
-    if (e.target.className.includes("detail-outer")) {
-      localStorage.setItem("popStatus", true);
-      setvisible(false);
-    }
     if (e.target.className.includes("close")) {
-      localStorage.setItem("popStatus", true);
       setvisible(false);
     }
   };
@@ -145,13 +141,9 @@ function DetailsModel() {
   return (
     <>
       {visible ? (
-        <div className="detail-outer" onClick={disable}>
+        <div className="detail-outer">
           <div className="details-model">
-            <div className="close">
-              <button className="close" onClick={disable}>
-                <i className="fas fa-times-circle"></i>
-              </button>
-            </div>
+            <h1>Become A Wayan</h1>
             <form onSubmit={submit}>
               <div className="sec">
                 <p>
@@ -201,7 +193,7 @@ function DetailsModel() {
                 <p>
                   <label>Phone Number</label>
                   <input
-                    type="text"
+                    type="number"
                     name="phoneNumber"
                     onChange={valueSet}
                     onFocus={hideError}
@@ -215,7 +207,13 @@ function DetailsModel() {
                   )}
                 </p>
               </div>
-              <button type="submit">Submit</button>
+              <h3>Stay in touch! Don't miss our next event!</h3>
+              <div className="but-sec">
+                <button type="submit">YES! SUBSCRIBE</button>
+                <button type="button" className="close" onClick={disable}>
+                  NO, THANKS!
+                </button>
+              </div>
             </form>
           </div>
         </div>
