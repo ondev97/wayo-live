@@ -30,6 +30,7 @@ function DetailsModel() {
 
   useEffect(() => {
     let popStatus = localStorage.getItem("popStatus");
+
     if (!popStatus) {
       setvisible(true);
     }

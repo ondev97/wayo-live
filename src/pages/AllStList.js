@@ -38,10 +38,10 @@ export default function AllStList() {
       ).then((res) => {
         if (page > 1) {
           setallDetailSt(res.data);
-          setallstudent([...allstudent, ...res.data]);
+          setallstudent([...allstudent, ...res.data.results]);
         } else {
           setallDetailSt(res.data);
-          setallstudent([...res.data]);
+          setallstudent([...res.data.results]);
         }
       });
     }
@@ -116,7 +116,7 @@ export default function AllStList() {
       </div>
       {allDetailSt !== null ? (
         <div className="sttable">
-          <h2>{allDetailSt.count && `Total Students ${allDetailSt.count}`}</h2>
+          <h2>{allDetailSt.count && `Total Audience ${allDetailSt.count}`}</h2>
           {allstudent.length !== 0 ? (
             <>
               <table>
@@ -160,7 +160,7 @@ export default function AllStList() {
               )}
             </>
           ) : (
-            <Empty target="No Students" />
+            <Empty target="No Audience" />
           )}
         </div>
       ) : (
