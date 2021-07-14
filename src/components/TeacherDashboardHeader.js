@@ -42,6 +42,9 @@ export default function TeacherDashboardHeader() {
             <Link to="/band/profilesettings/">
               <li>MY PROFILE</li>
             </Link>
+            <Link to="/band/accountcreate/">
+              <li>ADD BULK ACCOUNT</li>
+            </Link>
             <li onClick={hadelLogOut} style={{ border: "none" }}>
               LOGOUT
             </li>

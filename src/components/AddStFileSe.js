@@ -213,7 +213,7 @@ export default function AddStFileSe({
                 </>
               )}
             </div>
-            <button onClick={addStToCos}>Add Students</button>
+            <button onClick={addStToCos}>Add Audience</button>
           </div>
         </div>
       ) : (

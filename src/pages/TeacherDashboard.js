@@ -21,6 +21,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import AddStudents from "./AddStudents";
 import TcEventDetails from "./TcEventDetails";
 import PlayEvent from "./PlayEvent";
+import BulkAccountCreate from "./BulkAccountCreate";
 
 export default function TeacherDashboard() {
   const [toggle, settoggle] = useState(false);
@@ -198,6 +199,9 @@ export default function TeacherDashboard() {
           {/* <Route path="/band/playevent">
             <PlayEvent />
           </Route> */}
+          <Route path="/band/accountcreate">
+            <BulkAccountCreate />
+          </Route>
         </div>
       </div>
     </div>
