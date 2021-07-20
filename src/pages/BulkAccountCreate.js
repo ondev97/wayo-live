@@ -1,174 +1,125 @@
-import React, { useEffect, useState } from "react";
-import * as XLSX from "xlsx";
+import Axios from "axios";
+import React, { useState } from "react";
+import { store } from "react-notifications-component";
+import { useSelector } from "react-redux";
 import "../assets/css/bulkAccount.css";
 
 function BulkAccountCreate() {
   const [isModel, setisModel] = useState(false);
   const [fileName, setfileName] = useState("");
-  const [stData, setstData] = useState([]);
-  const [data, setdata] = useState({});
+  const [files, setfiles] = useState("");
+  const usDetails = useSelector((state) => state.accountDetails);
+
+  const [loading, setloading] = useState(false);
 
   const bgClick = (e) => {
     if (e.target.classList.contains("outer-uploadModel")) {
       setisModel(false);
+      setfileName("");
+      setfiles("");
     }
   };
 
-  // process CSV data
-  const processData = (dataString) => {
-    const dataStringLines = dataString.split(/\r\n|\n/);
-    const headers = dataStringLines[0].split(
-      /,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/
-    );
-
-    const list = [];
-    const arra = [];
-    const nnarra = [];
-    for (let i = 1; i < dataStringLines.length; i++) {
-      const row = dataStringLines[i].split(
-        /,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/
-      );
-      if (headers && row.length === headers.length) {
-        const obj = {};
-        for (let j = 0; j < headers.length; j++) {
-          let d = row[j];
-          if (d.length > 0) {
-            if (d[0] === '"') d = d.substring(1, d.length - 1);
-            if (d[d.length - 1] === '"') d = d.substring(d.length - 2, 1);
-          }
-          if (headers[j]) {
-            obj[headers[j]] = d;
-          }
-          if (arra) {
-            arra.push(d);
-          }
-        }
-
-        // remove the blank rows
-        if (Object.values(obj).filter((x) => x).length > 0) {
-          list.push(obj);
-        }
-      }
-      const narra = arra.filter((arr) => arr.length > 0);
-      nnarra.push(narra);
-      setstData(narra);
-    }
-
-    //new object
-    let valueObj = {};
-    headers.map((data) => (valueObj[data] = []));
-
-    for (let i = 0; i < Object.keys(valueObj).length; i++) {
-      list.map((da) =>
-        valueObj[Object.keys(valueObj)[i]].push(Object.values(da)[i])
-      );
-    }
-    setdata(valueObj);
+  const close = () => {
+    setisModel(false);
+    setfileName("");
+    setfiles("");
   };
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
-    setfileName(e.target.files[0].name);
-    const reader = new FileReader();
-    reader.onload = (evt) => {
-      /* Parse data */
-      const bstr = evt.target.result;
-      const wb = XLSX.read(bstr, { type: "binary" });
-      /* Get first worksheet */
-      const wsname = wb.SheetNames[0];
-      const ws = wb.Sheets[wsname];
-      /* Convert array of arrays */
-      const data = XLSX.utils.sheet_to_csv(ws, { header: 1 });
-      processData(data);
-    };
-    reader.readAsBinaryString(file);
+    setfiles(file);
+    setfileName(file.name);
   };
 
   /*Add Audience to course*/
   const addStToCos = async () => {
-    // if (stData.length !== 0) {
-    //   await Axios.post(
-    //     `${process.env.REACT_APP_LMS_MAIN_URL}/show/addtoeventbyband/${id}/`,
-    //     {
-    //       users: stData,
-    //     },
-    //     {
-    //       headers: { Authorization: "Token " + usDetails.key },
-    //     }
-    //   )
-    //     .then((res) => {
-    //       res.data.map((data) =>
-    //         Object.values(data).pop() === false
-    //           ? (fail = fail + 1)
-    //           : (pass = pass + 1)
-    //       );
+    if (files) {
+      if (
+        files.type ==
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ) {
+        setloading(true);
+        const form = new FormData();
+        form.append("excel_file", files);
 
-    //       if (pass > 0) {
-    //         store.addNotification({
-    //           title: `${pass} Users Added To The Even`,
-    //           message: process.env.REACT_APP_LMS_ALERT_NAME,
-    //           type: "success",
-    //           insert: "top",
-    //           container: "top-right",
-    //           animationIn: ["animate__animated", "animate__fadeIn"],
-    //           animationOut: ["animate__animated", "animate__fadeOut"],
-    //           dismiss: {
-    //             duration: 2000,
-    //             onScreen: true,
-    //             pauseOnHover: true,
-    //             showIcon: true,
-    //           },
-    //           width: 400,
-    //         });
-    //       }
-    //       if (fail > 0) {
-    //         store.addNotification({
-    //           title: `${fail} Users Can Not Add To The Event`,
-    //           message: process.env.REACT_APP_LMS_ALERT_NAME,
-    //           type: "danger",
-    //           insert: "top",
-    //           container: "top-right",
-    //           animationIn: ["animate__animated", "animate__fadeIn"],
-    //           animationOut: ["animate__animated", "animate__fadeOut"],
-    //           dismiss: {
-    //             duration: 2000,
-    //             onScreen: true,
-    //             pauseOnHover: true,
-    //             showIcon: true,
-    //           },
-    //           width: 400,
-    //         });
-    //       }
+        await Axios.post(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/reg_users/`,
+          form,
+          {
+            headers: {
+              Authorization: "Token " + usDetails.key,
+              "content-type": "multipart/form-data",
+            },
+          }
+        )
+          .then((res) => {
+            setloading(false);
+            setisModel(false);
+            setfileName("");
+            setfiles("");
+            let success = res.data.count_of_all_users;
+            let failed = res.data.not_saved_lines.length;
 
-    //       setaddedProfile([]);
-    //       setselectst([]);
-    //       setallStudents([]);
-    //       setpage(1);
-    //       setsuncess(!suncess);
-    //       setIsfoleModel(false);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // } else {
-    //   store.addNotification({
-    //     title: `Please Select A File`,
-    //     message: process.env.REACT_APP_LMS_ALERT_NAME,
-    //     type: "danger",
-    //     insert: "top",
-    //     container: "top-right",
-    //     animationIn: ["animate__animated", "animate__fadeIn"],
-    //     animationOut: ["animate__animated", "animate__fadeOut"],
-    //     dismiss: {
-    //       duration: 2000,
-    //       onScreen: true,
-    //       pauseOnHover: true,
-    //       showIcon: true,
-    //     },
-    //     width: 400,
-    //   });
-    // }
-    console.log(stData);
+            if (success - failed > 0) {
+              store.addNotification({
+                title: success - failed + " Users Account Created",
+                message: process.env.REACT_APP_LMS_ALERT_NAME,
+                type: "success",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon: true,
+                },
+                width: 600,
+              });
+            }
+            if (failed > 0) {
+              store.addNotification({
+                title: failed + " Users Accounts Are Failed",
+                message: process.env.REACT_APP_LMS_ALERT_NAME,
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon: true,
+                },
+                width: 600,
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        store.addNotification({
+          title: "File Type Invalid",
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
+          type: "danger",
+          insert: "top",
+          container: "top-left",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon: true,
+          },
+          width: 600,
+        });
+      }
+    }
   };
 
   return (
@@ -177,8 +128,8 @@ function BulkAccountCreate() {
         <div className="outer-uploadModel" onClick={bgClick}>
           <div className="uploadModel">
             <div className="closebut">
-              <button onClick={() => setisModel(false)}>
-                <i class="far fa-times-circle"></i>
+              <button onClick={close}>
+                <i className="far fa-times-circle"></i>
               </button>
             </div>
             <div className="sec">
@@ -198,7 +149,10 @@ function BulkAccountCreate() {
                 </div>
               )}
             </div>
-            <button onClick={addStToCos}>Create Bulk Audience</button>
+            <button onClick={addStToCos}>
+              {loading ? <i className="fas fa-circle-notch rotate"></i> : ""}
+              Create Bulk Audience
+            </button>
           </div>
         </div>
       ) : (

@@ -32,6 +32,7 @@
   outline: none;
   margin: 8px;
 }
+
 .outer-uploadModel {
   position: fixed;
   top: 0;
@@ -85,6 +86,10 @@
   height: 100%;
   background-color: transparent;
 }
+.outer-uploadModel .uploadModel .closebut button i {
+  color: red;
+  animation: initial;
+}
 
 .outer-uploadModel .uploadModel input {
   display: none;
@@ -109,6 +114,20 @@
   border-radius: 3px;
   border: none;
   cursor: pointer;
+}
+.outer-uploadModel .uploadModel button i {
+  color: #fff;
+  margin-right: 5px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 @media screen and (max-width: 1200px) {
