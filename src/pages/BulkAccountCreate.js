@@ -2,7 +2,9 @@ import Axios from "axios";
 import React, { useState } from "react";
 import { store } from "react-notifications-component";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "../assets/css/bulkAccount.css";
+import download from "../img/bulk_users.xlsx";
 
 function BulkAccountCreate() {
   const [isModel, setisModel] = useState(false);
@@ -177,7 +179,9 @@ function BulkAccountCreate() {
         </p>
       </div>
       <div className="fileRow">
-        <button>Download Template</button>
+        <Link to={download} target="_blank" download>
+          <button>Download Template</button>
+        </Link>
         <button onClick={() => setisModel(true)}>
           Upload Audience Accounts File
         </button>
