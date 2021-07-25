@@ -35,7 +35,7 @@ export default function ValidateSignUp(values) {
     errors.phonenumber = "Phone Number is Required";
   } else if (isNaN(values.phonenumber)) {
     errors.phonenumber = "Please Insert Valied Phone Number";
-  } else if (values.phonenumber.length > 15) {
+  } else if (values.phonenumber.length >= 15) {
     errors.phonenumber = "Phone Number Must Be Less Than 15 characters";
   }
   if (!values.pw.trim()) {

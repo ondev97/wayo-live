@@ -72,6 +72,7 @@ export default function AcDetailsSettings({
               value={values.phoneNumber || ""}
               onChange={hadelChange}
               onFocus={hideError}
+              placeholder="94123456789"
             />
             {errors.phoneNumber && (
               <span className={`tip ${hide.phoneNumber ? "hidetip" : ""}`}>

@@ -33,8 +33,8 @@ export default function validation(values) {
   }
   if (!values.phoneNumber.trim()) {
     errors.phoneNumber = "Phone Number Is Required";
-  } else if (values.phoneNumber.length > 12) {
-    errors.phoneNumber = "Phone Number Must Be 12 characters";
+  } else if (values.phoneNumber.length >= 15) {
+    errors.phoneNumber = "Phone Number Must Be 15 characters";
   } else if (isNaN(values.phoneNumber)) {
     errors.phoneNumber = "Please Enter Valid Phone Number";
   }
