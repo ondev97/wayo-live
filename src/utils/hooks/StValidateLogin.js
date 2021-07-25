@@ -2,7 +2,7 @@ import Axios from "axios";
 import { useEffect, useState } from "react";
 import ValidateLogin from "../../components/ValidateLogin";
 
-function StValidateLogin() {
+function StValidateLogin(setisOTP, setotpDetails) {
   const [values, setvalues] = useState({ un: "", pw: "" });
   const [errors, seterrors] = useState({ un: "", pw: "", comerrors: "" });
   const [isSubmitting, setisSubmitting] = useState(false);
@@ -47,37 +47,51 @@ function StValidateLogin() {
       password: values.pw,
     })
       .then((res) => {
-        if (!res.data.status) {
-          Axios.post(
-            `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/login/`,
-            {
-              username: values.un.toUpperCase(),
-              password: values.pw,
-            }
-          )
-            .then((res) => {
-              setacDetails(res.data);
-              setloading(false);
-            })
-            .catch((err) => {
-              seterrors({
-                ...errors,
-                comerrors: err.response.data.non_field_errors,
+        if (res.data.is_verified) {
+          if (!res.data.status) {
+            Axios.post(
+              `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/login/`,
+              {
+                username: values.un.toUpperCase(),
+                password: values.pw,
+              }
+            )
+              .then((res) => {
+                setacDetails(res.data);
+                setloading(false);
+              })
+              .catch((err) => {
+                seterrors({
+                  ...errors,
+                  comerrors: err.response.data.non_field_errors,
+                });
+                setloading(false);
               });
-              setloading(false);
+          } else {
+            seterrors({
+              ...errors,
+              comerrors: "Someone is already logged into this account",
             });
+            setloading(false);
+          }
         } else {
-          seterrors({
-            ...errors,
-            comerrors: "Someone is already logged into this account",
-          });
+          setotpDetails(res.data);
+          setisOTP(true);
           setloading(false);
         }
       })
       .catch((err) => {
         //check err and set state
-        // console.log(err.response.data);
-        // seterrors({...errors,"comerrors":err.response.data});
+        //console.log(err.response.data);
+        if (err.response.data) {
+          if (err.response.data.non_field_errors) {
+            seterrors({
+              ...errors,
+              comerrors: err.response.data.non_field_errors,
+            });
+          }
+          setloading(false);
+        }
       });
 
     // Axios.post(

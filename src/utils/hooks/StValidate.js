@@ -116,9 +116,13 @@ function StValidate(ValidateSignUp) {
           let backErrors = err.response.data;
           if (backErrors) {
             Object.entries(backErrors).map(([keys, val]) => {
+              console.log(val);
               if (keys === "username") {
                 backErrors = { ...backErrors, userName: val };
                 delete backErrors.username;
+              }
+              if (keys === "phone_no") {
+                backErrors = { ...backErrors, phonenumber: val };
               }
               seterrors({ ...errors, ...backErrors });
             });

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
-export default function CoverForm({ setisModel }) {
+export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
   const [
     values,
     hadelOnChange,
@@ -13,7 +13,7 @@ export default function CoverForm({ setisModel }) {
     hide,
     acDetails,
     loading,
-  ] = StValidateLogin();
+  ] = StValidateLogin(setisOTP, setotpDetails);
   const passwordRef = useRef();
 
   //function for trigger show password field
@@ -28,9 +28,9 @@ export default function CoverForm({ setisModel }) {
   };
 
   if (Object.values(acDetails).length !== 0) {
-    if (!acDetails.user.is_band) {
+    if (!acDetails.user.is_band && acDetails.user.is_verified) {
       return <Redirect to="/audiencedashboard/maindashboard" />;
-    } else if (acDetails.user.is_band) {
+    } else if (acDetails.user.is_band && acDetails.user.sis_verified) {
       return <Redirect to="/band/allevents" />;
     }
   }

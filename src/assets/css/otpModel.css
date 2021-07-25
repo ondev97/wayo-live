@@ -1,0 +1,91 @@
+.otp_model_outer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.otp_model_outer .otp_model {
+  width: 600px;
+  padding: 40px 20px;
+  background-color: #262626;
+  border-radius: 3px;
+}
+.otp_model_outer .otp_model h1 {
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.otp_model_outer .otp_model h2 {
+  color: #eee;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.otp_model_outer .otp_model form {
+  width: 100%;
+}
+.otp_model_outer .otp_model p {
+  width: 100%;
+  position: relative;
+}
+.otp_model_outer .otp_model p span.tip {
+  font-size: 11px;
+  position: absolute;
+  bottom: -13px;
+  right: 0;
+  padding: 5px 8px;
+  background-color: #fb010114;
+  color: red;
+  border-radius: 2px;
+  z-index: 100;
+  transition: opacity 0.9s;
+  text-transform: capitalize;
+}
+.otp_model_outer .otp_model p span.hidetip {
+  opacity: 0;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.otp_model_outer .otp_model input {
+  width: 100%;
+  padding: 8px;
+  margin: 0 auto 15px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  color: #eee;
+  border-bottom: 1px solid #eee;
+}
+.otp_model_outer .otp_model .but {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+}
+.otp_model_outer .otp_model .but button {
+  width: 120px;
+  padding: 8px;
+  background-color: var(--buttonColor1);
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid var(--buttonColor1);
+  cursor: pointer;
+}
+.otp_model_outer .otp_model .but p {
+  color: #eee;
+  font-size: 12px;
+}
+.otp_model_outer .otp_model .but p span {
+  color: var(--buttonColor1);
+  cursor: pointer;
+}

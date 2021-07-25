@@ -8,12 +8,15 @@ import { loadStDetails } from "../actions/stDetailsAction";
 import CoverForm from "../components/CoverForm";
 import { Link } from "react-router-dom";
 import SessionModel from "../components/SessionModel";
+import OtpModel from "../components/OtpModel";
 
 export default function Home() {
   const dispatch = useDispatch();
   const accountDetails = useSelector((state) => state.accountDetails);
 
   const [isModel, setisModel] = useState(false);
+  const [isOTP, setisOTP] = useState(false);
+  const [otpDetails, setotpDetails] = useState({});
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -39,6 +42,7 @@ export default function Home() {
         ) : (
           ""
         )}
+        {isOTP ? <OtpModel otpDetails={otpDetails} setisOTP={setisOTP} /> : ""}
         <div className="cover-cont">
           <div className="wrp">
             <div className="cover-col">
@@ -50,7 +54,15 @@ export default function Home() {
               </div>
             </div>
             <div className="cover-col">
-              {!accountDetails.key ? <CoverForm setisModel={setisModel} /> : ""}
+              {!accountDetails.key ? (
+                <CoverForm
+                  setisModel={setisModel}
+                  setisOTP={setisOTP}
+                  setotpDetails={setotpDetails}
+                />
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="upcoming-event">
