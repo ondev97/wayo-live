@@ -96,6 +96,7 @@ export default function StSignupForm() {
               onChange={hadelChanege}
               className={errors.phonenumber ? "error" : ""}
               onFocus={hideError}
+              placeholder="94123456789"
             />
             {errors.phonenumber && (
               <span className={`tip ${hide.phonenumber ? "hidetip" : ""}`}>
