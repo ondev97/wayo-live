@@ -16,6 +16,12 @@ function OtpModel({ otpDetails, setisOTP }) {
     setotpValue({ ...otpValue, [name]: value });
   };
 
+  const closingModel = (e) => {
+    if (e.target.className.includes("otp_model_outer")) {
+      setisOTP(false);
+    }
+  };
+
   useEffect(() => {
     if (otpDetails) {
       Axios.get(
@@ -112,12 +118,33 @@ function OtpModel({ otpDetails, setisOTP }) {
     }
   }
 
+  const StartString = () => {
+    if (otpDetails) {
+      let arr = otpDetails.phone_no.split("");
+      let newString = [];
+      let length = arr.length;
+      for (let i = 0; i < length; i++) {
+        if (i < length - 3) {
+          newString.push("*");
+        } else {
+          newString.push(arr[i]);
+        }
+      }
+      return newString.join("");
+    }
+  };
+
   return (
     <div>
-      <div className="otp_model_outer">
+      <div className="otp_model_outer" onClick={closingModel}>
         <div className="otp_model">
+          <div className="close">
+            <button className="close_model" onClick={() => setisOTP(false)}>
+              <i className="fas fa-times-circle"></i>
+            </button>
+          </div>
           <h1>Please Enter The One Time Password To Verify Account</h1>
-          <h2>A Code Has Been Sent To *******962</h2>
+          <h2>A Code Has Been Sent To {<StartString />}</h2>
           <div className="subm">
             <form onSubmit={otpSubmit}>
               <p>

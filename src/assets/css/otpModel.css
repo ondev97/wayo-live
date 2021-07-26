@@ -13,10 +13,20 @@
   z-index: 100;
 }
 .otp_model_outer .otp_model {
+  position: relative;
   width: 600px;
   padding: 40px 20px;
   background-color: #262626;
   border-radius: 3px;
+}
+.otp_model_outer .otp_model .close_model {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
 }
 .otp_model_outer .otp_model h1 {
   text-align: center;
@@ -88,4 +98,10 @@
 .otp_model_outer .otp_model .but p span {
   color: var(--buttonColor1);
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .otp_model_outer .otp_model {
+    width: 95%;
+  }
 }
