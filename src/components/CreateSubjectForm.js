@@ -242,6 +242,23 @@ export default function CreateSubjectForm({
           ""
         )}
       </div>
+      <p>
+        <label htmlFor="eal">EVENT AUDIENCE LIMIT</label>
+        <input
+          type="number"
+          name="event_audience_limit"
+          id="eal"
+          min="0"
+          value={formValue.event_audience_limit}
+          onChange={hadelChabgeFormValues}
+          onFocus={hideError}
+        />
+        {formErrors.event_audience_limit && (
+          <span className={`tip ${hide.event_audience_limit ? "hidetip" : ""}`}>
+            {formErrors.event_audience_limit}
+          </span>
+        )}
+      </p>
       <div className="up_pro_pic">
         {showCropper && cropData === "#" && !err.img && (
           <div className="cropper_be">

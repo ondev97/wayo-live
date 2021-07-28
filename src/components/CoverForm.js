@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
@@ -30,7 +30,7 @@ export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
   if (Object.values(acDetails).length !== 0) {
     if (!acDetails.user.is_band && acDetails.user.is_verified) {
       return <Redirect to="/audiencedashboard/maindashboard" />;
-    } else if (acDetails.user.is_band && acDetails.user.sis_verified) {
+    } else if (acDetails.user.is_band && acDetails.user.is_verified) {
       return <Redirect to="/band/allevents" />;
     }
   }

@@ -19,6 +19,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     event_duration: "",
     event_price: 0,
     event_content: "",
+    event_audience_limit: "",
     is_freeze: false,
     event_cover: "",
   });
@@ -31,6 +32,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     event_start: "",
     event_end_time: "",
     event_price: "",
+    event_audience_limit: "",
     event_content: "",
   });
   const [hide, sethide] = useState({
@@ -42,6 +44,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
     event_start_time: false,
     event_end_time: false,
     event_price: false,
+    event_audience_limit: false,
     event_content: false,
   });
   const [isSubmitting, setisSubmitting] = useState(false);
@@ -69,6 +72,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
           event_label: res.data.event_label,
           event_start: res.data.event_start,
           event_price: res.data.event_price,
+          event_audience_limit: res.data.limit,
           is_freeze: res.data.is_freeze,
         });
         if (res.data.event_content) {
@@ -100,6 +104,7 @@ export default function UpdateSubjectFunc(submitForm, subid) {
       event_end_time: false,
       event_price: false,
       event_conten: false,
+      event_audience_limit: false,
     });
     setisSubmitting(true);
   };

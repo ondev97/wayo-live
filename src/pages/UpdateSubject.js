@@ -71,6 +71,7 @@ export default function UpdateSubject() {
     form_data.append("event_label", formValue.event_label);
     form_data.append("event_price", formValue.event_price);
     form_data.append("event_type", formValue.event_type);
+    form_data.append("limit", formValue.event_audience_limit);
     form_data.append("is_freeze", formValue.is_freeze);
 
     Axios.put(
