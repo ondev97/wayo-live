@@ -7,6 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import MyCourseCard from "../../components/student/MyCourseCard";
 import ProfileLoader from "../../components/ProfileLoader";
 import EventsFilter from "../../components/student/EventsFilter";
+import PaymentModal from "../../components/student/PaymentModal";
 
 export default function StSubCourses() {
   const { id } = useParams();

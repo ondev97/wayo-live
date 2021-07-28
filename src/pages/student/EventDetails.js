@@ -6,6 +6,7 @@ import Axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import KeyModel from "../../components/student/KeyModel";
 import DetailsModel from "../../components/DetailsModel";
+import PaymentModal from "../../components/student/PaymentModal";
 
 export default function EventDetails() {
   const { id } = useParams();
@@ -128,7 +129,8 @@ export default function EventDetails() {
               <div className="event_column">
                 {!eventDetails.is_enrolled ? (
                   <Link to={`#`}>
-                    <button>LKR: {eventDetails.event_price}</button>
+                    {/*<button>LKR: {eventDetails.event_price}</button>*/}
+                    <PaymentModal event={eventDetails}/>
                   </Link>
                 ) : (
                   ""

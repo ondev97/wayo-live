@@ -4,67 +4,51 @@ import Axios from "axios";
 import { store } from "react-notifications-component";
 import { Redirect } from "react-router-dom";
 
-const PaymentModal = ({ course_id, course_name, price, user }) => {
+const PaymentModal = ({event}) => {
   const usDetails = useSelector((state) => state.accountDetails);
   const [redirect, setredirect] = useState(false);
 
+  console.log(usDetails);
+
   const payment = {
     sandbox: true,
-    merchant_id: "1216340",
+    merchant_id: '1216340',
     return_url: "",
     cancel_url: "",
-    notify_url: "",
-    order_id: course_id,
-    items: course_name,
-    amount: price,
-    currency: "LKR",
-    first_name: user.user.first_name,
-    last_name: user.user.last_name,
-    email: user.user.email,
-    phone: user.user.phone_no,
-    address: user.user.address,
-    city: "Colombo",
-    country: "Sri Lanka",
+    notify_url: `${process.env.REACT_APP_LMS_MAIN_URL}/show/notifyurl/${usDetails.id}/${event.id}/`,
+    order_id: event.id,
+    items: event.event_name,
+    amount: event.event_price,
+    currency: 'LKR',
+    first_name: 'Saman',
+    last_name: 'Perera',
+    email: 'samanp@gmail.com',
+    phone: '0771234567',
+    address: 'No.1, Galle Road',
+    city: 'Colombo',
+    country: 'Sri Lanka',
   };
 
   // Called when user completed the payment. It can be a successful payment or failure
-  window.payhere.onCompleted = function onCompleted(orderId) {
-    console.log("Payment completed. OrderID:" + orderId);
-    Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrollbypayment/${course_id}/${usDetails.id}/`,
-      {},
-      {
-        headers: { Authorization: "Token " + usDetails.key },
-      }
-    )
-      .then((res) => {
-        console.log(res);
-        store.addNotification({
-          title: "Successfully Enrolled",
-          message: process.env.REACT_APP_LMS_ALERT_NAME,
-          type: "success",
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animate__animated", "animate__fadeIn"],
-          animationOut: ["animate__animated", "animate__fadeOut"],
-          dismiss: {
-            duration: 3000,
-            onScreen: true,
-            pauseOnHover: true,
-            showIcon: true,
-          },
-          width: 600,
-        });
-        setredirect(true);
-      })
-      .catch((err) => {});
-    Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/enrolledpayment/`,
-      payment,
-      {
-        headers: { Authorization: "Token " + usDetails.key },
-      }
-    );
+  window.payhere.onCompleted = function onCompleted(orderId, amount, currency, status) {
+    console.log("Payment completed. OrderID:" + orderId, amount, currency, status);
+    store.addNotification({
+      title: "Successfully Enrolled",
+      message: process.env.REACT_APP_LMS_ALERT_NAME,
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 3000,
+        onScreen: true,
+        pauseOnHover: true,
+        showIcon: true,
+      },
+      width: 600,
+    });
+    return <Redirect to={`/audiencedashboard/envet/${event.id}`}/>
   };
 
   // Called when user closes the payment without completing
@@ -112,14 +96,62 @@ const PaymentModal = ({ course_id, course_name, price, user }) => {
   };
 
   function pay() {
-    window.payhere.startPayment(payment);
+    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/show/checkpayment/${event.id}/`, {},
+        { headers: { Authorization: "Token " + usDetails.key },})
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.is_payable){
+            payment.order_id = res.data.payment_id;
+            window.payhere.startPayment(payment);
+          }else{
+            if (res.data.enrolled){
+              store.addNotification({
+                title: "You have already enrolled for this event",
+                message: process.env.REACT_APP_LMS_ALERT_NAME,
+                type: "warning",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon: true,
+                },
+                width: 600,
+              });
+              return <Redirect to={`/audiencedashboard/envet/${event.id}`}/>
+            }else{
+              store.addNotification({
+                title: "Enrollment limit exceeded",
+                message: process.env.REACT_APP_LMS_ALERT_NAME,
+                type: "warning",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                  onScreen: true,
+                  pauseOnHover: true,
+                  showIcon: true,
+                },
+                width: 600,
+              });
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }
   if (redirect) {
-    return <Redirect to={`/studentdashboard/stmodules/${course_id}`} />;
+    return <Redirect to={`/`} />;
   }
   return (
     <button onClick={pay}>
-      <i className="fas fa-shopping-cart"></i>Buy Course
+      LKR: {event.event_price}
     </button>
   );
 };
