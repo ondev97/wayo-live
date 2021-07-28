@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 import { store } from "react-notifications-component";
-import { Redirect } from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
+import { browserHistory } from 'react-router';
 
 const PaymentModal = ({event}) => {
   const usDetails = useSelector((state) => state.accountDetails);
   const [redirect, setredirect] = useState(false);
+  const history = useHistory();
 
-  console.log(usDetails);
 
   const payment = {
     sandbox: true,
@@ -20,12 +21,8 @@ const PaymentModal = ({event}) => {
     items: event.event_name,
     amount: event.event_price,
     currency: 'LKR',
-    first_name: 'Saman',
-    last_name: 'Perera',
-    email: 'samanp@gmail.com',
-    phone: '0771234567',
-    address: 'No.1, Galle Road',
-    city: 'Colombo',
+    address: '',
+    city: '',
     country: 'Sri Lanka',
   };
 
@@ -48,7 +45,8 @@ const PaymentModal = ({event}) => {
       },
       width: 600,
     });
-    return <Redirect to={`/audiencedashboard/envet/${event.id}`}/>
+    history.push(`/audiencedashboard/envet/${event.id}`)
+    //return <Redirect to={`/audiencedashboard/envet/${event.id}`}/>
   };
 
   // Called when user closes the payment without completing
@@ -96,55 +94,62 @@ const PaymentModal = ({event}) => {
   };
 
   function pay() {
-    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/show/checkpayment/${event.id}/`, {},
-        { headers: { Authorization: "Token " + usDetails.key },})
-        .then((res) => {
-          console.log(res.data);
-          if (res.data.is_payable){
-            payment.order_id = res.data.payment_id;
-            window.payhere.startPayment(payment);
-          }else{
-            if (res.data.enrolled){
-              store.addNotification({
-                title: "You have already enrolled for this event",
-                message: process.env.REACT_APP_LMS_ALERT_NAME,
-                type: "warning",
-                insert: "top",
-                container: "top-right",
-                animationIn: ["animate__animated", "animate__fadeIn"],
-                animationOut: ["animate__animated", "animate__fadeOut"],
-                dismiss: {
-                  duration: 3000,
-                  onScreen: true,
-                  pauseOnHover: true,
-                  showIcon: true,
-                },
-                width: 600,
-              });
-              return <Redirect to={`/audiencedashboard/envet/${event.id}`}/>
+    if(usDetails.key){
+      Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/show/checkpayment/${event.id}/`, {},
+          { headers: { Authorization: "Token " + usDetails.key },})
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.is_payable){
+              payment.order_id = res.data.payment_id;
+              payment.email = res.data.user.email;
+              payment.first_name = res.data.user.first_name;
+              payment.last_name = res.data.user.last_name;
+              payment.phone = res.data.user.phone_no;
+              window.payhere.startPayment(payment);
             }else{
-              store.addNotification({
-                title: "Enrollment limit exceeded",
-                message: process.env.REACT_APP_LMS_ALERT_NAME,
-                type: "warning",
-                insert: "top",
-                container: "top-right",
-                animationIn: ["animate__animated", "animate__fadeIn"],
-                animationOut: ["animate__animated", "animate__fadeOut"],
-                dismiss: {
-                  duration: 3000,
-                  onScreen: true,
-                  pauseOnHover: true,
-                  showIcon: true,
-                },
-                width: 600,
-              });
+              if (res.data.enrolled){
+                store.addNotification({
+                  title: "You have already enrolled for this event",
+                  message: process.env.REACT_APP_LMS_ALERT_NAME,
+                  type: "warning",
+                  insert: "top",
+                  container: "top-right",
+                  animationIn: ["animate__animated", "animate__fadeIn"],
+                  animationOut: ["animate__animated", "animate__fadeOut"],
+                  dismiss: {
+                    duration: 3000,
+                    onScreen: true,
+                    pauseOnHover: true,
+                    showIcon: true,
+                  },
+                  width: 600,
+                });
+                history.push(`/audiencedashboard/envet/${event.id}`)
+              }else{
+                store.addNotification({
+                  title: "Enrollment limit exceeded",
+                  message: process.env.REACT_APP_LMS_ALERT_NAME,
+                  type: "warning",
+                  insert: "top",
+                  container: "top-right",
+                  animationIn: ["animate__animated", "animate__fadeIn"],
+                  animationOut: ["animate__animated", "animate__fadeOut"],
+                  dismiss: {
+                    duration: 3000,
+                    onScreen: true,
+                    pauseOnHover: true,
+                    showIcon: true,
+                  },
+                  width: 600,
+                });
+              }
             }
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }
+
   }
   if (redirect) {
     return <Redirect to={`/`} />;
