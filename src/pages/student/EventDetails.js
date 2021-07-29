@@ -130,7 +130,7 @@ export default function EventDetails() {
                 {!eventDetails.is_enrolled ? (
                   <Link to={`#`}>
                     {/*<button>LKR: {eventDetails.event_price}</button>*/}
-                    <PaymentModal event={eventDetails}/>
+                    <PaymentModal event={eventDetails} />
                   </Link>
                 ) : (
                   ""
@@ -214,6 +214,12 @@ export default function EventDetails() {
                     <h2>EVENT END TIME</h2>
                     <h2>
                       <span>: {eventDetails.event_end}</span>
+                    </h2>
+                  </div>
+                  <div className="event_dis_row">
+                    <h2>EVENT AUDIENCE LIMIT</h2>
+                    <h2>
+                      <span>: {eventDetails.limit}</span>
                     </h2>
                   </div>
 
