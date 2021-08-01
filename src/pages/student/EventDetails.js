@@ -216,12 +216,6 @@ export default function EventDetails() {
                       <span>: {eventDetails.event_end}</span>
                     </h2>
                   </div>
-                  <div className="event_dis_row">
-                    <h2>EVENT AUDIENCE LIMIT</h2>
-                    <h2>
-                      <span>: {eventDetails.limit}</span>
-                    </h2>
-                  </div>
 
                   <div className="event_dis_row">
                     <h2>EVENT DURATION</h2>
