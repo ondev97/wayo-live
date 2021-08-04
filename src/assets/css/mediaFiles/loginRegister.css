@@ -29,11 +29,14 @@
 }
 @media screen and (max-width: 700px) {
   .login_body .login_column .login_form {
-    width: 100%;
+    width: 90%;
   }
   .siup_body .siup_column .siup_form {
     width: 90% !important;
     padding: 0px 10px;
+  }
+  .login_body .login_column {
+    flex: 1;
   }
 }
 @media screen and (max-width: 350px) {

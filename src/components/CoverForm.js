@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
 export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
@@ -95,9 +95,9 @@ export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
           </button>
 
           <div className="fpw">
-            {/* <p>
-              <Link to="#">Forgot Password?</Link>
-            </p> */}
+            <p>
+              <Link to="/passwordreset">Forgot Password?</Link>
+            </p>
             <p
               onClick={() => {
                 seterrors({ ...errors, comerrors: "" });
