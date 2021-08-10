@@ -9,6 +9,7 @@ import CoverForm from "../components/CoverForm";
 import { Link } from "react-router-dom";
 import SessionModel from "../components/SessionModel";
 import OtpModel from "../components/OtpModel";
+import UserDeteailsCol from "../components/UserDeteailsCol";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function Home() {
 
   const [isModel, setisModel] = useState(false);
   const [isOTP, setisOTP] = useState(false);
+  const [usForm, setusForm] = useState(true);
   const [otpDetails, setotpDetails] = useState({});
 
   useEffect(() => {
@@ -36,6 +38,7 @@ export default function Home() {
   return (
     <>
       <div className="uppercover">
+        {usForm ? <UserDeteailsCol /> : ""}
         {isModel ? (
           //model login session
           <SessionModel closeModel={closeModel} setisModel={setisModel} />
