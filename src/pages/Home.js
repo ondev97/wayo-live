@@ -20,6 +20,7 @@ export default function Home() {
   const [isOTP, setisOTP] = useState(false);
   const [usForm, setusForm] = useState(false);
   const [otpDetails, setotpDetails] = useState({});
+  const [evetDetails, setevetDetails] = useState({});
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -31,8 +32,23 @@ export default function Home() {
 
   function latestEvent() {
     Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/latestevent/`)
-      .then((res) => console.log(res))
+      .then((res) => setevetDetails(res))
       .catch((err) => console.log(err));
+  }
+
+  function tConvert(time) {
+    // Check correct time format and split into components
+    time = time
+      .toString()
+      .match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+    if (time.length > 1) {
+      // If time format correct
+      time = time.slice(1); // Remove full string match value
+      time[5] = +time[0] < 12 ? "AM" : "PM"; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join(""); // return adjusted time or original string
   }
 
   const closeModel = (e) => {
@@ -89,14 +105,26 @@ export default function Home() {
             </h2>
             <div className="upcoming-row">
               <div className="col">
-                <p>
-                  2021-07-02 <br />
-                  4:30 PM
-                </p>
+                {evetDetails.data ? (
+                  <>
+                    <p>
+                      {evetDetails.data.event_date} <br />
+                      {tConvert(evetDetails.data.event_start)}
+                    </p>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
               <div className="col">
-                <p>WAYO Jeewithe Concert</p>
-                <p>Jeewithe Private Screening</p>
+                {evetDetails.data ? (
+                  <>
+                    <p>{evetDetails.data.event_type}</p>
+                    <p>{evetDetails.data.event_content}</p>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
