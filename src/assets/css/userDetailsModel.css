@@ -133,12 +133,13 @@
 .outer_user_form .conformmodel_outer .conformmodel {
   max-width: 600px;
   background-color: #262626;
-  padding: 15px;
+  padding: 25px;
   border-radius: 5px;
 }
 .outer_user_form .conformmodel_outer .conformmodel h3 {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 25px;
+  font-weight: 500;
 }
 .outer_user_form .conformmodel_outer .conformmodel .but {
   width: 100%;

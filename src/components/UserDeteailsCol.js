@@ -142,7 +142,6 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
   };
 
   const closeConfirmModel = (e) => {
-    console.log(e.target.className);
     if (e.target.className.includes("conformmodel_outer")) {
       setconformModel(false);
     }
@@ -155,8 +154,9 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
         <div className="conformmodel_outer" onClick={closeConfirmModel}>
           <div className="conformmodel">
             <h3>
-              orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod
+              Now we will send an otp to this number. To receive the OTP please
+              confirm the number. If this number is not correct update it with
+              the right one
             </h3>
             <div className="but">
               <button onClick={submitConfirm}>Yes</button>

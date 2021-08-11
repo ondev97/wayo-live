@@ -12,7 +12,6 @@ function StValidateLogin(setisOTP, setusForm, setotpDetails) {
   const [acDetails, setacDetails] = useState({});
 
   const hadelOnChange = (e) => {
-    console.log(e.target.id);
     const { name, value } = e.target;
     if (e.target.id === "em") {
       setvalues({
