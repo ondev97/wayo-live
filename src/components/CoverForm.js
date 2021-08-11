@@ -2,7 +2,12 @@ import React, { useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
-export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
+export default function CoverForm({
+  setisModel,
+  setisOTP,
+  setusForm,
+  setotpDetails,
+}) {
   const [
     values,
     hadelOnChange,
@@ -13,7 +18,7 @@ export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
     hide,
     acDetails,
     loading,
-  ] = StValidateLogin(setisOTP, setotpDetails);
+  ] = StValidateLogin(setisOTP, setusForm, setotpDetails);
   const passwordRef = useRef();
 
   //function for trigger show password field

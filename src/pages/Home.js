@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import SessionModel from "../components/SessionModel";
 import OtpModel from "../components/OtpModel";
 import UserDeteailsCol from "../components/UserDeteailsCol";
+import Axios from "axios";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -17,14 +18,22 @@ export default function Home() {
 
   const [isModel, setisModel] = useState(false);
   const [isOTP, setisOTP] = useState(false);
-  const [usForm, setusForm] = useState(true);
+  const [usForm, setusForm] = useState(false);
   const [otpDetails, setotpDetails] = useState({});
 
   useEffect(() => {
     dispatch(activeAccount());
     dispatch(loadStDetails());
     window.scrollTo(0, 0);
+    //get latest event
+    latestEvent();
   }, [dispatch]);
+
+  function latestEvent() {
+    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/latestevent/`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
 
   const closeModel = (e) => {
     if (e.target.className.includes("loginmodel_outer")) {
@@ -38,7 +47,11 @@ export default function Home() {
   return (
     <>
       <div className="uppercover">
-        {usForm ? <UserDeteailsCol /> : ""}
+        {usForm ? (
+          <UserDeteailsCol otpDetails={otpDetails} setusForm={setusForm} />
+        ) : (
+          ""
+        )}
         {isModel ? (
           //model login session
           <SessionModel closeModel={closeModel} setisModel={setisModel} />
@@ -62,6 +75,7 @@ export default function Home() {
                   setisModel={setisModel}
                   setisOTP={setisOTP}
                   setotpDetails={setotpDetails}
+                  setusForm={setusForm}
                 />
               ) : (
                 ""

@@ -56,6 +56,7 @@
   grid-gap: 20px;
 }
 .outer_user_form .form_bg form p {
+  position: relative;
   width: 100%;
   margin-right: 0 !important;
 }
@@ -96,4 +97,102 @@
   height: 18px;
   margin-right: 10px;
   cursor: pointer;
+}
+.outer_user_form .form_bg form p .tip {
+  font-size: 11px;
+  position: absolute;
+  bottom: -13px;
+  right: 0;
+  padding: 5px 8px;
+  background-color: #fb01010d;
+  color: red;
+  border-radius: 2px;
+  z-index: 100;
+  transition: opacity 0.9s;
+  text-transform: capitalize;
+}
+.outer_user_form .form_bg form p .hidetip {
+  opacity: 0;
+  user-select: none;
+}
+.outer_user_form .conformmodel_outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #0000005c;
+  z-index: 101;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.outer_user_form .conformmodel_outer .conformmodel {
+  max-width: 600px;
+  background-color: #262626;
+  padding: 15px;
+  border-radius: 5px;
+}
+.outer_user_form .conformmodel_outer .conformmodel h3 {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+.outer_user_form .conformmodel_outer .conformmodel .but {
+  width: 100%;
+}
+.outer_user_form .conformmodel_outer .conformmodel .but button {
+  width: 120px;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: var(--buttonColor1);
+  border: 1px solid transparent;
+  color: #fff;
+}
+.outer_user_form .conformmodel_outer .conformmodel .but button:nth-child(2) {
+  background-color: var(--buttonColorHover1);
+}
+
+@media screen and (max-width: 650px) {
+  .outer_user_form .form_bg {
+    max-width: initial;
+    width: 95%;
+  }
+  .outer_user_form .form_bg form {
+    overflow-y: auto;
+    max-height: 45vh;
+  }
+  .outer_user_form .form_bg form .sect {
+    flex-wrap: wrap;
+    grid-gap: 5px;
+  }
+  .outer_user_form .form_bg form::-webkit-scrollbar {
+    width: 5px;
+  }
+  .outer_user_form .form_bg form::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .outer_user_form .form_bg form::-webkit-scrollbar-thumb {
+    background-color: #afafaf;
+    border-radius: 20px;
+    border: transparent;
+  }
+  .outer_user_form {
+    z-index: 11;
+  }
+  .outer_user_form .conformmodel_outer .conformmodel {
+    max-width: initial;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .outer_user_form .conformmodel_outer .conformmodel .but {
+    text-align: center;
+  }
+  .outer_user_form .conformmodel_outer .conformmodel .but button {
+    margin-bottom: 10px;
+  }
 }
