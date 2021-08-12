@@ -76,6 +76,7 @@
 }
 .outer_user_form .form_bg form .but {
   width: 100%;
+  padding-top: 20px;
 }
 .outer_user_form .form_bg form .but button {
   width: 150px;
