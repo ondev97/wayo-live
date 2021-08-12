@@ -4,7 +4,7 @@
 .mainBulk .infoBulk {
   padding: 25px;
   background-color: #262626;
-  border: 3px;
+  border-radius: 8px;
 }
 .mainBulk .infoBulk h1 {
   color: #fff;
@@ -18,13 +18,13 @@
 .mainBulk .fileRow {
   margin: 20px 0;
   display: flex;
-  grid-gap: 10px;
+  grid-gap: 15px;
 }
 .mainBulk .fileRow button {
   width: 250px;
   padding: 8px 5px;
   border: 1px solid var(--h1Fontcolor);
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: var(--h1Fontcolor);
   color: #fff;
   transition: 0.5s ease;

@@ -151,10 +151,14 @@ function BulkAccountCreate() {
                 </div>
               )}
             </div>
-            <button onClick={addStToCos}>
-              {loading ? <i className="fas fa-circle-notch rotate"></i> : ""}
-              Create Bulk Audience
-            </button>
+            {fileName ? (
+              <button onClick={addStToCos}>
+                {loading ? <i className="fas fa-circle-notch rotate"></i> : ""}
+                Create Bulk Audience
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       ) : (
@@ -163,19 +167,11 @@ function BulkAccountCreate() {
       <div className="infoBulk">
         <h1>ADD BULK ACCOUNT</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam,
+          First, click on the "Download Template" button to download the empty
+          template (.xlsx) file to add the audience accounts list. Then, insert
+          orderly the audience account username (UPPERCASE) and password in that
+          template file. Finally, click on the "Upload Audience Accounts File"
+          button to upload the audience accounts list.
         </p>
       </div>
       <div className="fileRow">

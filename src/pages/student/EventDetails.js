@@ -91,7 +91,7 @@ export default function EventDetails() {
         )}
       </AnimatePresence>
       {/* user details model */}
-      <DetailsModel />
+      {/* <DetailsModel /> */}
 
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
@@ -128,10 +128,13 @@ export default function EventDetails() {
               </div>
               <div className="event_column">
                 {!eventDetails.is_enrolled ? (
-                  <Link to={`#`}>
-                    {/*<button>LKR: {eventDetails.event_price}</button>*/}
-                    <PaymentModal event={eventDetails} />
-                  </Link>
+                  <>
+                    <Link to={`#`}>
+                      {/*<button>LKR: {eventDetails.event_price}</button>*/}
+                      <PaymentModal event={eventDetails} />
+                    </Link>
+                    <p>OR</p>
+                  </>
                 ) : (
                   ""
                 )}

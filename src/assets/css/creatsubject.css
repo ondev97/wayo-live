@@ -198,27 +198,49 @@ input[type="number"]::-webkit-outer-spin-button {
   flex: initial;
   position: relative;
   -webkit-appearance: none;
-  width: 60px;
-  height: 25px;
-  background-color: #000;
+  width: 100px;
+  height: 36px;
+  background-color: #404040;
   transition: 0.5s;
-  box-shadow: inset 0 0 05px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
+}
+.subject_form .main_form .sub_sect p input[type="checkbox"]::after {
+  content: "ON";
+  height: 100%;
+  color: #fff;
+  padding: 0 10px 0 7px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.subject_form .main_form .sub_sect p input:checked[type="checkbox"]:before {
+  left: 55px;
+  content: "ON";
+}
+.subject_form .main_form .sub_sect p input:checked[type="checkbox"]:after {
+  content: "OFF";
+  justify-content: flex-start;
 }
 .subject_form .main_form .sub_sect p input[type="checkbox"]:before {
-  content: "";
+  content: "OFF";
   position: absolute;
-  width: 20px;
-  height: 22px;
+  width: 40px;
+  height: 32px;
   top: 0px;
   left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 11px;
   background-color: var(--buttonColor1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
   cursor: pointer;
   transform: scale(1.2);
   transition: 0.5s;
 }
 .subject_form .main_form .sub_sect p input:checked[type="checkbox"]:before {
-  left: 37px;
+  left: 50px;
 }
 
 .subject_form .main_form .sub_sect p input#ef {
@@ -241,6 +263,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 0 10px 0 3px;
 }
 .subject_form .main_form .sub_sect p input#ef[type="checkbox"]:before {
   content: "FREE";

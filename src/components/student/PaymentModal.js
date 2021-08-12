@@ -160,7 +160,7 @@ const PaymentModal = ({ event }) => {
         });
     }
   }
-  return <button onClick={pay}>LKR: {event.event_price}</button>;
+  return <button onClick={pay}>PAY LKR {event.event_price}</button>;
 };
 
 export default PaymentModal;

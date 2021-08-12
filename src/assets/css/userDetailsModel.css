@@ -41,6 +41,12 @@
   color: red;
 }
 .outer_user_form .form_bg h1 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.outer_user_form .form_bg h3 {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 20px;

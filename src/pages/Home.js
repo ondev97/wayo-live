@@ -104,6 +104,7 @@ export default function Home() {
               EVENT
             </h2>
             <div className="upcoming-row">
+              {evetDetails !== ""}
               <div className="col">
                 {evetDetails.data ? (
                   <>
@@ -119,8 +120,8 @@ export default function Home() {
               <div className="col">
                 {evetDetails.data ? (
                   <>
-                    <p>{evetDetails.data.event_type}</p>
-                    <p>{evetDetails.data.event_content}</p>
+                    <p>{evetDetails.data.event_name}</p>
+                    <p>{evetDetails.data.description}</p>
                   </>
                 ) : (
                   ""

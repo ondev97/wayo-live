@@ -156,7 +156,7 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
             <h3>
               Now we will send an otp to this number. To receive the OTP please
               confirm the number. If this number is not correct update it with
-              the right one
+              the right one.
             </h3>
             <div className="but">
               <button onClick={submitConfirm}>Yes</button>
@@ -173,10 +173,11 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
             <i className="fas fa-times-circle"></i>
           </button>
         </div>
-        <h1>
-          orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-        </h1>
+        <h1>BECOME A WAYAN</h1>
+        <h3>
+          To get started, please insert the below details and register in WAYO
+          LIVE.
+        </h3>
         <form onSubmit={hadelSubmitForm}>
           <div className="sect">
             <p>

@@ -33,7 +33,6 @@ export default function CreateSubjectForm({
   };
 
   const checkFreeze = (e) => {
-    console.log(e);
     if (e.target.checked) {
       setformValue({ ...formValue, is_freeze: true });
     } else {

@@ -25,12 +25,12 @@ export default function MyCourseCard({ event }) {
           <h3>{event.event_mode ? event.event_mode.event_mode_name : ""}</h3>
         </div>
         <div className="st_grid_card_mg_tail">
-          {event.event_price && !event.is_enrolled ? (
-            <button>RS: {event.event_price}</button>
+          {/* {event.event_price && !event.is_enrolled ? (
+            <button>LKR: {event.event_price}</button>
           ) : (
             ""
-          )}
-          <button>VIEW EVENT</button>
+          )} */}
+          <button>VIEW EVENT DETAILS</button>
         </div>
       </div>
     </Link>
