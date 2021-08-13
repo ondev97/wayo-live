@@ -43,6 +43,10 @@ function StudentDashBoard() {
     if (window.innerWidth < 867) {
       settoggle(true);
     }
+    if (location.pathname.includes("/audiencedashboard/envet")) {
+      document.querySelector(".head").style.display = "flex";
+      settoggle(true);
+    }
   }, [location]);
   const togglemenu = () => {
     settoggle(!toggle);
