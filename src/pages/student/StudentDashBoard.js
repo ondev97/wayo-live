@@ -16,6 +16,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Contact from "./Contact";
 import EventDetails from "./EventDetails";
 import UserGuide from "../UserGuide";
+import Form from "./Form";
 
 function StudentDashBoard() {
   const dispatch = useDispatch();
@@ -185,6 +186,9 @@ function StudentDashBoard() {
           {/* <Route path="/audiencedashboard/playevent">
             <PlayEvent />
           </Route> */}
+          <Route path="/audiencedashboard/form/:id">
+            <Form />
+          </Route>
         </div>
       </div>
     </div>

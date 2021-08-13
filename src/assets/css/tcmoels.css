@@ -53,8 +53,33 @@
   margin: 0px 0 25px;
   padding-right: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
+}
+.models .md_all_models .md_models .cr_models a {
+  padding: 8px;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #ffffff52;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+  cursor: pointer;
+}
+.models .md_all_models .md_models .cr_models a i {
+  margin-right: 8px;
+}
+.models .md_all_models .md_models .cr_models a:hover {
+  background-color: var(--buttonColor1);
+}
+.models .md_all_models .md_models .cr_models a:hover i {
+  color: #fff;
 }
 .models .md_all_models .md_models .cr_models button {
   padding: 8px;

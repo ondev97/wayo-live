@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import StOneModule from "../../components/student/StOneModule";
@@ -170,10 +170,9 @@ export default function Stmodules() {
         <div className="md_all_models">
           <div className="md_models">
             <div className="cr_models">
-              <button onClick={back}>
-                <i className="fas fa-chevron-circle-left"></i>Back to Event
-                Details
-              </button>
+              <Link to={`/audiencedashboard/form/${id}`}>
+                <i className="fas fa-chevron-circle-right"></i>To Exit
+              </Link>
             </div>
             <div className="al_models">
               {moduleData.length !== 0 ? (
