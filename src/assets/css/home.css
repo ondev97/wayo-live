@@ -273,10 +273,12 @@
   0% {
     transform: translateX(-20%);
     opacity: 0;
+    filter: blur(5px);
   }
   100% {
     transform: translateX(0%);
     opacity: 1;
+    filter: blur(0px);
   }
 }
 /*Event Section*/
