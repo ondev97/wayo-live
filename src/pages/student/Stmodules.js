@@ -169,7 +169,7 @@ export default function Stmodules() {
       <div className="models">
         <div className="md_all_models">
           <div className="md_models">
-            <div className="cr_models">
+            <div className="cr_models audience">
               <Link to={`/audiencedashboard/form/${id}`}>
                 <i className="fas fa-chevron-circle-right"></i>To Exit
               </Link>
