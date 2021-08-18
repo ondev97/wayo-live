@@ -169,11 +169,11 @@ export default function Stmodules() {
       <div className="models">
         <div className="md_all_models">
           <div className="md_models">
-            <div className="cr_models audience">
+            {/* <div className="cr_models audience">
               <Link to={`/audiencedashboard/form/${id}`}>
                 <i className="fas fa-chevron-circle-right"></i>To Exit
               </Link>
-            </div>
+            </div> */}
             <div className="al_models">
               {moduleData.length !== 0 ? (
                 <StOneModule
@@ -183,6 +183,7 @@ export default function Stmodules() {
                   id={moduleData.id}
                   setvideoLink={setvideoLink}
                   setsetVideo={setsetVideo}
+                  modId={id}
                 />
               ) : (
                 <div className="empy">

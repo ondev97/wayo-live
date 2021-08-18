@@ -11,6 +11,7 @@ export default function StOneModule({
   msg,
   setvideoLink,
   setsetVideo,
+  modId,
 }) {
   const [playing, setplaying] = useState(false);
   const [iValue, setiValue] = useState("");
@@ -143,7 +144,7 @@ export default function StOneModule({
 
   return (
     <LazyLoad height={200}>
-      <StModuleBody name={moduleData.event_name}>
+      <StModuleBody name={moduleData.event_name} id={modId}>
         <div className="on_model_body">
           {msg && (
             <div className="model_body_row">
@@ -156,11 +157,11 @@ export default function StOneModule({
               ) : (
                 ""
               )}
-              <div className="event_details_dis">
+              {/* <div className="event_details_dis">
                 <h3>EVENT DETAILS </h3>
                 <p>EVENT START TIME : {moduleData.event_start || ""}</p>
                 <p>EVENT END TIME : {moduleData.event_end || ""}</p>
-              </div>
+              </div> */}
             </div>
           )}
         </div>

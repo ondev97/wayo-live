@@ -9,7 +9,7 @@
 }
 .form_container .but button {
   padding: 8px;
-  width: 200px;
+  width: 170px;
   text-align: center;
   text-decoration: none;
   border: 1px solid #ffffff52;
@@ -24,7 +24,7 @@
   cursor: pointer;
 }
 .form_container .but button i {
-  margin-right: 5px;
+  margin-left: 8px;
 }
 .form_container .but button:hover {
   background-color: var(--buttonColor1);

@@ -87,13 +87,15 @@ export default function Header({ acDetails }) {
         );
       }
     } else {
-      return (
-        <div className="buttons">
-          <Link to="/signup">
-            <button>Register</button>
-          </Link>
-        </div>
-      );
+      if (location !== "/signup") {
+        return (
+          <div className="buttons">
+            <Link to="/signup">
+              <button>Register</button>
+            </Link>
+          </div>
+        );
+      }
     }
   };
 

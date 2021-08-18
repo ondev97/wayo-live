@@ -9,7 +9,7 @@ function Form() {
       <div className="but">
         <Link to={`/audiencedashboard/eventsinband/${id}`}>
           <button>
-            <i className="fas fa-chevron-circle-right"></i>Back To Event Details
+            To Leave Event <i className="fas fa-chevron-circle-right"></i>
           </button>
         </Link>
       </div>

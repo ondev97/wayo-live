@@ -28,6 +28,7 @@
   align-items: center;
   border-radius: 10px;
   background-color: #000;
+  grid-gap: 7px;
   padding: 6px 0px 6px 8px;
 }
 .profile_menu .pro_pic {
