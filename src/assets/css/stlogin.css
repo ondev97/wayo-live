@@ -84,7 +84,7 @@
   position: relative;
 }
 .login_body .login_column .login_form form {
-  padding: 24px 24px 24px 30px;
+  padding: 5px 24px 5px 30px;
   width: 100%;
 }
 .login_body .login_column .login_form label {

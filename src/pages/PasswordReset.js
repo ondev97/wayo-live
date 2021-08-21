@@ -27,7 +27,7 @@ export default function PasswordReset() {
     setreadOnly("none");
 
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/password/reset/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/password/reset/`,
       { email: email }
     )
       .then((res) => {

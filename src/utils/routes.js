@@ -50,7 +50,7 @@ export default [
     components: () => <PasswordReset />,
   },
   {
-    path: "/setnewpassword",
+    path: "/setnewpassword/:uid/:token",
     components: () => <SetNewPassword />,
   },
   {
