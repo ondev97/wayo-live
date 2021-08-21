@@ -26,12 +26,13 @@ export default function Header({ acDetails }) {
     "/",
     "/about",
     "/contact",
-    "/allteachers",
+    "/upcomingevents",
     "/allsubjects",
     "/signup",
     "/passwordreset",
     "/guidelines",
     "/features",
+    "/setnewpassword",
   ];
   const hambutton = () => {
     setisham(!isham);
@@ -123,7 +124,7 @@ export default function Header({ acDetails }) {
                   <Link to="/contact">CONTACT US</Link>
                 </li>
                 <li>
-                  <Link to="#">UPCOMING EVENTS</Link>
+                  <Link to="/upcomingevents">UPCOMING EVENTS</Link>
                 </li>
               </ul>
             </div>
@@ -155,7 +156,7 @@ export default function Header({ acDetails }) {
                   <Link to="/contact">
                     <li>CONTACT US</li>
                   </Link>
-                  <Link to="#">
+                  <Link to="/upcomingevents">
                     <li>UPCOMING EVENTS</li>
                   </Link>
                 </ul>

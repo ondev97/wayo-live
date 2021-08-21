@@ -24,15 +24,50 @@ function OtpModel({ otpDetails, setisOTP }) {
 
   useEffect(() => {
     if (otpDetails) {
-      Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user/${otpDetails.phone_no}/`
-      )
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      let IntNumber = parseInt(otpDetails.phone_no.substring(0, 2));
+      if (IntNumber !== 94) {
+        Axios.get(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user_by_email/${otpDetails.email}/`
+        )
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err.response.data.message);
+            if (err) {
+              if (
+                err.response.data.message === "Verification code was not sent"
+              ) {
+                store.addNotification({
+                  title: "Verification code was not sent check your email",
+                  message: process.env.REACT_APP_LMS_ALERT_NAME,
+                  type: "danger",
+                  insert: "top",
+                  container: "top-right",
+                  animationIn: ["animate__animated", "animate__fadeIn"],
+                  animationOut: ["animate__animated", "animate__fadeOut"],
+                  dismiss: {
+                    duration: 3000,
+                    onScreen: true,
+                    pauseOnHover: true,
+                    showIcon: true,
+                  },
+                  width: 600,
+                });
+              }
+            }
+          });
+      } else {
+        Axios.get(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user/${otpDetails.phone_no}/`
+        )
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     }
   }, [otpDetails, reset]);
 
@@ -79,40 +114,78 @@ function OtpModel({ otpDetails, setisOTP }) {
 
   function submit() {
     if (otpDetails) {
-      Axios.post(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user/${otpDetails.phone_no}/`,
-        {
-          otp: otpValue.otp,
-        }
-      )
-        .then(() => {
-          setisOTP(false);
-          store.addNotification({
-            title: "Account Verified Successfully",
-            message: process.env.REACT_APP_LMS_ALERT_NAME,
-            type: "success",
-            insert: "top",
-            container: "top-right",
-            animationIn: ["animate__animated", "animate__fadeIn"],
-            animationOut: ["animate__animated", "animate__fadeOut"],
-            dismiss: {
-              duration: 3000,
-              onScreen: true,
-              pauseOnHover: true,
-              showIcon: true,
-            },
-            width: 600,
-          });
-        })
-        .catch((err) => {
-          if (err.response.data.res) {
-            setotpError({ otp: err.response.data.res });
-          } else if (err.response.data.message) {
-            setotpError({ otp: err.response.data.message });
-          } else {
-            setotpError({ otp: "Phone Number Invalid" });
+      let IntNumber = parseInt(otpDetails.phone_no.substring(0, 2));
+      if (IntNumber !== 94) {
+        Axios.post(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user/${otpDetails.email}/`,
+          {
+            otp: otpValue.otp,
           }
-        });
+        )
+          .then(() => {
+            setisOTP(false);
+            store.addNotification({
+              title: "Account Verified Successfully",
+              message: process.env.REACT_APP_LMS_ALERT_NAME,
+              type: "success",
+              insert: "top",
+              container: "top-right",
+              animationIn: ["animate__animated", "animate__fadeIn"],
+              animationOut: ["animate__animated", "animate__fadeOut"],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+                pauseOnHover: true,
+                showIcon: true,
+              },
+              width: 600,
+            });
+          })
+          .catch((err) => {
+            if (err.response.data.res) {
+              setotpError({ otp: err.response.data.res });
+            } else if (err.response.data.message) {
+              setotpError({ otp: err.response.data.message });
+            } else {
+              setotpError({ otp: "Phone Number Invalid" });
+            }
+          });
+      } else {
+        Axios.post(
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user/${otpDetails.phone_no}/`,
+          {
+            otp: otpValue.otp,
+          }
+        )
+          .then(() => {
+            setisOTP(false);
+            store.addNotification({
+              title: "Account Verified Successfully",
+              message: process.env.REACT_APP_LMS_ALERT_NAME,
+              type: "success",
+              insert: "top",
+              container: "top-right",
+              animationIn: ["animate__animated", "animate__fadeIn"],
+              animationOut: ["animate__animated", "animate__fadeOut"],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+                pauseOnHover: true,
+                showIcon: true,
+              },
+              width: 600,
+            });
+          })
+          .catch((err) => {
+            if (err.response.data.res) {
+              setotpError({ otp: err.response.data.res });
+            } else if (err.response.data.message) {
+              setotpError({ otp: err.response.data.message });
+            } else {
+              setotpError({ otp: "Phone Number Invalid" });
+            }
+          });
+      }
     } else {
       setotpError({ otp: "Something Went Wrong" });
     }
@@ -144,7 +217,14 @@ function OtpModel({ otpDetails, setisOTP }) {
             </button>
           </div>
           <h1>Please Enter The One Time Password To Verify Account</h1>
-          <h2>A Code Has Been Sent To {<StartString />}</h2>
+          <h2>
+            A Code Has Been Sent To{" "}
+            {parseInt(otpDetails.phone_no.substring(0, 2)) !== 94 ? (
+              otpDetails.email
+            ) : (
+              <StartString />
+            )}
+          </h2>
           <div className="subm">
             <form onSubmit={otpSubmit}>
               <p>

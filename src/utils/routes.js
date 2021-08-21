@@ -8,6 +8,7 @@ import PasswordReset from "../pages/PasswordReset";
 import Guidelines from "../pages/Guidelines";
 import NotFound from "../pages/NotFound";
 import Contactus from "../pages/ContactUs";
+import SetNewPassword from "../pages/SetNewPassword";
 
 export default [
   {
@@ -29,7 +30,7 @@ export default [
     components: () => <IndexAllTeachers />,
   },
   {
-    path: "/allsubjects",
+    path: "/upcomingevents",
     components: () => <InAllSubjects />,
   },
   {
@@ -47,6 +48,10 @@ export default [
   {
     path: "/passwordreset",
     components: () => <PasswordReset />,
+  },
+  {
+    path: "/setnewpassword",
+    components: () => <SetNewPassword />,
   },
   {
     components: () => <NotFound />,
