@@ -103,6 +103,7 @@
   border-radius: 3px;
   outline: none;
   font-size: 15px;
+  color: #fff;
   transition: border-color 0.5s;
 }
 .login_body .login_column .login_form input.error {
