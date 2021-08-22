@@ -46,8 +46,6 @@ export default function Header({ acDetails }) {
     }
   }, [pathname]);
 
-  console.log(mainRoute.includes(location), mainRoute, location);
-
   const headerProPic = () => {
     if (acDetails.key) {
       if (acDetails.is_band) {

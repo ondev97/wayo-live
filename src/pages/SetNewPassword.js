@@ -90,6 +90,7 @@ function SetNewPassword() {
       }
     )
       .then((res) => {
+        setredirect(true);
         store.addNotification({
           title: res.data.detail,
           message: process.env.REACT_APP_LMS_ALERT_NAME,
