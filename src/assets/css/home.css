@@ -287,6 +287,11 @@
     opacity: 0;
     filter: blur(5px);
   }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
+  }
   100% {
     transform: translateX(0%);
     opacity: 1;
@@ -298,6 +303,11 @@
     transform: translateX(-5%);
     opacity: 0;
     filter: blur(5px);
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
   }
   100% {
     transform: translateX(0%);

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { activeAccount } from "../actions";
 import logo from "../img/Logo_1.png";
+import Axios from "axios";
+import { store } from "react-notifications-component";
 
 function SetNewPassword() {
   const dispatch = useDispatch();
@@ -15,8 +17,9 @@ function SetNewPassword() {
   const [isSubmitting, setisSubmitting] = useState(false);
   const [hide, sethide] = useState({ newpassword: false, retype: false });
 
-  const [readOnly, setreadOnly] = useState("");
   const [redirect, setredirect] = useState(false);
+
+  const { uid, token } = useParams();
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -76,7 +79,64 @@ function SetNewPassword() {
     return error;
   };
 
-  function submit() {}
+  function submit() {
+    Axios.post(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/password-reset-confirm/${uid}/${token}/`,
+      {
+        uid: uid,
+        token: token,
+        new_password1: values.newpassword,
+        new_password2: values.retype,
+      }
+    )
+      .then((res) => {
+        store.addNotification({
+          title: res.data.detail,
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon: true,
+          },
+          width: 600,
+        });
+      })
+      .catch((err) => {
+        if (err) {
+          if (err.response.data.new_password2) {
+            if (err.response.data.new_password2.length > 1) {
+              seterror({
+                ...error,
+                comerror: err.response.data.new_password2[0],
+              });
+            } else {
+              seterror({
+                ...error,
+                comerror: err.response.data.new_password2,
+              });
+            }
+          }
+          if (err.response.data.token) {
+            seterror({
+              ...error,
+              comerror: "Invalid Token",
+            });
+          }
+          if (err.response.data.uid) {
+            seterror({
+              ...error,
+              comerror: "Invalid Uid",
+            });
+          }
+        }
+      });
+  }
 
   return (
     <div className="login_body">
@@ -85,6 +145,7 @@ function SetNewPassword() {
           <div className="topSign">
             <h2>Enter The New Password</h2>
           </div>
+          {error.comerror ? <p className="error">{error.comerror}</p> : ""}
           <form>
             <p>
               <label htmlFor="em">New Password</label>

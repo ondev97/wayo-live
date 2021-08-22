@@ -117,7 +117,7 @@ function OtpModel({ otpDetails, setisOTP }) {
       let IntNumber = parseInt(otpDetails.phone_no.substring(0, 2));
       if (IntNumber !== 94) {
         Axios.post(
-          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user/${otpDetails.email}/`,
+          `${process.env.REACT_APP_LMS_MAIN_URL}/auth/activate_user_by_email/${otpDetails.email}/`,
           {
             otp: otpValue.otp,
           }

@@ -83,6 +83,13 @@
 .login_body .login_column .login_form p {
   position: relative;
 }
+.login_body .login_column .login_form p.error {
+  width: 100%;
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  padding: 0px 15px 10px 30px;
+}
 .login_body .login_column .login_form form {
   padding: 5px 24px 5px 30px;
   width: 100%;
