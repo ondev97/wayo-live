@@ -53,9 +53,13 @@ export default function InAllSubjects() {
               hasMore={true}
               className="subject_area"
             >
-              {allSubDetails.map((tdata, index) => (
-                <AllSubCard key={index} subject={tdata} />
-              ))}
+              {allSubDetails.map((tdata, index) =>
+                !tdata.is_freeze ? (
+                  <AllSubCard key={index} subject={tdata} />
+                ) : (
+                  ""
+                )
+              )}
             </InfiniteScroll>
           </div>
         ) : isLoading ? (

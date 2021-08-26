@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
 import "../assets/css/stlogin.css";
 import "../assets/css/mediaFiles/loginRegister.css";
-import { Redirect } from "react-router-dom";
 import Axios from "axios";
 import { store } from "react-notifications-component";
 
@@ -12,7 +11,6 @@ export default function PasswordReset() {
   const dispatch = useDispatch();
   const [email, setemail] = useState("");
   const [readOnly, setreadOnly] = useState("");
-  const [redirect, setredirect] = useState(false);
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -49,7 +47,6 @@ export default function PasswordReset() {
         });
         setemail("");
         setreadOnly("");
-        setredirect(true);
       })
       .catch((err) => {
         store.addNotification({
@@ -71,9 +68,6 @@ export default function PasswordReset() {
         setreadOnly("");
       });
   };
-  if (redirect) {
-    return <Redirect to={"/"} />;
-  }
   return (
     <div className="login_body">
       <div className="login_column">

@@ -7,6 +7,7 @@ function Form() {
   return (
     <div className="form_container">
       <div className="but">
+        <h1>TELL US YOUR EXPERIENCE</h1>
         <Link to={`/audiencedashboard/eventsinband/${id}`}>
           <button>
             To Leave Event <i className="fas fa-chevron-circle-right"></i>

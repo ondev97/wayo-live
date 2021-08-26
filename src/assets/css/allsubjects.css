@@ -95,18 +95,18 @@
 }
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_body h4 {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
   margin-bottom: 5px;
 }
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_body p {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: bolder;
   margin-bottom: 5px;
 }
 .maininde .popular_subjects .al_subject_area .subject_in_cards .subject_body p {
   font-size: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .maininde
   .popular_subjects
@@ -117,12 +117,13 @@
   width: 100%;
 }
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_body h3 {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   margin-bottom: 10px;
 }
 .maininde .popular_subjects .subject_area .subject_in_cards .subject_body h3 i {
-  margin-right: 10px;
+  margin-right: 5px;
+  font-size: 12px;
 }
 .maininde .popular_subjects .al_subject_area .subject_in_cards .subject_tail {
   width: 100%;
