@@ -180,6 +180,7 @@
   border: 3px;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
   margin-right: 12px;
 }
 .siup_body .siup_column .siup_form .but button:hover {

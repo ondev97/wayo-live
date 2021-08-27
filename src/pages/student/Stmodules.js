@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Redirect, useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import StOneModule from "../../components/student/StOneModule";

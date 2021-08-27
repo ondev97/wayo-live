@@ -7,6 +7,7 @@ function SessionModel({ closeModel, setisModel }) {
   const [loading, setloading] = useState(false);
   const [valueForm, setvalueForm] = useState({ userName: "", password: "" });
   const [error, seterror] = useState({ userName: "", password: "", com: "" });
+  const [otp, setotp] = useState(false);
   const [hide, sethide] = useState({
     userName: false,
     password: false,
@@ -34,13 +35,10 @@ function SessionModel({ closeModel, setisModel }) {
     ) {
       err.userName = "User Name Must Not Be Contain Special Characters";
     }
-    if (!valueForm.password.trim()) {
-      err.password = "Please Enter Password";
-    }
     seterror(err);
 
     setsubmitting(true);
-    sethide({ userName: false, password: false, com: false });
+    sethide({ userName: false, com: false });
   };
 
   useEffect(() => {
@@ -59,15 +57,16 @@ function SessionModel({ closeModel, setisModel }) {
 
   function submit() {
     setloading(true);
-    Axios.post(`${process.env.REACT_APP_LMS_MAIN_URL}/auth/deletetoken/`, {
-      username: valueForm.userName.toUpperCase(),
-      password: valueForm.password,
-    })
+    Axios.get(
+      `${
+        process.env.REACT_APP_LMS_MAIN_URL
+      }/auth/resetsession/${valueForm.userName.toUpperCase()}/`
+    )
       .then(() => {
         setloading(false);
-        setisModel(false);
+        setotp(true);
         store.addNotification({
-          title: "Login Session Deleted",
+          title: "Verification Code Sent Successfully",
           message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
@@ -92,16 +91,46 @@ function SessionModel({ closeModel, setisModel }) {
       });
   }
 
-  //function for trigger show password field
-  const showPassword = (e) => {
-    let checked = e.target.checked;
-
-    if (checked) {
-      passwordRef.current.type = "text";
+  function submitOtp(e) {
+    e.preventDefault();
+    setloading(true);
+    if (valueForm.password.trim()) {
+      Axios.post(
+        `${
+          process.env.REACT_APP_LMS_MAIN_URL
+        }/auth/resetsession/${valueForm.userName.toUpperCase()}/`,
+        {
+          otp: valueForm.password,
+        }
+      )
+        .then(() => {
+          setloading(false);
+          setisModel(false);
+          store.addNotification({
+            title: "Login Session Has Been Deleted",
+            message: process.env.REACT_APP_LMS_ALERT_NAME,
+            type: "success",
+            insert: "top",
+            container: "top-right",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+              pauseOnHover: true,
+              showIcon: true,
+            },
+            width: 600,
+          });
+        })
+        .catch(() => {
+          seterror({ ...error, com: "OTP is Invalid" });
+          setloading(false);
+        });
     } else {
-      passwordRef.current.type = "password";
+      seterror({ ...error, password: "OTP is Required" });
     }
-  };
+  }
 
   return (
     <div>
@@ -114,8 +143,9 @@ function SessionModel({ closeModel, setisModel }) {
           </div>
           <h1>Clear Login Session</h1>
           <h3>
-            Enter the username and password that you've used in your
-            registration to unlock the user account
+            {!otp
+              ? "Enter the username that you've used in your registration to unlock the user account"
+              : "Enter Received OTP Number to Clear Login Session"}
           </h3>
           {error.com ? (
             <p style={{ color: "red", fontSize: "13px", marginBottom: "5px" }}>
@@ -140,35 +170,28 @@ function SessionModel({ closeModel, setisModel }) {
               </span>
             )}
           </p>
-          <p>
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              className="pw"
-              onChange={setValue}
-              value={valueForm.password}
-              onFocus={hideError}
-              ref={passwordRef}
-            />
-            {error.password && (
-              <span className={`tip ${hide.password ? "hidetip" : ""}`}>
-                {error.password}
-              </span>
-            )}
-          </p>
-          <div className="showpw">
+          {otp ? (
             <p>
+              <label>OTP</label>
               <input
-                type="checkbox"
-                name="showPw"
-                id="showpw"
-                onChange={(e) => showPassword(e)}
+                type="text"
+                name="password"
+                className="pw"
+                onChange={setValue}
+                value={valueForm.password}
+                onFocus={hideError}
+                ref={passwordRef}
               />
-              <label htmlFor="showpw">Show Password</label>
+              {error.password && (
+                <span className={`tip ${hide.password ? "hidetip" : ""}`}>
+                  {error.password}
+                </span>
+              )}
             </p>
-          </div>
-          <button type="submit" onClick={submitSession}>
+          ) : (
+            ""
+          )}
+          <button type="submit" onClick={!otp ? submitSession : submitOtp}>
             {loading ? (
               <i className="fas fa-circle-notch rotate"></i>
             ) : (
