@@ -66,7 +66,7 @@ export default function InAllSubjects() {
           <ProfileLoader />
         ) : (
           <div className="emheading">
-            <h1>No Subjects Available In The System</h1>
+            <h1>No Events Available In The System</h1>
           </div>
         )}
       </div>
