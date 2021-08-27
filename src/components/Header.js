@@ -121,10 +121,10 @@ export default function Header({ acDetails }) {
                   <Link to="#">ABOUT US</Link>
                 </li> */}
                 <li>
-                  <Link to="/contact">CONTACT US</Link>
+                  <Link to="/upcomingevents">UPCOMING EVENTS</Link>
                 </li>
                 <li>
-                  <Link to="/upcomingevents">UPCOMING EVENTS</Link>
+                  <Link to="/contact">CONTACT US</Link>
                 </li>
               </ul>
             </div>
@@ -153,11 +153,11 @@ export default function Header({ acDetails }) {
                   {/* <Link to="#">
                     <li>ABOUT US</li>
                   </Link> */}
-                  <Link to="/contact">
-                    <li>CONTACT US</li>
-                  </Link>
                   <Link to="/upcomingevents">
                     <li>UPCOMING EVENTS</li>
+                  </Link>
+                  <Link to="/contact">
+                    <li>CONTACT US</li>
                   </Link>
                 </ul>
                 <div className="butham">{headerProPic()}</div>

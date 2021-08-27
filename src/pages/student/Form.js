@@ -8,9 +8,9 @@ function Form() {
     <div className="form_container">
       <div className="but">
         <h1>TELL US YOUR EXPERIENCE</h1>
-        <Link to={`/audiencedashboard/eventsinband/${id}`}>
+        <Link to={`/audiencedashboard/envetdetails/${id}`}>
           <button>
-            To Leave Event <i className="fas fa-chevron-circle-right"></i>
+            Leave Event <i className="fas fa-chevron-circle-right"></i>
           </button>
         </Link>
       </div>

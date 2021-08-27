@@ -71,6 +71,10 @@ export default function EventDetails() {
     }
   }, [eventDetails]);
 
+  const previous = () => {
+    history.push(`/audiencedashboard/eventsinband/${id}`);
+  };
+
   return (
     <div>
       <AnimatePresence exitBeforeEnter>
@@ -95,7 +99,7 @@ export default function EventDetails() {
 
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
-          <button onClick={() => history.goBack()}>
+          <button onClick={() => previous()}>
             <i className="fas fa-chevron-circle-left"></i>Back To All Events
           </button>
           <div className="st_mange_cos_body">

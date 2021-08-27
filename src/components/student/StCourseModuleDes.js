@@ -47,7 +47,7 @@ export default function StCourseModuleDes() {
   return (
     <div className="live_audience">
       <div className="live_audience_head">
-        <h1>LIVE AUDIENCE</h1>
+        <h1>AUDIENCE</h1>
         <h1>{data ? data.count : ""}</h1>
       </div>
       <div

@@ -38,9 +38,7 @@ export default function AllSubCard({ subject }) {
         <h4>
           {tConvert(subject.event_start)} {subject.event_date}
         </h4>
-        <p>
-          {subject.band.user.first_name + " " + subject.band.user.last_name}
-        </p>
+        <p>{subject.event_name}</p>
         <div className="row_sim">
           <h3>
             <i class="fas fa-music"></i> {subject.event_label}
