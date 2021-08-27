@@ -104,29 +104,41 @@ export default function Home() {
               EVENT
             </h2>
             <div className="upcoming-row">
-              {evetDetails !== ""}
-              <div className="col">
-                {evetDetails.data ? (
+              {!evetDetails.data ? (
+                <div
+                  className="col"
+                  style={{ flex: "1", border: "none", padding: "10px 0" }}
+                >
                   <>
-                    <p>
-                      {evetDetails.data.event_date} <br />
-                      {tConvert(evetDetails.data.event_start)}
-                    </p>
+                    <p>No Event Scheduled Yet</p>
                   </>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className="col">
-                {evetDetails.data ? (
-                  <>
-                    <p>{evetDetails.data.event_name}</p>
-                    <p>{evetDetails.data.description}</p>
-                  </>
-                ) : (
-                  ""
-                )}
-              </div>
+                </div>
+              ) : (
+                <>
+                  <div className="col">
+                    {evetDetails.data ? (
+                      <>
+                        <p>
+                          {evetDetails.data.event_date} <br />
+                          {tConvert(evetDetails.data.event_start)}
+                        </p>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="col">
+                    {evetDetails.data ? (
+                      <>
+                        <p>{evetDetails.data.event_name}</p>
+                        <p>{evetDetails.data.description}</p>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div className="simple_footer">
