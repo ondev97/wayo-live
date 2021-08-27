@@ -1,7 +1,7 @@
 .footer_main {
   width: 100%;
-  padding: 45px 20px;
-  background-color: var(--background1);
+  padding: 25px 20px;
+  background-color: #262626;
 }
 .footer_main .footer_mid {
   width: 80%;
@@ -22,6 +22,7 @@
 }
 .footer_main .footer_mid .footer_column .lg img {
   width: 200px;
+  filter: grayscale(1) invert(100%);
 }
 .footer_main .footer_mid .footer_column .lg {
   text-align-last: left;
@@ -32,25 +33,28 @@
 }
 .footer_main .footer_mid .footer_column .lg h1 {
   font-size: 28px;
-  color: var(--h1Fontcolor);
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column .lg h1 span {
   font-size: 15px;
   font-weight: 500;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column .lg h3 {
   font-size: 13px;
   font-weight: 600;
-  color: #777;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column .ab p {
   font-size: 14px;
   text-align: left;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column h2 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 47px;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column p {
   margin-bottom: 15px;
@@ -75,7 +79,7 @@
 }
 .footer_main .footer_mid .footer_column ul.links li a {
   text-decoration: none;
-  color: #535353;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column ul.links li a:hover {
   color: var(--h1Fontcolor);
@@ -87,7 +91,7 @@
 }
 .footer_main .small_footer h3 {
   font-size: 15px;
-  color: #777;
+  color: #eee;
 }
 .footer_main .small_footer h3 span a {
   color: var(--h1Fontcolor);
