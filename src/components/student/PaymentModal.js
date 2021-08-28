@@ -111,10 +111,10 @@ const PaymentModal = ({ event }) => {
           console.log(res.data);
           if (res.data.is_payable) {
             payment.order_id = res.data.payment_id;
-            payment.email = res.data.user.email;
-            payment.first_name = res.data.user.first_name;
-            payment.last_name = res.data.user.last_name;
-            payment.phone = res.data.user.phone_no;
+            payment.email = res.data.user.user.email;
+            payment.first_name = res.data.user.user.first_name;
+            payment.last_name = res.data.user.user.last_name;
+            payment.phone = res.data.user.user.phone_no;
             window.payhere.startPayment(payment);
           } else {
             if (res.data.enrolled) {
