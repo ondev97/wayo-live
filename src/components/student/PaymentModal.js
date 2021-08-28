@@ -10,7 +10,7 @@ const PaymentModal = ({ event }) => {
 
   const payment = {
     sandbox: true,
-    merchant_id: "1216340",
+    merchant_id: "218486",
     return_url: "",
     cancel_url: "",
     notify_url: `${process.env.REACT_APP_LMS_MAIN_URL}/show/notifyurl/${usDetails.id}/${event.id}/`,
