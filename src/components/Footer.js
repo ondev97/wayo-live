@@ -37,13 +37,19 @@ export default function Footer() {
             <h2>Follow Us</h2>
             <ul className="scial">
               <li>
-                <i className="fab fa-facebook-square"></i>
+                <Link to="//www.facebook.com/wayosl" target="__blank">
+                  <i className="fab fa-facebook-square"></i>
+                </Link>
               </li>
               <li>
-                <i className="fab fa-twitter-square"></i>
+                <Link to="//www.instagram.com/wayo_official/" target="__blank">
+                  <i className="fab fa-instagram"></i>
+                </Link>
               </li>
               <li>
-                <i className="fab fa-linkedin"></i>
+                <Link to="//www.youtube.com/c/Wayolk" target="__blank">
+                  <i className="fab fa-youtube"></i>
+                </Link>
               </li>
             </ul>
           </div>
@@ -69,7 +75,7 @@ export default function Footer() {
         className="small_footer"
         style={
           !secRoute.includes(pathname)
-            ? { borderTop: "none" }
+            ? { borderTop: "none", background: "#26262600", padding: "0" }
             : { borderTop: "1px solid #d5d5d5" }
         }
       >

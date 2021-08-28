@@ -72,7 +72,7 @@ export default function EventDetails() {
   }, [eventDetails]);
 
   const previous = () => {
-    history.push(`/audiencedashboard/eventsinband/${id}`);
+    history.push(`/audiencedashboard/eventsinband/${band.id}`);
   };
 
   return (

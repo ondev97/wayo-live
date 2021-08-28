@@ -42,13 +42,14 @@ function StudentDashBoard() {
   useLayoutEffect(() => {
     if (window.innerWidth < 867) {
       settoggle(true);
-    }
-    if (location.pathname.includes("/audiencedashboard/envet/")) {
-      document.querySelector(".head").style.display = "flex";
-      settoggle(true);
     } else {
-      document.querySelector(".head").style.display = "none";
-      settoggle(false);
+      if (location.pathname.includes("/audiencedashboard/envet/")) {
+        document.querySelector(".head").style.display = "flex";
+        settoggle(true);
+      } else {
+        document.querySelector(".head").style.display = "none";
+        settoggle(false);
+      }
     }
   }, [location]);
   const togglemenu = () => {

@@ -32,4 +32,7 @@
   nav {
     flex-wrap: wrap;
   }
+  nav .column .hlogo img {
+    width: 125px;
+  }
 }

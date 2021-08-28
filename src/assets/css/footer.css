@@ -2,6 +2,7 @@
   width: 100%;
   padding: 25px 20px;
   background-color: #262626;
+  position: relative;
 }
 .footer_main .footer_mid {
   width: 80%;
@@ -10,7 +11,7 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 .footer_main .footer_mid .footer_column {
   flex: 0.33;
@@ -53,7 +54,7 @@
 .footer_main .footer_mid .footer_column h2 {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 47px;
+  margin-bottom: 20px;
   color: #fff;
 }
 .footer_main .footer_mid .footer_column p {
@@ -90,7 +91,7 @@
   text-align: center;
 }
 .footer_main .small_footer h3 {
-  font-size: 15px;
+  font-size: 12px;
   color: #eee;
 }
 .footer_main .small_footer h3 span a {
