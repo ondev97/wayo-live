@@ -9,7 +9,7 @@ const PaymentModal = ({ event }) => {
   const history = useHistory();
 
   const payment = {
-    sandbox: true,
+    sandbox: false,
     merchant_id: "218486",
     return_url: "",
     cancel_url: "",
