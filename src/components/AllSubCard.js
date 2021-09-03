@@ -31,7 +31,7 @@ export default function AllSubCard({ subject }) {
           />
         </div>
         <div className="teach_img">
-          <h3>{subject.event_price > 500 ? "PAID" : "FREE"}</h3>
+          <h3>{subject.event_price > 0 ? "PAID" : "FREE"}</h3>
         </div>
       </div>
       <div className="subject_body">
