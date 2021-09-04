@@ -134,6 +134,7 @@
   font-weight: 600;
   outline: none;
   cursor: pointer;
+  border-radius: 3px;
   background-color: var(--buttonColor1);
   transition: 0.2s ease-in;
 }

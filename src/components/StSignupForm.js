@@ -96,7 +96,7 @@ export default function StSignupForm() {
               onChange={hadelChanege}
               className={errors.phonenumber ? "error" : ""}
               onFocus={hideError}
-              placeholder="94123456789"
+              placeholder="94700000000"
             />
             {errors.phonenumber && (
               <span className={`tip ${hide.phonenumber ? "hidetip" : ""}`}>
@@ -112,6 +112,7 @@ export default function StSignupForm() {
               type="text"
               name="email"
               id="em"
+              placeholder="abc@example.com"
               value={values.email}
               onChange={hadelChanege}
               className={errors.email ? "error" : ""}

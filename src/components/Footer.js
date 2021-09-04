@@ -22,7 +22,14 @@ export default function Footer() {
     return "";
   }
   return (
-    <div className="footer_main">
+    <div
+      className="footer_main"
+      style={
+        !secRoute.includes(pathname)
+          ? { background: "#101010", padding: "10px 20px" }
+          : { background: "#101010" }
+      }
+    >
       {secRoute.includes(pathname) ? (
         <div className="footer_mid">
           <div className="footer_column">
@@ -51,6 +58,22 @@ export default function Footer() {
                   <i className="fab fa-youtube"></i>
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="//open.spotify.com/artist/4FxhFEHyjxhdm3C8vAq0wV?si=IA4ySbCxQ9SRlk9BMeiecQ&dl_branch=1"
+                  target="__blank"
+                >
+                  <i className="fab fa-spotify"></i>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="//music.apple.com/lk/artist/wayo/1448434740"
+                  target="__blank"
+                >
+                  <i className="fas fa-music"></i>
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="footer_column">
@@ -60,10 +83,10 @@ export default function Footer() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/upcomingevents">UPCOMING EVENTS</Link>
+                <Link to="/upcomingevents">Upcoming Events</Link>
               </li>
               <li>
-                <Link to="/contact">CONTACT</Link>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -75,7 +98,7 @@ export default function Footer() {
         className="small_footer"
         style={
           !secRoute.includes(pathname)
-            ? { borderTop: "none", background: "#26262600", padding: "0" }
+            ? { borderTop: "none", background: "#101010", padding: "0" }
             : { borderTop: "1px solid #d5d5d5" }
         }
       >
