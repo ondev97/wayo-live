@@ -121,6 +121,7 @@ function StValidateLogin(setisOTP, setusForm, setotpDetails) {
 
   //save data in Local Storage
   useEffect(() => {
+    console.log(acDetails);
     if (Object.keys(acDetails).length !== 0) {
       localStorage.setItem("usValues", JSON.stringify({})); //remove values in local storage
       if (localStorage.getItem("usValues") === null) {

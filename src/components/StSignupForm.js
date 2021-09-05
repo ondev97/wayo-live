@@ -88,16 +88,22 @@ export default function StSignupForm() {
           </p>
           <p>
             <label htmlFor="em">Phone Number</label>
-            <input
-              type="text"
-              name="phonenumber"
-              id="pn"
-              value={values.pn}
-              onChange={hadelChanege}
-              className={errors.phonenumber ? "error" : ""}
-              onFocus={hideError}
-              placeholder="94700000000"
-            />
+            <div id="ipn">
+              <input
+                type="text"
+                name="phonenumber"
+                id="pn"
+                value={values.pn}
+                onChange={hadelChanege}
+                className={errors.phonenumber ? "error" : ""}
+                onFocus={hideError}
+                placeholder="+94700000000"
+              />
+              <div className="focusAlert tip">
+                <p>Enter Phone Number with Country Code</p>
+              </div>
+            </div>
+
             {errors.phonenumber && (
               <span className={`tip ${hide.phonenumber ? "hidetip" : ""}`}>
                 {errors.phonenumber}

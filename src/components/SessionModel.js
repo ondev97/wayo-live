@@ -1,9 +1,11 @@
 import Axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { store } from "react-notifications-component";
+import { useHistory } from "react-router";
 
 function SessionModel({ closeModel, setisModel }) {
   const passwordRef = useRef();
+  const history = useHistory();
   const [loading, setloading] = useState(false);
   const [valueForm, setvalueForm] = useState({ userName: "", password: "" });
   const [error, seterror] = useState({ userName: "", password: "", com: "" });
@@ -103,7 +105,7 @@ function SessionModel({ closeModel, setisModel }) {
           otp: valueForm.password,
         }
       )
-        .then(() => {
+        .then((res) => {
           setloading(false);
           setisModel(false);
           store.addNotification({
@@ -122,13 +124,36 @@ function SessionModel({ closeModel, setisModel }) {
             },
             width: 600,
           });
+          //auto login to account
+          logToAccount(res.data.token);
         })
-        .catch(() => {
-          seterror({ ...error, com: "OTP is Invalid" });
+        .catch((err) => {
+          console.log(err);
+          seterror({ ...error, com: err.response.data.msg });
           setloading(false);
         });
     } else {
       seterror({ ...error, password: "OTP is Required" });
+    }
+  }
+
+  function logToAccount(data) {
+    if (Object.keys(data).length !== 0) {
+      localStorage.setItem("usValues", JSON.stringify({})); //remove values in local storage
+      if (localStorage.getItem("usValues") === null) {
+        localStorage.setItem("usValues", JSON.stringify(data)); //for save to local storage
+      } else if (
+        localStorage.getItem("usValues") !== null &&
+        Object.keys(JSON.parse(localStorage.getItem("usValues"))).length === 0
+      ) {
+        localStorage.setItem("usValues", JSON.stringify(data)); //for save to local storage
+      }
+    }
+
+    if (!data.user.is_band && data.user.is_verified) {
+      history.push("/audiencedashboard/maindashboard");
+    } else if (data.user.is_band && data.user.is_verified) {
+      history.push("/band/allevents");
     }
   }
 

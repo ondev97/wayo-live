@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { store } from "react-notifications-component";
+import { useHistory } from "react-router";
 import "../assets/css/otpModel.css";
 
 function OtpModel({ otpDetails, setisOTP }) {
@@ -10,6 +11,7 @@ function OtpModel({ otpDetails, setisOTP }) {
   const [isSubmit, setisSubmit] = useState(false);
   const [reset, setreset] = useState(false);
   const [counter, setCounter] = useState(120);
+  const history = useHistory();
 
   const SetValue = (e) => {
     const { name, value } = e.target;
@@ -157,8 +159,9 @@ function OtpModel({ otpDetails, setisOTP }) {
             otp: otpValue.otp,
           }
         )
-          .then(() => {
+          .then((res) => {
             setisOTP(false);
+            logToAccount(res.data.token);
             store.addNotification({
               title: "Account Verified Successfully",
               message: process.env.REACT_APP_LMS_ALERT_NAME,
@@ -206,6 +209,26 @@ function OtpModel({ otpDetails, setisOTP }) {
       return newString.join("");
     }
   };
+
+  function logToAccount(data) {
+    if (Object.keys(data).length !== 0) {
+      localStorage.setItem("usValues", JSON.stringify({})); //remove values in local storage
+      if (localStorage.getItem("usValues") === null) {
+        localStorage.setItem("usValues", JSON.stringify(data)); //for save to local storage
+      } else if (
+        localStorage.getItem("usValues") !== null &&
+        Object.keys(JSON.parse(localStorage.getItem("usValues"))).length === 0
+      ) {
+        localStorage.setItem("usValues", JSON.stringify(data)); //for save to local storage
+      }
+    }
+
+    if (!data.user.is_band && data.user.is_verified) {
+      history.push("/audiencedashboard/maindashboard");
+    } else if (data.user.is_band && data.user.is_verified) {
+      history.push("/band/allevents");
+    }
+  }
 
   return (
     <div>

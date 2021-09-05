@@ -156,6 +156,15 @@
 .siup_body .siup_column .siup_form input:focus {
   border-color: #de6718;
 }
+.siup_body .siup_column .siup_form .focusAlert {
+  display: none;
+}
+.siup_body .siup_column .siup_form #ipn:hover .focusAlert {
+  display: block;
+}
+.siup_body .siup_column .siup_form .focusAlert p {
+  color: #eee;
+}
 .siup_body .siup_column .siup_form .showpw p {
   width: 100%;
   display: flex;
