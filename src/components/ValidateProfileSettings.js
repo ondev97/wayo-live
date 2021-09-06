@@ -1,6 +1,6 @@
 export default function validation(values) {
   let errors = {};
-
+  console.log(values);
   let pattern = new RegExp(
     /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
   );
@@ -47,6 +47,11 @@ export default function validation(values) {
   }
   if (!values.pw.trim()) {
     errors.pw = "Password Is Required For Update Your Account";
+  }
+  if (values.otp) {
+    if (!values.otp.trim()) {
+      errors.otp = "OTP Is Required For Update Your Account";
+    }
   }
 
   return errors;

@@ -45,7 +45,7 @@ export default function ProfileHead() {
         } else {
           setshowModel(false);
           store.addNotification({
-            title: "File Should Be Less Than 2mb!",
+            title: "File Should Be Less Than 1mb!",
             message: process.env.REACT_APP_LMS_ALERT_NAME,
             type: "danger",
             insert: "top",

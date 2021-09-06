@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import validation from "../../../components/ValidateProfileSettings";
 
@@ -12,6 +12,7 @@ export default function UseStprofileUpdate(submit) {
     address: "",
     des: "",
     pw: "",
+    otp: "",
   });
   const [errors, seterrors] = useState({
     firstName: "",
@@ -22,6 +23,7 @@ export default function UseStprofileUpdate(submit) {
     address: "",
     des: "",
     pw: "",
+    otp: "",
   });
   const [hide, sethide] = useState({
     firstName: false,
@@ -33,8 +35,10 @@ export default function UseStprofileUpdate(submit) {
     address: false,
     des: false,
     pw: false,
+    otp: false,
   });
   const [isSibmitting, setisSibmitting] = useState(false);
+  const [isOtp, setisOtp] = useState(false);
 
   const { initialState } = useSelector((state) => state.StudentDetails);
 
@@ -110,5 +114,7 @@ export default function UseStprofileUpdate(submit) {
     hide,
     seterrors,
     setvalues,
+    isOtp,
+    setisOtp,
   };
 }

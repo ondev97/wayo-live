@@ -95,7 +95,7 @@
   .srow
   .srow_pro_pic
   label:after {
-  content: "Image Should Be Less Than 2mb";
+  content: "Image Should Be Less Than 1mb";
   position: absolute;
   top: 25px;
   left: -100px;
@@ -423,6 +423,14 @@
   margin-bottom: 20px;
   color: #fff;
 }
+.main_profile .tcdisoncolumn .tc_profile_settings .ac_det .error {
+  margin-bottom: 5px;
+}
+.main_profile .tcdisoncolumn .tc_profile_settings .ac_det .error p {
+  color: red;
+  font-size: 13px;
+  text-transform: capitalize;
+}
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr {
   display: flex;
   align-items: center;
@@ -463,6 +471,15 @@
   p {
   margin: 0;
 }
+.main_profile
+  .tcdisoncolumn
+  .tc_profile_settings
+  .ac_det
+  .sectpr:nth-child(6)
+  p {
+  margin: 0;
+}
+
 .main_profile .tcdisoncolumn .tc_profile_settings .ac_det .sectpr p label {
   display: block;
   font-size: 14px;
@@ -715,6 +732,18 @@ i {
   cursor: pointer;
   transition: 0.5s;
 }
+.main_profile .tcdisoncolumn .tc_profile_settings .pro_edit_sub button i {
+  color: #fff;
+  animation: rotate 0.3s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
 .main_profile .tcdisoncolumn .tc_profile_settings .pro_edit_sub button:hover {
   background-color: var(--buttonColorHover1);
 }
@@ -813,7 +842,7 @@ i {
   bottom: -13px;
   right: 0;
   padding: 5px 8px;
-  background-color: #fff;
+  background-color: #262626;
   color: red !important;
   border-radius: 2px;
   z-index: 100;

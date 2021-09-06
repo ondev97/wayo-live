@@ -33,7 +33,7 @@ function TcProfileSettings({ setsettings }) {
 
     all_data.append("user_description", values.des);
 
-    Axios.put(
+    Axios.post(
       `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuser/${usDetails.id}/`,
       all_data,
       {
@@ -48,18 +48,20 @@ function TcProfileSettings({ setsettings }) {
             headers: { Authorization: "Token " + usDetails.key },
           }
         ).then(() => {
-          //window.location.reload(false);
+          window.location.reload(false);
         });
       })
       .catch((err) => {
         if (err.response.data.detail) {
           seterrors({ ...errors, pw: err.response.data.detail });
-        }
-        if (err.response.data.username) {
+        } else if (err.response.data.username) {
           seterrors({ ...errors, userName: err.response.data.username });
-        }
-        if (err.response.data.email) {
+        } else if (err.response.data.phone) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone });
+        } else if (err.response.data.email) {
           seterrors({ ...errors, email: err.response.data.email });
+        } else {
+          seterrors({ ...errors, com: err.response.data.message });
         }
       });
   }
@@ -69,6 +71,13 @@ function TcProfileSettings({ setsettings }) {
       <div className="tc_profile_settings">
         <div className="ac_det">
           <h2>Account Settings</h2>
+          {errors.com ? (
+            <div className="error">
+              <p>{errors.com}</p>
+            </div>
+          ) : (
+            ""
+          )}
           <AcDetailsSettings
             hadelChange={hadelChange}
             hadelSubmitForm={hadelSubmitForm}
