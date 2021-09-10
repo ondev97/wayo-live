@@ -101,14 +101,15 @@ export default function StProfileSettings({ setsettings }) {
   function getOtp(e) {
     setloading(true);
     e.preventDefault();
+
     Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/getotp/${initialState.user.username}/`
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/getotp/${initialState.user.username}/${values.email}/${values.phoneNumber}/`
     )
       .then((res) => {
         setisOtp(true);
         setloading(false);
         store.addNotification({
-          title: res.data.message,
+          title: "Verification Code Sent to " + res.data.mobile,
           message: process.env.REACT_APP_LMS_ALERT_NAME,
           type: "success",
           insert: "top",
@@ -125,7 +126,16 @@ export default function StProfileSettings({ setsettings }) {
         });
       })
       .catch((err) => {
-        console.log(err);
+        setloading(false);
+        if (err.response.data.phone_no) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone_no[0] });
+        } else if (err.response.data.phone) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone });
+        } else if (err.response.data.email) {
+          seterrors({ ...errors, email: err.response.data.email });
+        } else {
+          seterrors({ ...errors, otp: err.response.data.message });
+        }
       });
   }
 
