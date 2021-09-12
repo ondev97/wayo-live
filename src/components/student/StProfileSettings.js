@@ -1,10 +1,11 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { store } from "react-notifications-component";
 import { useDispatch, useSelector } from "react-redux";
 import { loadStDetails } from "../../actions/stDetailsAction";
 import UseStprofileUpdate from "../../utils/hooks/Student/UseStprofileUpdate";
 import UserChangedPassword from "../UserChangedPassword";
+import validation from "../ValidateProfileSettings";
 import StAcDetailsSettingsFrm from "./StAcDetailsSettingsFrm";
 
 export default function StProfileSettings({ setsettings }) {
@@ -19,9 +20,11 @@ export default function StProfileSettings({ setsettings }) {
     setvalues,
     isOtp,
     setisOtp,
+    sethide,
   } = UseStprofileUpdate(submit);
 
   const [loading, setloading] = useState(false);
+  const [isSibmitting, setisSibmitting] = useState(false);
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
@@ -102,8 +105,35 @@ export default function StProfileSettings({ setsettings }) {
     setloading(true);
     e.preventDefault();
 
-    Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/getotp/${initialState.user.username}/${values.email}/${values.phoneNumber}/`
+    //hadlling errors
+    seterrors(validation(values));
+    sethide({
+      firstName: false,
+      lastName: false,
+      userName: false,
+      email: false,
+      phoneNumber: false,
+      phonenumber: false,
+      address: false,
+      des: false,
+      pw: false,
+    });
+    setisSibmitting(true);
+  }
+
+  useEffect(() => {
+    setloading(false);
+    if (Object.keys(errors).length === 0 && isSibmitting) {
+      submitOtp();
+    }
+  }, [errors]);
+
+  function submitOtp() {
+    Axios.post(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/getotp/${initialState.user.username}/${values.email}/${values.phoneNumber}/`,
+      {
+        password: values.pw,
+      }
     )
       .then((res) => {
         setisOtp(true);
@@ -133,6 +163,8 @@ export default function StProfileSettings({ setsettings }) {
           seterrors({ ...errors, phoneNumber: err.response.data.phone });
         } else if (err.response.data.email) {
           seterrors({ ...errors, email: err.response.data.email });
+        } else if (err.response.data.password) {
+          seterrors({ ...errors, pw: err.response.data.password });
         } else {
           seterrors({ ...errors, otp: err.response.data.message });
         }

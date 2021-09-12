@@ -116,5 +116,6 @@ export default function UseStprofileUpdate(submit) {
     setvalues,
     isOtp,
     setisOtp,
+    sethide,
   };
 }
