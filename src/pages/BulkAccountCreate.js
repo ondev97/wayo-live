@@ -231,6 +231,7 @@ function BulkAccountCreate() {
                 )}
               </div>
             </div>
+<<<<<<< HEAD
         ) : (
             ""
         )}
@@ -252,6 +253,38 @@ function BulkAccountCreate() {
             Upload Audience Accounts File
           </button>
         </div>
+=======
+            {fileName ? (
+              <button onClick={addStToCos}>
+                {loading ? <i className="fas fa-circle-notch rotate"></i> : ""}
+                Create Bulk Audience
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="infoBulk">
+        <h1>ADD BULK ACCOUNT</h1>
+        <p>
+          First, click on the "Download Template" button to download the empty
+          template (.xlsx) file to add the audience accounts list. Then, insert
+          orderly the audience account username (UPPERCASE) and password in that
+          template file. Finally, click on the "Upload Audience Accounts File"
+          button to upload the audience accounts list.
+        </p>
+      </div>
+      <div className="fileRow">
+        <Link to={download} target="_blank" download>
+          <button>Download Template</button>
+        </Link>
+        <button onClick={() => setisModel(true)}>
+          Upload Audience Accounts File
+        </button>
+>>>>>>> 1ae6858bf74858853faee23ecb93f1317bab5060
       </div>
   );
 }

@@ -71,6 +71,10 @@ export default function EventDetails() {
     }
   }, [eventDetails]);
 
+  const previous = () => {
+    history.push(`/audiencedashboard/eventsinband/${band.id}`);
+  };
+
   return (
     <div>
       <AnimatePresence exitBeforeEnter>
@@ -91,11 +95,11 @@ export default function EventDetails() {
         )}
       </AnimatePresence>
       {/* user details model */}
-      <DetailsModel />
+      {/* <DetailsModel /> */}
 
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
-          <button onClick={() => history.goBack()}>
+          <button onClick={() => previous()}>
             <i className="fas fa-chevron-circle-left"></i>Back To All Events
           </button>
           <div className="st_mange_cos_body">
@@ -128,10 +132,19 @@ export default function EventDetails() {
               </div>
               <div className="event_column">
                 {!eventDetails.is_enrolled ? (
-                  <Link to={`#`}>
-                    {/*<button>LKR: {eventDetails.event_price}</button>*/}
-                    <PaymentModal event={eventDetails}/>
-                  </Link>
+                  <>
+                    <div className="rw">
+                      <p>Purchase a ticket to enter the event</p>
+                      <Link to={`#`}>
+                        {/*<button>LKR: {eventDetails.event_price}</button>*/}
+                        <PaymentModal event={eventDetails} />
+                      </Link>
+                    </div>
+                    <div className="rw">
+                      <div></div>
+                      <p className="minp">OR</p>
+                    </div>
+                  </>
                 ) : (
                   ""
                 )}
@@ -140,7 +153,10 @@ export default function EventDetails() {
                     <button>JOIN EVENT</button>
                   </Link>
                 ) : (
-                  <button onClick={openModel}>ENTER TICKET ID</button>
+                  <div className="rw">
+                    <p>If you have a ticket ID enter here</p>
+                    <button onClick={openModel}>TICKET ID</button>
+                  </div>
                 )}
               </div>
             </div>

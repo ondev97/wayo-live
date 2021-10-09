@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import AudienceRow from "./AudienceRow";
 
 export default function StCourseModuleDes() {
   const usDetails = useSelector((state) => state.accountDetails);
@@ -33,32 +34,32 @@ export default function StCourseModuleDes() {
     }
   }, [usDetails, page]);
 
-  function next() {
-    if (nextPage) {
-      setpage(page + 1);
+  function handelScroll(e) {
+    const { scrollTop, clientHeight, scrollHeight } = e.target;
+
+    if (scrollHeight - scrollTop === clientHeight) {
+      if (nextPage) {
+        setpage(page + 1);
+      }
     }
   }
+
   return (
     <div className="live_audience">
       <div className="live_audience_head">
-        <h1>LIVE AUDIENCE</h1>
+        <h1>AUDIENCE</h1>
         <h1>{data ? data.count : ""}</h1>
       </div>
-      <div className="live_audience_body">
+      <div
+        className="live_audience_body"
+        id="audienceRow"
+        onScroll={handelScroll}
+      >
         {data.count > 0 ? (
-          <InfiniteScroll dataLength={data.count} next={next} hasMore={true}>
+          <>
             {Object.keys(courseData).length > 0 &&
-              courseData.map((data) => (
-                <div className="audience_row" key={data.id}>
-                  <div className="audience_pro_pic">
-                    <img src={data.user_image} />
-                  </div>
-                  <div className="audience_names">
-                    <h1>{data.user.first_name}</h1>
-                  </div>
-                </div>
-              ))}
-          </InfiniteScroll>
+              courseData.map((data) => <AudienceRow data={data} />)}
+          </>
         ) : (
           ""
         )}

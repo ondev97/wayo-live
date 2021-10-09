@@ -85,18 +85,24 @@
 .siup_body .siup_column .siup_form .topSign {
   width: 100%;
   display: flex;
-  text-align: center;
+  text-align: left;
   justify-content: flex-start;
-  margin-bottom: 30px;
+  flex-direction: column;
+  margin-bottom: 15px;
   border-radius: 10px;
 }
 .siup_body .siup_column .siup_form h2 {
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   font-weight: 600;
   position: relative;
-  margin-top: 20px;
+  margin-top: 2px;
   color: #fff;
+}
+.siup_body .siup_column .siup_form p.note {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
 }
 .siup_body .siup_column .siup_form .lgsi img {
   width: 150px;
@@ -150,6 +156,15 @@
 .siup_body .siup_column .siup_form input:focus {
   border-color: #de6718;
 }
+.siup_body .siup_column .siup_form .focusAlert {
+  display: none;
+}
+.siup_body .siup_column .siup_form #ipn:hover .focusAlert {
+  display: block;
+}
+.siup_body .siup_column .siup_form .focusAlert p {
+  color: #eee;
+}
 .siup_body .siup_column .siup_form .showpw p {
   width: 100%;
   display: flex;
@@ -180,6 +195,7 @@
   border: 3px;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
   margin-right: 12px;
 }
 .siup_body .siup_column .siup_form .but button:hover {

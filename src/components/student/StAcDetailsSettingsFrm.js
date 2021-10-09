@@ -7,10 +7,13 @@ export default function StAcDetailsSettingsFrm({
   hideError,
   errors,
   hide,
+  isOtp,
+  getOtp,
+  loading,
 }) {
   return (
     <div>
-      <form onSubmit={hadelSubmitForm}>
+      <form onSubmit={!isOtp ? getOtp : hadelSubmitForm}>
         <div className="sectpr">
           <p>
             <label htmlFor="fn">First Name</label>
@@ -139,8 +142,35 @@ export default function StAcDetailsSettingsFrm({
             )}
           </p>
         </div>
+        {isOtp ? (
+          <div className="sectpr">
+            <p>
+              <label htmlFor="otp" style={{ fontWeight: "bold" }}>
+                OTP
+              </label>
+              <input
+                type="text"
+                name="otp"
+                id="otp"
+                value={values.otp}
+                onChange={hadelChange}
+                onFocus={hideError}
+                style={{ borderColor: "#f57100" }}
+              />
+              {errors.otp && (
+                <span className={`tip ${hide.otp ? "hidetip" : ""}`}>
+                  {errors.otp}
+                </span>
+              )}
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="pro_edit_sub">
-          <button>Save</button>
+          <button>
+            {loading ? <i className="fas fa-circle-notch rotate"></i> : "Save"}
+          </button>
         </div>
       </form>
     </div>

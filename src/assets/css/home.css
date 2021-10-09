@@ -138,7 +138,7 @@
 }
 .uppercover .cover-cont .wrp .cover-col:nth-child(2) form .but p a {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   color: #fff;
 }
 
@@ -241,18 +241,80 @@
   height: 100%;
 }
 .uppercover .cover-cont .upcoming-event .upcoming-row .col:nth-child(1) {
-  flex: 0.15;
+  flex: 0.1;
   border-right: 3px solid #eee;
+  background: #262626;
+  z-index: 1;
+  overflow: hidden;
 }
 .uppercover .cover-cont .upcoming-event .upcoming-row .col:nth-child(2) {
   padding-left: 15px;
-  flex: 0.85;
+  flex: 0.9;
 }
+
 .uppercover .cover-cont .upcoming-event .upcoming-row .col p {
   color: #fff;
   font-weight: 600;
+  opacity: 0;
 }
-
+.uppercover .cover-cont .upcoming-event .upcoming-row .col:nth-child(2) p {
+  transform: translateX(-20%);
+  animation: litAnim 4s ease alternate infinite 0.7s;
+}
+.uppercover
+  .cover-cont
+  .upcoming-event
+  .upcoming-row
+  .col:nth-child(2)
+  p:nth-child(1) {
+  animation: litAnim 4s ease-in-out alternate infinite 0.8s;
+}
+.uppercover .cover-cont .upcoming-event .upcoming-row .col:nth-child(1) p {
+  transform: translateX(-20%);
+  animation: litAnim 4s ease alternate infinite 0.7s;
+}
+.uppercover
+  .cover-cont
+  .upcoming-event
+  .upcoming-row
+  .col:nth-child(1)
+  p:nth-child(1) {
+  animation: litAnim 4s ease-in-out alternate infinite 0.8s;
+}
+@keyframes litAnim {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+    filter: blur(5px);
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+@keyframes litAnim {
+  0% {
+    transform: translateX(-5%);
+    opacity: 0;
+    filter: blur(5px);
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
 /*Event Section*/
 .event-section {
   width: 100%;
@@ -424,7 +486,7 @@
   left: 0;
   width: 100%;
   min-height: 100vh;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;

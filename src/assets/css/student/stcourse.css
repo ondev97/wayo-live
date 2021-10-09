@@ -237,7 +237,7 @@
   min-height: 16vh;
   width: 100%;
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 15px;
   background-color: #262626;
   cursor: pointer;
   transition: all 0.5s;
@@ -395,14 +395,14 @@
   .st_grid_card_mg_tail
   button {
   background-color: var(--h1Fontcolor);
-  padding: 8px;
+  padding: 6px;
   width: 120px;
   color: #fff;
   border: 1px solid transparent;
   cursor: pointer;
   font-weight: 600;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 13px;
 }
 .st_top_manage_body
   .st_mange_cos_body

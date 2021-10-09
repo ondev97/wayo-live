@@ -29,11 +29,14 @@
 }
 @media screen and (max-width: 700px) {
   .login_body .login_column .login_form {
-    width: 100%;
+    width: 90%;
   }
   .siup_body .siup_column .siup_form {
     width: 90% !important;
     padding: 0px 10px;
+  }
+  .login_body .login_column {
+    flex: 1;
   }
 }
 @media screen and (max-width: 350px) {
@@ -44,8 +47,15 @@
   .siup_form .sect:nth-child(4) {
     flex-direction: column;
   }
+  .siup_body .siup_column .siup_form .sect:nth-child(1),
+  .siup_form .sect:nth-child(2) {
+    flex-direction: column;
+  }
   .siup_body .siup_column .siup_form .sect:nth-child(1) p:nth-child(1),
   .siup_form .sect:nth-child(4) p:nth-child(1) {
+    margin-right: 0 !important;
+  }
+  .siup_body .siup_column .siup_form .sect:nth-child(2) p:nth-child(1) {
     margin-right: 0 !important;
   }
   .siup_body .siup_column .siup_form .but button {

@@ -2,7 +2,7 @@ import Axios from "axios";
 import { useEffect, useState } from "react";
 import ValidateLogin from "../../components/ValidateLogin";
 
-function StValidateLogin(setisOTP, setotpDetails) {
+function StValidateLogin(setisOTP, setusForm, setotpDetails) {
   const [values, setvalues] = useState({ un: "", pw: "" });
   const [errors, seterrors] = useState({ un: "", pw: "", comerrors: "" });
   const [isSubmitting, setisSubmitting] = useState(false);
@@ -12,7 +12,6 @@ function StValidateLogin(setisOTP, setotpDetails) {
   const [acDetails, setacDetails] = useState({});
 
   const hadelOnChange = (e) => {
-    console.log(e.target.id);
     const { name, value } = e.target;
     if (e.target.id === "em") {
       setvalues({
@@ -76,8 +75,12 @@ function StValidateLogin(setisOTP, setotpDetails) {
           }
         } else {
           setotpDetails(res.data);
-          setisOTP(true);
           setloading(false);
+          if (!res.data.completed_user) {
+            setusForm(true);
+          } else {
+            setisOTP(true);
+          }
         }
       })
       .catch((err) => {

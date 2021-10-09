@@ -6,7 +6,7 @@
   width: 100%;
   padding: 15px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   background-color: #262626;
   grid-column-gap: 20px;
   border-radius: 8px;
@@ -41,6 +41,12 @@
 .event_header .event_row .event_column:nth-child(2) {
   flex-grow: 1;
 }
+.event_header .event_row .event_column:nth-child(2) .event_dis_col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .event_header .event_row .event_column:nth-child(2) a {
   text-decoration: none;
   color: #000;
@@ -55,10 +61,33 @@
 .event_header .event_row .event_column {
   display: flex;
   flex-direction: column;
-  grid-gap: 12px;
+  justify-content: center;
+  grid-gap: 6px;
+}
+.event_header .event_row .event_column .rw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 10px;
+}
+.event_header .event_row .event_column .rw p {
+  font-size: 14px;
+}
+.event_header .event_row .event_column .rw p.minp {
+  color: #c5c5c5;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 110px;
+}
+.event_header .event_row .event_column p {
+  color: #c5c5c5;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
 }
 .event_header .event_row .event_column button {
-  width: 140px;
+  width: 110px;
   padding: 8px;
   border: 1px solid transparent;
   background-color: var(--h1Fontcolor);
@@ -70,7 +99,7 @@
   cursor: pointer;
 }
 .event_header .event_row .event_column.tcside button {
-  width: 120px;
+  width: 130px;
 }
 .event_details {
   padding: 45px 0;
@@ -152,7 +181,7 @@
     margin: 10px auto;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .event_header .event_row {
     flex-direction: column;
     grid-row-gap: 25px;
@@ -165,9 +194,15 @@
   }
   .event_header .event_row .event_column:nth-child(3) {
     width: 100%;
-    flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .event_header .event_row .event_column .rw {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (max-width: 356px) {

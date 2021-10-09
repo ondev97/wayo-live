@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { activeAccount } from "../actions";
 import "../assets/css/stlogin.css";
 import "../assets/css/mediaFiles/loginRegister.css";
-import { Redirect } from "react-router-dom";
 import Axios from "axios";
 import { store } from "react-notifications-component";
 
@@ -12,7 +11,6 @@ export default function PasswordReset() {
   const dispatch = useDispatch();
   const [email, setemail] = useState("");
   const [readOnly, setreadOnly] = useState("");
-  const [redirect, setredirect] = useState(false);
 
   useEffect(() => {
     dispatch(activeAccount());
@@ -27,7 +25,7 @@ export default function PasswordReset() {
     setreadOnly("none");
 
     Axios.post(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/rest-auth/password/reset/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/dj-rest-auth/password/reset/`,
       { email: email }
     )
       .then((res) => {
@@ -49,7 +47,6 @@ export default function PasswordReset() {
         });
         setemail("");
         setreadOnly("");
-        setredirect(true);
       })
       .catch((err) => {
         store.addNotification({
@@ -71,19 +68,13 @@ export default function PasswordReset() {
         setreadOnly("");
       });
   };
-  if (redirect) {
-    return <Redirect to={"/"} />;
-  }
   return (
     <div className="login_body">
       <div className="login_column">
         <div className="login_form" style={{ padding: "25px 0" }}>
           <div className="topSign">
             <h2>Password Reset</h2>
-            <p>
-              Password Reset කිරීම සදහා ඔබගේ Student Account සාදා ඇති Email
-              ලිපිනය නිවැරදිව ඇතුලත් කරන්න.
-            </p>
+            <p>Enter Your Email Address To Reset Password</p>
           </div>
           <form>
             <p>
@@ -114,15 +105,6 @@ export default function PasswordReset() {
       <div className="login_column">
         <div className="image_login">
           <img src={logo} alt="" />
-        </div>
-        <div className="image_content">
-          <h3>
-            HDOLSET Student Account සදහා Log වීමට ප්‍රථම ඔබ HDOLSET හි
-            ලියාපදිංචි විය යුතුය. ඒ සදහා ඔබගේ අනන්‍යතාවය ගුරුවරයා වෙත තහවුරු කර
-            ඔබගේ student account සදහා අදාල Username සහ Password ලබාගන්න. HDOLSET
-            Student Accounts හි කුමන හෝ තාක්ෂණික ගැටළුවක් පවතීනම් එය නිරාකරණය
-            කරගැනීම සදහා ඔබගේ ගුරුවරයා සම්බන්ද කරගන්න.
-          </h3>
         </div>
       </div>
     </div>

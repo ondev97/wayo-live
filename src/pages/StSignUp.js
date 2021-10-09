@@ -18,6 +18,11 @@ export default function StSignUp() {
           <div className="siup_form">
             <div className="topSign">
               <h2>AUDIENCE REGISTER FORM</h2>
+              <p className="note">
+                NOTE: Please make sure you type your email and phone number
+                correctly. Otherwise, you might not be able to log in to your
+                account.
+              </p>
             </div>
             <StSignupForm />
           </div>

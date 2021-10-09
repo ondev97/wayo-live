@@ -65,7 +65,7 @@ export default function StudentMainDashboard() {
       <div className="all_st_subs">
         <div className="pagetop">
           <PageBreadcrumbs />
-          <h1>SELECT YOUR fAVORITE BAND</h1>
+          <h1>SELECT YOUR FAVORITE BAND</h1>
         </div>
         {subDetails.length !== 0 ? (
           <div className="">

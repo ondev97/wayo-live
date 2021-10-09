@@ -31,6 +31,7 @@
   background-color: var(--h1Fontcolor);
   text-align: center;
   transition: 0.3s ease;
+  border-radius: 3px;
 }
 .main_sub .show {
   margin-top: 10px;

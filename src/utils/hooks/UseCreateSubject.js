@@ -14,6 +14,7 @@ const UseCreateSubject = (submitForm) => {
     event_end_time: "",
     event_duration: "",
     event_price: 0,
+    event_audience_limit: "",
     event_content: "",
     is_freeze: false,
   });
@@ -26,6 +27,7 @@ const UseCreateSubject = (submitForm) => {
     event_start_time: "",
     event_end_time: "",
     event_price: "",
+    event_audience_limit: "",
     event_content: "",
   });
   const [hide, sethide] = useState({
@@ -37,6 +39,7 @@ const UseCreateSubject = (submitForm) => {
     event_start_time: false,
     event_end_time: false,
     event_price: false,
+    event_audience_limit: false,
     event_content: false,
   });
   const [isSubmitting, setisSubmitting] = useState(false);

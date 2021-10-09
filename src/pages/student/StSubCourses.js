@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import "../../assets/css/student/stcourse.css";
 import { useSelector } from "react-redux";
 import Axios from "axios";
@@ -66,9 +66,11 @@ export default function StSubCourses() {
       <div className="ful_manage_course">
         <div className="st_top_manage_body">
           <div className="st_mange_cos_body">
-            <button onClick={() => history.goBack()}>
-              <i className="fas fa-chevron-circle-left"></i>Back To All Bands
-            </button>
+            <Link to="/audiencedashboard/maindashboard/">
+              <button>
+                <i className="fas fa-chevron-circle-left"></i>Back To All Bands
+              </button>
+            </Link>
             <div className="pagetop">
               <h1>{"ALL BANDS > ALL EVENTS"}</h1>
             </div>

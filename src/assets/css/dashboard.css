@@ -33,7 +33,7 @@
 .main .main_column .head {
   width: 98%;
   margin: 0 auto;
-  padding: 5px 8px;
+  padding: 8px 8px 8px 25px;
   background-color: #262626;
   position: sticky;
   top: 0;
@@ -66,10 +66,10 @@
 }
 .main .main_column .head .column .sec .profile {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   padding: 2px;
-  border: 2px solid #000;
+  border: 2px solid var(--buttonColor1);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -92,7 +92,7 @@
 }
 .main .main_column .sub_column {
   padding: 24px 25px 10px 24px;
-  min-height: 100vh;
+  min-height: calc(100vh - 61px);
 }
 .main
   .main_column

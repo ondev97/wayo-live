@@ -26,12 +26,13 @@ export default function Header({ acDetails }) {
     "/",
     "/about",
     "/contact",
-    "/allteachers",
+    "/upcomingevents",
     "/allsubjects",
     "/signup",
     "/passwordreset",
     "/guidelines",
     "/features",
+    "/password-reset-confirm",
   ];
   const hambutton = () => {
     setisham(!isham);
@@ -87,13 +88,15 @@ export default function Header({ acDetails }) {
         );
       }
     } else {
-      return (
-        <div className="buttons">
-          <Link to="/signup">
-            <button>Register</button>
-          </Link>
-        </div>
-      );
+      if (location !== "/signup") {
+        return (
+          <div className="buttons">
+            <Link to="/signup">
+              <button>Register</button>
+            </Link>
+          </div>
+        );
+      }
     }
   };
 
@@ -118,10 +121,79 @@ export default function Header({ acDetails }) {
                   <Link to="#">ABOUT US</Link>
                 </li> */}
                 <li>
+                  <Link to="/upcomingevents">UPCOMING EVENTS</Link>
+                </li>
+                <li>
+                  <Link to="/contact">CONTACT US</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="column">{headerProPic()}</div>
+          <div className="ham">
+            <button className="hambeggermenu" onClick={hambutton}>
+              <i className="fas fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+        <AnimatePresence exitBeforeEnter>
+          {isham ? (
+            <motion.div
+              className="hammenu"
+              variants={mobnavani}
+              animate="visible"
+              initial="hidden"
+              exit="hidden"
+            >
+              <div className="menham">
+                <ul>
+                  <Link to="/">
+                    <li>HOME</li>
+                  </Link>
+                  {/* <Link to="#">
+                    <li>ABOUT US</li>
+                  </Link> */}
+                  <Link to="/upcomingevents">
+                    <li>UPCOMING EVENTS</li>
+                  </Link>
+                  <Link to="/contact">
+                    <li>CONTACT US</li>
+                  </Link>
+                </ul>
+                <div className="butham">{headerProPic()}</div>
+              </div>
+            </motion.div>
+          ) : (
+            ""
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  } else if (location.indexOf("/password-reset-confirm") > -1) {
+    return (
+      <div className="header-nav">
+        <nav>
+          <div className="column">
+            <div className="hlogo">
+              <Link to="/">
+                <img src={logo} alt="logo" />
+              </Link>
+            </div>
+          </div>
+          <div className="column">
+            <div className="navigation">
+              <ul>
+                <li>
+                  <Link to="/">HOME</Link>
+                </li>
+                {/* <li>
+                  <Link to="#">ABOUT US</Link>
+                </li> */}
+                <li>
                   <Link to="/contact">CONTACT US</Link>
                 </li>
                 <li>
-                  <Link to="#">UPCOMING EVENTS</Link>
+                  <Link to="/upcomingevents">UPCOMING EVENTS</Link>
                 </li>
               </ul>
             </div>
@@ -153,7 +225,7 @@ export default function Header({ acDetails }) {
                   <Link to="/contact">
                     <li>CONTACT US</li>
                   </Link>
-                  <Link to="#">
+                  <Link to="/upcomingevents">
                     <li>UPCOMING EVENTS</li>
                   </Link>
                 </ul>

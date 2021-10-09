@@ -1,8 +1,13 @@
-import React, { useRef, useState } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, Redirect } from "react-router-dom";
 import StValidateLogin from "../utils/hooks/StValidateLogin";
 
-export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
+export default function CoverForm({
+  setisModel,
+  setisOTP,
+  setusForm,
+  setotpDetails,
+}) {
   const [
     values,
     hadelOnChange,
@@ -13,7 +18,7 @@ export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
     hide,
     acDetails,
     loading,
-  ] = StValidateLogin(setisOTP, setotpDetails);
+  ] = StValidateLogin(setisOTP, setusForm, setotpDetails);
   const passwordRef = useRef();
 
   //function for trigger show password field
@@ -30,7 +35,7 @@ export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
   if (Object.values(acDetails).length !== 0) {
     if (!acDetails.user.is_band && acDetails.user.is_verified) {
       return <Redirect to="/audiencedashboard/maindashboard" />;
-    } else if (acDetails.user.is_band && acDetails.user.sis_verified) {
+    } else if (acDetails.user.is_band && acDetails.user.is_verified) {
       return <Redirect to="/band/allevents" />;
     }
   }
@@ -95,9 +100,9 @@ export default function CoverForm({ setisModel, setisOTP, setotpDetails }) {
           </button>
 
           <div className="fpw">
-            {/* <p>
-              <Link to="#">Forgot Password?</Link>
-            </p> */}
+            <p>
+              <Link to="/passwordreset">Forgot Password?</Link>
+            </p>
             <p
               onClick={() => {
                 seterrors({ ...errors, comerrors: "" });

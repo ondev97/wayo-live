@@ -36,6 +36,11 @@ export default function ValidateSubjectCreateForm(values, isFree) {
   if (values.event_content.length > 500) {
     errors.event_content = "Event Description Must Be Less Than 500 Characters";
   }
+  if (!values.event_audience_limit) {
+    if (!values.event_audience_limit.trim()) {
+      errors.event_audience_limit = "Event Audience Limit Is Required";
+    }
+  }
 
   return errors;
 }

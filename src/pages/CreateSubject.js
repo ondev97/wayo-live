@@ -69,6 +69,7 @@ export default function CreateSubject({ profileDetails }) {
     formData.append("event_label", formValue.event_label);
     formData.append("event_content", formValue.event_content);
     formData.append("event_price", formValue.event_price);
+    formData.append("limit", formValue.event_audience_limit);
     formData.append("is_freeze", formValue.is_freeze);
 
     Axios.post(

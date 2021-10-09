@@ -1,10 +1,11 @@
 import Axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { store } from "react-notifications-component";
 import { useDispatch, useSelector } from "react-redux";
 import { loadStDetails } from "../../actions/stDetailsAction";
 import UseStprofileUpdate from "../../utils/hooks/Student/UseStprofileUpdate";
 import UserChangedPassword from "../UserChangedPassword";
+import validation from "../ValidateProfileSettings";
 import StAcDetailsSettingsFrm from "./StAcDetailsSettingsFrm";
 
 export default function StProfileSettings({ setsettings }) {
@@ -17,10 +18,17 @@ export default function StProfileSettings({ setsettings }) {
     hide,
     seterrors,
     setvalues,
+    isOtp,
+    setisOtp,
+    sethide,
   } = UseStprofileUpdate(submit);
+
+  const [loading, setloading] = useState(false);
+  const [isSibmitting, setisSibmitting] = useState(false);
 
   //get acDetails from Redux Store
   const usDetails = useSelector((state) => state.accountDetails);
+  const { initialState } = useSelector((state) => state.StudentDetails);
   const dispatch = useDispatch();
 
   function submit() {
@@ -36,9 +44,10 @@ export default function StProfileSettings({ setsettings }) {
     all_data.append("is_band", false);
 
     all_data.append("user_description", values.des);
+    all_data.append("otp", values.otp);
 
-    Axios.put(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuser/${usDetails.id}/`,
+    Axios.post(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/updateuserotp/${usDetails.id}/`,
       all_data,
       {
         headers: { Authorization: "Token " + usDetails.key },
@@ -51,10 +60,11 @@ export default function StProfileSettings({ setsettings }) {
           {
             headers: { Authorization: "Token " + usDetails.key },
           }
-        ).then(() => {
+        ).then((res) => {
           dispatch(loadStDetails());
           setsettings(false);
-          setvalues({ ...values, pw: "" });
+          setisOtp(false);
+          setvalues({ ...values, pw: "", otp: "" });
 
           store.addNotification({
             title: "Profile Changed Successfully!",
@@ -77,12 +87,86 @@ export default function StProfileSettings({ setsettings }) {
       .catch((err) => {
         if (err.response.data.detail) {
           seterrors({ ...errors, pw: err.response.data.detail });
-        }
-        if (err.response.data.username) {
-          seterrors({ ...errors, userName: err.response.data.username });
-        }
-        if (err.response.data.email) {
+        } else if (err.response.data.username) {
+          seterrors({ ...errors, userName: err.response.data.username[0] });
+        } else if (err.response.data.phone_no) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone_no[0] });
+        } else if (err.response.data.phone) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone });
+        } else if (err.response.data.email) {
           seterrors({ ...errors, email: err.response.data.email });
+        } else {
+          seterrors({ ...errors, otp: err.response.data.message });
+        }
+      });
+  }
+
+  function getOtp(e) {
+    setloading(true);
+    e.preventDefault();
+
+    //hadlling errors
+    seterrors(validation(values));
+    sethide({
+      firstName: false,
+      lastName: false,
+      userName: false,
+      email: false,
+      phoneNumber: false,
+      phonenumber: false,
+      address: false,
+      des: false,
+      pw: false,
+    });
+    setisSibmitting(true);
+  }
+
+  useEffect(() => {
+    setloading(false);
+    if (Object.keys(errors).length === 0 && isSibmitting) {
+      submitOtp();
+    }
+  }, [errors]);
+
+  function submitOtp() {
+    Axios.post(
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/getotp/${initialState.user.username}/${values.email}/${values.phoneNumber}/`,
+      {
+        password: values.pw,
+      }
+    )
+      .then((res) => {
+        setisOtp(true);
+        setloading(false);
+        store.addNotification({
+          title: "Verification Code Sent to " + res.data.mobile,
+          message: process.env.REACT_APP_LMS_ALERT_NAME,
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 3000,
+            onScreen: true,
+            pauseOnHover: true,
+            showIcon: true,
+          },
+          width: 600,
+        });
+      })
+      .catch((err) => {
+        setloading(false);
+        if (err.response.data.phone_no) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone_no[0] });
+        } else if (err.response.data.phone) {
+          seterrors({ ...errors, phoneNumber: err.response.data.phone });
+        } else if (err.response.data.email) {
+          seterrors({ ...errors, email: err.response.data.email });
+        } else if (err.response.data.password) {
+          seterrors({ ...errors, pw: err.response.data.password });
+        } else {
+          seterrors({ ...errors, otp: err.response.data.message });
         }
       });
   }
@@ -99,6 +183,9 @@ export default function StProfileSettings({ setsettings }) {
             hideError={hideError}
             errors={errors}
             hide={hide}
+            isOtp={isOtp}
+            getOtp={getOtp}
+            loading={loading}
           />
         </div>
         <div className="set_password">

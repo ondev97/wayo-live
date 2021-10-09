@@ -1,7 +1,8 @@
 .footer_main {
   width: 100%;
-  padding: 45px 20px;
-  background-color: var(--background1);
+  padding: 10px 20px;
+  background-color: #262626;
+  position: relative;
 }
 .footer_main .footer_mid {
   width: 80%;
@@ -10,7 +11,6 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding-bottom: 25px;
 }
 .footer_main .footer_mid .footer_column {
   flex: 0.33;
@@ -22,35 +22,39 @@
 }
 .footer_main .footer_mid .footer_column .lg img {
   width: 200px;
+  filter: grayscale(1) invert(100%);
 }
 .footer_main .footer_mid .footer_column .lg {
   text-align-last: left;
 }
 .footer_main .footer_mid .footer_column .lg,
 .footer_main .footer_mid .footer_column h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer_main .footer_mid .footer_column .lg h1 {
   font-size: 28px;
-  color: var(--h1Fontcolor);
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column .lg h1 span {
   font-size: 15px;
   font-weight: 500;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column .lg h3 {
   font-size: 13px;
   font-weight: 600;
-  color: #777;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column .ab p {
   font-size: 14px;
   text-align: left;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 47px;
+  margin-bottom: 10px;
+  color: #fff;
 }
 .footer_main .footer_mid .footer_column p {
   margin-bottom: 15px;
@@ -64,7 +68,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .footer_main .footer_mid .footer_column ul.scial li i {
   font-size: 30px;
@@ -75,7 +79,8 @@
 }
 .footer_main .footer_mid .footer_column ul.links li a {
   text-decoration: none;
-  color: #535353;
+  color: #fff;
+  font-size: 14px;
 }
 .footer_main .footer_mid .footer_column ul.links li a:hover {
   color: var(--h1Fontcolor);
@@ -86,8 +91,8 @@
   text-align: center;
 }
 .footer_main .small_footer h3 {
-  font-size: 15px;
-  color: #777;
+  font-size: 12px;
+  color: #eee;
 }
 .footer_main .small_footer h3 span a {
   color: var(--h1Fontcolor);

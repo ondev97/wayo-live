@@ -9,6 +9,8 @@ import CoverForm from "../components/CoverForm";
 import { Link } from "react-router-dom";
 import SessionModel from "../components/SessionModel";
 import OtpModel from "../components/OtpModel";
+import UserDeteailsCol from "../components/UserDeteailsCol";
+import Axios from "axios";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -16,13 +18,38 @@ export default function Home() {
 
   const [isModel, setisModel] = useState(false);
   const [isOTP, setisOTP] = useState(false);
+  const [usForm, setusForm] = useState(false);
   const [otpDetails, setotpDetails] = useState({});
+  const [evetDetails, setevetDetails] = useState({});
 
   useEffect(() => {
     dispatch(activeAccount());
     dispatch(loadStDetails());
     window.scrollTo(0, 0);
+    //get latest event
+    latestEvent();
   }, [dispatch]);
+
+  function latestEvent() {
+    Axios.get(`${process.env.REACT_APP_LMS_MAIN_URL}/show/latestevent/`)
+      .then((res) => setevetDetails(res))
+      .catch((err) => console.log(err));
+  }
+
+  function tConvert(time) {
+    // Check correct time format and split into components
+    time = time
+      .toString()
+      .match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+    if (time.length > 1) {
+      // If time format correct
+      time = time.slice(1); // Remove full string match value
+      time[5] = +time[0] < 12 ? " AM" : " PM"; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join(""); // return adjusted time or original string
+  }
 
   const closeModel = (e) => {
     if (e.target.className.includes("loginmodel_outer")) {
@@ -36,6 +63,11 @@ export default function Home() {
   return (
     <>
       <div className="uppercover">
+        {usForm ? (
+          <UserDeteailsCol otpDetails={otpDetails} setusForm={setusForm} />
+        ) : (
+          ""
+        )}
         {isModel ? (
           //model login session
           <SessionModel closeModel={closeModel} setisModel={setisModel} />
@@ -59,6 +91,7 @@ export default function Home() {
                   setisModel={setisModel}
                   setisOTP={setisOTP}
                   setotpDetails={setotpDetails}
+                  setusForm={setusForm}
                 />
               ) : (
                 ""
@@ -71,16 +104,41 @@ export default function Home() {
               EVENT
             </h2>
             <div className="upcoming-row">
-              <div className="col">
-                <p>
-                  2021-07-02 <br />
-                  4:30 PM
-                </p>
-              </div>
-              <div className="col">
-                <p>WAYO Jeewithe Concert</p>
-                <p>Jeewithe Private Screening</p>
-              </div>
+              {!evetDetails.data ? (
+                <div
+                  className="col"
+                  style={{ flex: "1", border: "none", padding: "10px 0" }}
+                >
+                  <>
+                    <p>No Event Scheduled Yet</p>
+                  </>
+                </div>
+              ) : (
+                <>
+                  <div className="col">
+                    {evetDetails.data ? (
+                      <>
+                        <p>
+                          {evetDetails.data.event_date} <br />
+                          {tConvert(evetDetails.data.event_start)}
+                        </p>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="col">
+                    {evetDetails.data ? (
+                      <>
+                        <p>{evetDetails.data.event_name}</p>
+                        <p>{evetDetails.data.description}</p>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div className="simple_footer">

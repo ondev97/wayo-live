@@ -16,6 +16,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Contact from "./Contact";
 import EventDetails from "./EventDetails";
 import UserGuide from "../UserGuide";
+import Form from "./Form";
 
 function StudentDashBoard() {
   const dispatch = useDispatch();
@@ -41,6 +42,14 @@ function StudentDashBoard() {
   useLayoutEffect(() => {
     if (window.innerWidth < 867) {
       settoggle(true);
+    } else {
+      if (location.pathname.includes("/audiencedashboard/envet/")) {
+        document.querySelector(".head").style.display = "flex";
+        settoggle(true);
+      } else {
+        document.querySelector(".head").style.display = "none";
+        settoggle(false);
+      }
     }
   }, [location]);
   const togglemenu = () => {
@@ -185,6 +194,9 @@ function StudentDashBoard() {
           {/* <Route path="/audiencedashboard/playevent">
             <PlayEvent />
           </Route> */}
+          <Route path="/audiencedashboard/form/:id">
+            <Form />
+          </Route>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ function ProfileUpdate(submit) {
     email: "",
     address: "",
     des: "",
+    pw: "",
   });
   const [errors, seterrors] = useState({
     firstName: "",
@@ -23,6 +24,7 @@ function ProfileUpdate(submit) {
     address: "",
     des: "",
     pw: "",
+    com: "",
   });
   const [hide, sethide] = useState({
     firstName: false,

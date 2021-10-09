@@ -20,7 +20,7 @@ export default function InAllSubjects() {
     dispatch(loadStDetails());
     setisLoading(true);
     Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/course-api/indexsub/?page=${page}`
+      `${process.env.REACT_APP_LMS_MAIN_URL}/show/listallevents/?page=${page}`
     )
       .then((res) => {
         setisLoading(false);
@@ -43,10 +43,8 @@ export default function InAllSubjects() {
 
   return (
     <div className="maininde">
-      <div className="upper_cover">
-        <h1>Subjects</h1>
-      </div>
       <div className="popular_subjects">
+        <h1>UPCOMING EVENTS</h1>
         {!isLoading && allSubDetails.length > 0 ? (
           <div className="">
             <InfiniteScroll
@@ -55,16 +53,20 @@ export default function InAllSubjects() {
               hasMore={true}
               className="subject_area"
             >
-              {allSubDetails.map((tdata, index) => (
-                <AllSubCard key={index} subject={tdata} />
-              ))}
+              {allSubDetails.map((tdata, index) =>
+                !tdata.is_freeze ? (
+                  <AllSubCard key={index} subject={tdata} />
+                ) : (
+                  ""
+                )
+              )}
             </InfiniteScroll>
           </div>
         ) : isLoading ? (
           <ProfileLoader />
         ) : (
           <div className="emheading">
-            <h1>No Subjects Available In The System</h1>
+            <h1>No Events Available In The System</h1>
           </div>
         )}
       </div>
