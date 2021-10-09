@@ -19,11 +19,12 @@ export default function validation(values) {
     errors.userName = "User Name Is Required";
   } else if (values.userName.length < 4) {
     errors.userName = "User Name Must Be More Than 4 characters";
-  } else if (
-    values.userName.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)
-  ) {
-    errors.userName = "User Name Must Not Be Contain Special Characters";
   }
+  // else if (
+  //   values.userName.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)
+  // ) {
+  //   errors.userName = "User Name Must Not Be Contain Special Characters";
+  // }
   if (!values.email.trim()) {
     errors.email = "Email is Required";
   } else if (values.email.length > 35) {

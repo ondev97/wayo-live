@@ -3,9 +3,10 @@ export default function ValidateLogin(values) {
 
   if (!values.un.trim()) {
     errors.un = "Username is Required";
-  } else if (values.un.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)) {
-    errors.un = "User Name Must Not Be Contain Special Characters";
   }
+  // else if (values.un.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)) {
+  //   errors.un = "User Name Must Not Be Contain Special Characters";
+  // }
   //   else if (values.un.length > 35) {
   //     errors.un = "Username Must Be Less Than 35 characters";
   //   }
