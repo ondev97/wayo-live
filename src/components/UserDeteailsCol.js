@@ -132,6 +132,9 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
         if (err.response.data.phone_no) {
           seterrors({ ...errors, phoneNumber: err.response.data.phone_no });
         }
+        if (err.response.data.message) {
+          seterrors({ ...errors, pw: err.response.data.message });
+        }
       });
   }
 
@@ -154,9 +157,9 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
         <div className="conformmodel_outer" onClick={closeConfirmModel}>
           <div className="conformmodel">
             <h3>
-              Now we will send an otp to this number. To receive the OTP please
-              confirm the number. If this number is not correct update it with
-              the right one.
+              If you are a local user you will receive the OTP to your mobile.
+              In case of being a foreign user OTP will be received to the
+              provided email.
             </h3>
             <div className="but">
               <button onClick={submitConfirm}>Yes</button>

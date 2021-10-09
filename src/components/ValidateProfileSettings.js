@@ -47,7 +47,7 @@ export default function validation(values) {
     }
   }
   if (!values.pw.trim()) {
-    errors.pw = "Password Is Required For Update Your Account";
+    errors.pw = "Password Is Required";
   }
   if (values.otp) {
     if (!values.otp.trim()) {
