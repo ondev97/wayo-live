@@ -1,0 +1,15 @@
+.privacy {
+  background-color: #000;
+  width: 100%;
+  min-height: 100vh;
+  padding: 75px 25px 25px;
+}
+.privacy .privcyMain {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.privacy p {
+  color: #fff;
+  line-height: 35px;
+  text-align: justify;
+}

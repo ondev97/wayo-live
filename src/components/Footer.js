@@ -12,11 +12,15 @@ export default function Footer() {
     "/allsubjects",
     "/signup",
     "/passwordreset",
-    "/guidelines",
     "/features",
     "/password-reset-confirm",
   ];
-  const secRoute = ["/upcomingevents", "/contact"];
+  const secRoute = [
+    "/upcomingevents",
+    "/contact",
+    "/guidelines",
+    "/privacypolicy",
+  ];
 
   if (mainRoute.includes(pathname)) {
     return "";

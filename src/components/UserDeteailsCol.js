@@ -151,7 +151,7 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
   };
 
   return (
-    <div className="outer_user_form" onClick={closeModel}>
+    <div className="outer_user_form">
       {/* conformation model */}
       {conformModel ? (
         <div className="conformmodel_outer" onClick={closeConfirmModel}>
@@ -171,11 +171,12 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
         ""
       )}
       <div className="form_bg">
-        <div className="close">
+        {/* close button */}
+        {/* <div className="close">
           <button className="close_model" onClick={() => setusForm(false)}>
             <i className="fas fa-times-circle"></i>
           </button>
-        </div>
+        </div> */}
         <h1>BECOME A WAYAN</h1>
         <h3>
           To get started, please insert the below details and register in WAYO
@@ -218,7 +219,7 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
               )}
             </p>
           </div>
-          <div className="sect">
+          <div className="sect sect2">
             <p>
               <label htmlFor="un">Username</label>
               <input
@@ -241,6 +242,7 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
             </p>
             <p>
               <label htmlFor="em">Phone Number</label>
+              <div className="small">Keep The Mobile Phone With You</div>
               <input
                 type="text"
                 name="phoneNumber"
@@ -249,7 +251,7 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
                 onChange={hadelChange}
                 className={errors.phoneNumber ? "error" : ""}
                 onFocus={hideError}
-                placeholder="94123456789"
+                placeholder="94713456789"
               />
               {errors.phoneNumber && (
                 <span className={`tip ${hide.phoneNumber ? "hidetip" : ""}`}>
@@ -294,6 +296,11 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
               )}
             </p>
           </div>
+          <div className="text">
+            <h5>Note</h5>
+            If your mobile phone number is 0714563390 <br />
+            Type like this 94714563390
+          </div>
           {/* <div className="showpw">
             <p>
               <input
@@ -306,7 +313,7 @@ function UserDeteailsCol({ otpDetails, setusForm }) {
             </p>
           </div> */}
           <div className="but">
-            <button>Register</button>
+            <button>Complete Profile</button>
           </div>
         </form>
       </div>

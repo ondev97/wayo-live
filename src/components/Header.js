@@ -31,6 +31,7 @@ export default function Header({ acDetails }) {
     "/signup",
     "/passwordreset",
     "/guidelines",
+    "/privacypolicy",
     "/features",
     "/password-reset-confirm",
   ];
@@ -124,7 +125,13 @@ export default function Header({ acDetails }) {
                   <Link to="/upcomingevents">UPCOMING EVENTS</Link>
                 </li>
                 <li>
+                  <Link to="/guidelines">GUIDELINES</Link>
+                </li>
+                <li>
                   <Link to="/contact">CONTACT US</Link>
+                </li>
+                <li>
+                  <Link to="/privacypolicy">PRIVACY POLICY</Link>
                 </li>
               </ul>
             </div>
@@ -156,8 +163,14 @@ export default function Header({ acDetails }) {
                   <Link to="/upcomingevents">
                     <li>UPCOMING EVENTS</li>
                   </Link>
+                  <Link to="/guidelines">
+                    <li>GUIDELINES</li>
+                  </Link>
                   <Link to="/contact">
                     <li>CONTACT US</li>
+                  </Link>
+                  <Link to="/privacypolicy">
+                    <li>PRIVACY POLICY</li>
                   </Link>
                 </ul>
                 <div className="butham">{headerProPic()}</div>
@@ -193,6 +206,12 @@ export default function Header({ acDetails }) {
                   <Link to="/contact">CONTACT US</Link>
                 </li>
                 <li>
+                  <Link to="/guidelines">GUIDELINES</Link>
+                </li>
+                <li>
+                  <Link to="/privacypolicy">PRIVACY POLICY</Link>
+                </li>
+                <li>
                   <Link to="/upcomingevents">UPCOMING EVENTS</Link>
                 </li>
               </ul>
@@ -224,6 +243,12 @@ export default function Header({ acDetails }) {
                   </Link> */}
                   <Link to="/contact">
                     <li>CONTACT US</li>
+                  </Link>
+                  <Link to="/guidelines">
+                    <li>GUIDELINES</li>
+                  </Link>
+                  <Link to="/privacypolicy">
+                    <li>PRIVACY POLICY</li>
                   </Link>
                   <Link to="/upcomingevents">
                     <li>UPCOMING EVENTS</li>

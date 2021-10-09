@@ -9,6 +9,7 @@ import Guidelines from "../pages/Guidelines";
 import NotFound from "../pages/NotFound";
 import Contactus from "../pages/ContactUs";
 import SetNewPassword from "../pages/SetNewPassword";
+import Privacy from "../pages/Privacy";
 
 export default [
   {
@@ -24,6 +25,10 @@ export default [
   {
     path: "/guidelines",
     components: () => <Guidelines />,
+  },
+  {
+    path: "/privacypolicy",
+    components: () => <Privacy />,
   },
   {
     path: "/allteachers",
