@@ -27,8 +27,8 @@ export default function validation(values) {
   // }
   if (!values.email.trim()) {
     errors.email = "Email is Required";
-  } else if (values.email.length > 35) {
-    errors.email = "Email Must Be Less Than 35 characters";
+  } else if (values.email.length > 80) {
+    errors.email = "Email Must Be Less Than 80 characters";
   } else if (!pattern.test(values.email)) {
     errors.email = "Please Enter Valid Email";
   }
