@@ -31,7 +31,7 @@ export default function AllStList() {
   const getallStude = async () => {
     if (usDetails) {
       await Axios.get(
-        `${process.env.REACT_APP_LMS_MAIN_URL}/show/audienceintheevent/${id}/`,
+        `${process.env.REACT_APP_LMS_MAIN_URL}/show/audienceintheevent/${id}/?page=${page}`,
         {
           headers: { Authorization: "Token " + usDetails.key },
         }
