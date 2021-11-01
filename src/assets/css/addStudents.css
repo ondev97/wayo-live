@@ -100,6 +100,37 @@
 .filerow {
   width: 100%;
   padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filerow .search_bar {
+  flex-basis: 400px;
+  position: relative;
+}
+.filerow .search_bar input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  background: transparent;
+  color: #eee;
+  border: 1px solid #eee;
+}
+.filerow .search_bar button {
+  background: none;
+  width: 30px;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.filerow .search_bar button:hover {
+  background: none;
 }
 .filerow button {
   width: 200px;
@@ -210,12 +241,22 @@
   object-fit: cover;
 }
 
+@media screen and (max-width: 1200px) {
+  .filerow .search_bar {
+    flex-basis: initial;
+    flex: 1;
+  }
+}
 @media screen and (max-width: 1000px) {
   .modeladdstfile .filecsv {
     width: 80%;
   }
 }
 @media screen and (max-width: 600px) {
+  .filerow .search_bar {
+    flex-basis: 100%;
+    flex: initial;
+  }
   .modeladdstfile .filecsv {
     width: 95%;
   }

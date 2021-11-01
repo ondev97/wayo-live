@@ -9,6 +9,7 @@ import SelectStudentsTopRow from "../components/SelectStudentsTopRow";
 import { store } from "react-notifications-component";
 import ViewStuTc from "../components/ViewStuTc";
 import donwloadFile from "../img/Template.xlsx";
+import useDebounce from "../utils/hooks/useDebounce";
 
 export default function AddStudents() {
   //get acDetails from Redux Store
@@ -24,6 +25,7 @@ export default function AddStudents() {
   const [search, setsearch] = useState("");
   const [modelOp, setmodelOp] = useState(false);
   const [stPrDetail, setstPrDetail] = useState([]);
+  const debounce = useDebounce(); //custom hook
   const { id } = useParams();
 
   //const debounce = useDebounce(); //custom hook
@@ -34,7 +36,7 @@ export default function AddStudents() {
 
   const getStudents = async () => {
     await Axios.get(
-      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/notinevent/${id}/`,
+      `${process.env.REACT_APP_LMS_MAIN_URL}/auth/notinevent/${id}/?page=${page}&search=${search}`,
       {
         headers: { Authorization: "Token " + usDetails.key },
       }
@@ -42,10 +44,10 @@ export default function AddStudents() {
       .then((res) => {
         if (page > 1) {
           settotStud(res.data);
-          setallStudents([...allStudents, ...res.data]);
+          setallStudents([...allStudents, ...res.data.results]);
         } else {
           settotStud(res.data);
-          setallStudents([...res.data]);
+          setallStudents([...res.data.results]);
         }
       })
       .catch((err) => {
@@ -116,12 +118,12 @@ export default function AddStudents() {
       setsuncess(!suncess);
     });
   };
-  // /*Search */
-  // const handelSearchSubject = (e) => {
-  //   const search = e.target.value;
-  //   setpage(1);
-  //   debounce(() => setsearch(search), 500);
-  // };
+  /*Search */
+  const handelSearchSubject = (e) => {
+    const search = e.target.value;
+    setpage(1);
+    debounce(() => setsearch(search), 500);
+  };
 
   return (
     <div className="stlist">
@@ -158,12 +160,25 @@ export default function AddStudents() {
         </p>
       </div>
       <div className="filerow">
-        <Link to={donwloadFile} target="__blanck" download>
-          <button>Download Template</button>
-        </Link>
-        <button onClick={() => setIsfoleModel(true)}>
-          Upload Audience List
-        </button>
+        <div>
+          <Link to={donwloadFile} target="__blanck" download>
+            <button>Download Template</button>
+          </Link>
+          <button onClick={() => setIsfoleModel(true)}>
+            Upload Audience List
+          </button>
+        </div>
+        <div className="search_bar">
+          <input
+            type="search"
+            name="search"
+            placeholder="Search"
+            onChange={handelSearchSubject}
+          />
+          <button>
+            <i className="fas fa-search"></i>
+          </button>
+        </div>
       </div>
 
       <SelectStudentsTopRow
